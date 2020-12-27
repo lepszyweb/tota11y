@@ -1,11 +1,12 @@
 name: github pages
 
 on:
-  workflow_run:
-    workflows: ["Run Tests"]
-    branches: [master]
-    types: 
-      - completed
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
 
 jobs:
   deploy:
