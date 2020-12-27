@@ -1,0 +1,39 @@
+<div>
+    <p>
+        Kombinacja kolorów
+        <span class="tota11y-color-hexes">{{fgColorHex}}/{{bgColorHex}}</span>
+        ma współczynnik kontrastu <strong>{{contrastRatio}}</strong>, który nie jest
+        wystarczajacy. Przy tej wielkości tekstu potrzebujesz proporcji co najmniej
+        <strong>{{requiredRatio}}</strong>.
+    </p>
+
+    <p>
+        Rozważ użycie poniższej kombinacji kolorów tekstu/tła:
+    </p>
+
+    <div class="tota11y-contrast-suggestion">
+        <span class="tota11y-color-hexes">
+            {{suggestedFgColorHex}}/{{suggestedBgColorHex}}
+        </span>
+
+        <span class="tota11y-swatches">
+            <span
+                class="tota11y-swatch"
+                style="background-color: {{suggestedFgColorHex}} !important">
+            </span>
+            /
+            <span
+                class="tota11y-swatch"
+                style="background-color: {{suggestedBgColorHex}} !important">
+            </span>
+        </span>
+
+        ma kontrast <strong>{{suggestedColorsRatio}}</strong>
+        <br />
+
+        <label>
+            Podgląd:
+            <input class="preview-contrast-fix" type="checkbox">
+        </label>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+{{#if placeholder}}
+    <p>
+        Atrybut <code>placeholder</code> nie gwarantuje, że zostanie odczytany
+        przez technologie wspomagające. Lepiej dodać odpowiednią etykietę.
+    </p>
+{{/if}}
+
+{{#if id}}
+    <p>
+        Najprostszym sposobem jest dodanie znacznika <code>&lt;label&gt;</code>
+        z atrybutem <code>for</code> jak poniżej:
+    </p>
+
+    <pre><code>&lt;label for="{{id}}"&gt;
+    Tutaj tekst etykiety...
+&lt;/label&gt;</code></pre>
+{{else}}
+    <p>
+        Możesz nadać tem elementowi atrybut <code>id</code> i utworzyć
+        <code>&lt;label&gt;</code> z odpowiednim atrybutem <code>for</code>
+        jak poniżej:
+
+        <pre><code>&lt;label for="my-input"&gt;
+    Tutaj tekst etykiety...
+&lt;/label&gt;
+&lt;{{tagName}} id="my-input"&gt;</code></pre>
+    </p>
+{{/if}}

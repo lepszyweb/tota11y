@@ -1,0 +1,27 @@
+{
+    "env": {
+        "node": true,
+        "browser": true,
+        "mocha": true,
+        "es6": true
+    },
+    "rules": {
+        "comma-dangle": 0,
+        "no-underscore-dangle": 0,
+        "no-proto": 0,
+        "quotes": [2, "double"],
+        "keyword-spacing": [2],
+        "space-infix-ops": 0,
+        "strict": 0
+    },
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true,
+            "modules": true
+        }
+    },
+    "globals": {
+        "axs": true,
+        "$": true
+    }
+}

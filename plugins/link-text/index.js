@@ -1,0 +1,112 @@
+/**
+ * A plugin to identify unclear link text such as "more" and "click here,"
+ * which can make for a bad experience when using a screen reader
+ */
+
+let $ = require("jquery");
+let Plugin = require("../base");
+let annotate = require("../shared/annotate")("link-text");
+
+class LinkTextPlugin extends Plugin {
+    getTitle() {
+        return "Tekst łączy";
+    }
+
+    getDescription() {
+        return `
+            Identyfikuje łącza, które mogą być niejednoznaczne,
+            gdy ogłasza je czytnik ekranu
+        `;
+    }
+
+    /**
+     * Slightly modified unclear text checking that has been refactored into
+     * a single method to be called with arbitrary strings.
+     *
+     * Original: https://github.com/GoogleChrome/accessibility-developer-tools/blob/9183b21cb0a02f5f04928f5cb7cb339b6bbc9ff8/src/audits/LinkWithUnclearPurpose.js#L55-67
+     */
+    isDescriptiveText(textContent) {
+        // Handle when the text is undefined or null
+        if (typeof textContent === "undefined" || textContent === null) {
+            return false;
+        }
+
+        let stopWords = [
+            "kliknij", "stuknij", "idź do", "tutaj", "czytaj", "więcej", "ten link", "strona",
+            "dowiedz się wiecej", "pobierz"
+        ];
+        // Generate a regex to match each of the stopWords
+        let stopWordsRE = new RegExp(`\\b(${stopWords.join("|")})\\b`, "ig");
+
+        textContent = textContent
+            // Strip leading non-alphabetical characters
+            .replace(/[^a-zA-Z ]/g, "")
+            // Remove the stopWords
+            .replace(stopWordsRE, "");
+
+        // Return whether or not there is any text left
+        return textContent.trim() !== "";
+    }
+
+    reportError($el, $description, content) {
+        let entry = this.error("Tekst łącza jest niejasny", $description, $el);
+        annotate.errorLabel($el, "",
+            `Tekst łącza "${content}" jest niejasny`, entry);
+    }
+
+    /**
+     * We can call linkWithUnclearPurpose from ADT directly once the following
+     * issue has been resolved. There is some extra code here until then.
+     * https://github.com/GoogleChrome/accessibility-developer-tools/issues/156
+     */
+    run() {
+        $("a").each((i, el) => {
+            let $el = $(el);
+
+            // Ignore the tota11y UI
+            if ($el.parents(".tota11y").length) {
+                return;
+            }
+
+            // Ignore hidden links
+            if (axs.utils.isElementOrAncestorHidden(el)) {
+                return;
+            }
+
+            // Extract the text alternatives for this element: including
+            // its text content, aria-label/labelledby, and alt text for
+            // images.
+            //
+            // TODO: Read from `alts` to determine where the text is coming
+            // from (for tailored error messages)
+            let alts = {};
+            let extractedText = axs.properties.findTextAlternatives(
+                el, alts);
+
+            if (!this.isDescriptiveText(extractedText)) {
+                let $description = (
+                    <div>
+                        Ten tekst
+                        {" "}
+                        <i>"{extractedText}"</i>
+                        {" "}
+                        jest niejasny bez kontekstu i może być mylący dla osób, które
+                        używają czytnika ekranu. Rozważ przeorganizowanie znacznika
+                        {" "}
+                        <code>{"&lt;a&gt;&lt;/a&gt;"}</code>
+                        {" "}
+                        i dodanie specjalnego tekstu dla czytników ekranu.
+                    </div>
+                );
+
+                this.reportError($el, $description, extractedText);
+            }
+        });
+    }
+
+    cleanup() {
+        annotate.removeAll();
+    }
+}
+
+module.exports = LinkTextPlugin;
