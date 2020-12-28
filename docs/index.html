@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=480">
+
+
+    <link rel="Shortcut Icon" type="image/x-icon" href="./img/favicon.png">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="./css/style.css">
+
+    <title>tota11y – an accessibility visualization toolkit</title>
+    <meta name="description" content="tota11y helps visualize how your site performs with assistive technologies">
+</head>
+<body>
+    <header class="heading" role="banner">
+        <div class="logo">
+            <div class="backdrop">
+                <div class="ray red"></div>
+                <div class="ray orange"></div>
+                <div class="ray yellow"></div>
+                <div class="ray green"></div>
+                <div class="ray blue"></div>
+                <div class="ray indigo"></div>
+                <div class="ray violet"></div>
+            </div>
+            <div class="emblem">
+                <div class="glasses">
+                    <img alt="tota11y logo" src="./img/glasses.svg" />
+                </div>
+            </div>
+        </div>
+
+        <h1 class="center title">
+            <span class="red">t</span><span class="orange">o</span><span class="yellow">t</span><span class="green">a</span><span class="blue">1</span><span class="indigo">1</span><span class="violet">y</span>
+        </h1>
+
+        <a href="https://github.com/lepszyweb/tota11y" class="no-mini github-link">
+            Github
+        </a>
+    </header>
+
+    <main role="main" class="main-content">
+        <section class="intro">
+            <p class="center description">
+                zestaw narzędzi do wizualizacji dostępności
+            </p>
+            <p class="center yourfriends">od Twoich przyjaciół z</p>
+            <a href="https://khanacademy.org">
+                <img class="block-center" alt="Khan Academy" width="270" src="./img/khan-academy.png" />
+                <span class="sr-only">Khan Academy</span>
+            </a>
+        </section>
+
+        <hr class="green">
+
+        <section>
+            <div class="text">
+                <h2>O TotA11y</h2>
+                <p>
+                    tota11y pomaga wizualizować działanie witryny z technologiami wspomagającymi. <a href="https://engineering.khanacademy.org/posts/tota11y.htm">Sprawdź wpis na blogu Autorów.</a>.
+                </p>
+
+                <p>
+                    Proces testowania dostępności (a11y) jest często żmudny i zagmatwany. W wielu przypadkach programiści muszą mieć wcześniejszą wiedzę na temat dostępności, aby uzyskać sensowne wyniki.
+                </p>
+
+                <p>
+                    tota11y ma na celu zmniejszenie tej bariery wejścia poprzez pomoc w wizualizacji naruszeń dostępności (i sukcesów), jednocześnie ucząc najlepszych praktyk.
+                </p>
+            </div>
+
+            <div class="image">
+                <img src="./img/label-error.png" alt="tota11y wskazując tagi &lt;input&gt; bez etykiet i wyjaśniając jak rozwiązać problem">
+            </div>
+
+            <br class="clear">
+        </section>
+
+        <hr class="violet">
+
+        <section>
+            <div class="text">
+                <h2>Jak to działa</h2>
+
+                <p>
+                    tota11y to pojedynczy plik JavaScript, który wstawia mały przycisk w dolnym rogu dokumentu
+                    <span class="no-mini">(na tej samej stronie)</span>.
+                </p>
+
+                <p>
+                    Pasek narzędzi składa się z  <a href="https://github.com/lepszyweb/tota11y/tree/master/plugins">kilku wtyczek</a>, z których każda zapewnia własną funkcjonalność..
+                </p>
+
+                <p>
+                    Wiele z tych wtyczek „dodaje adnotacje” do elementów strony. 
+					Czasami po to, aby pokazać ich istnienie, innym razem, 
+					aby wskazać, kiedy coś jest nie tak.
+                </p>
+            </div>
+
+
+
+
+
+
+
+
+
+
+            <div class="image">
+                <img src="./img/ka-headings.png" alt="tota11y oznaczające znaczniki nagłówkowe na stronie algebry Akademii Chana">
+            </div>
+
+            <br class="clear">
+        </section>
+
+        <hr class="orange">
+
+        <section>
+            <div class="text">
+                <h2>Łatwe i pouczające</h2>
+
+                <p>
+                    tota11y ułatwia dostrzeżenie niektórych z najczęstszych naruszeń dostępności 
+					popełnianych przez autorów stron.
+                </p>
+
+                <p>
+                    Oprócz prostego wskazywania błędów, wiele wtyczek tota11y sugeruje również sposoby naprawienia tych naruszeń - specjalnie dostosowanych do twojego dokumentu.
+                </p>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="image">
+                <img src="./img/contrast.png" alt="tota11y zgłaszające naruszenia kontrastu i sugerujące odpowiednie kombinacje kolorów">
+            </div>
+
+            <br class="clear">
+        </section>
+
+        <hr class="blue">
+
+        <section class="no-mini" role="complementary">
+            <h2 id="Try-it">Wypróbuj!</h2>
+
+            <p>
+                tota11y można znaleźć w lewym dolnym rogu tej strony. 
+            </p>
+
+            <span class="sr-only">
+                Oto kilka elementów interfejsu użytkownika, które można wypróbować.
+            </span>
+
+            <div class="playground">
+                <!-- links -->
+                <div>
+                    Oto <a href="javascript:void 0">łącze informacyjne o czymś</a>. Oto kolejny, który mówi po prostu
+                    <a href="javascript:void 0">kliknij tutaj</a>, co nie jest pomocne dla czytnika ekranu.
+                </div>
+
+                <hr>
+
+                <!-- inputs -->
+                <p>
+                    Oto pole na dane bez powiązanej etykiety::
+                </p>
+
+                Użytkownik: <input>
+
+                <p>
+                    Oto takie, który próbuje sobie poradzić za pomocą tekstu zastępczego (placeholder).
+                </p>
+
+                Email <input id="email-input" placeholder="wpisz@przyklad.com">
+
+                <p>
+                    A to wygląda dobrze.
+                </p>
+
+                <label>
+                    Hasło:
+                    <input type="password" placeholder="password">
+                </label>
+
+                <hr>
+
+                <!-- headings -->
+                <h4>This <code>&lt;h4&gt;</code> heading has an invalid level</h4>
+
+                <hr>
+
+                <!-- contrast -->
+                <p>
+                    Na tym tle 
+                    <span class="light-text">ten tekst</span>
+                    i jest zbyt jasny.
+                </p>
+
+                <a class="light-button" href="javascript:void 0">Przycisk</a>
+
+                <hr>
+
+                <!-- images -->
+                <p>
+                    Ten obraz nie ma atrybutu alt, a czytnik ekranu prawdopodobnie odczyta jego nazwę pliku.
+                </p>
+
+                <img src="./img/toy-car.jpg">
+
+                <p>
+				Ten obraz ma <em>pusty</em> tekst alt, co oznacza, 
+				że ​​czytnik ekranu zinterpretuje go jako 
+                </p>
+
+                <img src="./img/vine.png" alt="">
+
+                <p>
+                    Ten obraz ma poprawny tekst alternatywny.
+                </p>
+
+                <img src="./img/snowman.jpg" alt="Trójwymiarowy bałwan z czerwonym szalikiem na zaśnieżonej skoczni">
+            </div>
+        </section>
+
+        <hr class="red no-mini">
+
+        <section>
+            <h2 id="Installation">Instalacja</h2>
+
+            <div class="bookmarklet-container">
+                <p>
+					tota11y jest dostępny jako skryptozakładka i może być używany w dowolnej przeglądarce na komputerze. Po prostu przeciągnij poniższy przycisk na pasek zakładek, a następnie kliknij go, aby dodać tota11y do bieżącej strony.
+                </p>
+
+                <a class="bookmarklet" href="javascript:(function(){var%20tota11y=document.createElement('SCRIPT');tota11y.type='text/javascript';tota11y.src='https://lepszyweb.github.io/tota11y/dist/tota11y.min.js';document.getElementsByTagName('head')[0].appendChild(tota11y);})();" onclick="javascript:return false;">tota11y</a>
+            </div>
+
+            <p>
+                Aby wstawić tota11y bezpośrednio do własnej witryny, najpierw zainstaluj <code>@lepszyweb/tota11y</code> używajac <code>npm</code>
+                albo <code>yarn</code>,  a następnie umieść skrypt na przed zamykającym znacznikiem <code>&lt;body&gt;</code> w następujący sposób:			
+            </p>
+
+
+            <pre><code>&lt;script src="tota11y.min.js"&gt;&lt;/script&gt;</code></pre>
+
+            <p>
+                Alternatywnie możesz zbudować tota11y ze źródła, postępując zgodnie z instrukcjami na naszej stronie <a href="https://github.com/lepszyweb/tota11y">GitHub</a>.
+            </p>
+
+            <p>
+                tota11y jest rozpowszechniany na <a href="https://github.com/Khan/tota11y/blob/master/LICENSE.txt">licencji MIT</a>.
+            </p>
+
+            <br class="clear">
+        </section>
+
+        <hr class="indigo">
+
+        <section>
+            <h2>Szczególne podziękowania</h2>
+
+            <p>
+                Wiele funkcji tota11y pochodzi bezpośrednio z  <a href="https://github.com/GoogleChrome/accessibility-developer-tools">narzędzi dla programistów dostępności w Google Chrome</a>..
+            </p>
+
+            <p>
+                Niesamowite okulary w naszym logo zostały stworzone przez <a href="https://thenounproject.com/Kyle/">Kyle Scott</a> i są objęte licencją <a href="https://creativecommons.org/licenses/by/3.0/us/legalcode">CC BY 3.0</a>.
+            </p>
+
+
+        </section>
+    </main>
+
+    <script src="./dist/tota11y.min.js"></script>
+    <script src="./js/script.js"></script>
+
+</body>
+</html>
