@@ -33,9 +33,12 @@ jobs:
               mkdir ${{ github.workspace }}/dist
               npm ci
               npm run build:prod
+              mkdir ${{ github.workspace }}/page
+              mv ${{ github.workspace }}/dist ${{ github.workspace }}/page/dist
+              cp -r ${{ github.workspace }}/docs/* ${{ github.workspace }}/page/
       
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: ./page
