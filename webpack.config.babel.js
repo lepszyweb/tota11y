@@ -104,7 +104,7 @@ module.exports = {
         minimizer: [
             new UglifyJsPlugin({
                 include: /\.min\.js$/,
-                uglifyOptions: { compress: { warnings: false } }
+                uglifyOptions: { warnings: false }
             }),
         ],
     },
