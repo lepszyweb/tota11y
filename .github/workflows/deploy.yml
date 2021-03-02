@@ -17,7 +17,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v2.1.5
         with:
-          node-version: '10'
+          node-version: '11'
           check-latest: true
 
       - name: Cache dependencies
