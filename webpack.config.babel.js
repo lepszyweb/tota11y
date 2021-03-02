@@ -6,7 +6,7 @@ const postcss = require("postcss");
 const webpack = require("webpack");
 const autoprefixer = require("autoprefixer");
 
-const CleanWebpackPlugin = require("clean-webpack-plugin");
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 const options = require("./utils/options");
