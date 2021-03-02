@@ -75,8 +75,8 @@ module.exports = {
                                 plugins: [
                                     veryimportant,
                                     autoprefixer({ browsers: ["> 1%"] }),
-                            },
                             ],
+                            },
                         }
                     },
                     "less-loader",
