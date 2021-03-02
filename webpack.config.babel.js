@@ -71,9 +71,11 @@ module.exports = {
                     {
                         loader: "postcss-loader",
                         options: {
-                            plugins: [
-                                veryimportant,
-                                autoprefixer({ browsers: ["> 1%"] }),
+                            postcssOptions: {
+                                plugins: [
+                                    veryimportant,
+                                    autoprefixer({ browsers: ["> 1%"] }),
+                            },
                             ],
                         }
                     },
