@@ -7,7 +7,7 @@ const webpack = require("webpack");
 const autoprefixer = require("autoprefixer");
 
 const CleanWebpackPlugin = require('clean-webpack-plugin').CleanWebpackPlugin;
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const TerserPlugin = require('terser-webpack-plugin');
 
 const options = require("./utils/options");
 
@@ -97,9 +97,8 @@ module.exports = {
     ],
     optimization: {
         minimizer: [
-            new UglifyJsPlugin({
-                include: /\.min\.js$/,
-                uglifyOptions: { warnings: false }
+            new TerserPlugin({
+                include: /\.min\.js$/
             }),
         ],
     },
