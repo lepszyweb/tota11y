@@ -67,7 +67,7 @@ module.exports = {
                             postcssOptions: {
                                 plugins: [
                                     veryimportant,
-                                    autoprefixer({ browsers: ["> 1%"] }),
+                                    autoprefixer,
                             ],
                             },
                         }
