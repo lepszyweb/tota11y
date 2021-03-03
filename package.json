@@ -21,7 +21,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "clean-webpack-plugin": "^3.0.0",
-    "css-loader": "^2.1.1",
+    "css-loader": "^5.1.1",
     "eslint": "^7.21.0",
     "handlebars": "^4.7.6",
     "handlebars-loader": "^1.7.1",
