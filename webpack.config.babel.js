@@ -11,16 +11,7 @@ const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 const options = require("./utils/options");
 
-// PostCSS plugin to append !important to every CSS rule
-const veryimportantplugin = () => {
-  return {
-    postcssPlugin: 'veryimportant',
-    Decl (decl) {
-      decl.important = true
-    }
-  }
-}
-veryimportantplugin.postcss = true
+const veryimportant = require("./utils/veryimportant");
 
 const bannerTemplate = handlebars.compile(
     fs.readFileSync("./templates/banner.handlebars", "utf-8"));
@@ -75,7 +66,7 @@ module.exports = {
                         options: {
                             postcssOptions: {
                                 plugins: [
-                                    veryimportantplugin,
+                                    veryimportant,
                                     autoprefixer({ browsers: ["> 1%"] }),
                             ],
                             },
