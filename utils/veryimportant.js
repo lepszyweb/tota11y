@@ -1,7 +1,7 @@
 module.exports = () => {
   return {
     postcssPlugin: 'veryimportant',
-    Decl (decl) {
+    Declaration (decl) {
       decl.important = true
     }
   }
