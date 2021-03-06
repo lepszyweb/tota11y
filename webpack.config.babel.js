@@ -98,7 +98,8 @@ module.exports = {
     optimization: {
         minimizer: [
             new TerserPlugin({
-                include: /\.min\.js$/
+                include: /\.min\.js$/,
+                extractComments: false,
             }),
         ],
     },
