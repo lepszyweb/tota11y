@@ -1,381 +1,2024 @@
 /*!
  * tota11y v0.2.0
  * http://khan.github.io/tota11y
- * 
+ *
  * Includes Accessibility Developer Tools
  * http://github.com/GoogleChrome/accessibility-developer-tools
- * 
+ *
  * Copyright (c) 2019 Khan Academy
  * Released under the MIT license
  * http://github.com/Khan/tota11y/blob/master/LICENSE.txt
- * 
+ *
  * Date: 2021-07-01
- * 
+ *
  */
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId]) {
-/******/ 			return installedModules[moduleId].exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			i: moduleId,
-/******/ 			l: false,
-/******/ 			exports: {}
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.l = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// define getter function for harmony exports
-/******/ 	__webpack_require__.d = function(exports, name, getter) {
-/******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
-/******/ 		}
-/******/ 	};
-/******/
-/******/ 	// define __esModule on exports
-/******/ 	__webpack_require__.r = function(exports) {
-/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 		}
-/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 	};
-/******/
-/******/ 	// create a fake namespace object
-/******/ 	// mode & 1: value is a module id, require it
-/******/ 	// mode & 2: merge all properties of value into the ns
-/******/ 	// mode & 4: return value when already ns object
-/******/ 	// mode & 8|1: behave like require
-/******/ 	__webpack_require__.t = function(value, mode) {
-/******/ 		if(mode & 1) value = __webpack_require__(value);
-/******/ 		if(mode & 8) return value;
-/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
-/******/ 		var ns = Object.create(null);
-/******/ 		__webpack_require__.r(ns);
-/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
-/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
-/******/ 		return ns;
-/******/ 	};
-/******/
-/******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__webpack_require__.n = function(module) {
-/******/ 		var getter = module && module.__esModule ?
-/******/ 			function getDefault() { return module['default']; } :
-/******/ 			function getModuleExports() { return module; };
-/******/ 		__webpack_require__.d(getter, 'a', getter);
-/******/ 		return getter;
-/******/ 	};
-/******/
-/******/ 	// Object.prototype.hasOwnProperty.call
-/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
-/******/
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 22);
-/******/ })
-/************************************************************************/
-/******/ ([
-/* 0 */
-/***/ (function(module, exports, __webpack_require__) {
+/******/ (function() { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
+
+/***/ 6251:
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+"use strict";
+/* provided dependency */ var buildElement = __webpack_require__(9402);
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+/**
+ * Allows users to see what screen readers would see.
+ */
+
+var $ = __webpack_require__(9755);
+var Plugin = __webpack_require__(9765);
+
+__webpack_require__(7446);
+
+var A11yTextWand = function (_Plugin) {
+    _inherits(A11yTextWand, _Plugin);
+
+    function A11yTextWand() {
+        _classCallCheck(this, A11yTextWand);
+
+        return _possibleConstructorReturn(this, (A11yTextWand.__proto__ || Object.getPrototypeOf(A11yTextWand)).apply(this, arguments));
+    }
+
+    _createClass(A11yTextWand, [{
+        key: "getTitle",
+        value: function getTitle() {
+            return "Monitor czytnika ekranu";
+        }
+    }, {
+        key: "getDescription",
+        value: function getDescription() {
+            return "Po najechaniu wskaźnikiem na element strony, wyświetla, jak czytnik ekranu ogłosi treść";
+        }
+    }, {
+        key: "run",
+        value: function run() {
+            // HACK(jordan): We provide a fake summary to force the info panel to
+            //     render.
+            this.summary(" ");
+            this.panel.render();
+
+            $(document).on("mousemove.wand", function (e) {
+                var element = document.elementFromPoint(e.clientX, e.clientY);
+
+                var textAlternative = axs.properties.findTextAlternatives(element, {});
+
+                $(".tota11y-outlined").removeClass("tota11y-outlined");
+                $(element).addClass("tota11y-outlined");
+
+                if (!textAlternative) {
+                    $(".tota11y-info-section.active").html(buildElement(
+                        "i",
+                        { className: "tota11y-nothingness" },
+                        "No text visible to a screen reader"
+                    ));
+                } else {
+                    $(".tota11y-info-section.active").text(textAlternative);
+                }
+            });
+        }
+    }, {
+        key: "cleanup",
+        value: function cleanup() {
+            $(".tota11y-outlined").removeClass("tota11y-outlined");
+            $(document).off("mousemove.wand");
+        }
+    }]);
+
+    return A11yTextWand;
+}(Plugin);
+
+module.exports = A11yTextWand;
+
+/***/ }),
+
+/***/ 4165:
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+"use strict";
+/* provided dependency */ var buildElement = __webpack_require__(9402);
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+/**
+ * A plugin to check for valid alternative representations for images
+ */
+
+var $ = __webpack_require__(9755);
+var Plugin = __webpack_require__(9765);
+var annotate = __webpack_require__(5071)("alt-text");
+var audit = __webpack_require__(586);
+
+var AltTextPlugin = function (_Plugin) {
+    _inherits(AltTextPlugin, _Plugin);
+
+    function AltTextPlugin() {
+        _classCallCheck(this, AltTextPlugin);
+
+        return _possibleConstructorReturn(this, (AltTextPlugin.__proto__ || Object.getPrototypeOf(AltTextPlugin)).apply(this, arguments));
+    }
+
+    _createClass(AltTextPlugin, [{
+        key: "getTitle",
+        value: function getTitle() {
+            return "Tekst alt obrazów";
+        }
+    }, {
+        key: "getDescription",
+        value: function getDescription() {
+            return "Odnotowuje obrazy bez tekstu alternatywnego";
+        }
+    }, {
+        key: "reportError",
+        value: function reportError(el) {
+            var $el = $(el);
+            var src = $el.attr("src") || "..";
+            var title = "Obraz nie ma tekstu alt";
+            var $error = buildElement(
+                "div",
+                null,
+                buildElement(
+                    "p",
+                    null,
+                    "Ten obraz nie ma przypisanego atrybutu \"alt\". Przypisz teks atrybutu alt do tego obraz w taki spos\xF3b:"
+                ),
+                buildElement(
+                    "pre",
+                    null,
+                    buildElement(
+                        "code",
+                        null,
+                        "&lt;img src=\"" + src + "\" alt=\"Opis obrazu\"&gt"
+                    )
+                ),
+                buildElement(
+                    "p",
+                    null,
+                    "Je\u015Bli obraz jest dekoracyjny i nie wnosi \u017Cadnych istotnych informacji do ilustrowanego tekstu, mo\u017Cesz pozostawi\u0107 atrybut \"alt\" pusty lub doda\u0107 mu atrybut \"role\" z warto\u015Bci\u0105 \"presentation.\""
+                ),
+                buildElement(
+                    "pre",
+                    null,
+                    buildElement(
+                        "code",
+                        null,
+                        "&lt;img src=\"" + src + "\" alt=\"\"&gt;",
+                        buildElement("br", null),
+                        "&lt;img src=\"" + src + "\" role=\"presentation\"&gt;"
+                    )
+                )
+            );
+
+            // Place an error label on the element and register it as an
+            // error in the info panel
+            var entry = this.error(title, $error, $el);
+            annotate.errorLabel($el, "", title, entry);
+        }
+    }, {
+        key: "run",
+        value: function run() {
+            // Generate errors for any images that fail the Accessibility
+            // Developer Tools audit
+            var _audit = audit("imagesWithoutAltText"),
+                result = _audit.result,
+                elements = _audit.elements;
+
+            if (result === "FAIL") {
+                elements.forEach(this.reportError.bind(this));
+            }
+
+            // Additionally, label presentational images
+            $("img[role=\"presentation\"], img[alt=\"\"]").each(function (i, el) {
+                // "Error" labels have a warning icon and expanded text on hover,
+                // but we add a special `warning` class to color it differently.
+                annotate.errorLabel($(el), "", "To jest obraz dekoracyjny").addClass("tota11y-label-warning");
+            });
+        }
+    }, {
+        key: "cleanup",
+        value: function cleanup() {
+            annotate.removeAll();
+        }
+    }]);
+
+    return AltTextPlugin;
+}(Plugin);
+
+module.exports = AltTextPlugin;
+
+/***/ }),
+
+/***/ 9765:
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+"use strict";
+/* provided dependency */ var buildElement = __webpack_require__(9402);
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+/**
+ * Base class for plugins.
+ *
+ * This module defines methods to render and mount plugins to the toolbar.
+ * Each plugin will define four methods:
+ *     getTitle: title to display in the toolbar
+ *     getDescription: description to display in the toolbar
+ *     run: code to run when the plugin is activated from the toolbar
+ *     cleanup: code to run when the plugin is deactivated from the toolbar
+ */
+
+var InfoPanel = __webpack_require__(8597);
+
+__webpack_require__(2296);
+
+var Plugin = function () {
+    function Plugin() {
+        _classCallCheck(this, Plugin);
+
+        this.panel = new InfoPanel(this);
+        this.$checkbox = null;
+    }
+
+    _createClass(Plugin, [{
+        key: "getTitle",
+        value: function getTitle() {
+            return "New plugin";
+        }
+    }, {
+        key: "getDescription",
+        value: function getDescription() {
+            return "";
+        }
+
+        /**
+         * Methods that communicate directly with the info panel
+         * TODO: Consider names like `setSummary` and `addError`
+         */
+
+        // Populates the info panel's "Summary" tab
+
+    }, {
+        key: "summary",
+        value: function summary($html) {
+            return this.panel.setSummary($html);
+        }
+
+        // Populates the info panel's "About" tab
+
+    }, {
+        key: "about",
+        value: function about($html) {
+            return this.panel.setAbout($html);
+        }
+
+        // Adds an entry to the info panel's "Errors" tab
+
+    }, {
+        key: "error",
+        value: function error(title, $description, $el) {
+            return this.panel.addError(title, $description, $el);
+        }
+
+        /**
+         * Renders the plugin view.
+         */
+
+    }, {
+        key: "render",
+        value: function render(clickHandler) {
+            var _this = this;
+
+            this.$checkbox = buildElement("input", {
+                className: "tota11y-plugin-checkbox tota11y-sr-only",
+                type: "checkbox",
+                onClick: function onClick() {
+                    return clickHandler(_this);
+                } });
+
+            var $switch = buildElement(
+                "label",
+                { className: "tota11y-plugin-switch" },
+                this.$checkbox,
+                buildElement(
+                    "div",
+                    { "aria-hidden": "true",
+                        className: "tota11y-plugin-indicator" },
+                    "\u2713"
+                ),
+                buildElement(
+                    "div",
+                    { className: "tota11y-plugin-info" },
+                    buildElement(
+                        "div",
+                        { className: "tota11y-plugin-title" },
+                        this.getTitle()
+                    ),
+                    buildElement(
+                        "div",
+                        { className: "tota11y-plugin-description" },
+                        this.getDescription()
+                    )
+                )
+            );
+
+            var $el = buildElement(
+                "li",
+                { role: "menuitem", className: "tota11y-plugin" },
+                $switch
+            );
+
+            return $el;
+        }
+
+        /**
+         * Activate the plugin from the UI.
+         */
+
+    }, {
+        key: "activate",
+        value: function activate() {
+            this.run();
+            this.panel.render();
+        }
+
+        /**
+         * Deactivate the plugin from the UI.
+         */
+
+    }, {
+        key: "deactivate",
+        value: function deactivate() {
+            this.cleanup();
+            this.panel.destroy();
+
+            this.$checkbox.prop("checked", false);
+        }
+    }]);
+
+    return Plugin;
+}();
+
+module.exports = Plugin;
+
+/***/ }),
+
+/***/ 8973:
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 "use strict";
 
 
-var isOldIE = function isOldIE() {
-  var memo;
-  return function memorize() {
-    if (typeof memo === 'undefined') {
-      // Test for IE <= 9 as proposed by Browserhacks
-      // @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
-      // Tests for existence of standard globals is to allow style-loader
-      // to operate correctly into non-standard environments
-      // @see https://github.com/webpack-contrib/style-loader/issues/177
-      memo = Boolean(window && document && document.all && !window.atob);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+/**
+ * A plugin to label different levels of contrast on the page, and highlight
+ * those with poor contrast while suggesting alternatives.
+ */
+
+var $ = __webpack_require__(9755);
+var Plugin = __webpack_require__(9765);
+var annotate = __webpack_require__(5071)("contrast");
+
+var titleTemplate = __webpack_require__(351);
+var descriptionTemplate = __webpack_require__(7149);
+
+__webpack_require__(3062);
+
+var ContrastPlugin = function (_Plugin) {
+    _inherits(ContrastPlugin, _Plugin);
+
+    function ContrastPlugin() {
+        _classCallCheck(this, ContrastPlugin);
+
+        // List of original colors for elements with insufficient contrast.
+        // Used to restore original colors in cleanup.
+        var _this = _possibleConstructorReturn(this, (ContrastPlugin.__proto__ || Object.getPrototypeOf(ContrastPlugin)).call(this));
+
+        _this.preservedColors = [];
+        return _this;
     }
 
-    return memo;
-  };
-}();
-
-var getTarget = function getTarget() {
-  var memo = {};
-  return function memorize(target) {
-    if (typeof memo[target] === 'undefined') {
-      var styleTarget = document.querySelector(target); // Special case to return head of iframe instead of iframe itself
-
-      if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {
-        try {
-          // This will throw an exception if access to iframe is blocked
-          // due to cross-origin restrictions
-          styleTarget = styleTarget.contentDocument.head;
-        } catch (e) {
-          // istanbul ignore next
-          styleTarget = null;
+    _createClass(ContrastPlugin, [{
+        key: "getTitle",
+        value: function getTitle() {
+            return "Kontrast";
         }
-      }
+    }, {
+        key: "getDescription",
+        value: function getDescription() {
+            return "Etykieta elementów o niewystarczającym kontraście";
+        }
+    }, {
+        key: "addError",
+        value: function addError(_ref, el) {
+            var style = _ref.style,
+                fgColor = _ref.fgColor,
+                bgColor = _ref.bgColor,
+                contrastRatio = _ref.contrastRatio,
+                requiredRatio = _ref.requiredRatio;
 
-      memo[target] = styleTarget;
+            // Suggest colors at an "AA" level
+            var suggestedColors = axs.color.suggestColors(bgColor, fgColor, { AA: requiredRatio }).AA;
+
+            var templateData = {
+                fgColorHex: axs.color.colorToString(fgColor),
+                bgColorHex: axs.color.colorToString(bgColor),
+                contrastRatio: contrastRatio,
+                requiredRatio: requiredRatio,
+                suggestedFgColorHex: suggestedColors.fg,
+                suggestedBgColorHex: suggestedColors.bg,
+                suggestedColorsRatio: suggestedColors.contrast
+            };
+
+            // Add click handler to preview checkbox
+            var $description = $(descriptionTemplate(templateData));
+            var originalFgColor = style.color;
+            var originalBgColor = style.backgroundColor;
+
+            $description.find(".preview-contrast-fix").click(function (e) {
+                if ($(e.target).prop("checked")) {
+                    // Set suggested colors
+                    $(el).css("color", suggestedColors.fg);
+                    $(el).css("background-color", suggestedColors.bg);
+                } else {
+                    // Set original colors
+                    $(el).css("color", originalFgColor);
+                    $(el).css("background-color", originalBgColor);
+                }
+            });
+
+            return this.error(titleTemplate(templateData), $description, $(el));
+        }
+    }, {
+        key: "run",
+        value: function run() {
+            var _this2 = this;
+
+            // A map of fg/bg color pairs that we have already seen to the error
+            // entry currently present in the info panel
+            var combinations = {};
+
+            $("*").each(function (i, el) {
+                // Only check elements with a direct text descendant
+                if (!axs.properties.hasDirectTextDescendant(el)) {
+                    return;
+                }
+
+                // Ignore elements that are part of the tota11y UI
+                if ($(el).parents(".tota11y").length > 0) {
+                    return;
+                }
+
+                // Ignore invisible elements
+                if (axs.utils.elementIsTransparent(el) || axs.utils.elementHasZeroArea(el)) {
+                    return;
+                }
+
+                var style = getComputedStyle(el);
+                var bgColor = axs.utils.getBgColor(style, el);
+                var fgColor = axs.utils.getFgColor(style, el, bgColor);
+                var contrastRatio = axs.color.calculateContrastRatio(fgColor, bgColor).toFixed(2);
+
+                // Calculate required ratio based on size
+                // Using strings to prevent rounding
+                var requiredRatio = axs.utils.isLargeFont(style) ? 3.0 : 4.5;
+
+                // Build a key for our `combinations` map and report the color
+                // if we have not seen it yet
+                var key = axs.color.colorToString(fgColor) + "/" + axs.color.colorToString(bgColor) + "/" + requiredRatio;
+
+                if (!axs.utils.isLowContrast(contrastRatio, style)) {
+                    // For acceptable contrast values, we don't show ratios if
+                    // they have been presented already
+                    if (!combinations[key]) {
+                        annotate.label($(el), contrastRatio).addClass("tota11y-label-success");
+
+                        // Add the key to the combinations map. We don't have an
+                        // error to associate it with, so we'll just give it the
+                        // value of `true`.
+                        combinations[key] = true;
+                    }
+                } else {
+                    if (!combinations[key]) {
+                        // We do not show duplicates in the errors panel, however,
+                        // to keep the output from being overwhelming
+                        var error = _this2.addError({
+                            style: style,
+                            fgColor: fgColor,
+                            bgColor: bgColor,
+                            contrastRatio: contrastRatio,
+                            requiredRatio: requiredRatio
+                        }, el);
+
+                        // Save original color so it can be restored on cleanup.
+                        _this2.preservedColors.push({
+                            $el: $(el),
+                            fg: style.color,
+                            bg: style.backgroundColor
+                        });
+
+                        combinations[key] = error;
+                    }
+
+                    // We display errors multiple times for emphasis. Each error
+                    // will point back to the entry in the info panel for that
+                    // particular color combination.
+                    //
+                    // TODO: The error entry in the info panel will only highlight
+                    // the first element with that color combination
+                    annotate.errorLabel($(el), contrastRatio, "Kontrast jest niewystarczający dla tego rozmiaru tekstu.", combinations[key]);
+                }
+            });
+        }
+    }, {
+        key: "cleanup",
+        value: function cleanup() {
+            // Set all elements to original color
+            this.preservedColors.forEach(function (entry) {
+                entry.$el.css("color", entry.fg);
+                entry.$el.css("background-color", entry.bg);
+            });
+
+            annotate.removeAll();
+        }
+    }]);
+
+    return ContrastPlugin;
+}(Plugin);
+
+module.exports = ContrastPlugin;
+
+/***/ }),
+
+/***/ 8225:
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+"use strict";
+/* provided dependency */ var buildElement = __webpack_require__(9402);
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+/**
+ * A plugin to identify and validate heading tags (<h1>, <h2>, etc.)
+ */
+
+var $ = __webpack_require__(9755);
+var Plugin = __webpack_require__(9765);
+var annotate = __webpack_require__(5071)("headings");
+
+var outlineItemTemplate = __webpack_require__(4794);
+__webpack_require__(6482);
+
+var ERRORS = {
+    FIRST_NOT_H1: function FIRST_NOT_H1(level) {
+        return {
+            title: "Pierwszym nagłówkiem nie jest &lt;h1&gt;",
+            description: "\n                <div>\n                    Aby nada\u0107 dokumentowi odpowiedni\u0105 struktur\u0119 dla technologii\n                    wspomagajacych, wa\u017Cne jest, aby uk\u0142ada\u0107 nag\u0142\xF3wki \n                    zaczynaj\u0105c od <code>&lt;h1&gt;</code>. Zamiast <code>&lt;h1&gt;</code>\n                    znaleziono <code>&lt;h" + level + "&gt;</code>.\n                </div>\n            "
+        };
+    },
+
+
+    // This error is currently unused.
+    //
+    // The HTML5 outlining algorithm[1] enables the use of "sectioning roots"
+    // to support multiple <h1> tags when embedded inside of containers like
+    // <section> or <article>. There are currently "no known implementations
+    // of the outline algorithm in graphical browsers or assistive technology
+    // user agents" [2], so we instead simply "use heading rank (h1-h6) to
+    // convey document structure." [2].
+    //
+    // [1]: http://www.w3.org/html/wg/drafts/html/master/semantics.html#outline
+    // [2]: https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Sections_and_Outlines_of_an_HTML5_document#The_HTML5_Outline_Algorithm
+    MULTIPLE_H1: {
+        title: "&lt;h1&gt; used when one is already present"
+    },
+
+    // This error accepts two arguments to display a relevant error message
+    NONCONSECUTIVE_HEADER: function NONCONSECUTIVE_HEADER(prevLevel, currLevel) {
+        var _tag = function _tag(level) {
+            return "<code>&lt;h" + level + "&gt;</code>";
+        };
+        var description = "\n            <div>\n                Dokument zawiera znacznik " + _tag(currLevel) + " bezpo\u015Brednio\n                po znaczniku " + _tag(prevLevel) + ". Aby zapewni\u0107 sp\xF3jny konspekt strony\n                potrzebny technologiom wspomagaj\u0105cym, zmniejsz r\xF3\u017Cnic\u0119 mi\u0119dzy\n                poziomami nag\u0142\xF3wk\xF3w - uaktualnij ten znacznik do \n                " + _tag(prevLevel + 1);
+
+        // Suggest upgrading the tag to the same level as `prevLevel` iff
+        // `prevLevel` is not 1
+        if (prevLevel !== 1) {
+            description += " or " + _tag(prevLevel);
+        }
+
+        description += ".</div>";
+
+        return {
+            title: "\n                Niekonsekwentny poziom nag\u0142\xF3wka (h" + prevLevel + " &rarr;\n                h" + currLevel + ")\n            ",
+            description: description
+        };
+    }
+};
+
+var HeadingsPlugin = function (_Plugin) {
+    _inherits(HeadingsPlugin, _Plugin);
+
+    function HeadingsPlugin() {
+        _classCallCheck(this, HeadingsPlugin);
+
+        return _possibleConstructorReturn(this, (HeadingsPlugin.__proto__ || Object.getPrototypeOf(HeadingsPlugin)).apply(this, arguments));
     }
 
-    return memo[target];
-  };
-}();
+    _createClass(HeadingsPlugin, [{
+        key: "getTitle",
+        value: function getTitle() {
+            return "Nagłówki";
+        }
+    }, {
+        key: "getDescription",
+        value: function getDescription() {
+            return "\n            Wyr\xF3\u017Cnia nag\u0142\xF3wki (&lt;h1&gt;, &lt;h2&gt;, itd.) oraz\n            naruszenia porz\u0105dku\n        ";
+        }
 
-var stylesInDom = [];
+        /**
+         * Computes an outline of the page and reports any violations.
+         */
 
-function getIndexByIdentifier(identifier) {
-  var result = -1;
+    }, {
+        key: "outline",
+        value: function outline($headings) {
+            var _this2 = this;
 
-  for (var i = 0; i < stylesInDom.length; i++) {
-    if (stylesInDom[i].identifier === identifier) {
-      result = i;
-      break;
-    }
-  }
+            var $items = [];
 
-  return result;
-}
+            var prevLevel = void 0;
+            $headings.each(function (i, el) {
+                var $el = $(el);
+                var level = +$el.prop("tagName").slice(1);
+                var error = void 0;
 
-function modulesToDom(list, options) {
-  var idCountMap = {};
-  var identifiers = [];
+                // Check for any violations
+                // NOTE: These violations do not overlap, but as we add more, we
+                // may want to separate the conditionals here to report multiple
+                // errors on the same tag.
+                if (i === 0 && level !== 1) {
+                    error = ERRORS.FIRST_NOT_H1(level); // eslint-disable-line new-cap
+                } else if (prevLevel && level - prevLevel > 1) {
+                    error = ERRORS.NONCONSECUTIVE_HEADER(prevLevel, level); // eslint-disable-line new-cap
+                }
 
-  for (var i = 0; i < list.length; i++) {
-    var item = list[i];
-    var id = options.base ? item[0] + options.base : item[0];
-    var count = idCountMap[id] || 0;
-    var identifier = "".concat(id, " ").concat(count);
-    idCountMap[id] = count + 1;
-    var index = getIndexByIdentifier(identifier);
-    var obj = {
-      css: item[1],
-      media: item[2],
-      sourceMap: item[3]
-    };
+                prevLevel = level;
 
-    if (index !== -1) {
-      stylesInDom[index].references++;
-      stylesInDom[index].updater(obj);
-    } else {
-      stylesInDom.push({
-        identifier: identifier,
-        updater: addStyle(obj, options),
-        references: 1
-      });
-    }
+                // Render the entry in the outline for the "Summary" tab
+                var $item = $(outlineItemTemplate({
+                    level: level,
+                    text: $el.text()
+                }));
 
-    identifiers.push(identifier);
-  }
+                $items.push($item);
 
-  return identifiers;
-}
+                // Highlight the heading element on hover
+                annotate.toggleHighlight($el, $item);
 
-function insertStyleElement(options) {
-  var style = document.createElement('style');
-  var attributes = options.attributes || {};
+                if (error) {
+                    // Register an error to the info panel
+                    var infoPanelError = _this2.error(error.title, $(error.description), $el);
 
-  if (typeof attributes.nonce === 'undefined') {
-    var nonce =  true ? __webpack_require__.nc : undefined;
+                    // Place an error label on the heading tag
+                    annotate.errorLabel($el, $el.prop("tagName").toLowerCase(), error.title, infoPanelError);
 
-    if (nonce) {
-      attributes.nonce = nonce;
-    }
-  }
+                    // Mark the summary item as red
+                    // Pretty hacky, since we're borrowing label styles for this
+                    // summary tab
+                    $item.find(".tota11y-heading-outline-level").addClass("tota11y-label-error");
+                } else {
+                    // Label the heading tag
+                    annotate.label($el).addClass("tota11y-label-success");
 
-  Object.keys(attributes).forEach(function (key) {
-    style.setAttribute(key, attributes[key]);
-  });
+                    // Mark the summary item as green
+                    $item.find(".tota11y-heading-outline-level").addClass("tota11y-label-success");
+                }
+            });
 
-  if (typeof options.insert === 'function') {
-    options.insert(style);
-  } else {
-    var target = getTarget(options.insert || 'head');
+            return $items;
+        }
+    }, {
+        key: "run",
+        value: function run() {
+            var $headings = $("h1, h2, h3, h4, h5, h6");
+            // `this.outline` has the side-effect of also reporting violations
+            var $items = this.outline($headings);
 
-    if (!target) {
-      throw new Error("Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.");
-    }
+            if ($items.length) {
+                var $outline = buildElement(
+                    "div",
+                    { className: "tota11y-heading-outline" },
+                    $items
+                );
 
-    target.appendChild(style);
-  }
+                this.summary($outline);
+            }
+        }
+    }, {
+        key: "cleanup",
+        value: function cleanup() {
+            annotate.removeAll();
+        }
+    }]);
 
-  return style;
-}
+    return HeadingsPlugin;
+}(Plugin);
 
-function removeStyleElement(style) {
-  // istanbul ignore if
-  if (style.parentNode === null) {
-    return false;
-  }
+module.exports = HeadingsPlugin;
 
-  style.parentNode.removeChild(style);
-}
-/* istanbul ignore next  */
+/***/ }),
 
+/***/ 1793:
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-var replaceText = function replaceText() {
-  var textStore = [];
-  return function replace(index, replacement) {
-    textStore[index] = replacement;
-    return textStore.filter(Boolean).join('\n');
-  };
-}();
-
-function applyToSingletonTag(style, index, remove, obj) {
-  var css = remove ? '' : obj.media ? "@media ".concat(obj.media, " {").concat(obj.css, "}") : obj.css; // For old IE
-
-  /* istanbul ignore if  */
-
-  if (style.styleSheet) {
-    style.styleSheet.cssText = replaceText(index, css);
-  } else {
-    var cssNode = document.createTextNode(css);
-    var childNodes = style.childNodes;
-
-    if (childNodes[index]) {
-      style.removeChild(childNodes[index]);
-    }
-
-    if (childNodes.length) {
-      style.insertBefore(cssNode, childNodes[index]);
-    } else {
-      style.appendChild(cssNode);
-    }
-  }
-}
-
-function applyToTag(style, options, obj) {
-  var css = obj.css;
-  var media = obj.media;
-  var sourceMap = obj.sourceMap;
-
-  if (media) {
-    style.setAttribute('media', media);
-  } else {
-    style.removeAttribute('media');
-  }
-
-  if (sourceMap && typeof btoa !== 'undefined') {
-    css += "\n/*# sourceMappingURL=data:application/json;base64,".concat(btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))), " */");
-  } // For old IE
-
-  /* istanbul ignore if  */
+"use strict";
 
 
-  if (style.styleSheet) {
-    style.styleSheet.cssText = css;
-  } else {
-    while (style.firstChild) {
-      style.removeChild(style.firstChild);
-    }
+/**
+ * An index of plugins.
+ *
+ * Exposes an array of plugin instances.
+ */
 
-    style.appendChild(document.createTextNode(css));
-  }
-}
+var AltTextPlugin = __webpack_require__(4165);
+var ContrastPlugin = __webpack_require__(8973);
+var HeadingsPlugin = __webpack_require__(8225);
+var LabelsPlugin = __webpack_require__(85);
+var LandmarksPlugin = __webpack_require__(7560);
+var LinkTextPlugin = __webpack_require__(7501);
+var A11yTextWand = __webpack_require__(6251);
 
-var singleton = null;
-var singletonCounter = 0;
+module.exports = {
+    default: [new HeadingsPlugin(), new ContrastPlugin(), new LinkTextPlugin(), new LabelsPlugin(), new AltTextPlugin(), new LandmarksPlugin()],
 
-function addStyle(obj, options) {
-  var style;
-  var update;
-  var remove;
-
-  if (options.singleton) {
-    var styleIndex = singletonCounter++;
-    style = singleton || (singleton = insertStyleElement(options));
-    update = applyToSingletonTag.bind(null, style, styleIndex, false);
-    remove = applyToSingletonTag.bind(null, style, styleIndex, true);
-  } else {
-    style = insertStyleElement(options);
-    update = applyToTag.bind(null, style, options);
-
-    remove = function remove() {
-      removeStyleElement(style);
-    };
-  }
-
-  update(obj);
-  return function updateStyle(newObj) {
-    if (newObj) {
-      if (newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap) {
-        return;
-      }
-
-      update(obj = newObj);
-    } else {
-      remove();
-    }
-  };
-}
-
-module.exports = function (list, options) {
-  options = options || {}; // Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
-  // tags it will allow on a page
-
-  if (!options.singleton && typeof options.singleton !== 'boolean') {
-    options.singleton = isOldIE();
-  }
-
-  list = list || [];
-  var lastIdentifiers = modulesToDom(list, options);
-  return function update(newList) {
-    newList = newList || [];
-
-    if (Object.prototype.toString.call(newList) !== '[object Array]') {
-      return;
-    }
-
-    for (var i = 0; i < lastIdentifiers.length; i++) {
-      var identifier = lastIdentifiers[i];
-      var index = getIndexByIdentifier(identifier);
-      stylesInDom[index].references--;
-    }
-
-    var newLastIdentifiers = modulesToDom(newList, options);
-
-    for (var _i = 0; _i < lastIdentifiers.length; _i++) {
-      var _identifier = lastIdentifiers[_i];
-
-      var _index = getIndexByIdentifier(_identifier);
-
-      if (stylesInDom[_index].references === 0) {
-        stylesInDom[_index].updater();
-
-        stylesInDom.splice(_index, 1);
-      }
-    }
-
-    lastIdentifiers = newLastIdentifiers;
-  };
+    experimental: [new A11yTextWand()]
 };
 
 /***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
+
+/***/ 85:
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+"use strict";
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+/**
+ * A plugin to identify unlabeled inputs
+ */
+
+var $ = __webpack_require__(9755);
+var Plugin = __webpack_require__(9765);
+var annotate = __webpack_require__(5071)("labels");
+var audit = __webpack_require__(586);
+
+var errorTemplate = __webpack_require__(1234);
+
+var LabelsPlugin = function (_Plugin) {
+    _inherits(LabelsPlugin, _Plugin);
+
+    function LabelsPlugin() {
+        _classCallCheck(this, LabelsPlugin);
+
+        return _possibleConstructorReturn(this, (LabelsPlugin.__proto__ || Object.getPrototypeOf(LabelsPlugin)).apply(this, arguments));
+    }
+
+    _createClass(LabelsPlugin, [{
+        key: "getTitle",
+        value: function getTitle() {
+            return "Etykiety";
+        }
+    }, {
+        key: "getDescription",
+        value: function getDescription() {
+            return "Wykrywa pola formularzy bez etykiet";
+        }
+    }, {
+        key: "errorMessage",
+        value: function errorMessage($el) {
+            return errorTemplate({
+                placeholder: $el.attr("placeholder"),
+                id: $el.attr("id"),
+                tagName: $el.prop("tagName").toLowerCase()
+            });
+        }
+    }, {
+        key: "run",
+        value: function run() {
+            var _this2 = this;
+
+            var _audit = audit("controlsWithoutLabel"),
+                result = _audit.result,
+                elements = _audit.elements;
+
+            if (result === "FAIL") {
+                elements.forEach(function (element) {
+                    var $el = $(element);
+                    var title = "Pole danych nie ma etykiety";
+
+                    // Place an error label on the element and register it as an
+                    // error in the info panel
+                    var entry = _this2.error(title, $(_this2.errorMessage($el)), $el);
+                    annotate.errorLabel($el, "", title, entry);
+                });
+            }
+        }
+    }, {
+        key: "cleanup",
+        value: function cleanup() {
+            annotate.removeAll();
+        }
+    }]);
+
+    return LabelsPlugin;
+}(Plugin);
+
+module.exports = LabelsPlugin;
+
+/***/ }),
+
+/***/ 7560:
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+"use strict";
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+/**
+ * A plugin to label all ARIA landmark roles
+ */
+
+var $ = __webpack_require__(9755);
+var Plugin = __webpack_require__(9765);
+var annotate = __webpack_require__(5071)("landmarks");
+
+var LandmarksPlugin = function (_Plugin) {
+    _inherits(LandmarksPlugin, _Plugin);
+
+    function LandmarksPlugin() {
+        _classCallCheck(this, LandmarksPlugin);
+
+        return _possibleConstructorReturn(this, (LandmarksPlugin.__proto__ || Object.getPrototypeOf(LandmarksPlugin)).apply(this, arguments));
+    }
+
+    _createClass(LandmarksPlugin, [{
+        key: "getTitle",
+        value: function getTitle() {
+            return "Punkty orienacyjne";
+        }
+    }, {
+        key: "getDescription",
+        value: function getDescription() {
+            return "Etykietuje wszystkie punkty orientacyjne ARIA";
+        }
+    }, {
+        key: "run",
+        value: function run() {
+            $("[role]:not(.tota11y-toolbar,.tota11y-plugin)").each(function () {
+                annotate.label($(this), $(this).attr("role"));
+            });
+        }
+    }, {
+        key: "cleanup",
+        value: function cleanup() {
+            annotate.removeAll();
+        }
+    }]);
+
+    return LandmarksPlugin;
+}(Plugin);
+
+module.exports = LandmarksPlugin;
+
+/***/ }),
+
+/***/ 7501:
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+"use strict";
+/* provided dependency */ var buildElement = __webpack_require__(9402);
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+/**
+ * A plugin to identify unclear link text such as "more" and "click here,"
+ * which can make for a bad experience when using a screen reader
+ */
+
+var $ = __webpack_require__(9755);
+var Plugin = __webpack_require__(9765);
+var annotate = __webpack_require__(5071)("link-text");
+
+var LinkTextPlugin = function (_Plugin) {
+    _inherits(LinkTextPlugin, _Plugin);
+
+    function LinkTextPlugin() {
+        _classCallCheck(this, LinkTextPlugin);
+
+        return _possibleConstructorReturn(this, (LinkTextPlugin.__proto__ || Object.getPrototypeOf(LinkTextPlugin)).apply(this, arguments));
+    }
+
+    _createClass(LinkTextPlugin, [{
+        key: "getTitle",
+        value: function getTitle() {
+            return "Tekst łączy";
+        }
+    }, {
+        key: "getDescription",
+        value: function getDescription() {
+            return "\n            Identyfikuje \u0142\u0105cza, kt\xF3re mog\u0105 by\u0107 niejednoznaczne,\n            gdy og\u0142asza je czytnik ekranu\n        ";
+        }
+
+        /**
+         * Slightly modified unclear text checking that has been refactored into
+         * a single method to be called with arbitrary strings.
+         *
+         * Original: https://github.com/GoogleChrome/accessibility-developer-tools/blob/9183b21cb0a02f5f04928f5cb7cb339b6bbc9ff8/src/audits/LinkWithUnclearPurpose.js#L55-67
+         */
+
+    }, {
+        key: "isDescriptiveText",
+        value: function isDescriptiveText(textContent) {
+            // Handle when the text is undefined or null
+            if (typeof textContent === "undefined" || textContent === null) {
+                return false;
+            }
+
+            var stopWords = ["kliknij", "stuknij", "idź do", "tutaj", "czytaj", "więcej", "ten link", "strona", "dowiedz się wiecej", "pobierz"];
+            // Generate a regex to match each of the stopWords
+            var stopWordsRE = new RegExp("\\b(" + stopWords.join("|") + ")\\b", "ig");
+
+            textContent = textContent
+            // Strip leading non-alphabetical characters
+            .replace(/[^a-zA-Z ]/g, "")
+            // Remove the stopWords
+            .replace(stopWordsRE, "");
+
+            // Return whether or not there is any text left
+            return textContent.trim() !== "";
+        }
+    }, {
+        key: "reportError",
+        value: function reportError($el, $description, content) {
+            var entry = this.error("Tekst łącza jest niejasny", $description, $el);
+            annotate.errorLabel($el, "", "Tekst \u0142\u0105cza \"" + content + "\" jest niejasny", entry);
+        }
+
+        /**
+         * We can call linkWithUnclearPurpose from ADT directly once the following
+         * issue has been resolved. There is some extra code here until then.
+         * https://github.com/GoogleChrome/accessibility-developer-tools/issues/156
+         */
+
+    }, {
+        key: "run",
+        value: function run() {
+            var _this2 = this;
+
+            $("a").each(function (i, el) {
+                var $el = $(el);
+
+                // Ignore the tota11y UI
+                if ($el.parents(".tota11y").length) {
+                    return;
+                }
+
+                // Ignore hidden links
+                if (axs.utils.isElementOrAncestorHidden(el)) {
+                    return;
+                }
+
+                // Extract the text alternatives for this element: including
+                // its text content, aria-label/labelledby, and alt text for
+                // images.
+                //
+                // TODO: Read from `alts` to determine where the text is coming
+                // from (for tailored error messages)
+                var alts = {};
+                var extractedText = axs.properties.findTextAlternatives(el, alts);
+
+                if (!_this2.isDescriptiveText(extractedText)) {
+                    var $description = buildElement(
+                        "div",
+                        null,
+                        "Ten tekst",
+                        " ",
+                        buildElement(
+                            "i",
+                            null,
+                            "\"",
+                            extractedText,
+                            "\""
+                        ),
+                        " ",
+                        "jest niejasny bez kontekstu i mo\u017Ce by\u0107 myl\u0105cy dla os\xF3b, kt\xF3re u\u017Cywaj\u0105 czytnika ekranu. Rozwa\u017C przeorganizowanie znacznika",
+                        " ",
+                        buildElement(
+                            "code",
+                            null,
+                            "&lt;a&gt;&lt;/a&gt;"
+                        ),
+                        " ",
+                        "i dodanie specjalnego tekstu dla czytnik\xF3w ekranu."
+                    );
+
+                    _this2.reportError($el, $description, extractedText);
+                }
+            });
+        }
+    }, {
+        key: "cleanup",
+        value: function cleanup() {
+            annotate.removeAll();
+        }
+    }]);
+
+    return LinkTextPlugin;
+}(Plugin);
+
+module.exports = LinkTextPlugin;
+
+/***/ }),
+
+/***/ 5071:
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Utility functions to annotate particular site elements.
+ *
+ * Annotations are namespaced, meaning you would normally include this
+ * package like so:
+ *
+ *     let annotate = require("./annotate")("headers");
+ *
+ * This allows plugins to easily maintain their annotations, rather than
+ * keeping track of an extra class name elsewhere.
+ */
+
+var $ = __webpack_require__(9755);
+
+var errorLabelTemplate = __webpack_require__(9956);
+__webpack_require__(5124);
+
+// For very small (or zero-area) elements, highlights are not very useful.
+// This constant declares highlights to be at least `MIN_HIGHLIGHT_SIZE` tall
+// and across.
+var MIN_HIGHLIGHT_SIZE = 25;
+
+// Polyfill fallback for IE < 10
+window.requestAnimationFrame = window.requestAnimationFrame || function (callback) {
+    window.setTimeout(callback, 16);
+};
+
+module.exports = function (namespace) {
+    // The class that will be applied to any annotation generated in this
+    // namespace
+    var ANNOTATION_CLASS = "tota11y-annotation-" + namespace;
+
+    // A queue of {$annotation, $parent}'s that is populated by
+    // `createAnnotation` and emptied by the `render()` method.
+    //
+    // Annotations are queued to reduce reflows.
+    var queue = [];
+
+    // Register a new annotation to a given jQuery element
+    var createAnnotation = function createAnnotation($el, className) {
+        // Create a position an annotation relative to its offset parent.
+        // We also store the element its annotation so we can reposition when
+        // the window resizes.
+        var $annotation = $("<div>").addClass("tota11y") // tota11y base class for styling
+        .addClass(ANNOTATION_CLASS).addClass(className).css($el.position()).data({ $el: $el });
+
+        // TODO: We can invoke a requestAnimationFrame(render) here to limit
+        // the amount of times we run that timer
+
+        // Append an object to the queue. We'll add the annotation to the DOM
+        // later to reduce reflows.
+        queue.push({
+            $annotation: $annotation,
+            $parent: $el.offsetParent()
+        });
+
+        return $annotation;
+    };
+
+    // To maintain a high framerate, we'll only render `RENDER_CHUNK_SIZE`
+    // annotations per frame.
+    //
+    // NOTE: A value of "20" consistently hits 60fps on facebook.com
+    var RENDER_CHUNK_SIZE = 20;
+
+    // Mount all annotations to the DOM in sequence. This is done by
+    // picking items off the queue, where each item consists of the
+    // annotation and the node to which we'll append it.
+    (function loop() {
+        for (var i = 0; queue.length > 0 && i < RENDER_CHUNK_SIZE; i++) {
+            var item = queue.shift();
+            item.$parent.append(item.$annotation);
+        }
+
+        window.requestAnimationFrame(loop);
+    })();
+
+    // Handle resizes by repositioning all annotations in bulk
+    $(window).resize(function () {
+        var $annotations = $("." + ANNOTATION_CLASS);
+
+        // Record the position of each annotation's corresponding element to
+        // batch measurements
+        var positions = $annotations.map(function (i, el) {
+            return $(el).data("$el").position();
+        });
+
+        // Reposition each annotation (batching invalidations)
+        $annotations.each(function (i, el) {
+            $(el).css({
+                top: positions[i].top,
+                left: positions[i].left
+            });
+        });
+    });
+
+    return {
+        // Places a small label in the top left corner of a given jQuery
+        // element. By default, this label contains the element's tagName.
+        label: function label($el) {
+            var text = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : $el.prop("tagName").toLowerCase();
+
+            var $label = createAnnotation($el, "tota11y-label");
+            return $label.html(text);
+        },
+
+
+        // Places a special label on an element that, when hovered, displays
+        // an expanded error message.
+        //
+        // This method also accepts an optional `errorEntry`, which
+        // corresponds to the object returned from `InfoPanel.addError`. This
+        // object will contain a "show()" method when the info panel is
+        // rendered, allowing us to externally open the entry in the info
+        // panel corresponding to this error.
+        errorLabel: function errorLabel($el, text, expanded, errorEntry) {
+            var $innerHtml = $(errorLabelTemplate({
+                text: text,
+                detail: expanded,
+                hasErrorEntry: !!errorEntry
+            }));
+
+            if (errorEntry) {
+                $innerHtml.find(".tota11y-label-link").click(function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    errorEntry.show();
+                });
+
+                $innerHtml.hover(function () {
+                    errorEntry.$trigger.addClass("trigger-highlight");
+                }, function () {
+                    errorEntry.$trigger.removeClass("trigger-highlight");
+                });
+            }
+
+            return this.label($el).addClass("tota11y-label-error").html($innerHtml);
+        },
+
+
+        // Highlights a given jQuery element by placing a translucent
+        // rectangle directly over it
+        highlight: function highlight($el) {
+            var $highlight = createAnnotation($el, "tota11y-highlight");
+            return $highlight.css({
+                // include margins
+                width: Math.max(MIN_HIGHLIGHT_SIZE, $el.outerWidth(true)),
+                height: Math.max(MIN_HIGHLIGHT_SIZE, $el.outerHeight(true))
+            });
+        },
+
+
+        // Toggles a highlight on a given jQuery element `$el` when `$trigger`
+        // is hovered (mouseenter/mouseleave) or focused (focus/blur)
+        toggleHighlight: function toggleHighlight($el, $trigger) {
+            var _this = this;
+
+            var $highlight = void 0;
+
+            $trigger.on("mouseenter focus", function () {
+                if ($highlight) {
+                    $highlight.remove();
+                }
+
+                $highlight = _this.highlight($el);
+            });
+
+            $trigger.on("mouseleave blur", function () {
+                if ($highlight) {
+                    $highlight.remove();
+                    $highlight = null;
+                }
+            });
+        },
+        hide: function hide() {
+            $(".tota11y.tota11y-label").hide();
+        },
+        show: function show() {
+            $(".tota11y.tota11y-label").show();
+        },
+        removeAll: function removeAll() {
+            // Remove all annotations
+            $("." + ANNOTATION_CLASS).remove();
+        }
+    };
+};
+
+/***/ }),
+
+/***/ 586:
+/***/ (function(module) {
+
+"use strict";
+
+
+/**
+ * Abstractions for how we use Accessibility Developer Tools
+ */
+
+function allRuleNames() {
+    return axs.AuditRules.getRules().map(function (rule) {
+        return rule.name;
+    });
+}
+
+// Creates an audit configuration that whitelists a single rule and limits the
+// amount of tests to run
+function createWhitelist(ruleName) {
+    var config = new axs.AuditConfiguration();
+    config.showUnsupportedRulesWarning = false;
+
+    // Ignore elements that are part of the toolbar
+    config.ignoreSelectors(ruleName, ".tota11y *");
+
+    allRuleNames().forEach(function (name) {
+        if (name !== ruleName) {
+            config.ignoreSelectors(name, "*");
+        }
+    });
+
+    return config;
+}
+
+/*eslint-disable*/
+// Patch collectMatchingElements to match
+// https://github.com/GoogleChrome/accessibility-developer-tools/blob/0062f77258eb4eb8508dad3c92fd2df63c2381fc/src/js/AuditRule.js
+//
+// TODO: Remove once https://github.com/GoogleChrome/accessibility-developer-tools/commit/df400939addf6dbc5f2a9e1d52a6219f356f82d8
+// makes its way to npm
+function patchCollectMatchingElements() {
+    /**
+     * Recursively collect elements which match |matcher| into |collection|,
+     * starting at |node|.
+     * @param {Node} node
+     * @param {function(Element): boolean} matcher
+     * @param {Array.<Element>} collection
+     * @param {ShadowRoot=} opt_shadowRoot The nearest ShadowRoot ancestor, if any.
+     */
+    axs.AuditRule.collectMatchingElements = function (node, matcher, collection, opt_shadowRoot) {
+        if (node.nodeType === Node.ELEMENT_NODE) var element = /** @type {Element} */node;
+
+        if (element && matcher.call(null, element)) collection.push(element);
+
+        // Descend into node:
+        // If it has a ShadowRoot, ignore all child elements - these will be picked
+        // up by the <content> or <shadow> elements. Descend straight into the
+        // ShadowRoot.
+        if (element) {
+            // NOTE: grunt qunit DOES NOT support Shadow DOM, so if changing this
+            // code, be sure to run the tests in the browser before committing.
+            var shadowRoot = element.shadowRoot || element.webkitShadowRoot;
+            if (shadowRoot) {
+                axs.AuditRule.collectMatchingElements(shadowRoot, matcher, collection, shadowRoot);
+                return;
+            }
+        }
+
+        // If it is a <content> element, descend into distributed elements - descend
+        // into distributed elements - these are elements from outside the shadow
+        // root which are rendered inside the shadow DOM.
+        if (element && element.localName == 'content') {
+            var content = /** @type {HTMLContentElement} */element;
+            var distributedNodes = content.getDistributedNodes();
+            for (var i = 0; i < distributedNodes.length; i++) {
+                axs.AuditRule.collectMatchingElements(distributedNodes[i], matcher, collection, opt_shadowRoot);
+            }
+            return;
+        }
+
+        // If it is a <shadow> element, descend into the olderShadowRoot of the
+        // current ShadowRoot.
+        if (element && element.localName == 'shadow') {
+            var shadow = /** @type {HTMLShadowElement} */element;
+            if (!opt_shadowRoot) {
+                console.warn('ShadowRoot not provided for', element);
+            } else {
+                var distributedNodes = shadow.getDistributedNodes();
+                for (var i = 0; i < distributedNodes.length; i++) {
+                    axs.AuditRule.collectMatchingElements(distributedNodes[i], matcher, collection, opt_shadowRoot);
+                }
+            }
+        }
+
+        // If it is neither the parent of a ShadowRoot, a <content> element, nor
+        // a <shadow> element recurse normally.
+        var child = node.firstChild;
+        while (child != null) {
+            axs.AuditRule.collectMatchingElements(child, matcher, collection, opt_shadowRoot);
+            child = child.nextSibling;
+        }
+    };
+}
+/*eslint-enable*/
+
+// Audits for a single rule (by name) and returns the results for only that
+// rule
+function audit(ruleName) {
+    var whitelist = createWhitelist(ruleName);
+
+    patchCollectMatchingElements();
+
+    return axs.Audit.run(whitelist).filter(function (result) {
+        return result.rule.name === ruleName;
+    })[0];
+}
+
+module.exports = audit;
+
+/***/ }),
+
+/***/ 8597:
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+"use strict";
+/* provided dependency */ var buildElement = __webpack_require__(9402);
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+/**
+ * The following code defines an information panel that can be invoked from
+ * any plugin to display summaries, errors, or more information about what
+ * the plugin is doing.
+ *
+ * These panels are moveable and closeable, and are unique to the plugin that
+ * created them. They appear in the bottom right corner of the viewport.
+ *
+ * Info panels consist of a title and three optional sections, which form
+ * tabs that users can switch between.
+ *
+ *   Summary: A summary of the plugin's results
+ *   Errors: A list of violations reported by this plugin. The tab marker also
+ *           contains the number of errors listed
+ */
+
+var $ = __webpack_require__(9755);
+var annotate = __webpack_require__(5071)("info-panel");
+
+var errorTemplate = __webpack_require__(7683);
+__webpack_require__(64);
+
+var INITIAL_PANEL_MARGIN_PX = 10;
+var COLLAPSED_CLASS_NAME = "tota11y-collapsed";
+var HIDDEN_CLASS_NAME = "tota11y-info-hidden";
+
+var InfoPanel = function () {
+    function InfoPanel(plugin) {
+        _classCallCheck(this, InfoPanel);
+
+        this.plugin = plugin;
+
+        this.about = null;
+        this.summary = null;
+        this.errors = [];
+
+        this.$el = null;
+    }
+
+    /**
+     * Sets the contents of the about section as HTML
+     */
+
+
+    _createClass(InfoPanel, [{
+        key: "setAbout",
+        value: function setAbout(about) {
+            this.about = about;
+        }
+
+        /**
+         * Sets the contents of the summary section as HTML
+         */
+
+    }, {
+        key: "setSummary",
+        value: function setSummary(summary) {
+            this.summary = summary;
+        }
+
+        /**
+         * Adds an error to the errors tab. Also receives a jQuery element to
+         * highlight on hover.
+         */
+
+    }, {
+        key: "addError",
+        value: function addError(title, $description, $el) {
+            var error = { title: title, $description: $description, $el: $el };
+            this.errors.push(error);
+            return error;
+        }
+    }, {
+        key: "_addTab",
+        value: function _addTab(title, html) {
+            var _this = this;
+
+            // Create and append a tab marker
+            var $tab = buildElement(
+                "li",
+                { className: "tota11y-info-tab" },
+                buildElement(
+                    "a",
+                    { className: "tota11y-info-tab-anchor", href: "#" },
+                    buildElement(
+                        "span",
+                        { className: "tota11y-info-tab-anchor-text" },
+                        title
+                    )
+                )
+            );
+
+            this.$el.find(".tota11y-info-tabs").append($tab);
+
+            // Create and append the tab content
+            var $section = $("<div>").addClass("tota11y-info-section").html(html);
+            this.$el.find(".tota11y-info-sections").append($section);
+
+            // Register an "activate" event for the tab, which switches the
+            // tab's associated content to be visible, and changes the
+            // appearance of the newly-active tab marker
+            $tab.on("activate", function () {
+                _this.$el.find(".tota11y-info-tab.active").removeClass("active");
+                _this.$el.find(".tota11y-info-section.active").removeClass("active");
+
+                $tab.addClass("active");
+                $section.addClass("active");
+            });
+
+            // Activate the tab when its anchor is clicked
+            $tab.on("click", function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                $tab.trigger("activate");
+            });
+
+            return $tab;
+        }
+
+        /**
+         * Positions the info panel and sets up event listeners to make the
+         * panel draggable
+         */
+
+    }, {
+        key: "initAndPosition",
+        value: function initAndPosition() {
+            var _this2 = this;
+
+            var panelLeftPx = void 0,
+                panelTopPx = void 0;
+
+            // Wire up the dismiss button
+            this.$el.find(".tota11y-info-dismiss-trigger").click(function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                _this2.$el.addClass(HIDDEN_CLASS_NAME);
+
+                // (a11y) Bring the focus back to the plugin's checkbox
+                _this2.plugin.$checkbox.focus();
+            });
+
+            // Append the info panel to the body. In reality we'll likely want
+            // it directly adjacent to the toolbar.
+            $("body").append(this.$el);
+
+            // Position info panel on the bottom right of the window
+            panelLeftPx = window.innerWidth - this.$el.width() - INITIAL_PANEL_MARGIN_PX;
+            panelTopPx = window.innerHeight - this.$el.height() - INITIAL_PANEL_MARGIN_PX;
+
+            // Wire up draggable surface
+            var $draggable = this.$el.find(".tota11y-info-title");
+            var isDragging = false;
+
+            // Variables for the starting positions of the mouse and panel
+            var initMouseX = void 0,
+                initMouseY = void 0;
+            var initPanelLeft = void 0,
+                initPanelTop = void 0;
+
+            $draggable.on("mousedown", function (e) {
+                e.preventDefault();
+
+                // Start dragging, and record initial mouse and panel
+                // positions
+                isDragging = true;
+
+                initMouseX = e.pageX;
+                initMouseY = e.pageY;
+
+                initPanelLeft = panelLeftPx;
+                initPanelTop = panelTopPx;
+            }).on("mouseup", function (e) {
+                e.preventDefault();
+                isDragging = false;
+            });
+
+            $(window).on("mousemove", function (e) {
+                if (!isDragging) {
+                    return;
+                }
+                e.preventDefault();
+
+                var deltaX = e.pageX - initMouseX;
+                var deltaY = e.pageY - initMouseY;
+
+                panelLeftPx = initPanelLeft + deltaX;
+                panelTopPx = initPanelTop + deltaY;
+
+                _this2.$el.css({
+                    left: panelLeftPx,
+                    top: panelTopPx
+                });
+            });
+
+            this.$el.css({
+                left: panelLeftPx,
+                top: panelTopPx
+            });
+        }
+    }, {
+        key: "render",
+        value: function render() {
+            var _this3 = this;
+
+            // Destroy the existing info panel to prevent double-renders
+            if (this.$el) {
+                this.$el.remove();
+            }
+
+            var hasContent = false;
+
+            this.$el = buildElement(
+                "div",
+                { className: "tota11y tota11y-info", tabindex: "-1" },
+                buildElement(
+                    "header",
+                    { className: "tota11y-info-title" },
+                    this.plugin.getTitle(),
+                    buildElement(
+                        "span",
+                        { className: "tota11y-info-controls" },
+                        buildElement(
+                            "label",
+                            { className: "tota11y-info-annotation-toggle" },
+                            "Adnotacja:",
+                            " ",
+                            buildElement("input", {
+                                className: "toggle-annotation",
+                                type: "checkbox",
+                                checked: "checked" })
+                        ),
+                        buildElement(
+                            "a",
+                            { "aria-label": "Zamknij panel informacyjny",
+                                href: "#",
+                                className: "tota11y-info-dismiss-trigger" },
+                            "\xD7"
+                        )
+                    )
+                ),
+                buildElement(
+                    "div",
+                    { className: "tota11y-info-body" },
+                    buildElement("div", { className: "tota11y-info-sections" }),
+                    buildElement("ul", { role: "tablist", className: "tota11y-info-tabs" })
+                )
+            );
+
+            // Add the appropriate tabs based on which information the info panel
+            // was provided, then highlight the most important one.
+            var $activeTab = void 0;
+            if (this.about) {
+                $activeTab = this._addTab("O...", this.about);
+            }
+
+            if (this.summary) {
+                $activeTab = this._addTab("Podsumowanie", this.summary);
+            }
+
+            // Wire annotation toggling
+            this.$el.find(".toggle-annotation").click(function (e) {
+                if ($(e.target).prop("checked")) {
+                    annotate.show();
+                } else {
+                    annotate.hide();
+                }
+            });
+
+            if (this.errors.length > 0) {
+                var $errors = $("<ul>").addClass("tota11y-info-errors");
+
+                // Store a reference to the "Errors" tab so we can switch to it
+                // later
+                var $errorsTab = void 0;
+
+                this.errors.forEach(function (error, i) {
+                    var $error = $(errorTemplate(error));
+
+                    // Insert description jQuery object into template.
+                    // Description is passed as jQuery object
+                    // so that functionality can be inserted.
+                    $error.find(".tota11y-info-error-description").prepend(error.$description);
+
+                    $errors.append($error);
+
+                    // Wire up the expand/collapse trigger
+                    var $trigger = $error.find(".tota11y-info-error-trigger");
+                    var $desc = $error.find(".tota11y-info-error-description");
+
+                    $trigger.click(function (e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        $trigger.toggleClass(COLLAPSED_CLASS_NAME);
+                        $desc.toggleClass(COLLAPSED_CLASS_NAME);
+                    });
+
+                    // Attach a function to the original error object to open
+                    // this error so it can be done externally. We'll use this to
+                    // access error entries in the info panel from labels.
+                    error.show = function () {
+                        // Make sure info panel is visible
+                        _this3.$el.removeClass(HIDDEN_CLASS_NAME);
+
+                        // Open the error entry
+                        $trigger.removeClass(COLLAPSED_CLASS_NAME);
+                        $desc.removeClass(COLLAPSED_CLASS_NAME);
+
+                        // Switch to the "Errors" tab
+                        $errorsTab.trigger("activate");
+
+                        // Scroll to the error entry
+                        var $scrollParent = $trigger.parents(".tota11y-info-section");
+                        $scrollParent[0].scrollTop = $trigger[0].offsetTop - 10;
+                    };
+
+                    // Attach the `$trigger` as well so can access it externally.
+                    // We use this to highlight the trigger when hovering over
+                    // inline error labels.
+                    error.$trigger = $trigger;
+
+                    // Wire up the scroll-to-error button
+                    var $scroll = $error.find(".tota11y-info-error-scroll");
+                    $scroll.click(function (e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+
+                        // TODO: This attempts to scroll to fixed elements
+                        $(document).scrollTop(error.$el.offset().top - 80);
+                    });
+
+                    // Expand the first violation
+                    if (i === 0) {
+                        $desc.toggleClass(COLLAPSED_CLASS_NAME);
+                        $trigger.toggleClass(COLLAPSED_CLASS_NAME);
+                    }
+
+                    // Highlight the violating element on hover/focus. We do it
+                    // for both $trigger and $scroll to allow users to see the
+                    // highlight when scrolling to the element with the button.
+                    annotate.toggleHighlight(error.$el, $trigger);
+                    annotate.toggleHighlight(error.$el, $scroll);
+
+                    // Add code from error.$el to the information panel
+                    var errorHTML = error.$el[0].outerHTML;
+
+                    // Trim the code block if it is over 300 characters
+                    if (errorHTML.length > 300) {
+                        errorHTML = errorHTML.substring(0, 300) + "...";
+                    }
+
+                    var $relevantCode = $error.find(".tota11y-info-error-description-code-container code");
+                    $relevantCode.text(errorHTML);
+                });
+
+                $errorsTab = $activeTab = this._addTab("Błędy", $errors);
+
+                // Add a small badge next to the tab title
+                var $badge = $("<div>").addClass("tota11y-info-error-count").text(this.errors.length);
+
+                $activeTab.find(".tota11y-info-tab-anchor").append($badge);
+            }
+
+            if ($activeTab) {
+                $activeTab.trigger("activate");
+                // hasContent is technically coupled to $activeTab, since if there
+                // is no $activeTab then there is no content. This behavior may
+                // change in the future.
+                hasContent = true;
+            }
+
+            if (hasContent) {
+                this.initAndPosition();
+            }
+
+            // (a11y) Shift focus to the newly-opened info panel
+            this.$el.focus();
+
+            return this.$el;
+        }
+    }, {
+        key: "destroy",
+        value: function destroy() {
+            // Reset contents
+            this.about = null;
+            this.summary = null;
+            this.errors = [];
+
+            // Remove the element
+            if (this.$el) {
+                this.$el.remove();
+                this.$el = null;
+            }
+
+            // Remove the annotations
+            annotate.removeAll();
+        }
+    }]);
+
+    return InfoPanel;
+}();
+
+module.exports = InfoPanel;
+
+/***/ }),
+
+/***/ 9402:
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * A function used by Babel to transpile JSX code into jQuery elements
+ */
+function buildElement(type, props) {
+    // We need to require jQuery inside of this method because `require()`
+    // will work different after mocha's magic "before" method runs.
+    //
+    // This allows us to use the jQuery instance provided by our jsdom
+    // instance.
+    var $ = __webpack_require__(9755);
+
+    // Is our element a TextNode?
+    if (props === undefined) {
+        // Type will be the text content, which can simply be returned here
+        return type;
+
+        // Is our element a Plugin?
+    } else if (type.render) {
+        // Render the plugin with the passed-in click handler
+        return type.render(props && props.onClick);
+
+        // Otherwise, build the element with jQuery
+    } else {
+        var $el = $("<" + type + ">");
+
+        // Iterate through props
+        if (props !== null) {
+            for (var propName in props) {
+                // onClick gets turned into a jQuery event handler
+                // TODO: Handle props like onHover, onFocus, etc.
+                if (propName === "onClick") {
+                    var handler = props[propName];
+                    $el.click(handler);
+
+                    // Some passed-in props need to be set with $.attr
+                    // Currently we do this for role and aria-*
+                } else if (/^aria-/.test(propName) || propName === "role") {
+                    var value = props[propName];
+                    $el.attr(propName, value);
+
+                    // All other props can go right to $.prop
+                } else {
+                    var _value = props[propName];
+                    $el.prop(propName, _value);
+                }
+            }
+        }
+
+        // Recurse through the children and append each resulting element to
+        // the parent
+
+        for (var _len = arguments.length, children = Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
+            children[_key - 2] = arguments[_key];
+        }
+
+        children.forEach(function (child) {
+            $el.append(buildElement(child));
+        });
+
+        return $el;
+    }
+}
+
+module.exports = buildElement;
+
+/***/ }),
+
+/***/ 2258:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3645);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".tota11y-dark-color-scheme {\n  background-color: #333 !important;\n  color: #f2f2f2 !important;\n}\n.tota11y-no-select {\n  -webkit-user-select: none !important;\n          user-select: none !important;\n}\n/**\n * Base styles for tota11y to make sure things look consistent under\n * reasonable circumstances.\n */\n.tota11y,\n.tota11y * {\n  border: none !important;\n  background-color: inherit !important;\n  box-sizing: border-box !important;\n  color: #f2f2f2 !important;\n  font-family: Arial !important;\n  font-size: 14px !important;\n  font-style: normal !important;\n  font-weight: 400 !important;\n  line-height: 1.35 !important;\n  margin: 0 !important;\n  padding: 0 !important;\n  text-align: left !important;\n  text-shadow: none !important;\n}\n.tota11y * {\n  height: auto !important;\n  width: auto !important;\n}\n.tota11y strong {\n  font-weight: bold !important;\n}\n.tota11y pre,\n.tota11y code {\n  background-color: #ddd !important;\n  border: none !important;\n  border-radius: 0 !important;\n  color: inherit !important;\n  font-family: monospace !important;\n  font-size: inherit !important;\n  line-height: inherit !important;\n}\n.tota11y pre {\n  padding: 5px 10px !important;\n  margin: 0 0 10px !important;\n  overflow-x: scroll !important;\n}\n.tota11y code {\n  border-radius: 2px !important;\n  display: inline !important;\n  padding: 1px !important;\n}\n.tota11y i,\n.tota11y em {\n  font-style: italic !important;\n}\n.tota11y p {\n  margin: 0 0 10px !important;\n}\n.tota11y a,\n.tota11y a:hover,\n.tota11y a:focus {\n  background-color: inherit !important;\n  color: inherit !important;\n  text-decoration: none !important;\n}\n.tota11y-toolbar {\n  background-color: #333 !important;\n  color: #f2f2f2 !important;\n  position: fixed !important;\n  top: auto !important;\n  right: auto !important;\n  bottom: 0 !important;\n  left: 10px !important;\n  border-top-left-radius: 5px !important;\n  border-top-right-radius: 5px !important;\n  overflow: hidden !important;\n  z-index: 9998 !important;\n}\n.tota11y-toolbar-toggle {\n  background-color: #333 !important;\n  display: block !important;\n  padding: 7px !important;\n  width: 100% !important;\n}\n.tota11y-toolbar-logo {\n  height: 25px !important;\n  margin: 0 auto !important;\n  text-align: center !important;\n  width: 35px !important;\n}\n.tota11y-toolbar-logo svg {\n  height: 25px !important;\n}\n.tota11y-toolbar-body {\n  display: none !important;\n}\n.tota11y-toolbar.tota11y-expanded .tota11y-toolbar-body {\n  display: block !important;\n}\n.tota11y-sr-only {\n  border: 0 !important;\n  clip: rect(0, 0, 0, 0) !important;\n  height: 1px !important;\n  margin: -1px !important;\n  overflow: hidden !important;\n  padding: 0 !important;\n  position: absolute !important;\n  width: 1px !important;\n}\n", ""]);
+// Exports
+/* harmony default export */ __webpack_exports__["Z"] = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ 5093:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3645);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".tota11y-dark-color-scheme {\n  background-color: #333 !important;\n  color: #f2f2f2 !important;\n}\n.tota11y-no-select {\n  -webkit-user-select: none !important;\n          user-select: none !important;\n}\n.tota11y-outlined {\n  outline: 2px solid #7882c8 !important;\n}\n.tota11y-nothingness {\n  color: #888 !important;\n}\n", ""]);
+// Exports
+/* harmony default export */ __webpack_exports__["Z"] = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ 1053:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3645);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".tota11y-swatches {\n  margin-left: 5px !important;\n  margin-right: 5px !important;\n  position: relative !important;\n  top: 1px !important;\n}\n.tota11y-swatch {\n  border: 1px solid #000 !important;\n  display: inline-block !important;\n  height: 12px !important;\n  width: 12px !important;\n}\n.tota11y-contrast-suggestion {\n  margin: 0 0 15px 15px !important;\n}\n.tota11y-color-hexes {\n  font-family: monospace !important;\n}\n", ""]);
+// Exports
+/* harmony default export */ __webpack_exports__["Z"] = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ 6168:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3645);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".tota11y-dark-color-scheme {\n  background-color: #333 !important;\n  color: #f2f2f2 !important;\n}\n.tota11y-no-select {\n  -webkit-user-select: none !important;\n          user-select: none !important;\n}\n.tota11y-heading-outline {\n  color: #333 !important;\n}\n.tota11y-heading-outline-entry {\n  margin-bottom: 8px !important;\n}\n.tota11y-heading-outline-entry.heading-level-1 {\n  margin-left: 0 !important;\n}\n.tota11y-heading-outline-entry.heading-level-2 {\n  margin-left: 20px !important;\n}\n.tota11y-heading-outline-entry.heading-level-3 {\n  margin-left: 40px !important;\n}\n.tota11y-heading-outline-entry.heading-level-4 {\n  margin-left: 60px !important;\n}\n.tota11y-heading-outline-entry.heading-level-5 {\n  margin-left: 80px !important;\n}\n.tota11y-heading-outline-entry.heading-level-6 {\n  margin-left: 100px !important;\n}\n.tota11y-heading-outline-level {\n  position: relative !important;\n  top: -2px !important;\n  right: auto !important;\n  bottom: auto !important;\n  left: auto !important;\n  margin-right: 5px !important;\n  padding: 2px 3px !important;\n  pointer-events: none !important;\n}\n", ""]);
+// Exports
+/* harmony default export */ __webpack_exports__["Z"] = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ 6271:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3645);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".tota11y-dark-color-scheme {\n  background-color: #333 !important;\n  color: #f2f2f2 !important;\n}\n.tota11y-no-select {\n  -webkit-user-select: none !important;\n          user-select: none !important;\n}\n.tota11y-label {\n  background-color: #ffe800 !important;\n  border: 1px solid rgba(0, 0, 0, 0.1) !important;\n  cursor: default !important;\n  padding: 3px !important;\n  position: absolute !important;\n  z-index: 9997 !important;\n}\n.tota11y-label-error {\n  background-color: #ffaeae !important;\n}\n.tota11y-label-error-icon {\n  display: block !important;\n  float: left !important;\n  margin-right: 3px !important;\n  width: 12px !important;\n}\n.tota11y-label-success {\n  background-color: #b9eda9 !important;\n}\n.tota11y-label-warning {\n  background-color: #ffe800 !important;\n}\n.tota11y-label,\n.tota11y-label-text,\n.tota11y-label-detail,\n.tota11y-label-link,\n.tota11y-label-help {\n  color: #333 !important;\n  font-size: 12px !important;\n}\n.tota11y-label-text {\n  float: left !important;\n}\n.tota11y-label-detail {\n  clear: both !important;\n  display: none !important;\n  max-width: 300px !important;\n}\n.tota11y-label:hover .tota11y-label-detail {\n  display: block !important;\n}\n.tota11y-label-help {\n  float: left !important;\n  margin-left: 5px !important;\n}\n.tota11y-label-link:hover,\n.tota11y-label-link:focus {\n  opacity: 0.6 !important;\n  text-decoration: underline !important;\n}\n.tota11y-highlight {\n  background-color: rgba(120, 130, 200, 0.4) !important;\n  pointer-events: none !important;\n  position: absolute !important;\n  z-index: 9999 !important;\n}\n", ""]);
+// Exports
+/* harmony default export */ __webpack_exports__["Z"] = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ 2430:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3645);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".tota11y-dark-color-scheme {\n  background-color: #333 !important;\n  color: #f2f2f2 !important;\n}\n.tota11y-no-select {\n  -webkit-user-select: none !important;\n          user-select: none !important;\n}\n.tota11y-info {\n  background-color: #333 !important;\n  color: #f2f2f2 !important;\n  -webkit-user-select: none !important;\n          user-select: none !important;\n  border-radius: 5px !important;\n  position: fixed !important;\n  z-index: 9998 !important;\n}\n.tota11y-info-controls {\n  float: right !important;\n}\n.tota11y-info-annotation-toggle {\n  float: left !important;\n  margin-right: 10px !important;\n}\n.tota11y-info-hidden {\n  display: none !important;\n}\n.tota11y-info-dismiss-trigger {\n  font-size: 25px !important;\n  line-height: 25px !important;\n  position: relative !important;\n  top: -2px !important;\n}\n.tota11y-info-title,\n.tota11y-info-body {\n  padding: 10px 10px 0 !important;\n}\n.tota11y-info-title:hover {\n  cursor: move !important;\n}\n.tota11y-info-tabs {\n  display: flex !important;\n  margin: 0 !important;\n  padding: 0 0 10px !important;\n}\n.tota11y-info-tab {\n  height: 30px !important;\n  list-style: none !important;\n  position: relative !important;\n  text-align: center !important;\n  width: 100% !important;\n  flex-grow: 1 !important;\n}\n.tota11y-info-tab-anchor {\n  position: absolute !important;\n  top: 0 !important;\n  right: 0 !important;\n  bottom: 0 !important;\n  left: 0 !important;\n  text-align: center !important;\n}\n.tota11y-info-tab-anchor-text {\n  line-height: 30px !important;\n}\n.tota11y-info-tab:hover {\n  background-color: #555 !important;\n}\n.tota11y-info-tab.active,\n.tota11y-info-tab.active:hover {\n  background-color: #f2f2f2 !important;\n}\n.tota11y-info-tab.active .tota11y-info-tab-anchor-text {\n  color: #333 !important;\n}\n.tota11y-info-sections {\n  position: relative !important;\n  height: 270px !important;\n  width: 400px !important;\n}\n.tota11y-info-section {\n  position: absolute !important;\n  top: 0 !important;\n  right: 0 !important;\n  bottom: 0 !important;\n  left: 0 !important;\n  background-color: #f2f2f2 !important;\n  display: none !important;\n  overflow-y: scroll !important;\n  padding: 10px !important;\n}\n.tota11y-info-section,\n.tota11y-info-section * {\n  color: #333 !important;\n}\n.tota11y-info-section.active {\n  display: block !important;\n}\n.tota11y-info-errors {\n  margin: 0 !important;\n  padding: 0 !important;\n}\n.tota11y-info-error {\n  list-style: none !important;\n  margin-bottom: 10px !important;\n}\n.tota11y-info-error-trigger {\n  display: block !important;\n}\n.tota11y-info-error-trigger.trigger-highlight {\n  background-color: rgba(120, 130, 200, 0.4) !important;\n}\n.tota11y-info-error-chevron {\n  display: inline-block !important;\n  font-size: 20px !important;\n  height: 14px !important;\n  line-height: 14px !important;\n  margin-right: 3px !important;\n  transform: rotateZ(90deg) !important;\n  transform-origin: 3px 8px !important;\n  transition: transform ease-in-out 50ms !important;\n}\n.tota11y-info-error-trigger.tota11y-collapsed .tota11y-info-error-chevron {\n  transform: rotateZ(0deg) !important;\n}\n.tota11y-info-error-title {\n  font-weight: bold !important;\n}\n.tota11y-info-error-scroll {\n  float: right !important;\n  margin-top: 3px !important;\n  padding-left: 5px !important;\n}\n.tota11y-info-error-scroll-glyph {\n  border-color: #333 !important;\n}\n.tota11y-info-error-scroll:hover .tota11y-info-error-scroll-glyph {\n  border-color: #999 !important;\n}\n.tota11y-info-error-scroll-lens {\n  border: 1px solid !important;\n  border-radius: 50% !important;\n  height: 8px !important;\n  width: 8px !important;\n}\n.tota11y-info-error-scroll-handle {\n  border-left: 1px solid !important;\n  height: 7px !important;\n  transform: translateX(-2px) translateY(-2px) rotate(45deg) !important;\n  width: 1px !important;\n}\n.tota11y-info-error-description {\n  font-size: 13px !important;\n  padding: 10px 0 0 !important;\n  -webkit-user-select: text !important;\n          user-select: text !important;\n}\n.tota11y-info-error-description-code-container {\n  margin-top: 10px !important;\n}\n.tota11y-info-error-description-code-container code {\n  display: block !important;\n  margin-top: 10px !important;\n  padding: 5px 10px !important;\n  word-wrap: break-word !important;\n}\n.tota11y-info-error-description.tota11y-collapsed {\n  display: none !important;\n}\n.tota11y-info-error-count {\n  background-color: red !important;\n  border-radius: 20px !important;\n  color: white !important;\n  display: inline !important;\n  margin-left: 5px !important;\n  padding: 1px 8px !important;\n}\n", ""]);
+// Exports
+/* harmony default export */ __webpack_exports__["Z"] = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ 1682:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3645);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".tota11y-dark-color-scheme {\n  background-color: #333 !important;\n  color: #f2f2f2 !important;\n}\n.tota11y-no-select {\n  -webkit-user-select: none !important;\n          user-select: none !important;\n}\n.tota11y-plugin {\n  -webkit-user-select: none !important;\n          user-select: none !important;\n  border-bottom: 1px solid #555 !important;\n  list-style: none !important;\n}\n.tota11y-plugin-switch {\n  align-items: center !important;\n  cursor: pointer !important;\n  display: flex !important;\n  padding: 12px 12px 12px 0 !important;\n  margin: 0 !important;\n}\n.tota11y-plugin-indicator {\n  margin: 0 15px !important;\n}\n.tota11y-plugin-indicator {\n  border-radius: 16px !important;\n  border: 1px solid #999 !important;\n  color: transparent !important;\n  font-size: 13px !important;\n  height: 16px !important;\n  line-height: 16px !important;\n  padding: 0 0 0 1px !important;\n  width: 16px !important;\n}\n.tota11y-plugin-checkbox:focus + .tota11y-plugin-indicator {\n  border-color: #639b24 !important;\n  background-color: #49721a !important;\n  color: #49721a !important;\n}\n.tota11y-plugin-checkbox:checked + .tota11y-plugin-indicator {\n  background-color: #639b24 !important;\n  border-color: #639b24 !important;\n  color: white !important;\n}\n.tota11y-plugin-title {\n  font-weight: bold !important;\n}\n.tota11y-plugin-description {\n  font-size: 11px !important;\n  font-style: italic !important;\n  width: 200px !important;\n  margin-right: 3px !important;\n}\n.tota11y-plugins-separator {\n  font-size: 12px !important;\n  margin: 7px 15px 0 !important;\n  text-transform: uppercase !important;\n}\n", ""]);
+// Exports
+/* harmony default export */ __webpack_exports__["Z"] = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ 3645:
+/***/ (function(module) {
 
 "use strict";
 
@@ -446,8 +2089,1711 @@ module.exports = function (cssWithMappingToString) {
 };
 
 /***/ }),
-/* 2 */
+
+/***/ 7149:
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+var Handlebars = __webpack_require__(202);
+function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
+module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
+    var helper, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.hooks.helperMissing, alias3="function", alias4=container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
+        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
+          return parent[propertyName];
+        }
+        return undefined
+    };
+
+  return "<div>\n    <p>\n        Kombinacja kolorów\n        <span class=\"tota11y-color-hexes\">"
+    + alias4(((helper = (helper = lookupProperty(helpers,"fgColorHex") || (depth0 != null ? lookupProperty(depth0,"fgColorHex") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"fgColorHex","hash":{},"data":data,"loc":{"start":{"line":4,"column":42},"end":{"line":4,"column":56}}}) : helper)))
+    + "/"
+    + alias4(((helper = (helper = lookupProperty(helpers,"bgColorHex") || (depth0 != null ? lookupProperty(depth0,"bgColorHex") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"bgColorHex","hash":{},"data":data,"loc":{"start":{"line":4,"column":57},"end":{"line":4,"column":71}}}) : helper)))
+    + "</span>\n        ma współczynnik kontrastu <strong>"
+    + alias4(((helper = (helper = lookupProperty(helpers,"contrastRatio") || (depth0 != null ? lookupProperty(depth0,"contrastRatio") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"contrastRatio","hash":{},"data":data,"loc":{"start":{"line":5,"column":42},"end":{"line":5,"column":59}}}) : helper)))
+    + "</strong>, który nie jest\n        wystarczajacy. Przy tej wielkości tekstu potrzebujesz proporcji co najmniej\n        <strong>"
+    + alias4(((helper = (helper = lookupProperty(helpers,"requiredRatio") || (depth0 != null ? lookupProperty(depth0,"requiredRatio") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"requiredRatio","hash":{},"data":data,"loc":{"start":{"line":7,"column":16},"end":{"line":7,"column":33}}}) : helper)))
+    + "</strong>.\n    </p>\n\n    <p>\n        Rozważ użycie poniższej kombinacji kolorów tekstu/tła:\n    </p>\n\n    <div class=\"tota11y-contrast-suggestion\">\n        <span class=\"tota11y-color-hexes\">\n            "
+    + alias4(((helper = (helper = lookupProperty(helpers,"suggestedFgColorHex") || (depth0 != null ? lookupProperty(depth0,"suggestedFgColorHex") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"suggestedFgColorHex","hash":{},"data":data,"loc":{"start":{"line":16,"column":12},"end":{"line":16,"column":35}}}) : helper)))
+    + "/"
+    + alias4(((helper = (helper = lookupProperty(helpers,"suggestedBgColorHex") || (depth0 != null ? lookupProperty(depth0,"suggestedBgColorHex") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"suggestedBgColorHex","hash":{},"data":data,"loc":{"start":{"line":16,"column":36},"end":{"line":16,"column":59}}}) : helper)))
+    + "\n        </span>\n\n        <span class=\"tota11y-swatches\">\n            <span\n                class=\"tota11y-swatch\"\n                style=\"background-color: "
+    + alias4(((helper = (helper = lookupProperty(helpers,"suggestedFgColorHex") || (depth0 != null ? lookupProperty(depth0,"suggestedFgColorHex") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"suggestedFgColorHex","hash":{},"data":data,"loc":{"start":{"line":22,"column":41},"end":{"line":22,"column":64}}}) : helper)))
+    + " !important\">\n            </span>\n            /\n            <span\n                class=\"tota11y-swatch\"\n                style=\"background-color: "
+    + alias4(((helper = (helper = lookupProperty(helpers,"suggestedBgColorHex") || (depth0 != null ? lookupProperty(depth0,"suggestedBgColorHex") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"suggestedBgColorHex","hash":{},"data":data,"loc":{"start":{"line":27,"column":41},"end":{"line":27,"column":64}}}) : helper)))
+    + " !important\">\n            </span>\n        </span>\n\n        ma kontrast <strong>"
+    + alias4(((helper = (helper = lookupProperty(helpers,"suggestedColorsRatio") || (depth0 != null ? lookupProperty(depth0,"suggestedColorsRatio") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"suggestedColorsRatio","hash":{},"data":data,"loc":{"start":{"line":31,"column":28},"end":{"line":31,"column":52}}}) : helper)))
+    + "</strong>\n        <br />\n\n        <label>\n            Podgląd:\n            <input class=\"preview-contrast-fix\" type=\"checkbox\">\n        </label>\n    </div>\n</div>\n";
+},"useData":true});
+
+/***/ }),
+
+/***/ 351:
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+var Handlebars = __webpack_require__(202);
+function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
+module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
+    var helper, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.hooks.helperMissing, alias3="function", alias4=container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
+        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
+          return parent[propertyName];
+        }
+        return undefined
+    };
+
+  return "Niewystarczający kontrast ("
+    + alias4(((helper = (helper = lookupProperty(helpers,"contrastRatio") || (depth0 != null ? lookupProperty(depth0,"contrastRatio") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"contrastRatio","hash":{},"data":data,"loc":{"start":{"line":1,"column":27},"end":{"line":1,"column":44}}}) : helper)))
+    + " &lt; "
+    + alias4(((helper = (helper = lookupProperty(helpers,"requiredRatio") || (depth0 != null ? lookupProperty(depth0,"requiredRatio") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"requiredRatio","hash":{},"data":data,"loc":{"start":{"line":1,"column":50},"end":{"line":1,"column":67}}}) : helper)))
+    + ")\n\n<span class=\"tota11y-swatches\">\n    <span class=\"tota11y-swatch\" style=\"background-color: "
+    + alias4(((helper = (helper = lookupProperty(helpers,"fgColorHex") || (depth0 != null ? lookupProperty(depth0,"fgColorHex") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"fgColorHex","hash":{},"data":data,"loc":{"start":{"line":4,"column":58},"end":{"line":4,"column":72}}}) : helper)))
+    + " !important\"></span>\n    /\n    <span class=\"tota11y-swatch\" style=\"background-color: "
+    + alias4(((helper = (helper = lookupProperty(helpers,"bgColorHex") || (depth0 != null ? lookupProperty(depth0,"bgColorHex") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"bgColorHex","hash":{},"data":data,"loc":{"start":{"line":6,"column":58},"end":{"line":6,"column":72}}}) : helper)))
+    + " !important\"></span>\n</span>\n";
+},"useData":true});
+
+/***/ }),
+
+/***/ 4794:
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+var Handlebars = __webpack_require__(202);
+function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
+module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
+    var helper, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.hooks.helperMissing, alias3="function", alias4=container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
+        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
+          return parent[propertyName];
+        }
+        return undefined
+    };
+
+  return "<div class=\"tota11y-heading-outline-entry heading-level-"
+    + alias4(((helper = (helper = lookupProperty(helpers,"level") || (depth0 != null ? lookupProperty(depth0,"level") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"level","hash":{},"data":data,"loc":{"start":{"line":1,"column":56},"end":{"line":1,"column":65}}}) : helper)))
+    + "\">\n    <span class=\"tota11y-heading-outline-level tota11y-label\">"
+    + alias4(((helper = (helper = lookupProperty(helpers,"level") || (depth0 != null ? lookupProperty(depth0,"level") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"level","hash":{},"data":data,"loc":{"start":{"line":2,"column":62},"end":{"line":2,"column":71}}}) : helper)))
+    + "</span>\n    <span class=\"tota11y-heading-outline-heading-text\">"
+    + alias4(((helper = (helper = lookupProperty(helpers,"text") || (depth0 != null ? lookupProperty(depth0,"text") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"text","hash":{},"data":data,"loc":{"start":{"line":3,"column":55},"end":{"line":3,"column":63}}}) : helper)))
+    + "</span>\n</div>\n";
+},"useData":true});
+
+/***/ }),
+
+/***/ 1234:
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+var Handlebars = __webpack_require__(202);
+function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
+module.exports = (Handlebars["default"] || Handlebars).template({"1":function(container,depth0,helpers,partials,data) {
+    return "    <p>\n        Atrybut <code>placeholder</code> nie gwarantuje, że zostanie odczytany\n        przez technologie wspomagające. Lepiej dodać odpowiednią etykietę.\n    </p>\n";
+},"3":function(container,depth0,helpers,partials,data) {
+    var helper, lookupProperty = container.lookupProperty || function(parent, propertyName) {
+        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
+          return parent[propertyName];
+        }
+        return undefined
+    };
+
+  return "    <p>\n        Najprostszym sposobem jest dodanie znacznika <code>&lt;label&gt;</code>\n        z atrybutem <code>for</code> jak poniżej:\n    </p>\n\n    <pre><code>&lt;label for=\""
+    + container.escapeExpression(((helper = (helper = lookupProperty(helpers,"id") || (depth0 != null ? lookupProperty(depth0,"id") : depth0)) != null ? helper : container.hooks.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"id","hash":{},"data":data,"loc":{"start":{"line":14,"column":30},"end":{"line":14,"column":36}}}) : helper)))
+    + "\"&gt;\n    Tutaj tekst etykiety...\n&lt;/label&gt;</code></pre>\n";
+},"5":function(container,depth0,helpers,partials,data) {
+    var helper, lookupProperty = container.lookupProperty || function(parent, propertyName) {
+        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
+          return parent[propertyName];
+        }
+        return undefined
+    };
+
+  return "    <p>\n        Możesz nadać tem elementowi atrybut <code>id</code> i utworzyć\n        <code>&lt;label&gt;</code> z odpowiednim atrybutem <code>for</code>\n        jak poniżej:\n\n        <pre><code>&lt;label for=\"my-input\"&gt;\n    Tutaj tekst etykiety...\n&lt;/label&gt;\n&lt;"
+    + container.escapeExpression(((helper = (helper = lookupProperty(helpers,"tagName") || (depth0 != null ? lookupProperty(depth0,"tagName") : depth0)) != null ? helper : container.hooks.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"tagName","hash":{},"data":data,"loc":{"start":{"line":26,"column":4},"end":{"line":26,"column":15}}}) : helper)))
+    + " id=\"my-input\"&gt;</code></pre>\n    </p>\n";
+},"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1, alias1=depth0 != null ? depth0 : (container.nullContext || {}), lookupProperty = container.lookupProperty || function(parent, propertyName) {
+        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
+          return parent[propertyName];
+        }
+        return undefined
+    };
+
+  return ((stack1 = lookupProperty(helpers,"if").call(alias1,(depth0 != null ? lookupProperty(depth0,"placeholder") : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":1,"column":0},"end":{"line":6,"column":7}}})) != null ? stack1 : "")
+    + "\n"
+    + ((stack1 = lookupProperty(helpers,"if").call(alias1,(depth0 != null ? lookupProperty(depth0,"id") : depth0),{"name":"if","hash":{},"fn":container.program(3, data, 0),"inverse":container.program(5, data, 0),"data":data,"loc":{"start":{"line":8,"column":0},"end":{"line":28,"column":7}}})) != null ? stack1 : "");
+},"useData":true});
+
+/***/ }),
+
+/***/ 9956:
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+var Handlebars = __webpack_require__(202);
+function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
+module.exports = (Handlebars["default"] || Handlebars).template({"1":function(container,depth0,helpers,partials,data) {
+    return "        <div class=\"tota11y-label-help\">\n            (<a class=\"tota11y-label-link\" href=\"#\">?</a>)\n        </div>\n";
+},"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1, helper, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.hooks.helperMissing, alias3="function", lookupProperty = container.lookupProperty || function(parent, propertyName) {
+        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
+          return parent[propertyName];
+        }
+        return undefined
+    };
+
+  return "<span class=\"tota11y-label-error-icon\">\n    <!--\n        \"Warning\" icon by Lorena Salagre\n        https://thenounproject.com/lorens/\n\n        Licensed under Creative Commons by 3.0 US\n        http://creativecommons.org/licenses/by/3.0/us/legalcode\n    -->\n    <svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"1.1\" id=\"Capa_1\" x=\"0px\" y=\"0px\" width=\"100%\" height=\"100%\" viewBox=\"0 0 100 100\" enable-background=\"new 0 0 100 100\" xml:space=\"preserve\">\n        <path d=\"M80.515,90.781H19.485c-6.145,0-10.779-2.168-13.052-6.103c-2.273-3.938-1.832-9.036,1.24-14.356l30.515-52.851  c3.07-5.321,7.266-8.251,11.811-8.251s8.741,2.93,11.811,8.251l30.515,52.851c3.072,5.32,3.513,10.418,1.24,14.356  C91.293,88.613,86.659,90.781,80.515,90.781z M50,12.384c-3.367,0-6.59,2.369-9.071,6.669L10.415,71.904  c-2.483,4.3-2.924,8.275-1.24,11.191c1.683,2.916,5.345,4.521,10.311,4.521h61.029c4.966,0,8.628-1.605,10.311-4.521  c1.683-2.916,1.243-6.89-1.24-11.191L59.071,19.053C56.59,14.753,53.367,12.384,50,12.384z M56.227,72.18  c0-3.172-2.572-5.744-5.744-5.744s-5.744,2.572-5.744,5.744c0,3.172,2.572,5.744,5.744,5.744S56.227,75.352,56.227,72.18z   M56.382,37.613c0-3.257-2.641-5.898-5.898-5.898c-3.257,0-5.898,2.641-5.898,5.898l1.393,20.932h0.019  c0.202,2.312,2.121,4.132,4.486,4.132c2.187,0,4.012-1.551,4.434-3.613c0.034-0.167,0.037-0.345,0.052-0.518h0.04L56.382,37.613z\"/>\n    </svg>\n</span>\n\n<span class=\"tota11y-label-content\">\n    <div class=\"tota11y-label-text\">"
+    + ((stack1 = ((helper = (helper = lookupProperty(helpers,"text") || (depth0 != null ? lookupProperty(depth0,"text") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"text","hash":{},"data":data,"loc":{"start":{"line":15,"column":36},"end":{"line":15,"column":46}}}) : helper))) != null ? stack1 : "")
+    + "</div>\n"
+    + ((stack1 = lookupProperty(helpers,"if").call(alias1,(depth0 != null ? lookupProperty(depth0,"hasErrorEntry") : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":16,"column":4},"end":{"line":20,"column":11}}})) != null ? stack1 : "")
+    + "    <div class=\"tota11y-label-detail\">"
+    + ((stack1 = ((helper = (helper = lookupProperty(helpers,"detail") || (depth0 != null ? lookupProperty(depth0,"detail") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"detail","hash":{},"data":data,"loc":{"start":{"line":21,"column":38},"end":{"line":21,"column":50}}}) : helper))) != null ? stack1 : "")
+    + "</div>\n</span>\n";
+},"useData":true});
+
+/***/ }),
+
+/***/ 7683:
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+var Handlebars = __webpack_require__(202);
+function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
+module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1, helper, lookupProperty = container.lookupProperty || function(parent, propertyName) {
+        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
+          return parent[propertyName];
+        }
+        return undefined
+    };
+
+  return "<li class=\"tota11y-info-error\">\n    <a aria-label=\"Przewiń do błędu\" href=\"#\" class=\"tota11y-info-error-scroll\">\n        <div class=\"tota11y-info-error-scroll-glyph tota11y-info-error-scroll-lens\"></div>\n        <div class=\"tota11y-info-error-scroll-glyph tota11y-info-error-scroll-handle\"></div>\n    </a>\n    <a href=\"#\" class=\"tota11y-info-error-trigger tota11y-collapsed\">\n        <div class=\"tota11y-info-error-title\">\n            <span class=\"tota11y-info-error-chevron\">\n                &#8250;\n            </span>\n            "
+    + ((stack1 = ((helper = (helper = lookupProperty(helpers,"title") || (depth0 != null ? lookupProperty(depth0,"title") : depth0)) != null ? helper : container.hooks.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"title","hash":{},"data":data,"loc":{"start":{"line":11,"column":12},"end":{"line":11,"column":23}}}) : helper))) != null ? stack1 : "")
+    + "\n        </div>\n    </a>\n    <div class=\"tota11y-info-error-description tota11y-collapsed\">\n        <div class=\"tota11y-info-error-description-code-container\">\n            <em>Lokalizacja w kodzie:</em>\n            <code></code>\n        </div>\n    </div>\n</li>\n";
+},"useData":true});
+
+/***/ }),
+
+/***/ 6839:
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+var Handlebars = __webpack_require__(202);
+function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
+module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
+    return "<!--\n    \"Glasses\" icon by Kyle Scott\n    https://thenounproject.com/Kyle/\n\n    Licensed under Creative Commons by 3.0 US\n    http://creativecommons.org/licenses/by/3.0/us/legalcode\n-->\n<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"1.1\" id=\"Layer_1\" x=\"0px\" y=\"0px\" viewBox=\"0 0 100 100\" enable-background=\"new 0 0 100 100\" xml:space=\"preserve\">\n    <path\n   fill=\"#ffffff\"\n   d=\"M74.466,35.24c-1.069-0.19-2.208-0.267-3.228-0.562c-0.639-0.184-1.348-0.622-1.965-1.075  c-1.246-0.919-2.479-1.557-3.928-2.152c-0.671-0.276-1.617-0.698-2.432-0.608c-0.582,0.064-1.196,0.664-1.73,1.029  c-1.196,0.818-2.186,1.442-3.32,2.198c-0.524,0.35-1.308,0.798-1.543,1.263c-0.142,0.279-0.13,0.736-0.281,1.029  c-0.35,0.679-1.069,1.434-1.777,1.403c-0.835-0.038-1.773-1.518-1.449-2.619c0.177-0.602,1.126-0.902,1.776-1.262  c2.041-1.134,3.803-2.3,5.52-3.602c1.106-0.841,2.579-1.471,4.536-1.542c1.889-0.071,4.45-0.083,6.22,0  c1.465,0.066,2.698,0.164,3.976,0.42c7.308,1.469,14.698,2.788,21.607,4.77c0.739,0.213,2.896,0.613,3.086,1.311  c0.121,0.439-0.236,1.435-0.375,2.151c-0.165,0.865-0.292,1.626-0.42,2.246c-0.12,0.574-0.65,1.174-0.936,1.776  c-0.842,1.778-1.379,3.821-2.104,5.753c-0.954,2.545-2.02,4.859-3.554,6.968c-1.46,2.005-3.442,3.33-5.987,4.536  c-1.128,0.534-2.43,1.083-3.835,1.403c-1.355,0.311-3.263,0.63-4.817,0.28c-2.233-0.501-3.081-2.543-3.882-4.536  c-0.848-2.115-1.351-4.049-1.636-6.827c-2.692,0.176-3.259,2.014-4.163,3.928c-0.384,0.812-0.792,1.623-1.168,2.385  c-1.542,3.115-3.197,6.47-5.473,8.746c-1.215,1.213-2.581,2.03-4.35,2.758c-3.331,1.373-6.847,2.569-10.757,3.462  c-3.598,0.821-8.923,1.642-12.252-0.093c-2.136-1.113-3.105-3.939-4.023-6.268c-0.458-1.159-0.835-2.459-1.262-3.882  c-0.378-1.259-0.708-2.778-1.543-3.602c-1.053-1.037-2.78-1.414-3.227-2.993c-0.815-0.307-1.563-0.821-2.292-1.308  c-4.349-2.915-8.693-5.774-13.141-8.606c-0.727-0.462-1.667-0.958-2.151-1.497c-0.712-0.792-1.108-2.117-1.684-3.133  c-0.265-0.469-0.588-0.92-0.888-1.357c-0.275-0.4-0.536-0.997-1.076-1.076C2.223,36.823,2.365,37.469,2.349,38  c-0.017,0.549-0.077,1.172-0.047,1.823c0.028,0.606,0.297,1.049,0.28,1.544c-0.018,0.515-0.291,1.036-0.841,1.029  c-0.727-0.009-0.8-0.98-0.983-1.686c-0.209-0.807-0.483-1.551-0.421-2.245c0.049-0.531,0.341-1.223,0.468-2.057  c0.246-1.599,0.126-3.078,1.451-3.415C3.004,32.804,4,33.38,4.781,33.649c0.789,0.272,1.597,0.428,2.339,0.702  c0.854,0.316,1.706,0.875,2.524,1.355c2.526,1.484,4.626,3.112,7.062,4.63c3.273,2.041,6.545,3.955,9.307,6.267  c7.434-2.179,16.722-3.566,25.863-4.302c4.176-0.337,8.326-0.174,12.253,0.374c5.624,0.787,10.073-1.58,13.844-3.18  c2.035-0.864,4.078-1.653,6.173-2.573C80.804,36.331,77.705,35.814,74.466,35.24z M93.968,39.729  c-1.838-0.388-3.732-0.737-5.471-1.075c-0.059-0.012-0.127-0.067-0.188-0.046c-1.143,0.392-2.279,0.613-3.367,1.029  c-2.033,0.773-4.015,1.775-5.752,3.039C78.33,43.3,77.372,44,76.897,44.733c-1.609,2.489-1.206,7.214-0.467,10.149  c0.27,1.071,0.411,1.79,0.889,2.666c3.022,1.287,6.88-0.183,8.885-1.684c1.526-1.142,2.676-2.75,3.602-4.35  C91.815,48.042,93.102,43.946,93.968,39.729z M64.878,46.089c-6.121-1.937-14.865-0.822-21.232,0.467  c-4.477,0.907-9.474,1.92-10.944,5.753c-0.801,2.086-1.009,5.098-0.701,7.903c0.284,2.599,1.076,4.892,2.011,6.594  c2.943,2.698,10.038,1.581,14.124,0.375c2.523-0.745,4.112-1.389,5.845-2.197c1.973-0.921,4.636-1.939,5.285-4.116  c0.179-0.597,0.115-1.244,0.188-1.824c0.492-3.909,1.942-7.447,4.303-9.634c0.477-0.441,1.146-0.679,1.357-1.262  C65.37,47.428,65.13,46.709,64.878,46.089z\"\n   id=\"path2\"\n   style=\"stroke:none;fill:#f9f9f9\" />\n<path\n   id=\"rect15\"\n   style=\"fill:#ff0000;stroke-width:0.57377\"\n   d=\"m 22.765135,44.410541 c 0.686657,2.465018 -0.483526,5.366464 -0.219497,8.663897 0.717574,0.450117 2.800346,1.911315 3.465462,2.065092 -0.318645,-2.902036 0.823534,-6.915992 0.0019,-8.53653 -0.764521,-0.652654 -1.999398,-1.368592 -2.649111,-1.850314 z\"\n   sodipodi:nodetypes=\"cccccc\" /><path\n   id=\"rect13\"\n   style=\"fill:#ffffff;stroke-width:0.57377\"\n   d=\"m 19.893426,51.326689 c -0.324653,-3.303086 0.451758,-1.902389 0.207832,-8.595415 l 2.663877,1.679267 c 0.665079,3.400958 -0.47458,4.799912 -0.219497,8.663897 z\"\n   sodipodi:nodetypes=\"ccccc\" /></svg>\n";
+},"useData":true});
+
+/***/ }),
+
+/***/ 6834:
 /***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+// istanbul ignore next
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+// istanbul ignore next
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
+
+var _handlebarsBase = __webpack_require__(2067);
+
+var base = _interopRequireWildcard(_handlebarsBase);
+
+// Each of these augment the Handlebars object. No need to setup here.
+// (This is done to easily share code between commonjs and browse envs)
+
+var _handlebarsSafeString = __webpack_require__(5558);
+
+var _handlebarsSafeString2 = _interopRequireDefault(_handlebarsSafeString);
+
+var _handlebarsException = __webpack_require__(8728);
+
+var _handlebarsException2 = _interopRequireDefault(_handlebarsException);
+
+var _handlebarsUtils = __webpack_require__(2392);
+
+var Utils = _interopRequireWildcard(_handlebarsUtils);
+
+var _handlebarsRuntime = __webpack_require__(1628);
+
+var runtime = _interopRequireWildcard(_handlebarsRuntime);
+
+var _handlebarsNoConflict = __webpack_require__(3982);
+
+var _handlebarsNoConflict2 = _interopRequireDefault(_handlebarsNoConflict);
+
+// For compatibility and usage outside of module systems, make the Handlebars object a namespace
+function create() {
+  var hb = new base.HandlebarsEnvironment();
+
+  Utils.extend(hb, base);
+  hb.SafeString = _handlebarsSafeString2['default'];
+  hb.Exception = _handlebarsException2['default'];
+  hb.Utils = Utils;
+  hb.escapeExpression = Utils.escapeExpression;
+
+  hb.VM = runtime;
+  hb.template = function (spec) {
+    return runtime.template(spec, hb);
+  };
+
+  return hb;
+}
+
+var inst = create();
+inst.create = create;
+
+_handlebarsNoConflict2['default'](inst);
+
+inst['default'] = inst;
+
+exports.default = inst;
+module.exports = exports['default'];
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL2xpYi9oYW5kbGViYXJzLnJ1bnRpbWUuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7OEJBQXNCLG1CQUFtQjs7SUFBN0IsSUFBSTs7Ozs7b0NBSU8sMEJBQTBCOzs7O21DQUMzQix3QkFBd0I7Ozs7K0JBQ3ZCLG9CQUFvQjs7SUFBL0IsS0FBSzs7aUNBQ1Esc0JBQXNCOztJQUFuQyxPQUFPOztvQ0FFSSwwQkFBMEI7Ozs7O0FBR2pELFNBQVMsTUFBTSxHQUFHO0FBQ2hCLE1BQUksRUFBRSxHQUFHLElBQUksSUFBSSxDQUFDLHFCQUFxQixFQUFFLENBQUM7O0FBRTFDLE9BQUssQ0FBQyxNQUFNLENBQUMsRUFBRSxFQUFFLElBQUksQ0FBQyxDQUFDO0FBQ3ZCLElBQUUsQ0FBQyxVQUFVLG9DQUFhLENBQUM7QUFDM0IsSUFBRSxDQUFDLFNBQVMsbUNBQVksQ0FBQztBQUN6QixJQUFFLENBQUMsS0FBSyxHQUFHLEtBQUssQ0FBQztBQUNqQixJQUFFLENBQUMsZ0JBQWdCLEdBQUcsS0FBSyxDQUFDLGdCQUFnQixDQUFDOztBQUU3QyxJQUFFLENBQUMsRUFBRSxHQUFHLE9BQU8sQ0FBQztBQUNoQixJQUFFLENBQUMsUUFBUSxHQUFHLFVBQVMsSUFBSSxFQUFFO0FBQzNCLFdBQU8sT0FBTyxDQUFDLFFBQVEsQ0FBQyxJQUFJLEVBQUUsRUFBRSxDQUFDLENBQUM7R0FDbkMsQ0FBQzs7QUFFRixTQUFPLEVBQUUsQ0FBQztDQUNYOztBQUVELElBQUksSUFBSSxHQUFHLE1BQU0sRUFBRSxDQUFDO0FBQ3BCLElBQUksQ0FBQyxNQUFNLEdBQUcsTUFBTSxDQUFDOztBQUVyQixrQ0FBVyxJQUFJLENBQUMsQ0FBQzs7QUFFakIsSUFBSSxDQUFDLFNBQVMsQ0FBQyxHQUFHLElBQUksQ0FBQzs7cUJBRVIsSUFBSSIsImZpbGUiOiJoYW5kbGViYXJzLnJ1bnRpbWUuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgKiBhcyBiYXNlIGZyb20gJy4vaGFuZGxlYmFycy9iYXNlJztcblxuLy8gRWFjaCBvZiB0aGVzZSBhdWdtZW50IHRoZSBIYW5kbGViYXJzIG9iamVjdC4gTm8gbmVlZCB0byBzZXR1cCBoZXJlLlxuLy8gKFRoaXMgaXMgZG9uZSB0byBlYXNpbHkgc2hhcmUgY29kZSBiZXR3ZWVuIGNvbW1vbmpzIGFuZCBicm93c2UgZW52cylcbmltcG9ydCBTYWZlU3RyaW5nIGZyb20gJy4vaGFuZGxlYmFycy9zYWZlLXN0cmluZyc7XG5pbXBvcnQgRXhjZXB0aW9uIGZyb20gJy4vaGFuZGxlYmFycy9leGNlcHRpb24nO1xuaW1wb3J0ICogYXMgVXRpbHMgZnJvbSAnLi9oYW5kbGViYXJzL3V0aWxzJztcbmltcG9ydCAqIGFzIHJ1bnRpbWUgZnJvbSAnLi9oYW5kbGViYXJzL3J1bnRpbWUnO1xuXG5pbXBvcnQgbm9Db25mbGljdCBmcm9tICcuL2hhbmRsZWJhcnMvbm8tY29uZmxpY3QnO1xuXG4vLyBGb3IgY29tcGF0aWJpbGl0eSBhbmQgdXNhZ2Ugb3V0c2lkZSBvZiBtb2R1bGUgc3lzdGVtcywgbWFrZSB0aGUgSGFuZGxlYmFycyBvYmplY3QgYSBuYW1lc3BhY2VcbmZ1bmN0aW9uIGNyZWF0ZSgpIHtcbiAgbGV0IGhiID0gbmV3IGJhc2UuSGFuZGxlYmFyc0Vudmlyb25tZW50KCk7XG5cbiAgVXRpbHMuZXh0ZW5kKGhiLCBiYXNlKTtcbiAgaGIuU2FmZVN0cmluZyA9IFNhZmVTdHJpbmc7XG4gIGhiLkV4Y2VwdGlvbiA9IEV4Y2VwdGlvbjtcbiAgaGIuVXRpbHMgPSBVdGlscztcbiAgaGIuZXNjYXBlRXhwcmVzc2lvbiA9IFV0aWxzLmVzY2FwZUV4cHJlc3Npb247XG5cbiAgaGIuVk0gPSBydW50aW1lO1xuICBoYi50ZW1wbGF0ZSA9IGZ1bmN0aW9uKHNwZWMpIHtcbiAgICByZXR1cm4gcnVudGltZS50ZW1wbGF0ZShzcGVjLCBoYik7XG4gIH07XG5cbiAgcmV0dXJuIGhiO1xufVxuXG5sZXQgaW5zdCA9IGNyZWF0ZSgpO1xuaW5zdC5jcmVhdGUgPSBjcmVhdGU7XG5cbm5vQ29uZmxpY3QoaW5zdCk7XG5cbmluc3RbJ2RlZmF1bHQnXSA9IGluc3Q7XG5cbmV4cG9ydCBkZWZhdWx0IGluc3Q7XG4iXX0=
+
+
+/***/ }),
+
+/***/ 2067:
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports.HandlebarsEnvironment = HandlebarsEnvironment;
+// istanbul ignore next
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _utils = __webpack_require__(2392);
+
+var _exception = __webpack_require__(8728);
+
+var _exception2 = _interopRequireDefault(_exception);
+
+var _helpers = __webpack_require__(2638);
+
+var _decorators = __webpack_require__(881);
+
+var _logger = __webpack_require__(8037);
+
+var _logger2 = _interopRequireDefault(_logger);
+
+var _internalProtoAccess = __webpack_require__(6293);
+
+var VERSION = '4.7.7';
+exports.VERSION = VERSION;
+var COMPILER_REVISION = 8;
+exports.COMPILER_REVISION = COMPILER_REVISION;
+var LAST_COMPATIBLE_COMPILER_REVISION = 7;
+
+exports.LAST_COMPATIBLE_COMPILER_REVISION = LAST_COMPATIBLE_COMPILER_REVISION;
+var REVISION_CHANGES = {
+  1: '<= 1.0.rc.2', // 1.0.rc.2 is actually rev2 but doesn't report it
+  2: '== 1.0.0-rc.3',
+  3: '== 1.0.0-rc.4',
+  4: '== 1.x.x',
+  5: '== 2.0.0-alpha.x',
+  6: '>= 2.0.0-beta.1',
+  7: '>= 4.0.0 <4.3.0',
+  8: '>= 4.3.0'
+};
+
+exports.REVISION_CHANGES = REVISION_CHANGES;
+var objectType = '[object Object]';
+
+function HandlebarsEnvironment(helpers, partials, decorators) {
+  this.helpers = helpers || {};
+  this.partials = partials || {};
+  this.decorators = decorators || {};
+
+  _helpers.registerDefaultHelpers(this);
+  _decorators.registerDefaultDecorators(this);
+}
+
+HandlebarsEnvironment.prototype = {
+  constructor: HandlebarsEnvironment,
+
+  logger: _logger2['default'],
+  log: _logger2['default'].log,
+
+  registerHelper: function registerHelper(name, fn) {
+    if (_utils.toString.call(name) === objectType) {
+      if (fn) {
+        throw new _exception2['default']('Arg not supported with multiple helpers');
+      }
+      _utils.extend(this.helpers, name);
+    } else {
+      this.helpers[name] = fn;
+    }
+  },
+  unregisterHelper: function unregisterHelper(name) {
+    delete this.helpers[name];
+  },
+
+  registerPartial: function registerPartial(name, partial) {
+    if (_utils.toString.call(name) === objectType) {
+      _utils.extend(this.partials, name);
+    } else {
+      if (typeof partial === 'undefined') {
+        throw new _exception2['default']('Attempting to register a partial called "' + name + '" as undefined');
+      }
+      this.partials[name] = partial;
+    }
+  },
+  unregisterPartial: function unregisterPartial(name) {
+    delete this.partials[name];
+  },
+
+  registerDecorator: function registerDecorator(name, fn) {
+    if (_utils.toString.call(name) === objectType) {
+      if (fn) {
+        throw new _exception2['default']('Arg not supported with multiple decorators');
+      }
+      _utils.extend(this.decorators, name);
+    } else {
+      this.decorators[name] = fn;
+    }
+  },
+  unregisterDecorator: function unregisterDecorator(name) {
+    delete this.decorators[name];
+  },
+  /**
+   * Reset the memory of illegal property accesses that have already been logged.
+   * @deprecated should only be used in handlebars test-cases
+   */
+  resetLoggedPropertyAccesses: function resetLoggedPropertyAccesses() {
+    _internalProtoAccess.resetLoggedProperties();
+  }
+};
+
+var log = _logger2['default'].log;
+
+exports.log = log;
+exports.createFrame = _utils.createFrame;
+exports.logger = _logger2['default'];
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL2xpYi9oYW5kbGViYXJzL2Jhc2UuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7cUJBQThDLFNBQVM7O3lCQUNqQyxhQUFhOzs7O3VCQUNJLFdBQVc7OzBCQUNSLGNBQWM7O3NCQUNyQyxVQUFVOzs7O21DQUNTLHlCQUF5Qjs7QUFFeEQsSUFBTSxPQUFPLEdBQUcsT0FBTyxDQUFDOztBQUN4QixJQUFNLGlCQUFpQixHQUFHLENBQUMsQ0FBQzs7QUFDNUIsSUFBTSxpQ0FBaUMsR0FBRyxDQUFDLENBQUM7OztBQUU1QyxJQUFNLGdCQUFnQixHQUFHO0FBQzlCLEdBQUMsRUFBRSxhQUFhO0FBQ2hCLEdBQUMsRUFBRSxlQUFlO0FBQ2xCLEdBQUMsRUFBRSxlQUFlO0FBQ2xCLEdBQUMsRUFBRSxVQUFVO0FBQ2IsR0FBQyxFQUFFLGtCQUFrQjtBQUNyQixHQUFDLEVBQUUsaUJBQWlCO0FBQ3BCLEdBQUMsRUFBRSxpQkFBaUI7QUFDcEIsR0FBQyxFQUFFLFVBQVU7Q0FDZCxDQUFDOzs7QUFFRixJQUFNLFVBQVUsR0FBRyxpQkFBaUIsQ0FBQzs7QUFFOUIsU0FBUyxxQkFBcUIsQ0FBQyxPQUFPLEVBQUUsUUFBUSxFQUFFLFVBQVUsRUFBRTtBQUNuRSxNQUFJLENBQUMsT0FBTyxHQUFHLE9BQU8sSUFBSSxFQUFFLENBQUM7QUFDN0IsTUFBSSxDQUFDLFFBQVEsR0FBRyxRQUFRLElBQUksRUFBRSxDQUFDO0FBQy9CLE1BQUksQ0FBQyxVQUFVLEdBQUcsVUFBVSxJQUFJLEVBQUUsQ0FBQzs7QUFFbkMsa0NBQXVCLElBQUksQ0FBQyxDQUFDO0FBQzdCLHdDQUEwQixJQUFJLENBQUMsQ0FBQztDQUNqQzs7QUFFRCxxQkFBcUIsQ0FBQyxTQUFTLEdBQUc7QUFDaEMsYUFBVyxFQUFFLHFCQUFxQjs7QUFFbEMsUUFBTSxxQkFBUTtBQUNkLEtBQUcsRUFBRSxvQkFBTyxHQUFHOztBQUVmLGdCQUFjLEVBQUUsd0JBQVMsSUFBSSxFQUFFLEVBQUUsRUFBRTtBQUNqQyxRQUFJLGdCQUFTLElBQUksQ0FBQyxJQUFJLENBQUMsS0FBSyxVQUFVLEVBQUU7QUFDdEMsVUFBSSxFQUFFLEVBQUU7QUFDTixjQUFNLDJCQUFjLHlDQUF5QyxDQUFDLENBQUM7T0FDaEU7QUFDRCxvQkFBTyxJQUFJLENBQUMsT0FBTyxFQUFFLElBQUksQ0FBQyxDQUFDO0tBQzVCLE1BQU07QUFDTCxVQUFJLENBQUMsT0FBTyxDQUFDLElBQUksQ0FBQyxHQUFHLEVBQUUsQ0FBQztLQUN6QjtHQUNGO0FBQ0Qsa0JBQWdCLEVBQUUsMEJBQVMsSUFBSSxFQUFFO0FBQy9CLFdBQU8sSUFBSSxDQUFDLE9BQU8sQ0FBQyxJQUFJLENBQUMsQ0FBQztHQUMzQjs7QUFFRCxpQkFBZSxFQUFFLHlCQUFTLElBQUksRUFBRSxPQUFPLEVBQUU7QUFDdkMsUUFBSSxnQkFBUyxJQUFJLENBQUMsSUFBSSxDQUFDLEtBQUssVUFBVSxFQUFFO0FBQ3RDLG9CQUFPLElBQUksQ0FBQyxRQUFRLEVBQUUsSUFBSSxDQUFDLENBQUM7S0FDN0IsTUFBTTtBQUNMLFVBQUksT0FBTyxPQUFPLEtBQUssV0FBVyxFQUFFO0FBQ2xDLGNBQU0seUVBQ3dDLElBQUksb0JBQ2pELENBQUM7T0FDSDtBQUNELFVBQUksQ0FBQyxRQUFRLENBQUMsSUFBSSxDQUFDLEdBQUcsT0FBTyxDQUFDO0tBQy9CO0dBQ0Y7QUFDRCxtQkFBaUIsRUFBRSwyQkFBUyxJQUFJLEVBQUU7QUFDaEMsV0FBTyxJQUFJLENBQUMsUUFBUSxDQUFDLElBQUksQ0FBQyxDQUFDO0dBQzVCOztBQUVELG1CQUFpQixFQUFFLDJCQUFTLElBQUksRUFBRSxFQUFFLEVBQUU7QUFDcEMsUUFBSSxnQkFBUyxJQUFJLENBQUMsSUFBSSxDQUFDLEtBQUssVUFBVSxFQUFFO0FBQ3RDLFVBQUksRUFBRSxFQUFFO0FBQ04sY0FBTSwyQkFBYyw0Q0FBNEMsQ0FBQyxDQUFDO09BQ25FO0FBQ0Qsb0JBQU8sSUFBSSxDQUFDLFVBQVUsRUFBRSxJQUFJLENBQUMsQ0FBQztLQUMvQixNQUFNO0FBQ0wsVUFBSSxDQUFDLFVBQVUsQ0FBQyxJQUFJLENBQUMsR0FBRyxFQUFFLENBQUM7S0FDNUI7R0FDRjtBQUNELHFCQUFtQixFQUFFLDZCQUFTLElBQUksRUFBRTtBQUNsQyxXQUFPLElBQUksQ0FBQyxVQUFVLENBQUMsSUFBSSxDQUFDLENBQUM7R0FDOUI7Ozs7O0FBS0QsNkJBQTJCLEVBQUEsdUNBQUc7QUFDNUIsZ0RBQXVCLENBQUM7R0FDekI7Q0FDRixDQUFDOztBQUVLLElBQUksR0FBRyxHQUFHLG9CQUFPLEdBQUcsQ0FBQzs7O1FBRW5CLFdBQVc7UUFBRSxNQUFNIiwiZmlsZSI6ImJhc2UuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBjcmVhdGVGcmFtZSwgZXh0ZW5kLCB0b1N0cmluZyB9IGZyb20gJy4vdXRpbHMnO1xuaW1wb3J0IEV4Y2VwdGlvbiBmcm9tICcuL2V4Y2VwdGlvbic7XG5pbXBvcnQgeyByZWdpc3RlckRlZmF1bHRIZWxwZXJzIH0gZnJvbSAnLi9oZWxwZXJzJztcbmltcG9ydCB7IHJlZ2lzdGVyRGVmYXVsdERlY29yYXRvcnMgfSBmcm9tICcuL2RlY29yYXRvcnMnO1xuaW1wb3J0IGxvZ2dlciBmcm9tICcuL2xvZ2dlcic7XG5pbXBvcnQgeyByZXNldExvZ2dlZFByb3BlcnRpZXMgfSBmcm9tICcuL2ludGVybmFsL3Byb3RvLWFjY2Vzcyc7XG5cbmV4cG9ydCBjb25zdCBWRVJTSU9OID0gJzQuNy43JztcbmV4cG9ydCBjb25zdCBDT01QSUxFUl9SRVZJU0lPTiA9IDg7XG5leHBvcnQgY29uc3QgTEFTVF9DT01QQVRJQkxFX0NPTVBJTEVSX1JFVklTSU9OID0gNztcblxuZXhwb3J0IGNvbnN0IFJFVklTSU9OX0NIQU5HRVMgPSB7XG4gIDE6ICc8PSAxLjAucmMuMicsIC8vIDEuMC5yYy4yIGlzIGFjdHVhbGx5IHJldjIgYnV0IGRvZXNuJ3QgcmVwb3J0IGl0XG4gIDI6ICc9PSAxLjAuMC1yYy4zJyxcbiAgMzogJz09IDEuMC4wLXJjLjQnLFxuICA0OiAnPT0gMS54LngnLFxuICA1OiAnPT0gMi4wLjAtYWxwaGEueCcsXG4gIDY6ICc+PSAyLjAuMC1iZXRhLjEnLFxuICA3OiAnPj0gNC4wLjAgPDQuMy4wJyxcbiAgODogJz49IDQuMy4wJ1xufTtcblxuY29uc3Qgb2JqZWN0VHlwZSA9ICdbb2JqZWN0IE9iamVjdF0nO1xuXG5leHBvcnQgZnVuY3Rpb24gSGFuZGxlYmFyc0Vudmlyb25tZW50KGhlbHBlcnMsIHBhcnRpYWxzLCBkZWNvcmF0b3JzKSB7XG4gIHRoaXMuaGVscGVycyA9IGhlbHBlcnMgfHwge307XG4gIHRoaXMucGFydGlhbHMgPSBwYXJ0aWFscyB8fCB7fTtcbiAgdGhpcy5kZWNvcmF0b3JzID0gZGVjb3JhdG9ycyB8fCB7fTtcblxuICByZWdpc3RlckRlZmF1bHRIZWxwZXJzKHRoaXMpO1xuICByZWdpc3RlckRlZmF1bHREZWNvcmF0b3JzKHRoaXMpO1xufVxuXG5IYW5kbGViYXJzRW52aXJvbm1lbnQucHJvdG90eXBlID0ge1xuICBjb25zdHJ1Y3RvcjogSGFuZGxlYmFyc0Vudmlyb25tZW50LFxuXG4gIGxvZ2dlcjogbG9nZ2VyLFxuICBsb2c6IGxvZ2dlci5sb2csXG5cbiAgcmVnaXN0ZXJIZWxwZXI6IGZ1bmN0aW9uKG5hbWUsIGZuKSB7XG4gICAgaWYgKHRvU3RyaW5nLmNhbGwobmFtZSkgPT09IG9iamVjdFR5cGUpIHtcbiAgICAgIGlmIChmbikge1xuICAgICAgICB0aHJvdyBuZXcgRXhjZXB0aW9uKCdBcmcgbm90IHN1cHBvcnRlZCB3aXRoIG11bHRpcGxlIGhlbHBlcnMnKTtcbiAgICAgIH1cbiAgICAgIGV4dGVuZCh0aGlzLmhlbHBlcnMsIG5hbWUpO1xuICAgIH0gZWxzZSB7XG4gICAgICB0aGlzLmhlbHBlcnNbbmFtZV0gPSBmbjtcbiAgICB9XG4gIH0sXG4gIHVucmVnaXN0ZXJIZWxwZXI6IGZ1bmN0aW9uKG5hbWUpIHtcbiAgICBkZWxldGUgdGhpcy5oZWxwZXJzW25hbWVdO1xuICB9LFxuXG4gIHJlZ2lzdGVyUGFydGlhbDogZnVuY3Rpb24obmFtZSwgcGFydGlhbCkge1xuICAgIGlmICh0b1N0cmluZy5jYWxsKG5hbWUpID09PSBvYmplY3RUeXBlKSB7XG4gICAgICBleHRlbmQodGhpcy5wYXJ0aWFscywgbmFtZSk7XG4gICAgfSBlbHNlIHtcbiAgICAgIGlmICh0eXBlb2YgcGFydGlhbCA9PT0gJ3VuZGVmaW5lZCcpIHtcbiAgICAgICAgdGhyb3cgbmV3IEV4Y2VwdGlvbihcbiAgICAgICAgICBgQXR0ZW1wdGluZyB0byByZWdpc3RlciBhIHBhcnRpYWwgY2FsbGVkIFwiJHtuYW1lfVwiIGFzIHVuZGVmaW5lZGBcbiAgICAgICAgKTtcbiAgICAgIH1cbiAgICAgIHRoaXMucGFydGlhbHNbbmFtZV0gPSBwYXJ0aWFsO1xuICAgIH1cbiAgfSxcbiAgdW5yZWdpc3RlclBhcnRpYWw6IGZ1bmN0aW9uKG5hbWUpIHtcbiAgICBkZWxldGUgdGhpcy5wYXJ0aWFsc1tuYW1lXTtcbiAgfSxcblxuICByZWdpc3RlckRlY29yYXRvcjogZnVuY3Rpb24obmFtZSwgZm4pIHtcbiAgICBpZiAodG9TdHJpbmcuY2FsbChuYW1lKSA9PT0gb2JqZWN0VHlwZSkge1xuICAgICAgaWYgKGZuKSB7XG4gICAgICAgIHRocm93IG5ldyBFeGNlcHRpb24oJ0FyZyBub3Qgc3VwcG9ydGVkIHdpdGggbXVsdGlwbGUgZGVjb3JhdG9ycycpO1xuICAgICAgfVxuICAgICAgZXh0ZW5kKHRoaXMuZGVjb3JhdG9ycywgbmFtZSk7XG4gICAgfSBlbHNlIHtcbiAgICAgIHRoaXMuZGVjb3JhdG9yc1tuYW1lXSA9IGZuO1xuICAgIH1cbiAgfSxcbiAgdW5yZWdpc3RlckRlY29yYXRvcjogZnVuY3Rpb24obmFtZSkge1xuICAgIGRlbGV0ZSB0aGlzLmRlY29yYXRvcnNbbmFtZV07XG4gIH0sXG4gIC8qKlxuICAgKiBSZXNldCB0aGUgbWVtb3J5IG9mIGlsbGVnYWwgcHJvcGVydHkgYWNjZXNzZXMgdGhhdCBoYXZlIGFscmVhZHkgYmVlbiBsb2dnZWQuXG4gICAqIEBkZXByZWNhdGVkIHNob3VsZCBvbmx5IGJlIHVzZWQgaW4gaGFuZGxlYmFycyB0ZXN0LWNhc2VzXG4gICAqL1xuICByZXNldExvZ2dlZFByb3BlcnR5QWNjZXNzZXMoKSB7XG4gICAgcmVzZXRMb2dnZWRQcm9wZXJ0aWVzKCk7XG4gIH1cbn07XG5cbmV4cG9ydCBsZXQgbG9nID0gbG9nZ2VyLmxvZztcblxuZXhwb3J0IHsgY3JlYXRlRnJhbWUsIGxvZ2dlciB9O1xuIl19
+
+
+/***/ }),
+
+/***/ 881:
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports.registerDefaultDecorators = registerDefaultDecorators;
+// istanbul ignore next
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _decoratorsInline = __webpack_require__(5670);
+
+var _decoratorsInline2 = _interopRequireDefault(_decoratorsInline);
+
+function registerDefaultDecorators(instance) {
+  _decoratorsInline2['default'](instance);
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL2xpYi9oYW5kbGViYXJzL2RlY29yYXRvcnMuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Z0NBQTJCLHFCQUFxQjs7OztBQUV6QyxTQUFTLHlCQUF5QixDQUFDLFFBQVEsRUFBRTtBQUNsRCxnQ0FBZSxRQUFRLENBQUMsQ0FBQztDQUMxQiIsImZpbGUiOiJkZWNvcmF0b3JzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHJlZ2lzdGVySW5saW5lIGZyb20gJy4vZGVjb3JhdG9ycy9pbmxpbmUnO1xuXG5leHBvcnQgZnVuY3Rpb24gcmVnaXN0ZXJEZWZhdWx0RGVjb3JhdG9ycyhpbnN0YW5jZSkge1xuICByZWdpc3RlcklubGluZShpbnN0YW5jZSk7XG59XG4iXX0=
+
+
+/***/ }),
+
+/***/ 5670:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _utils = __webpack_require__(2392);
+
+exports.default = function (instance) {
+  instance.registerDecorator('inline', function (fn, props, container, options) {
+    var ret = fn;
+    if (!props.partials) {
+      props.partials = {};
+      ret = function (context, options) {
+        // Create a new partials stack frame prior to exec.
+        var original = container.partials;
+        container.partials = _utils.extend({}, original, props.partials);
+        var ret = fn(context, options);
+        container.partials = original;
+        return ret;
+      };
+    }
+
+    props.partials[options.args[0]] = options.fn;
+
+    return ret;
+  });
+};
+
+module.exports = exports['default'];
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL2xpYi9oYW5kbGViYXJzL2RlY29yYXRvcnMvaW5saW5lLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7cUJBQXVCLFVBQVU7O3FCQUVsQixVQUFTLFFBQVEsRUFBRTtBQUNoQyxVQUFRLENBQUMsaUJBQWlCLENBQUMsUUFBUSxFQUFFLFVBQVMsRUFBRSxFQUFFLEtBQUssRUFBRSxTQUFTLEVBQUUsT0FBTyxFQUFFO0FBQzNFLFFBQUksR0FBRyxHQUFHLEVBQUUsQ0FBQztBQUNiLFFBQUksQ0FBQyxLQUFLLENBQUMsUUFBUSxFQUFFO0FBQ25CLFdBQUssQ0FBQyxRQUFRLEdBQUcsRUFBRSxDQUFDO0FBQ3BCLFNBQUcsR0FBRyxVQUFTLE9BQU8sRUFBRSxPQUFPLEVBQUU7O0FBRS9CLFlBQUksUUFBUSxHQUFHLFNBQVMsQ0FBQyxRQUFRLENBQUM7QUFDbEMsaUJBQVMsQ0FBQyxRQUFRLEdBQUcsY0FBTyxFQUFFLEVBQUUsUUFBUSxFQUFFLEtBQUssQ0FBQyxRQUFRLENBQUMsQ0FBQztBQUMxRCxZQUFJLEdBQUcsR0FBRyxFQUFFLENBQUMsT0FBTyxFQUFFLE9BQU8sQ0FBQyxDQUFDO0FBQy9CLGlCQUFTLENBQUMsUUFBUSxHQUFHLFFBQVEsQ0FBQztBQUM5QixlQUFPLEdBQUcsQ0FBQztPQUNaLENBQUM7S0FDSDs7QUFFRCxTQUFLLENBQUMsUUFBUSxDQUFDLE9BQU8sQ0FBQyxJQUFJLENBQUMsQ0FBQyxDQUFDLENBQUMsR0FBRyxPQUFPLENBQUMsRUFBRSxDQUFDOztBQUU3QyxXQUFPLEdBQUcsQ0FBQztHQUNaLENBQUMsQ0FBQztDQUNKIiwiZmlsZSI6ImlubGluZS5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IGV4dGVuZCB9IGZyb20gJy4uL3V0aWxzJztcblxuZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24oaW5zdGFuY2UpIHtcbiAgaW5zdGFuY2UucmVnaXN0ZXJEZWNvcmF0b3IoJ2lubGluZScsIGZ1bmN0aW9uKGZuLCBwcm9wcywgY29udGFpbmVyLCBvcHRpb25zKSB7XG4gICAgbGV0IHJldCA9IGZuO1xuICAgIGlmICghcHJvcHMucGFydGlhbHMpIHtcbiAgICAgIHByb3BzLnBhcnRpYWxzID0ge307XG4gICAgICByZXQgPSBmdW5jdGlvbihjb250ZXh0LCBvcHRpb25zKSB7XG4gICAgICAgIC8vIENyZWF0ZSBhIG5ldyBwYXJ0aWFscyBzdGFjayBmcmFtZSBwcmlvciB0byBleGVjLlxuICAgICAgICBsZXQgb3JpZ2luYWwgPSBjb250YWluZXIucGFydGlhbHM7XG4gICAgICAgIGNvbnRhaW5lci5wYXJ0aWFscyA9IGV4dGVuZCh7fSwgb3JpZ2luYWwsIHByb3BzLnBhcnRpYWxzKTtcbiAgICAgICAgbGV0IHJldCA9IGZuKGNvbnRleHQsIG9wdGlvbnMpO1xuICAgICAgICBjb250YWluZXIucGFydGlhbHMgPSBvcmlnaW5hbDtcbiAgICAgICAgcmV0dXJuIHJldDtcbiAgICAgIH07XG4gICAgfVxuXG4gICAgcHJvcHMucGFydGlhbHNbb3B0aW9ucy5hcmdzWzBdXSA9IG9wdGlvbnMuZm47XG5cbiAgICByZXR1cm4gcmV0O1xuICB9KTtcbn1cbiJdfQ==
+
+
+/***/ }),
+
+/***/ 8728:
+/***/ (function(module, exports) {
+
+"use strict";
+
+
+exports.__esModule = true;
+var errorProps = ['description', 'fileName', 'lineNumber', 'endLineNumber', 'message', 'name', 'number', 'stack'];
+
+function Exception(message, node) {
+  var loc = node && node.loc,
+      line = undefined,
+      endLineNumber = undefined,
+      column = undefined,
+      endColumn = undefined;
+
+  if (loc) {
+    line = loc.start.line;
+    endLineNumber = loc.end.line;
+    column = loc.start.column;
+    endColumn = loc.end.column;
+
+    message += ' - ' + line + ':' + column;
+  }
+
+  var tmp = Error.prototype.constructor.call(this, message);
+
+  // Unfortunately errors are not enumerable in Chrome (at least), so `for prop in tmp` doesn't work.
+  for (var idx = 0; idx < errorProps.length; idx++) {
+    this[errorProps[idx]] = tmp[errorProps[idx]];
+  }
+
+  /* istanbul ignore else */
+  if (Error.captureStackTrace) {
+    Error.captureStackTrace(this, Exception);
+  }
+
+  try {
+    if (loc) {
+      this.lineNumber = line;
+      this.endLineNumber = endLineNumber;
+
+      // Work around issue under safari where we can't directly set the column value
+      /* istanbul ignore next */
+      if (Object.defineProperty) {
+        Object.defineProperty(this, 'column', {
+          value: column,
+          enumerable: true
+        });
+        Object.defineProperty(this, 'endColumn', {
+          value: endColumn,
+          enumerable: true
+        });
+      } else {
+        this.column = column;
+        this.endColumn = endColumn;
+      }
+    }
+  } catch (nop) {
+    /* Ignore if the browser is very particular */
+  }
+}
+
+Exception.prototype = new Error();
+
+exports.default = Exception;
+module.exports = exports['default'];
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL2xpYi9oYW5kbGViYXJzL2V4Y2VwdGlvbi5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7QUFBQSxJQUFNLFVBQVUsR0FBRyxDQUNqQixhQUFhLEVBQ2IsVUFBVSxFQUNWLFlBQVksRUFDWixlQUFlLEVBQ2YsU0FBUyxFQUNULE1BQU0sRUFDTixRQUFRLEVBQ1IsT0FBTyxDQUNSLENBQUM7O0FBRUYsU0FBUyxTQUFTLENBQUMsT0FBTyxFQUFFLElBQUksRUFBRTtBQUNoQyxNQUFJLEdBQUcsR0FBRyxJQUFJLElBQUksSUFBSSxDQUFDLEdBQUc7TUFDeEIsSUFBSSxZQUFBO01BQ0osYUFBYSxZQUFBO01BQ2IsTUFBTSxZQUFBO01BQ04sU0FBUyxZQUFBLENBQUM7O0FBRVosTUFBSSxHQUFHLEVBQUU7QUFDUCxRQUFJLEdBQUcsR0FBRyxDQUFDLEtBQUssQ0FBQyxJQUFJLENBQUM7QUFDdEIsaUJBQWEsR0FBRyxHQUFHLENBQUMsR0FBRyxDQUFDLElBQUksQ0FBQztBQUM3QixVQUFNLEdBQUcsR0FBRyxDQUFDLEtBQUssQ0FBQyxNQUFNLENBQUM7QUFDMUIsYUFBUyxHQUFHLEdBQUcsQ0FBQyxHQUFHLENBQUMsTUFBTSxDQUFDOztBQUUzQixXQUFPLElBQUksS0FBSyxHQUFHLElBQUksR0FBRyxHQUFHLEdBQUcsTUFBTSxDQUFDO0dBQ3hDOztBQUVELE1BQUksR0FBRyxHQUFHLEtBQUssQ0FBQyxTQUFTLENBQUMsV0FBVyxDQUFDLElBQUksQ0FBQyxJQUFJLEVBQUUsT0FBTyxDQUFDLENBQUM7OztBQUcxRCxPQUFLLElBQUksR0FBRyxHQUFHLENBQUMsRUFBRSxHQUFHLEdBQUcsVUFBVSxDQUFDLE1BQU0sRUFBRSxHQUFHLEVBQUUsRUFBRTtBQUNoRCxRQUFJLENBQUMsVUFBVSxDQUFDLEdBQUcsQ0FBQyxDQUFDLEdBQUcsR0FBRyxDQUFDLFVBQVUsQ0FBQyxHQUFHLENBQUMsQ0FBQyxDQUFDO0dBQzlDOzs7QUFHRCxNQUFJLEtBQUssQ0FBQyxpQkFBaUIsRUFBRTtBQUMzQixTQUFLLENBQUMsaUJBQWlCLENBQUMsSUFBSSxFQUFFLFNBQVMsQ0FBQyxDQUFDO0dBQzFDOztBQUVELE1BQUk7QUFDRixRQUFJLEdBQUcsRUFBRTtBQUNQLFVBQUksQ0FBQyxVQUFVLEdBQUcsSUFBSSxDQUFDO0FBQ3ZCLFVBQUksQ0FBQyxhQUFhLEdBQUcsYUFBYSxDQUFDOzs7O0FBSW5DLFVBQUksTUFBTSxDQUFDLGNBQWMsRUFBRTtBQUN6QixjQUFNLENBQUMsY0FBYyxDQUFDLElBQUksRUFBRSxRQUFRLEVBQUU7QUFDcEMsZUFBSyxFQUFFLE1BQU07QUFDYixvQkFBVSxFQUFFLElBQUk7U0FDakIsQ0FBQyxDQUFDO0FBQ0gsY0FBTSxDQUFDLGNBQWMsQ0FBQyxJQUFJLEVBQUUsV0FBVyxFQUFFO0FBQ3ZDLGVBQUssRUFBRSxTQUFTO0FBQ2hCLG9CQUFVLEVBQUUsSUFBSTtTQUNqQixDQUFDLENBQUM7T0FDSixNQUFNO0FBQ0wsWUFBSSxDQUFDLE1BQU0sR0FBRyxNQUFNLENBQUM7QUFDckIsWUFBSSxDQUFDLFNBQVMsR0FBRyxTQUFTLENBQUM7T0FDNUI7S0FDRjtHQUNGLENBQUMsT0FBTyxHQUFHLEVBQUU7O0dBRWI7Q0FDRjs7QUFFRCxTQUFTLENBQUMsU0FBUyxHQUFHLElBQUksS0FBSyxFQUFFLENBQUM7O3FCQUVuQixTQUFTIiwiZmlsZSI6ImV4Y2VwdGlvbi5qcyIsInNvdXJjZXNDb250ZW50IjpbImNvbnN0IGVycm9yUHJvcHMgPSBbXG4gICdkZXNjcmlwdGlvbicsXG4gICdmaWxlTmFtZScsXG4gICdsaW5lTnVtYmVyJyxcbiAgJ2VuZExpbmVOdW1iZXInLFxuICAnbWVzc2FnZScsXG4gICduYW1lJyxcbiAgJ251bWJlcicsXG4gICdzdGFjaydcbl07XG5cbmZ1bmN0aW9uIEV4Y2VwdGlvbihtZXNzYWdlLCBub2RlKSB7XG4gIGxldCBsb2MgPSBub2RlICYmIG5vZGUubG9jLFxuICAgIGxpbmUsXG4gICAgZW5kTGluZU51bWJlcixcbiAgICBjb2x1bW4sXG4gICAgZW5kQ29sdW1uO1xuXG4gIGlmIChsb2MpIHtcbiAgICBsaW5lID0gbG9jLnN0YXJ0LmxpbmU7XG4gICAgZW5kTGluZU51bWJlciA9IGxvYy5lbmQubGluZTtcbiAgICBjb2x1bW4gPSBsb2Muc3RhcnQuY29sdW1uO1xuICAgIGVuZENvbHVtbiA9IGxvYy5lbmQuY29sdW1uO1xuXG4gICAgbWVzc2FnZSArPSAnIC0gJyArIGxpbmUgKyAnOicgKyBjb2x1bW47XG4gIH1cblxuICBsZXQgdG1wID0gRXJyb3IucHJvdG90eXBlLmNvbnN0cnVjdG9yLmNhbGwodGhpcywgbWVzc2FnZSk7XG5cbiAgLy8gVW5mb3J0dW5hdGVseSBlcnJvcnMgYXJlIG5vdCBlbnVtZXJhYmxlIGluIENocm9tZSAoYXQgbGVhc3QpLCBzbyBgZm9yIHByb3AgaW4gdG1wYCBkb2Vzbid0IHdvcmsuXG4gIGZvciAobGV0IGlkeCA9IDA7IGlkeCA8IGVycm9yUHJvcHMubGVuZ3RoOyBpZHgrKykge1xuICAgIHRoaXNbZXJyb3JQcm9wc1tpZHhdXSA9IHRtcFtlcnJvclByb3BzW2lkeF1dO1xuICB9XG5cbiAgLyogaXN0YW5idWwgaWdub3JlIGVsc2UgKi9cbiAgaWYgKEVycm9yLmNhcHR1cmVTdGFja1RyYWNlKSB7XG4gICAgRXJyb3IuY2FwdHVyZVN0YWNrVHJhY2UodGhpcywgRXhjZXB0aW9uKTtcbiAgfVxuXG4gIHRyeSB7XG4gICAgaWYgKGxvYykge1xuICAgICAgdGhpcy5saW5lTnVtYmVyID0gbGluZTtcbiAgICAgIHRoaXMuZW5kTGluZU51bWJlciA9IGVuZExpbmVOdW1iZXI7XG5cbiAgICAgIC8vIFdvcmsgYXJvdW5kIGlzc3VlIHVuZGVyIHNhZmFyaSB3aGVyZSB3ZSBjYW4ndCBkaXJlY3RseSBzZXQgdGhlIGNvbHVtbiB2YWx1ZVxuICAgICAgLyogaXN0YW5idWwgaWdub3JlIG5leHQgKi9cbiAgICAgIGlmIChPYmplY3QuZGVmaW5lUHJvcGVydHkpIHtcbiAgICAgICAgT2JqZWN0LmRlZmluZVByb3BlcnR5KHRoaXMsICdjb2x1bW4nLCB7XG4gICAgICAgICAgdmFsdWU6IGNvbHVtbixcbiAgICAgICAgICBlbnVtZXJhYmxlOiB0cnVlXG4gICAgICAgIH0pO1xuICAgICAgICBPYmplY3QuZGVmaW5lUHJvcGVydHkodGhpcywgJ2VuZENvbHVtbicsIHtcbiAgICAgICAgICB2YWx1ZTogZW5kQ29sdW1uLFxuICAgICAgICAgIGVudW1lcmFibGU6IHRydWVcbiAgICAgICAgfSk7XG4gICAgICB9IGVsc2Uge1xuICAgICAgICB0aGlzLmNvbHVtbiA9IGNvbHVtbjtcbiAgICAgICAgdGhpcy5lbmRDb2x1bW4gPSBlbmRDb2x1bW47XG4gICAgICB9XG4gICAgfVxuICB9IGNhdGNoIChub3ApIHtcbiAgICAvKiBJZ25vcmUgaWYgdGhlIGJyb3dzZXIgaXMgdmVyeSBwYXJ0aWN1bGFyICovXG4gIH1cbn1cblxuRXhjZXB0aW9uLnByb3RvdHlwZSA9IG5ldyBFcnJvcigpO1xuXG5leHBvcnQgZGVmYXVsdCBFeGNlcHRpb247XG4iXX0=
+
+
+/***/ }),
+
+/***/ 2638:
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports.registerDefaultHelpers = registerDefaultHelpers;
+exports.moveHelperToHooks = moveHelperToHooks;
+// istanbul ignore next
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _helpersBlockHelperMissing = __webpack_require__(7342);
+
+var _helpersBlockHelperMissing2 = _interopRequireDefault(_helpersBlockHelperMissing);
+
+var _helpersEach = __webpack_require__(6822);
+
+var _helpersEach2 = _interopRequireDefault(_helpersEach);
+
+var _helpersHelperMissing = __webpack_require__(4905);
+
+var _helpersHelperMissing2 = _interopRequireDefault(_helpersHelperMissing);
+
+var _helpersIf = __webpack_require__(7405);
+
+var _helpersIf2 = _interopRequireDefault(_helpersIf);
+
+var _helpersLog = __webpack_require__(5702);
+
+var _helpersLog2 = _interopRequireDefault(_helpersLog);
+
+var _helpersLookup = __webpack_require__(7593);
+
+var _helpersLookup2 = _interopRequireDefault(_helpersLookup);
+
+var _helpersWith = __webpack_require__(3978);
+
+var _helpersWith2 = _interopRequireDefault(_helpersWith);
+
+function registerDefaultHelpers(instance) {
+  _helpersBlockHelperMissing2['default'](instance);
+  _helpersEach2['default'](instance);
+  _helpersHelperMissing2['default'](instance);
+  _helpersIf2['default'](instance);
+  _helpersLog2['default'](instance);
+  _helpersLookup2['default'](instance);
+  _helpersWith2['default'](instance);
+}
+
+function moveHelperToHooks(instance, helperName, keepHelper) {
+  if (instance.helpers[helperName]) {
+    instance.hooks[helperName] = instance.helpers[helperName];
+    if (!keepHelper) {
+      delete instance.helpers[helperName];
+    }
+  }
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL2xpYi9oYW5kbGViYXJzL2hlbHBlcnMuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7O3lDQUF1QyxnQ0FBZ0M7Ozs7MkJBQzlDLGdCQUFnQjs7OztvQ0FDUCwwQkFBMEI7Ozs7eUJBQ3JDLGNBQWM7Ozs7MEJBQ2IsZUFBZTs7Ozs2QkFDWixrQkFBa0I7Ozs7MkJBQ3BCLGdCQUFnQjs7OztBQUVsQyxTQUFTLHNCQUFzQixDQUFDLFFBQVEsRUFBRTtBQUMvQyx5Q0FBMkIsUUFBUSxDQUFDLENBQUM7QUFDckMsMkJBQWEsUUFBUSxDQUFDLENBQUM7QUFDdkIsb0NBQXNCLFFBQVEsQ0FBQyxDQUFDO0FBQ2hDLHlCQUFXLFFBQVEsQ0FBQyxDQUFDO0FBQ3JCLDBCQUFZLFFBQVEsQ0FBQyxDQUFDO0FBQ3RCLDZCQUFlLFFBQVEsQ0FBQyxDQUFDO0FBQ3pCLDJCQUFhLFFBQVEsQ0FBQyxDQUFDO0NBQ3hCOztBQUVNLFNBQVMsaUJBQWlCLENBQUMsUUFBUSxFQUFFLFVBQVUsRUFBRSxVQUFVLEVBQUU7QUFDbEUsTUFBSSxRQUFRLENBQUMsT0FBTyxDQUFDLFVBQVUsQ0FBQyxFQUFFO0FBQ2hDLFlBQVEsQ0FBQyxLQUFLLENBQUMsVUFBVSxDQUFDLEdBQUcsUUFBUSxDQUFDLE9BQU8sQ0FBQyxVQUFVLENBQUMsQ0FBQztBQUMxRCxRQUFJLENBQUMsVUFBVSxFQUFFO0FBQ2YsYUFBTyxRQUFRLENBQUMsT0FBTyxDQUFDLFVBQVUsQ0FBQyxDQUFDO0tBQ3JDO0dBQ0Y7Q0FDRiIsImZpbGUiOiJoZWxwZXJzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHJlZ2lzdGVyQmxvY2tIZWxwZXJNaXNzaW5nIGZyb20gJy4vaGVscGVycy9ibG9jay1oZWxwZXItbWlzc2luZyc7XG5pbXBvcnQgcmVnaXN0ZXJFYWNoIGZyb20gJy4vaGVscGVycy9lYWNoJztcbmltcG9ydCByZWdpc3RlckhlbHBlck1pc3NpbmcgZnJvbSAnLi9oZWxwZXJzL2hlbHBlci1taXNzaW5nJztcbmltcG9ydCByZWdpc3RlcklmIGZyb20gJy4vaGVscGVycy9pZic7XG5pbXBvcnQgcmVnaXN0ZXJMb2cgZnJvbSAnLi9oZWxwZXJzL2xvZyc7XG5pbXBvcnQgcmVnaXN0ZXJMb29rdXAgZnJvbSAnLi9oZWxwZXJzL2xvb2t1cCc7XG5pbXBvcnQgcmVnaXN0ZXJXaXRoIGZyb20gJy4vaGVscGVycy93aXRoJztcblxuZXhwb3J0IGZ1bmN0aW9uIHJlZ2lzdGVyRGVmYXVsdEhlbHBlcnMoaW5zdGFuY2UpIHtcbiAgcmVnaXN0ZXJCbG9ja0hlbHBlck1pc3NpbmcoaW5zdGFuY2UpO1xuICByZWdpc3RlckVhY2goaW5zdGFuY2UpO1xuICByZWdpc3RlckhlbHBlck1pc3NpbmcoaW5zdGFuY2UpO1xuICByZWdpc3RlcklmKGluc3RhbmNlKTtcbiAgcmVnaXN0ZXJMb2coaW5zdGFuY2UpO1xuICByZWdpc3Rlckxvb2t1cChpbnN0YW5jZSk7XG4gIHJlZ2lzdGVyV2l0aChpbnN0YW5jZSk7XG59XG5cbmV4cG9ydCBmdW5jdGlvbiBtb3ZlSGVscGVyVG9Ib29rcyhpbnN0YW5jZSwgaGVscGVyTmFtZSwga2VlcEhlbHBlcikge1xuICBpZiAoaW5zdGFuY2UuaGVscGVyc1toZWxwZXJOYW1lXSkge1xuICAgIGluc3RhbmNlLmhvb2tzW2hlbHBlck5hbWVdID0gaW5zdGFuY2UuaGVscGVyc1toZWxwZXJOYW1lXTtcbiAgICBpZiAoIWtlZXBIZWxwZXIpIHtcbiAgICAgIGRlbGV0ZSBpbnN0YW5jZS5oZWxwZXJzW2hlbHBlck5hbWVdO1xuICAgIH1cbiAgfVxufVxuIl19
+
+
+/***/ }),
+
+/***/ 7342:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _utils = __webpack_require__(2392);
+
+exports.default = function (instance) {
+  instance.registerHelper('blockHelperMissing', function (context, options) {
+    var inverse = options.inverse,
+        fn = options.fn;
+
+    if (context === true) {
+      return fn(this);
+    } else if (context === false || context == null) {
+      return inverse(this);
+    } else if (_utils.isArray(context)) {
+      if (context.length > 0) {
+        if (options.ids) {
+          options.ids = [options.name];
+        }
+
+        return instance.helpers.each(context, options);
+      } else {
+        return inverse(this);
+      }
+    } else {
+      if (options.data && options.ids) {
+        var data = _utils.createFrame(options.data);
+        data.contextPath = _utils.appendContextPath(options.data.contextPath, options.name);
+        options = { data: data };
+      }
+
+      return fn(context, options);
+    }
+  });
+};
+
+module.exports = exports['default'];
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL2xpYi9oYW5kbGViYXJzL2hlbHBlcnMvYmxvY2staGVscGVyLW1pc3NpbmcuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7OztxQkFBd0QsVUFBVTs7cUJBRW5ELFVBQVMsUUFBUSxFQUFFO0FBQ2hDLFVBQVEsQ0FBQyxjQUFjLENBQUMsb0JBQW9CLEVBQUUsVUFBUyxPQUFPLEVBQUUsT0FBTyxFQUFFO0FBQ3ZFLFFBQUksT0FBTyxHQUFHLE9BQU8sQ0FBQyxPQUFPO1FBQzNCLEVBQUUsR0FBRyxPQUFPLENBQUMsRUFBRSxDQUFDOztBQUVsQixRQUFJLE9BQU8sS0FBSyxJQUFJLEVBQUU7QUFDcEIsYUFBTyxFQUFFLENBQUMsSUFBSSxDQUFDLENBQUM7S0FDakIsTUFBTSxJQUFJLE9BQU8sS0FBSyxLQUFLLElBQUksT0FBTyxJQUFJLElBQUksRUFBRTtBQUMvQyxhQUFPLE9BQU8sQ0FBQyxJQUFJLENBQUMsQ0FBQztLQUN0QixNQUFNLElBQUksZUFBUSxPQUFPLENBQUMsRUFBRTtBQUMzQixVQUFJLE9BQU8sQ0FBQyxNQUFNLEdBQUcsQ0FBQyxFQUFFO0FBQ3RCLFlBQUksT0FBTyxDQUFDLEdBQUcsRUFBRTtBQUNmLGlCQUFPLENBQUMsR0FBRyxHQUFHLENBQUMsT0FBTyxDQUFDLElBQUksQ0FBQyxDQUFDO1NBQzlCOztBQUVELGVBQU8sUUFBUSxDQUFDLE9BQU8sQ0FBQyxJQUFJLENBQUMsT0FBTyxFQUFFLE9BQU8sQ0FBQyxDQUFDO09BQ2hELE1BQU07QUFDTCxlQUFPLE9BQU8sQ0FBQyxJQUFJLENBQUMsQ0FBQztPQUN0QjtLQUNGLE1BQU07QUFDTCxVQUFJLE9BQU8sQ0FBQyxJQUFJLElBQUksT0FBTyxDQUFDLEdBQUcsRUFBRTtBQUMvQixZQUFJLElBQUksR0FBRyxtQkFBWSxPQUFPLENBQUMsSUFBSSxDQUFDLENBQUM7QUFDckMsWUFBSSxDQUFDLFdBQVcsR0FBRyx5QkFDakIsT0FBTyxDQUFDLElBQUksQ0FBQyxXQUFXLEVBQ3hCLE9BQU8sQ0FBQyxJQUFJLENBQ2IsQ0FBQztBQUNGLGVBQU8sR0FBRyxFQUFFLElBQUksRUFBRSxJQUFJLEVBQUUsQ0FBQztPQUMxQjs7QUFFRCxhQUFPLEVBQUUsQ0FBQyxPQUFPLEVBQUUsT0FBTyxDQUFDLENBQUM7S0FDN0I7R0FDRixDQUFDLENBQUM7Q0FDSiIsImZpbGUiOiJibG9jay1oZWxwZXItbWlzc2luZy5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IGFwcGVuZENvbnRleHRQYXRoLCBjcmVhdGVGcmFtZSwgaXNBcnJheSB9IGZyb20gJy4uL3V0aWxzJztcblxuZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24oaW5zdGFuY2UpIHtcbiAgaW5zdGFuY2UucmVnaXN0ZXJIZWxwZXIoJ2Jsb2NrSGVscGVyTWlzc2luZycsIGZ1bmN0aW9uKGNvbnRleHQsIG9wdGlvbnMpIHtcbiAgICBsZXQgaW52ZXJzZSA9IG9wdGlvbnMuaW52ZXJzZSxcbiAgICAgIGZuID0gb3B0aW9ucy5mbjtcblxuICAgIGlmIChjb250ZXh0ID09PSB0cnVlKSB7XG4gICAgICByZXR1cm4gZm4odGhpcyk7XG4gICAgfSBlbHNlIGlmIChjb250ZXh0ID09PSBmYWxzZSB8fCBjb250ZXh0ID09IG51bGwpIHtcbiAgICAgIHJldHVybiBpbnZlcnNlKHRoaXMpO1xuICAgIH0gZWxzZSBpZiAoaXNBcnJheShjb250ZXh0KSkge1xuICAgICAgaWYgKGNvbnRleHQubGVuZ3RoID4gMCkge1xuICAgICAgICBpZiAob3B0aW9ucy5pZHMpIHtcbiAgICAgICAgICBvcHRpb25zLmlkcyA9IFtvcHRpb25zLm5hbWVdO1xuICAgICAgICB9XG5cbiAgICAgICAgcmV0dXJuIGluc3RhbmNlLmhlbHBlcnMuZWFjaChjb250ZXh0LCBvcHRpb25zKTtcbiAgICAgIH0gZWxzZSB7XG4gICAgICAgIHJldHVybiBpbnZlcnNlKHRoaXMpO1xuICAgICAgfVxuICAgIH0gZWxzZSB7XG4gICAgICBpZiAob3B0aW9ucy5kYXRhICYmIG9wdGlvbnMuaWRzKSB7XG4gICAgICAgIGxldCBkYXRhID0gY3JlYXRlRnJhbWUob3B0aW9ucy5kYXRhKTtcbiAgICAgICAgZGF0YS5jb250ZXh0UGF0aCA9IGFwcGVuZENvbnRleHRQYXRoKFxuICAgICAgICAgIG9wdGlvbnMuZGF0YS5jb250ZXh0UGF0aCxcbiAgICAgICAgICBvcHRpb25zLm5hbWVcbiAgICAgICAgKTtcbiAgICAgICAgb3B0aW9ucyA9IHsgZGF0YTogZGF0YSB9O1xuICAgICAgfVxuXG4gICAgICByZXR1cm4gZm4oY29udGV4dCwgb3B0aW9ucyk7XG4gICAgfVxuICB9KTtcbn1cbiJdfQ==
+
+
+/***/ }),
+
+/***/ 6822:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+// istanbul ignore next
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _utils = __webpack_require__(2392);
+
+var _exception = __webpack_require__(8728);
+
+var _exception2 = _interopRequireDefault(_exception);
+
+exports.default = function (instance) {
+  instance.registerHelper('each', function (context, options) {
+    if (!options) {
+      throw new _exception2['default']('Must pass iterator to #each');
+    }
+
+    var fn = options.fn,
+        inverse = options.inverse,
+        i = 0,
+        ret = '',
+        data = undefined,
+        contextPath = undefined;
+
+    if (options.data && options.ids) {
+      contextPath = _utils.appendContextPath(options.data.contextPath, options.ids[0]) + '.';
+    }
+
+    if (_utils.isFunction(context)) {
+      context = context.call(this);
+    }
+
+    if (options.data) {
+      data = _utils.createFrame(options.data);
+    }
+
+    function execIteration(field, index, last) {
+      if (data) {
+        data.key = field;
+        data.index = index;
+        data.first = index === 0;
+        data.last = !!last;
+
+        if (contextPath) {
+          data.contextPath = contextPath + field;
+        }
+      }
+
+      ret = ret + fn(context[field], {
+        data: data,
+        blockParams: _utils.blockParams([context[field], field], [contextPath + field, null])
+      });
+    }
+
+    if (context && typeof context === 'object') {
+      if (_utils.isArray(context)) {
+        for (var j = context.length; i < j; i++) {
+          if (i in context) {
+            execIteration(i, i, i === context.length - 1);
+          }
+        }
+      } else if (__webpack_require__.g.Symbol && context[__webpack_require__.g.Symbol.iterator]) {
+        var newContext = [];
+        var iterator = context[__webpack_require__.g.Symbol.iterator]();
+        for (var it = iterator.next(); !it.done; it = iterator.next()) {
+          newContext.push(it.value);
+        }
+        context = newContext;
+        for (var j = context.length; i < j; i++) {
+          execIteration(i, i, i === context.length - 1);
+        }
+      } else {
+        (function () {
+          var priorKey = undefined;
+
+          Object.keys(context).forEach(function (key) {
+            // We're running the iterations one step out of sync so we can detect
+            // the last iteration without have to scan the object twice and create
+            // an itermediate keys array.
+            if (priorKey !== undefined) {
+              execIteration(priorKey, i - 1);
+            }
+            priorKey = key;
+            i++;
+          });
+          if (priorKey !== undefined) {
+            execIteration(priorKey, i - 1, true);
+          }
+        })();
+      }
+    }
+
+    if (i === 0) {
+      ret = inverse(this);
+    }
+
+    return ret;
+  });
+};
+
+module.exports = exports['default'];
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL2xpYi9oYW5kbGViYXJzL2hlbHBlcnMvZWFjaC5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7O3FCQU1PLFVBQVU7O3lCQUNLLGNBQWM7Ozs7cUJBRXJCLFVBQVMsUUFBUSxFQUFFO0FBQ2hDLFVBQVEsQ0FBQyxjQUFjLENBQUMsTUFBTSxFQUFFLFVBQVMsT0FBTyxFQUFFLE9BQU8sRUFBRTtBQUN6RCxRQUFJLENBQUMsT0FBTyxFQUFFO0FBQ1osWUFBTSwyQkFBYyw2QkFBNkIsQ0FBQyxDQUFDO0tBQ3BEOztBQUVELFFBQUksRUFBRSxHQUFHLE9BQU8sQ0FBQyxFQUFFO1FBQ2pCLE9BQU8sR0FBRyxPQUFPLENBQUMsT0FBTztRQUN6QixDQUFDLEdBQUcsQ0FBQztRQUNMLEdBQUcsR0FBRyxFQUFFO1FBQ1IsSUFBSSxZQUFBO1FBQ0osV0FBVyxZQUFBLENBQUM7O0FBRWQsUUFBSSxPQUFPLENBQUMsSUFBSSxJQUFJLE9BQU8sQ0FBQyxHQUFHLEVBQUU7QUFDL0IsaUJBQVcsR0FDVCx5QkFBa0IsT0FBTyxDQUFDLElBQUksQ0FBQyxXQUFXLEVBQUUsT0FBTyxDQUFDLEdBQUcsQ0FBQyxDQUFDLENBQUMsQ0FBQyxHQUFHLEdBQUcsQ0FBQztLQUNyRTs7QUFFRCxRQUFJLGtCQUFXLE9BQU8sQ0FBQyxFQUFFO0FBQ3ZCLGFBQU8sR0FBRyxPQUFPLENBQUMsSUFBSSxDQUFDLElBQUksQ0FBQyxDQUFDO0tBQzlCOztBQUVELFFBQUksT0FBTyxDQUFDLElBQUksRUFBRTtBQUNoQixVQUFJLEdBQUcsbUJBQVksT0FBTyxDQUFDLElBQUksQ0FBQyxDQUFDO0tBQ2xDOztBQUVELGFBQVMsYUFBYSxDQUFDLEtBQUssRUFBRSxLQUFLLEVBQUUsSUFBSSxFQUFFO0FBQ3pDLFVBQUksSUFBSSxFQUFFO0FBQ1IsWUFBSSxDQUFDLEdBQUcsR0FBRyxLQUFLLENBQUM7QUFDakIsWUFBSSxDQUFDLEtBQUssR0FBRyxLQUFLLENBQUM7QUFDbkIsWUFBSSxDQUFDLEtBQUssR0FBRyxLQUFLLEtBQUssQ0FBQyxDQUFDO0FBQ3pCLFlBQUksQ0FBQyxJQUFJLEdBQUcsQ0FBQyxDQUFDLElBQUksQ0FBQzs7QUFFbkIsWUFBSSxXQUFXLEVBQUU7QUFDZixjQUFJLENBQUMsV0FBVyxHQUFHLFdBQVcsR0FBRyxLQUFLLENBQUM7U0FDeEM7T0FDRjs7QUFFRCxTQUFHLEdBQ0QsR0FBRyxHQUNILEVBQUUsQ0FBQyxPQUFPLENBQUMsS0FBSyxDQUFDLEVBQUU7QUFDakIsWUFBSSxFQUFFLElBQUk7QUFDVixtQkFBVyxFQUFFLG1CQUNYLENBQUMsT0FBTyxDQUFDLEtBQUssQ0FBQyxFQUFFLEtBQUssQ0FBQyxFQUN2QixDQUFDLFdBQVcsR0FBRyxLQUFLLEVBQUUsSUFBSSxDQUFDLENBQzVCO09BQ0YsQ0FBQyxDQUFDO0tBQ047O0FBRUQsUUFBSSxPQUFPLElBQUksT0FBTyxPQUFPLEtBQUssUUFBUSxFQUFFO0FBQzFDLFVBQUksZUFBUSxPQUFPLENBQUMsRUFBRTtBQUNwQixhQUFLLElBQUksQ0FBQyxHQUFHLE9BQU8sQ0FBQyxNQUFNLEVBQUUsQ0FBQyxHQUFHLENBQUMsRUFBRSxDQUFDLEVBQUUsRUFBRTtBQUN2QyxjQUFJLENBQUMsSUFBSSxPQUFPLEVBQUU7QUFDaEIseUJBQWEsQ0FBQyxDQUFDLEVBQUUsQ0FBQyxFQUFFLENBQUMsS0FBSyxPQUFPLENBQUMsTUFBTSxHQUFHLENBQUMsQ0FBQyxDQUFDO1dBQy9DO1NBQ0Y7T0FDRixNQUFNLElBQUksTUFBTSxDQUFDLE1BQU0sSUFBSSxPQUFPLENBQUMsTUFBTSxDQUFDLE1BQU0sQ0FBQyxRQUFRLENBQUMsRUFBRTtBQUMzRCxZQUFNLFVBQVUsR0FBRyxFQUFFLENBQUM7QUFDdEIsWUFBTSxRQUFRLEdBQUcsT0FBTyxDQUFDLE1BQU0sQ0FBQyxNQUFNLENBQUMsUUFBUSxDQUFDLEVBQUUsQ0FBQztBQUNuRCxhQUFLLElBQUksRUFBRSxHQUFHLFFBQVEsQ0FBQyxJQUFJLEVBQUUsRUFBRSxDQUFDLEVBQUUsQ0FBQyxJQUFJLEVBQUUsRUFBRSxHQUFHLFFBQVEsQ0FBQyxJQUFJLEVBQUUsRUFBRTtBQUM3RCxvQkFBVSxDQUFDLElBQUksQ0FBQyxFQUFFLENBQUMsS0FBSyxDQUFDLENBQUM7U0FDM0I7QUFDRCxlQUFPLEdBQUcsVUFBVSxDQUFDO0FBQ3JCLGFBQUssSUFBSSxDQUFDLEdBQUcsT0FBTyxDQUFDLE1BQU0sRUFBRSxDQUFDLEdBQUcsQ0FBQyxFQUFFLENBQUMsRUFBRSxFQUFFO0FBQ3ZDLHVCQUFhLENBQUMsQ0FBQyxFQUFFLENBQUMsRUFBRSxDQUFDLEtBQUssT0FBTyxDQUFDLE1BQU0sR0FBRyxDQUFDLENBQUMsQ0FBQztTQUMvQztPQUNGLE1BQU07O0FBQ0wsY0FBSSxRQUFRLFlBQUEsQ0FBQzs7QUFFYixnQkFBTSxDQUFDLElBQUksQ0FBQyxPQUFPLENBQUMsQ0FBQyxPQUFPLENBQUMsVUFBQSxHQUFHLEVBQUk7Ozs7QUFJbEMsZ0JBQUksUUFBUSxLQUFLLFNBQVMsRUFBRTtBQUMxQiwyQkFBYSxDQUFDLFFBQVEsRUFBRSxDQUFDLEdBQUcsQ0FBQyxDQUFDLENBQUM7YUFDaEM7QUFDRCxvQkFBUSxHQUFHLEdBQUcsQ0FBQztBQUNmLGFBQUMsRUFBRSxDQUFDO1dBQ0wsQ0FBQyxDQUFDO0FBQ0gsY0FBSSxRQUFRLEtBQUssU0FBUyxFQUFFO0FBQzFCLHlCQUFhLENBQUMsUUFBUSxFQUFFLENBQUMsR0FBRyxDQUFDLEVBQUUsSUFBSSxDQUFDLENBQUM7V0FDdEM7O09BQ0Y7S0FDRjs7QUFFRCxRQUFJLENBQUMsS0FBSyxDQUFDLEVBQUU7QUFDWCxTQUFHLEdBQUcsT0FBTyxDQUFDLElBQUksQ0FBQyxDQUFDO0tBQ3JCOztBQUVELFdBQU8sR0FBRyxDQUFDO0dBQ1osQ0FBQyxDQUFDO0NBQ0oiLCJmaWxlIjoiZWFjaC5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7XG4gIGFwcGVuZENvbnRleHRQYXRoLFxuICBibG9ja1BhcmFtcyxcbiAgY3JlYXRlRnJhbWUsXG4gIGlzQXJyYXksXG4gIGlzRnVuY3Rpb25cbn0gZnJvbSAnLi4vdXRpbHMnO1xuaW1wb3J0IEV4Y2VwdGlvbiBmcm9tICcuLi9leGNlcHRpb24nO1xuXG5leHBvcnQgZGVmYXVsdCBmdW5jdGlvbihpbnN0YW5jZSkge1xuICBpbnN0YW5jZS5yZWdpc3RlckhlbHBlcignZWFjaCcsIGZ1bmN0aW9uKGNvbnRleHQsIG9wdGlvbnMpIHtcbiAgICBpZiAoIW9wdGlvbnMpIHtcbiAgICAgIHRocm93IG5ldyBFeGNlcHRpb24oJ011c3QgcGFzcyBpdGVyYXRvciB0byAjZWFjaCcpO1xuICAgIH1cblxuICAgIGxldCBmbiA9IG9wdGlvbnMuZm4sXG4gICAgICBpbnZlcnNlID0gb3B0aW9ucy5pbnZlcnNlLFxuICAgICAgaSA9IDAsXG4gICAgICByZXQgPSAnJyxcbiAgICAgIGRhdGEsXG4gICAgICBjb250ZXh0UGF0aDtcblxuICAgIGlmIChvcHRpb25zLmRhdGEgJiYgb3B0aW9ucy5pZHMpIHtcbiAgICAgIGNvbnRleHRQYXRoID1cbiAgICAgICAgYXBwZW5kQ29udGV4dFBhdGgob3B0aW9ucy5kYXRhLmNvbnRleHRQYXRoLCBvcHRpb25zLmlkc1swXSkgKyAnLic7XG4gICAgfVxuXG4gICAgaWYgKGlzRnVuY3Rpb24oY29udGV4dCkpIHtcbiAgICAgIGNvbnRleHQgPSBjb250ZXh0LmNhbGwodGhpcyk7XG4gICAgfVxuXG4gICAgaWYgKG9wdGlvbnMuZGF0YSkge1xuICAgICAgZGF0YSA9IGNyZWF0ZUZyYW1lKG9wdGlvbnMuZGF0YSk7XG4gICAgfVxuXG4gICAgZnVuY3Rpb24gZXhlY0l0ZXJhdGlvbihmaWVsZCwgaW5kZXgsIGxhc3QpIHtcbiAgICAgIGlmIChkYXRhKSB7XG4gICAgICAgIGRhdGEua2V5ID0gZmllbGQ7XG4gICAgICAgIGRhdGEuaW5kZXggPSBpbmRleDtcbiAgICAgICAgZGF0YS5maXJzdCA9IGluZGV4ID09PSAwO1xuICAgICAgICBkYXRhLmxhc3QgPSAhIWxhc3Q7XG5cbiAgICAgICAgaWYgKGNvbnRleHRQYXRoKSB7XG4gICAgICAgICAgZGF0YS5jb250ZXh0UGF0aCA9IGNvbnRleHRQYXRoICsgZmllbGQ7XG4gICAgICAgIH1cbiAgICAgIH1cblxuICAgICAgcmV0ID1cbiAgICAgICAgcmV0ICtcbiAgICAgICAgZm4oY29udGV4dFtmaWVsZF0sIHtcbiAgICAgICAgICBkYXRhOiBkYXRhLFxuICAgICAgICAgIGJsb2NrUGFyYW1zOiBibG9ja1BhcmFtcyhcbiAgICAgICAgICAgIFtjb250ZXh0W2ZpZWxkXSwgZmllbGRdLFxuICAgICAgICAgICAgW2NvbnRleHRQYXRoICsgZmllbGQsIG51bGxdXG4gICAgICAgICAgKVxuICAgICAgICB9KTtcbiAgICB9XG5cbiAgICBpZiAoY29udGV4dCAmJiB0eXBlb2YgY29udGV4dCA9PT0gJ29iamVjdCcpIHtcbiAgICAgIGlmIChpc0FycmF5KGNvbnRleHQpKSB7XG4gICAgICAgIGZvciAobGV0IGogPSBjb250ZXh0Lmxlbmd0aDsgaSA8IGo7IGkrKykge1xuICAgICAgICAgIGlmIChpIGluIGNvbnRleHQpIHtcbiAgICAgICAgICAgIGV4ZWNJdGVyYXRpb24oaSwgaSwgaSA9PT0gY29udGV4dC5sZW5ndGggLSAxKTtcbiAgICAgICAgICB9XG4gICAgICAgIH1cbiAgICAgIH0gZWxzZSBpZiAoZ2xvYmFsLlN5bWJvbCAmJiBjb250ZXh0W2dsb2JhbC5TeW1ib2wuaXRlcmF0b3JdKSB7XG4gICAgICAgIGNvbnN0IG5ld0NvbnRleHQgPSBbXTtcbiAgICAgICAgY29uc3QgaXRlcmF0b3IgPSBjb250ZXh0W2dsb2JhbC5TeW1ib2wuaXRlcmF0b3JdKCk7XG4gICAgICAgIGZvciAobGV0IGl0ID0gaXRlcmF0b3IubmV4dCgpOyAhaXQuZG9uZTsgaXQgPSBpdGVyYXRvci5uZXh0KCkpIHtcbiAgICAgICAgICBuZXdDb250ZXh0LnB1c2goaXQudmFsdWUpO1xuICAgICAgICB9XG4gICAgICAgIGNvbnRleHQgPSBuZXdDb250ZXh0O1xuICAgICAgICBmb3IgKGxldCBqID0gY29udGV4dC5sZW5ndGg7IGkgPCBqOyBpKyspIHtcbiAgICAgICAgICBleGVjSXRlcmF0aW9uKGksIGksIGkgPT09IGNvbnRleHQubGVuZ3RoIC0gMSk7XG4gICAgICAgIH1cbiAgICAgIH0gZWxzZSB7XG4gICAgICAgIGxldCBwcmlvcktleTtcblxuICAgICAgICBPYmplY3Qua2V5cyhjb250ZXh0KS5mb3JFYWNoKGtleSA9PiB7XG4gICAgICAgICAgLy8gV2UncmUgcnVubmluZyB0aGUgaXRlcmF0aW9ucyBvbmUgc3RlcCBvdXQgb2Ygc3luYyBzbyB3ZSBjYW4gZGV0ZWN0XG4gICAgICAgICAgLy8gdGhlIGxhc3QgaXRlcmF0aW9uIHdpdGhvdXQgaGF2ZSB0byBzY2FuIHRoZSBvYmplY3QgdHdpY2UgYW5kIGNyZWF0ZVxuICAgICAgICAgIC8vIGFuIGl0ZXJtZWRpYXRlIGtleXMgYXJyYXkuXG4gICAgICAgICAgaWYgKHByaW9yS2V5ICE9PSB1bmRlZmluZWQpIHtcbiAgICAgICAgICAgIGV4ZWNJdGVyYXRpb24ocHJpb3JLZXksIGkgLSAxKTtcbiAgICAgICAgICB9XG4gICAgICAgICAgcHJpb3JLZXkgPSBrZXk7XG4gICAgICAgICAgaSsrO1xuICAgICAgICB9KTtcbiAgICAgICAgaWYgKHByaW9yS2V5ICE9PSB1bmRlZmluZWQpIHtcbiAgICAgICAgICBleGVjSXRlcmF0aW9uKHByaW9yS2V5LCBpIC0gMSwgdHJ1ZSk7XG4gICAgICAgIH1cbiAgICAgIH1cbiAgICB9XG5cbiAgICBpZiAoaSA9PT0gMCkge1xuICAgICAgcmV0ID0gaW52ZXJzZSh0aGlzKTtcbiAgICB9XG5cbiAgICByZXR1cm4gcmV0O1xuICB9KTtcbn1cbiJdfQ==
+
+
+/***/ }),
+
+/***/ 4905:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+// istanbul ignore next
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _exception = __webpack_require__(8728);
+
+var _exception2 = _interopRequireDefault(_exception);
+
+exports.default = function (instance) {
+  instance.registerHelper('helperMissing', function () /* [args, ]options */{
+    if (arguments.length === 1) {
+      // A missing field in a {{foo}} construct.
+      return undefined;
+    } else {
+      // Someone is actually trying to call something, blow up.
+      throw new _exception2['default']('Missing helper: "' + arguments[arguments.length - 1].name + '"');
+    }
+  });
+};
+
+module.exports = exports['default'];
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL2xpYi9oYW5kbGViYXJzL2hlbHBlcnMvaGVscGVyLW1pc3NpbmcuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozt5QkFBc0IsY0FBYzs7OztxQkFFckIsVUFBUyxRQUFRLEVBQUU7QUFDaEMsVUFBUSxDQUFDLGNBQWMsQ0FBQyxlQUFlLEVBQUUsaUNBQWdDO0FBQ3ZFLFFBQUksU0FBUyxDQUFDLE1BQU0sS0FBSyxDQUFDLEVBQUU7O0FBRTFCLGFBQU8sU0FBUyxDQUFDO0tBQ2xCLE1BQU07O0FBRUwsWUFBTSwyQkFDSixtQkFBbUIsR0FBRyxTQUFTLENBQUMsU0FBUyxDQUFDLE1BQU0sR0FBRyxDQUFDLENBQUMsQ0FBQyxJQUFJLEdBQUcsR0FBRyxDQUNqRSxDQUFDO0tBQ0g7R0FDRixDQUFDLENBQUM7Q0FDSiIsImZpbGUiOiJoZWxwZXItbWlzc2luZy5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBFeGNlcHRpb24gZnJvbSAnLi4vZXhjZXB0aW9uJztcblxuZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24oaW5zdGFuY2UpIHtcbiAgaW5zdGFuY2UucmVnaXN0ZXJIZWxwZXIoJ2hlbHBlck1pc3NpbmcnLCBmdW5jdGlvbigvKiBbYXJncywgXW9wdGlvbnMgKi8pIHtcbiAgICBpZiAoYXJndW1lbnRzLmxlbmd0aCA9PT0gMSkge1xuICAgICAgLy8gQSBtaXNzaW5nIGZpZWxkIGluIGEge3tmb299fSBjb25zdHJ1Y3QuXG4gICAgICByZXR1cm4gdW5kZWZpbmVkO1xuICAgIH0gZWxzZSB7XG4gICAgICAvLyBTb21lb25lIGlzIGFjdHVhbGx5IHRyeWluZyB0byBjYWxsIHNvbWV0aGluZywgYmxvdyB1cC5cbiAgICAgIHRocm93IG5ldyBFeGNlcHRpb24oXG4gICAgICAgICdNaXNzaW5nIGhlbHBlcjogXCInICsgYXJndW1lbnRzW2FyZ3VtZW50cy5sZW5ndGggLSAxXS5uYW1lICsgJ1wiJ1xuICAgICAgKTtcbiAgICB9XG4gIH0pO1xufVxuIl19
+
+
+/***/ }),
+
+/***/ 7405:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+// istanbul ignore next
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _utils = __webpack_require__(2392);
+
+var _exception = __webpack_require__(8728);
+
+var _exception2 = _interopRequireDefault(_exception);
+
+exports.default = function (instance) {
+  instance.registerHelper('if', function (conditional, options) {
+    if (arguments.length != 2) {
+      throw new _exception2['default']('#if requires exactly one argument');
+    }
+    if (_utils.isFunction(conditional)) {
+      conditional = conditional.call(this);
+    }
+
+    // Default behavior is to render the positive path if the value is truthy and not empty.
+    // The `includeZero` option may be set to treat the condtional as purely not empty based on the
+    // behavior of isEmpty. Effectively this determines if 0 is handled by the positive path or negative.
+    if (!options.hash.includeZero && !conditional || _utils.isEmpty(conditional)) {
+      return options.inverse(this);
+    } else {
+      return options.fn(this);
+    }
+  });
+
+  instance.registerHelper('unless', function (conditional, options) {
+    if (arguments.length != 2) {
+      throw new _exception2['default']('#unless requires exactly one argument');
+    }
+    return instance.helpers['if'].call(this, conditional, {
+      fn: options.inverse,
+      inverse: options.fn,
+      hash: options.hash
+    });
+  });
+};
+
+module.exports = exports['default'];
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL2xpYi9oYW5kbGViYXJzL2hlbHBlcnMvaWYuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7OztxQkFBb0MsVUFBVTs7eUJBQ3hCLGNBQWM7Ozs7cUJBRXJCLFVBQVMsUUFBUSxFQUFFO0FBQ2hDLFVBQVEsQ0FBQyxjQUFjLENBQUMsSUFBSSxFQUFFLFVBQVMsV0FBVyxFQUFFLE9BQU8sRUFBRTtBQUMzRCxRQUFJLFNBQVMsQ0FBQyxNQUFNLElBQUksQ0FBQyxFQUFFO0FBQ3pCLFlBQU0sMkJBQWMsbUNBQW1DLENBQUMsQ0FBQztLQUMxRDtBQUNELFFBQUksa0JBQVcsV0FBVyxDQUFDLEVBQUU7QUFDM0IsaUJBQVcsR0FBRyxXQUFXLENBQUMsSUFBSSxDQUFDLElBQUksQ0FBQyxDQUFDO0tBQ3RDOzs7OztBQUtELFFBQUksQUFBQyxDQUFDLE9BQU8sQ0FBQyxJQUFJLENBQUMsV0FBVyxJQUFJLENBQUMsV0FBVyxJQUFLLGVBQVEsV0FBVyxDQUFDLEVBQUU7QUFDdkUsYUFBTyxPQUFPLENBQUMsT0FBTyxDQUFDLElBQUksQ0FBQyxDQUFDO0tBQzlCLE1BQU07QUFDTCxhQUFPLE9BQU8sQ0FBQyxFQUFFLENBQUMsSUFBSSxDQUFDLENBQUM7S0FDekI7R0FDRixDQUFDLENBQUM7O0FBRUgsVUFBUSxDQUFDLGNBQWMsQ0FBQyxRQUFRLEVBQUUsVUFBUyxXQUFXLEVBQUUsT0FBTyxFQUFFO0FBQy9ELFFBQUksU0FBUyxDQUFDLE1BQU0sSUFBSSxDQUFDLEVBQUU7QUFDekIsWUFBTSwyQkFBYyx1Q0FBdUMsQ0FBQyxDQUFDO0tBQzlEO0FBQ0QsV0FBTyxRQUFRLENBQUMsT0FBTyxDQUFDLElBQUksQ0FBQyxDQUFDLElBQUksQ0FBQyxJQUFJLEVBQUUsV0FBVyxFQUFFO0FBQ3BELFFBQUUsRUFBRSxPQUFPLENBQUMsT0FBTztBQUNuQixhQUFPLEVBQUUsT0FBTyxDQUFDLEVBQUU7QUFDbkIsVUFBSSxFQUFFLE9BQU8sQ0FBQyxJQUFJO0tBQ25CLENBQUMsQ0FBQztHQUNKLENBQUMsQ0FBQztDQUNKIiwiZmlsZSI6ImlmLmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgaXNFbXB0eSwgaXNGdW5jdGlvbiB9IGZyb20gJy4uL3V0aWxzJztcbmltcG9ydCBFeGNlcHRpb24gZnJvbSAnLi4vZXhjZXB0aW9uJztcblxuZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24oaW5zdGFuY2UpIHtcbiAgaW5zdGFuY2UucmVnaXN0ZXJIZWxwZXIoJ2lmJywgZnVuY3Rpb24oY29uZGl0aW9uYWwsIG9wdGlvbnMpIHtcbiAgICBpZiAoYXJndW1lbnRzLmxlbmd0aCAhPSAyKSB7XG4gICAgICB0aHJvdyBuZXcgRXhjZXB0aW9uKCcjaWYgcmVxdWlyZXMgZXhhY3RseSBvbmUgYXJndW1lbnQnKTtcbiAgICB9XG4gICAgaWYgKGlzRnVuY3Rpb24oY29uZGl0aW9uYWwpKSB7XG4gICAgICBjb25kaXRpb25hbCA9IGNvbmRpdGlvbmFsLmNhbGwodGhpcyk7XG4gICAgfVxuXG4gICAgLy8gRGVmYXVsdCBiZWhhdmlvciBpcyB0byByZW5kZXIgdGhlIHBvc2l0aXZlIHBhdGggaWYgdGhlIHZhbHVlIGlzIHRydXRoeSBhbmQgbm90IGVtcHR5LlxuICAgIC8vIFRoZSBgaW5jbHVkZVplcm9gIG9wdGlvbiBtYXkgYmUgc2V0IHRvIHRyZWF0IHRoZSBjb25kdGlvbmFsIGFzIHB1cmVseSBub3QgZW1wdHkgYmFzZWQgb24gdGhlXG4gICAgLy8gYmVoYXZpb3Igb2YgaXNFbXB0eS4gRWZmZWN0aXZlbHkgdGhpcyBkZXRlcm1pbmVzIGlmIDAgaXMgaGFuZGxlZCBieSB0aGUgcG9zaXRpdmUgcGF0aCBvciBuZWdhdGl2ZS5cbiAgICBpZiAoKCFvcHRpb25zLmhhc2guaW5jbHVkZVplcm8gJiYgIWNvbmRpdGlvbmFsKSB8fCBpc0VtcHR5KGNvbmRpdGlvbmFsKSkge1xuICAgICAgcmV0dXJuIG9wdGlvbnMuaW52ZXJzZSh0aGlzKTtcbiAgICB9IGVsc2Uge1xuICAgICAgcmV0dXJuIG9wdGlvbnMuZm4odGhpcyk7XG4gICAgfVxuICB9KTtcblxuICBpbnN0YW5jZS5yZWdpc3RlckhlbHBlcigndW5sZXNzJywgZnVuY3Rpb24oY29uZGl0aW9uYWwsIG9wdGlvbnMpIHtcbiAgICBpZiAoYXJndW1lbnRzLmxlbmd0aCAhPSAyKSB7XG4gICAgICB0aHJvdyBuZXcgRXhjZXB0aW9uKCcjdW5sZXNzIHJlcXVpcmVzIGV4YWN0bHkgb25lIGFyZ3VtZW50Jyk7XG4gICAgfVxuICAgIHJldHVybiBpbnN0YW5jZS5oZWxwZXJzWydpZiddLmNhbGwodGhpcywgY29uZGl0aW9uYWwsIHtcbiAgICAgIGZuOiBvcHRpb25zLmludmVyc2UsXG4gICAgICBpbnZlcnNlOiBvcHRpb25zLmZuLFxuICAgICAgaGFzaDogb3B0aW9ucy5oYXNoXG4gICAgfSk7XG4gIH0pO1xufVxuIl19
+
+
+/***/ }),
+
+/***/ 5702:
+/***/ (function(module, exports) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+exports.default = function (instance) {
+  instance.registerHelper('log', function () /* message, options */{
+    var args = [undefined],
+        options = arguments[arguments.length - 1];
+    for (var i = 0; i < arguments.length - 1; i++) {
+      args.push(arguments[i]);
+    }
+
+    var level = 1;
+    if (options.hash.level != null) {
+      level = options.hash.level;
+    } else if (options.data && options.data.level != null) {
+      level = options.data.level;
+    }
+    args[0] = level;
+
+    instance.log.apply(instance, args);
+  });
+};
+
+module.exports = exports['default'];
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL2xpYi9oYW5kbGViYXJzL2hlbHBlcnMvbG9nLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7cUJBQWUsVUFBUyxRQUFRLEVBQUU7QUFDaEMsVUFBUSxDQUFDLGNBQWMsQ0FBQyxLQUFLLEVBQUUsa0NBQWlDO0FBQzlELFFBQUksSUFBSSxHQUFHLENBQUMsU0FBUyxDQUFDO1FBQ3BCLE9BQU8sR0FBRyxTQUFTLENBQUMsU0FBUyxDQUFDLE1BQU0sR0FBRyxDQUFDLENBQUMsQ0FBQztBQUM1QyxTQUFLLElBQUksQ0FBQyxHQUFHLENBQUMsRUFBRSxDQUFDLEdBQUcsU0FBUyxDQUFDLE1BQU0sR0FBRyxDQUFDLEVBQUUsQ0FBQyxFQUFFLEVBQUU7QUFDN0MsVUFBSSxDQUFDLElBQUksQ0FBQyxTQUFTLENBQUMsQ0FBQyxDQUFDLENBQUMsQ0FBQztLQUN6Qjs7QUFFRCxRQUFJLEtBQUssR0FBRyxDQUFDLENBQUM7QUFDZCxRQUFJLE9BQU8sQ0FBQyxJQUFJLENBQUMsS0FBSyxJQUFJLElBQUksRUFBRTtBQUM5QixXQUFLLEdBQUcsT0FBTyxDQUFDLElBQUksQ0FBQyxLQUFLLENBQUM7S0FDNUIsTUFBTSxJQUFJLE9BQU8sQ0FBQyxJQUFJLElBQUksT0FBTyxDQUFDLElBQUksQ0FBQyxLQUFLLElBQUksSUFBSSxFQUFFO0FBQ3JELFdBQUssR0FBRyxPQUFPLENBQUMsSUFBSSxDQUFDLEtBQUssQ0FBQztLQUM1QjtBQUNELFFBQUksQ0FBQyxDQUFDLENBQUMsR0FBRyxLQUFLLENBQUM7O0FBRWhCLFlBQVEsQ0FBQyxHQUFHLE1BQUEsQ0FBWixRQUFRLEVBQVEsSUFBSSxDQUFDLENBQUM7R0FDdkIsQ0FBQyxDQUFDO0NBQ0oiLCJmaWxlIjoibG9nLmpzIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24oaW5zdGFuY2UpIHtcbiAgaW5zdGFuY2UucmVnaXN0ZXJIZWxwZXIoJ2xvZycsIGZ1bmN0aW9uKC8qIG1lc3NhZ2UsIG9wdGlvbnMgKi8pIHtcbiAgICBsZXQgYXJncyA9IFt1bmRlZmluZWRdLFxuICAgICAgb3B0aW9ucyA9IGFyZ3VtZW50c1thcmd1bWVudHMubGVuZ3RoIC0gMV07XG4gICAgZm9yIChsZXQgaSA9IDA7IGkgPCBhcmd1bWVudHMubGVuZ3RoIC0gMTsgaSsrKSB7XG4gICAgICBhcmdzLnB1c2goYXJndW1lbnRzW2ldKTtcbiAgICB9XG5cbiAgICBsZXQgbGV2ZWwgPSAxO1xuICAgIGlmIChvcHRpb25zLmhhc2gubGV2ZWwgIT0gbnVsbCkge1xuICAgICAgbGV2ZWwgPSBvcHRpb25zLmhhc2gubGV2ZWw7XG4gICAgfSBlbHNlIGlmIChvcHRpb25zLmRhdGEgJiYgb3B0aW9ucy5kYXRhLmxldmVsICE9IG51bGwpIHtcbiAgICAgIGxldmVsID0gb3B0aW9ucy5kYXRhLmxldmVsO1xuICAgIH1cbiAgICBhcmdzWzBdID0gbGV2ZWw7XG5cbiAgICBpbnN0YW5jZS5sb2coLi4uYXJncyk7XG4gIH0pO1xufVxuIl19
+
+
+/***/ }),
+
+/***/ 7593:
+/***/ (function(module, exports) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+exports.default = function (instance) {
+  instance.registerHelper('lookup', function (obj, field, options) {
+    if (!obj) {
+      // Note for 5.0: Change to "obj == null" in 5.0
+      return obj;
+    }
+    return options.lookupProperty(obj, field);
+  });
+};
+
+module.exports = exports['default'];
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL2xpYi9oYW5kbGViYXJzL2hlbHBlcnMvbG9va3VwLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7cUJBQWUsVUFBUyxRQUFRLEVBQUU7QUFDaEMsVUFBUSxDQUFDLGNBQWMsQ0FBQyxRQUFRLEVBQUUsVUFBUyxHQUFHLEVBQUUsS0FBSyxFQUFFLE9BQU8sRUFBRTtBQUM5RCxRQUFJLENBQUMsR0FBRyxFQUFFOztBQUVSLGFBQU8sR0FBRyxDQUFDO0tBQ1o7QUFDRCxXQUFPLE9BQU8sQ0FBQyxjQUFjLENBQUMsR0FBRyxFQUFFLEtBQUssQ0FBQyxDQUFDO0dBQzNDLENBQUMsQ0FBQztDQUNKIiwiZmlsZSI6Imxvb2t1cC5qcyIsInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uKGluc3RhbmNlKSB7XG4gIGluc3RhbmNlLnJlZ2lzdGVySGVscGVyKCdsb29rdXAnLCBmdW5jdGlvbihvYmosIGZpZWxkLCBvcHRpb25zKSB7XG4gICAgaWYgKCFvYmopIHtcbiAgICAgIC8vIE5vdGUgZm9yIDUuMDogQ2hhbmdlIHRvIFwib2JqID09IG51bGxcIiBpbiA1LjBcbiAgICAgIHJldHVybiBvYmo7XG4gICAgfVxuICAgIHJldHVybiBvcHRpb25zLmxvb2t1cFByb3BlcnR5KG9iaiwgZmllbGQpO1xuICB9KTtcbn1cbiJdfQ==
+
+
+/***/ }),
+
+/***/ 3978:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+// istanbul ignore next
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _utils = __webpack_require__(2392);
+
+var _exception = __webpack_require__(8728);
+
+var _exception2 = _interopRequireDefault(_exception);
+
+exports.default = function (instance) {
+  instance.registerHelper('with', function (context, options) {
+    if (arguments.length != 2) {
+      throw new _exception2['default']('#with requires exactly one argument');
+    }
+    if (_utils.isFunction(context)) {
+      context = context.call(this);
+    }
+
+    var fn = options.fn;
+
+    if (!_utils.isEmpty(context)) {
+      var data = options.data;
+      if (options.data && options.ids) {
+        data = _utils.createFrame(options.data);
+        data.contextPath = _utils.appendContextPath(options.data.contextPath, options.ids[0]);
+      }
+
+      return fn(context, {
+        data: data,
+        blockParams: _utils.blockParams([context], [data && data.contextPath])
+      });
+    } else {
+      return options.inverse(this);
+    }
+  });
+};
+
+module.exports = exports['default'];
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL2xpYi9oYW5kbGViYXJzL2hlbHBlcnMvd2l0aC5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7O3FCQU1PLFVBQVU7O3lCQUNLLGNBQWM7Ozs7cUJBRXJCLFVBQVMsUUFBUSxFQUFFO0FBQ2hDLFVBQVEsQ0FBQyxjQUFjLENBQUMsTUFBTSxFQUFFLFVBQVMsT0FBTyxFQUFFLE9BQU8sRUFBRTtBQUN6RCxRQUFJLFNBQVMsQ0FBQyxNQUFNLElBQUksQ0FBQyxFQUFFO0FBQ3pCLFlBQU0sMkJBQWMscUNBQXFDLENBQUMsQ0FBQztLQUM1RDtBQUNELFFBQUksa0JBQVcsT0FBTyxDQUFDLEVBQUU7QUFDdkIsYUFBTyxHQUFHLE9BQU8sQ0FBQyxJQUFJLENBQUMsSUFBSSxDQUFDLENBQUM7S0FDOUI7O0FBRUQsUUFBSSxFQUFFLEdBQUcsT0FBTyxDQUFDLEVBQUUsQ0FBQzs7QUFFcEIsUUFBSSxDQUFDLGVBQVEsT0FBTyxDQUFDLEVBQUU7QUFDckIsVUFBSSxJQUFJLEdBQUcsT0FBTyxDQUFDLElBQUksQ0FBQztBQUN4QixVQUFJLE9BQU8sQ0FBQyxJQUFJLElBQUksT0FBTyxDQUFDLEdBQUcsRUFBRTtBQUMvQixZQUFJLEdBQUcsbUJBQVksT0FBTyxDQUFDLElBQUksQ0FBQyxDQUFDO0FBQ2pDLFlBQUksQ0FBQyxXQUFXLEdBQUcseUJBQ2pCLE9BQU8sQ0FBQyxJQUFJLENBQUMsV0FBVyxFQUN4QixPQUFPLENBQUMsR0FBRyxDQUFDLENBQUMsQ0FBQyxDQUNmLENBQUM7T0FDSDs7QUFFRCxhQUFPLEVBQUUsQ0FBQyxPQUFPLEVBQUU7QUFDakIsWUFBSSxFQUFFLElBQUk7QUFDVixtQkFBVyxFQUFFLG1CQUFZLENBQUMsT0FBTyxDQUFDLEVBQUUsQ0FBQyxJQUFJLElBQUksSUFBSSxDQUFDLFdBQVcsQ0FBQyxDQUFDO09BQ2hFLENBQUMsQ0FBQztLQUNKLE1BQU07QUFDTCxhQUFPLE9BQU8sQ0FBQyxPQUFPLENBQUMsSUFBSSxDQUFDLENBQUM7S0FDOUI7R0FDRixDQUFDLENBQUM7Q0FDSiIsImZpbGUiOiJ3aXRoLmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHtcbiAgYXBwZW5kQ29udGV4dFBhdGgsXG4gIGJsb2NrUGFyYW1zLFxuICBjcmVhdGVGcmFtZSxcbiAgaXNFbXB0eSxcbiAgaXNGdW5jdGlvblxufSBmcm9tICcuLi91dGlscyc7XG5pbXBvcnQgRXhjZXB0aW9uIGZyb20gJy4uL2V4Y2VwdGlvbic7XG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uKGluc3RhbmNlKSB7XG4gIGluc3RhbmNlLnJlZ2lzdGVySGVscGVyKCd3aXRoJywgZnVuY3Rpb24oY29udGV4dCwgb3B0aW9ucykge1xuICAgIGlmIChhcmd1bWVudHMubGVuZ3RoICE9IDIpIHtcbiAgICAgIHRocm93IG5ldyBFeGNlcHRpb24oJyN3aXRoIHJlcXVpcmVzIGV4YWN0bHkgb25lIGFyZ3VtZW50Jyk7XG4gICAgfVxuICAgIGlmIChpc0Z1bmN0aW9uKGNvbnRleHQpKSB7XG4gICAgICBjb250ZXh0ID0gY29udGV4dC5jYWxsKHRoaXMpO1xuICAgIH1cblxuICAgIGxldCBmbiA9IG9wdGlvbnMuZm47XG5cbiAgICBpZiAoIWlzRW1wdHkoY29udGV4dCkpIHtcbiAgICAgIGxldCBkYXRhID0gb3B0aW9ucy5kYXRhO1xuICAgICAgaWYgKG9wdGlvbnMuZGF0YSAmJiBvcHRpb25zLmlkcykge1xuICAgICAgICBkYXRhID0gY3JlYXRlRnJhbWUob3B0aW9ucy5kYXRhKTtcbiAgICAgICAgZGF0YS5jb250ZXh0UGF0aCA9IGFwcGVuZENvbnRleHRQYXRoKFxuICAgICAgICAgIG9wdGlvbnMuZGF0YS5jb250ZXh0UGF0aCxcbiAgICAgICAgICBvcHRpb25zLmlkc1swXVxuICAgICAgICApO1xuICAgICAgfVxuXG4gICAgICByZXR1cm4gZm4oY29udGV4dCwge1xuICAgICAgICBkYXRhOiBkYXRhLFxuICAgICAgICBibG9ja1BhcmFtczogYmxvY2tQYXJhbXMoW2NvbnRleHRdLCBbZGF0YSAmJiBkYXRhLmNvbnRleHRQYXRoXSlcbiAgICAgIH0pO1xuICAgIH0gZWxzZSB7XG4gICAgICByZXR1cm4gb3B0aW9ucy5pbnZlcnNlKHRoaXMpO1xuICAgIH1cbiAgfSk7XG59XG4iXX0=
+
+
+/***/ }),
+
+/***/ 8572:
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports.createNewLookupObject = createNewLookupObject;
+
+var _utils = __webpack_require__(2392);
+
+/**
+ * Create a new object with "null"-prototype to avoid truthy results on prototype properties.
+ * The resulting object can be used with "object[property]" to check if a property exists
+ * @param {...object} sources a varargs parameter of source objects that will be merged
+ * @returns {object}
+ */
+
+function createNewLookupObject() {
+  for (var _len = arguments.length, sources = Array(_len), _key = 0; _key < _len; _key++) {
+    sources[_key] = arguments[_key];
+  }
+
+  return _utils.extend.apply(undefined, [Object.create(null)].concat(sources));
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL2xpYi9oYW5kbGViYXJzL2ludGVybmFsL2NyZWF0ZS1uZXctbG9va3VwLW9iamVjdC5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7OztxQkFBdUIsVUFBVTs7Ozs7Ozs7O0FBUTFCLFNBQVMscUJBQXFCLEdBQWE7b0NBQVQsT0FBTztBQUFQLFdBQU87OztBQUM5QyxTQUFPLGdDQUFPLE1BQU0sQ0FBQyxNQUFNLENBQUMsSUFBSSxDQUFDLFNBQUssT0FBTyxFQUFDLENBQUM7Q0FDaEQiLCJmaWxlIjoiY3JlYXRlLW5ldy1sb29rdXAtb2JqZWN0LmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgZXh0ZW5kIH0gZnJvbSAnLi4vdXRpbHMnO1xuXG4vKipcbiAqIENyZWF0ZSBhIG5ldyBvYmplY3Qgd2l0aCBcIm51bGxcIi1wcm90b3R5cGUgdG8gYXZvaWQgdHJ1dGh5IHJlc3VsdHMgb24gcHJvdG90eXBlIHByb3BlcnRpZXMuXG4gKiBUaGUgcmVzdWx0aW5nIG9iamVjdCBjYW4gYmUgdXNlZCB3aXRoIFwib2JqZWN0W3Byb3BlcnR5XVwiIHRvIGNoZWNrIGlmIGEgcHJvcGVydHkgZXhpc3RzXG4gKiBAcGFyYW0gey4uLm9iamVjdH0gc291cmNlcyBhIHZhcmFyZ3MgcGFyYW1ldGVyIG9mIHNvdXJjZSBvYmplY3RzIHRoYXQgd2lsbCBiZSBtZXJnZWRcbiAqIEByZXR1cm5zIHtvYmplY3R9XG4gKi9cbmV4cG9ydCBmdW5jdGlvbiBjcmVhdGVOZXdMb29rdXBPYmplY3QoLi4uc291cmNlcykge1xuICByZXR1cm4gZXh0ZW5kKE9iamVjdC5jcmVhdGUobnVsbCksIC4uLnNvdXJjZXMpO1xufVxuIl19
+
+
+/***/ }),
+
+/***/ 6293:
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports.createProtoAccessControl = createProtoAccessControl;
+exports.resultIsAllowed = resultIsAllowed;
+exports.resetLoggedProperties = resetLoggedProperties;
+// istanbul ignore next
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
+
+var _createNewLookupObject = __webpack_require__(8572);
+
+var _logger = __webpack_require__(8037);
+
+var logger = _interopRequireWildcard(_logger);
+
+var loggedProperties = Object.create(null);
+
+function createProtoAccessControl(runtimeOptions) {
+  var defaultMethodWhiteList = Object.create(null);
+  defaultMethodWhiteList['constructor'] = false;
+  defaultMethodWhiteList['__defineGetter__'] = false;
+  defaultMethodWhiteList['__defineSetter__'] = false;
+  defaultMethodWhiteList['__lookupGetter__'] = false;
+
+  var defaultPropertyWhiteList = Object.create(null);
+  // eslint-disable-next-line no-proto
+  defaultPropertyWhiteList['__proto__'] = false;
+
+  return {
+    properties: {
+      whitelist: _createNewLookupObject.createNewLookupObject(defaultPropertyWhiteList, runtimeOptions.allowedProtoProperties),
+      defaultValue: runtimeOptions.allowProtoPropertiesByDefault
+    },
+    methods: {
+      whitelist: _createNewLookupObject.createNewLookupObject(defaultMethodWhiteList, runtimeOptions.allowedProtoMethods),
+      defaultValue: runtimeOptions.allowProtoMethodsByDefault
+    }
+  };
+}
+
+function resultIsAllowed(result, protoAccessControl, propertyName) {
+  if (typeof result === 'function') {
+    return checkWhiteList(protoAccessControl.methods, propertyName);
+  } else {
+    return checkWhiteList(protoAccessControl.properties, propertyName);
+  }
+}
+
+function checkWhiteList(protoAccessControlForType, propertyName) {
+  if (protoAccessControlForType.whitelist[propertyName] !== undefined) {
+    return protoAccessControlForType.whitelist[propertyName] === true;
+  }
+  if (protoAccessControlForType.defaultValue !== undefined) {
+    return protoAccessControlForType.defaultValue;
+  }
+  logUnexpecedPropertyAccessOnce(propertyName);
+  return false;
+}
+
+function logUnexpecedPropertyAccessOnce(propertyName) {
+  if (loggedProperties[propertyName] !== true) {
+    loggedProperties[propertyName] = true;
+    logger.log('error', 'Handlebars: Access has been denied to resolve the property "' + propertyName + '" because it is not an "own property" of its parent.\n' + 'You can add a runtime option to disable the check or this warning:\n' + 'See https://handlebarsjs.com/api-reference/runtime-options.html#options-to-control-prototype-access for details');
+  }
+}
+
+function resetLoggedProperties() {
+  Object.keys(loggedProperties).forEach(function (propertyName) {
+    delete loggedProperties[propertyName];
+  });
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL2xpYi9oYW5kbGViYXJzL2ludGVybmFsL3Byb3RvLWFjY2Vzcy5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7O3FDQUFzQyw0QkFBNEI7O3NCQUMxQyxXQUFXOztJQUF2QixNQUFNOztBQUVsQixJQUFNLGdCQUFnQixHQUFHLE1BQU0sQ0FBQyxNQUFNLENBQUMsSUFBSSxDQUFDLENBQUM7O0FBRXRDLFNBQVMsd0JBQXdCLENBQUMsY0FBYyxFQUFFO0FBQ3ZELE1BQUksc0JBQXNCLEdBQUcsTUFBTSxDQUFDLE1BQU0sQ0FBQyxJQUFJLENBQUMsQ0FBQztBQUNqRCx3QkFBc0IsQ0FBQyxhQUFhLENBQUMsR0FBRyxLQUFLLENBQUM7QUFDOUMsd0JBQXNCLENBQUMsa0JBQWtCLENBQUMsR0FBRyxLQUFLLENBQUM7QUFDbkQsd0JBQXNCLENBQUMsa0JBQWtCLENBQUMsR0FBRyxLQUFLLENBQUM7QUFDbkQsd0JBQXNCLENBQUMsa0JBQWtCLENBQUMsR0FBRyxLQUFLLENBQUM7O0FBRW5ELE1BQUksd0JBQXdCLEdBQUcsTUFBTSxDQUFDLE1BQU0sQ0FBQyxJQUFJLENBQUMsQ0FBQzs7QUFFbkQsMEJBQXdCLENBQUMsV0FBVyxDQUFDLEdBQUcsS0FBSyxDQUFDOztBQUU5QyxTQUFPO0FBQ0wsY0FBVSxFQUFFO0FBQ1YsZUFBUyxFQUFFLDZDQUNULHdCQUF3QixFQUN4QixjQUFjLENBQUMsc0JBQXNCLENBQ3RDO0FBQ0Qsa0JBQVksRUFBRSxjQUFjLENBQUMsNkJBQTZCO0tBQzNEO0FBQ0QsV0FBTyxFQUFFO0FBQ1AsZUFBUyxFQUFFLDZDQUNULHNCQUFzQixFQUN0QixjQUFjLENBQUMsbUJBQW1CLENBQ25DO0FBQ0Qsa0JBQVksRUFBRSxjQUFjLENBQUMsMEJBQTBCO0tBQ3hEO0dBQ0YsQ0FBQztDQUNIOztBQUVNLFNBQVMsZUFBZSxDQUFDLE1BQU0sRUFBRSxrQkFBa0IsRUFBRSxZQUFZLEVBQUU7QUFDeEUsTUFBSSxPQUFPLE1BQU0sS0FBSyxVQUFVLEVBQUU7QUFDaEMsV0FBTyxjQUFjLENBQUMsa0JBQWtCLENBQUMsT0FBTyxFQUFFLFlBQVksQ0FBQyxDQUFDO0dBQ2pFLE1BQU07QUFDTCxXQUFPLGNBQWMsQ0FBQyxrQkFBa0IsQ0FBQyxVQUFVLEVBQUUsWUFBWSxDQUFDLENBQUM7R0FDcEU7Q0FDRjs7QUFFRCxTQUFTLGNBQWMsQ0FBQyx5QkFBeUIsRUFBRSxZQUFZLEVBQUU7QUFDL0QsTUFBSSx5QkFBeUIsQ0FBQyxTQUFTLENBQUMsWUFBWSxDQUFDLEtBQUssU0FBUyxFQUFFO0FBQ25FLFdBQU8seUJBQXlCLENBQUMsU0FBUyxDQUFDLFlBQVksQ0FBQyxLQUFLLElBQUksQ0FBQztHQUNuRTtBQUNELE1BQUkseUJBQXlCLENBQUMsWUFBWSxLQUFLLFNBQVMsRUFBRTtBQUN4RCxXQUFPLHlCQUF5QixDQUFDLFlBQVksQ0FBQztHQUMvQztBQUNELGdDQUE4QixDQUFDLFlBQVksQ0FBQyxDQUFDO0FBQzdDLFNBQU8sS0FBSyxDQUFDO0NBQ2Q7O0FBRUQsU0FBUyw4QkFBOEIsQ0FBQyxZQUFZLEVBQUU7QUFDcEQsTUFBSSxnQkFBZ0IsQ0FBQyxZQUFZLENBQUMsS0FBSyxJQUFJLEVBQUU7QUFDM0Msb0JBQWdCLENBQUMsWUFBWSxDQUFDLEdBQUcsSUFBSSxDQUFDO0FBQ3RDLFVBQU0sQ0FBQyxHQUFHLENBQ1IsT0FBTyxFQUNQLGlFQUErRCxZQUFZLG9JQUNILG9IQUMyQyxDQUNwSCxDQUFDO0dBQ0g7Q0FDRjs7QUFFTSxTQUFTLHFCQUFxQixHQUFHO0FBQ3RDLFFBQU0sQ0FBQyxJQUFJLENBQUMsZ0JBQWdCLENBQUMsQ0FBQyxPQUFPLENBQUMsVUFBQSxZQUFZLEVBQUk7QUFDcEQsV0FBTyxnQkFBZ0IsQ0FBQyxZQUFZLENBQUMsQ0FBQztHQUN2QyxDQUFDLENBQUM7Q0FDSiIsImZpbGUiOiJwcm90by1hY2Nlc3MuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBjcmVhdGVOZXdMb29rdXBPYmplY3QgfSBmcm9tICcuL2NyZWF0ZS1uZXctbG9va3VwLW9iamVjdCc7XG5pbXBvcnQgKiBhcyBsb2dnZXIgZnJvbSAnLi4vbG9nZ2VyJztcblxuY29uc3QgbG9nZ2VkUHJvcGVydGllcyA9IE9iamVjdC5jcmVhdGUobnVsbCk7XG5cbmV4cG9ydCBmdW5jdGlvbiBjcmVhdGVQcm90b0FjY2Vzc0NvbnRyb2wocnVudGltZU9wdGlvbnMpIHtcbiAgbGV0IGRlZmF1bHRNZXRob2RXaGl0ZUxpc3QgPSBPYmplY3QuY3JlYXRlKG51bGwpO1xuICBkZWZhdWx0TWV0aG9kV2hpdGVMaXN0Wydjb25zdHJ1Y3RvciddID0gZmFsc2U7XG4gIGRlZmF1bHRNZXRob2RXaGl0ZUxpc3RbJ19fZGVmaW5lR2V0dGVyX18nXSA9IGZhbHNlO1xuICBkZWZhdWx0TWV0aG9kV2hpdGVMaXN0WydfX2RlZmluZVNldHRlcl9fJ10gPSBmYWxzZTtcbiAgZGVmYXVsdE1ldGhvZFdoaXRlTGlzdFsnX19sb29rdXBHZXR0ZXJfXyddID0gZmFsc2U7XG5cbiAgbGV0IGRlZmF1bHRQcm9wZXJ0eVdoaXRlTGlzdCA9IE9iamVjdC5jcmVhdGUobnVsbCk7XG4gIC8vIGVzbGludC1kaXNhYmxlLW5leHQtbGluZSBuby1wcm90b1xuICBkZWZhdWx0UHJvcGVydHlXaGl0ZUxpc3RbJ19fcHJvdG9fXyddID0gZmFsc2U7XG5cbiAgcmV0dXJuIHtcbiAgICBwcm9wZXJ0aWVzOiB7XG4gICAgICB3aGl0ZWxpc3Q6IGNyZWF0ZU5ld0xvb2t1cE9iamVjdChcbiAgICAgICAgZGVmYXVsdFByb3BlcnR5V2hpdGVMaXN0LFxuICAgICAgICBydW50aW1lT3B0aW9ucy5hbGxvd2VkUHJvdG9Qcm9wZXJ0aWVzXG4gICAgICApLFxuICAgICAgZGVmYXVsdFZhbHVlOiBydW50aW1lT3B0aW9ucy5hbGxvd1Byb3RvUHJvcGVydGllc0J5RGVmYXVsdFxuICAgIH0sXG4gICAgbWV0aG9kczoge1xuICAgICAgd2hpdGVsaXN0OiBjcmVhdGVOZXdMb29rdXBPYmplY3QoXG4gICAgICAgIGRlZmF1bHRNZXRob2RXaGl0ZUxpc3QsXG4gICAgICAgIHJ1bnRpbWVPcHRpb25zLmFsbG93ZWRQcm90b01ldGhvZHNcbiAgICAgICksXG4gICAgICBkZWZhdWx0VmFsdWU6IHJ1bnRpbWVPcHRpb25zLmFsbG93UHJvdG9NZXRob2RzQnlEZWZhdWx0XG4gICAgfVxuICB9O1xufVxuXG5leHBvcnQgZnVuY3Rpb24gcmVzdWx0SXNBbGxvd2VkKHJlc3VsdCwgcHJvdG9BY2Nlc3NDb250cm9sLCBwcm9wZXJ0eU5hbWUpIHtcbiAgaWYgKHR5cGVvZiByZXN1bHQgPT09ICdmdW5jdGlvbicpIHtcbiAgICByZXR1cm4gY2hlY2tXaGl0ZUxpc3QocHJvdG9BY2Nlc3NDb250cm9sLm1ldGhvZHMsIHByb3BlcnR5TmFtZSk7XG4gIH0gZWxzZSB7XG4gICAgcmV0dXJuIGNoZWNrV2hpdGVMaXN0KHByb3RvQWNjZXNzQ29udHJvbC5wcm9wZXJ0aWVzLCBwcm9wZXJ0eU5hbWUpO1xuICB9XG59XG5cbmZ1bmN0aW9uIGNoZWNrV2hpdGVMaXN0KHByb3RvQWNjZXNzQ29udHJvbEZvclR5cGUsIHByb3BlcnR5TmFtZSkge1xuICBpZiAocHJvdG9BY2Nlc3NDb250cm9sRm9yVHlwZS53aGl0ZWxpc3RbcHJvcGVydHlOYW1lXSAhPT0gdW5kZWZpbmVkKSB7XG4gICAgcmV0dXJuIHByb3RvQWNjZXNzQ29udHJvbEZvclR5cGUud2hpdGVsaXN0W3Byb3BlcnR5TmFtZV0gPT09IHRydWU7XG4gIH1cbiAgaWYgKHByb3RvQWNjZXNzQ29udHJvbEZvclR5cGUuZGVmYXVsdFZhbHVlICE9PSB1bmRlZmluZWQpIHtcbiAgICByZXR1cm4gcHJvdG9BY2Nlc3NDb250cm9sRm9yVHlwZS5kZWZhdWx0VmFsdWU7XG4gIH1cbiAgbG9nVW5leHBlY2VkUHJvcGVydHlBY2Nlc3NPbmNlKHByb3BlcnR5TmFtZSk7XG4gIHJldHVybiBmYWxzZTtcbn1cblxuZnVuY3Rpb24gbG9nVW5leHBlY2VkUHJvcGVydHlBY2Nlc3NPbmNlKHByb3BlcnR5TmFtZSkge1xuICBpZiAobG9nZ2VkUHJvcGVydGllc1twcm9wZXJ0eU5hbWVdICE9PSB0cnVlKSB7XG4gICAgbG9nZ2VkUHJvcGVydGllc1twcm9wZXJ0eU5hbWVdID0gdHJ1ZTtcbiAgICBsb2dnZXIubG9nKFxuICAgICAgJ2Vycm9yJyxcbiAgICAgIGBIYW5kbGViYXJzOiBBY2Nlc3MgaGFzIGJlZW4gZGVuaWVkIHRvIHJlc29sdmUgdGhlIHByb3BlcnR5IFwiJHtwcm9wZXJ0eU5hbWV9XCIgYmVjYXVzZSBpdCBpcyBub3QgYW4gXCJvd24gcHJvcGVydHlcIiBvZiBpdHMgcGFyZW50LlxcbmAgK1xuICAgICAgICBgWW91IGNhbiBhZGQgYSBydW50aW1lIG9wdGlvbiB0byBkaXNhYmxlIHRoZSBjaGVjayBvciB0aGlzIHdhcm5pbmc6XFxuYCArXG4gICAgICAgIGBTZWUgaHR0cHM6Ly9oYW5kbGViYXJzanMuY29tL2FwaS1yZWZlcmVuY2UvcnVudGltZS1vcHRpb25zLmh0bWwjb3B0aW9ucy10by1jb250cm9sLXByb3RvdHlwZS1hY2Nlc3MgZm9yIGRldGFpbHNgXG4gICAgKTtcbiAgfVxufVxuXG5leHBvcnQgZnVuY3Rpb24gcmVzZXRMb2dnZWRQcm9wZXJ0aWVzKCkge1xuICBPYmplY3Qua2V5cyhsb2dnZWRQcm9wZXJ0aWVzKS5mb3JFYWNoKHByb3BlcnR5TmFtZSA9PiB7XG4gICAgZGVsZXRlIGxvZ2dlZFByb3BlcnRpZXNbcHJvcGVydHlOYW1lXTtcbiAgfSk7XG59XG4iXX0=
+
+
+/***/ }),
+
+/***/ 5005:
+/***/ (function(__unused_webpack_module, exports) {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports.wrapHelper = wrapHelper;
+
+function wrapHelper(helper, transformOptionsFn) {
+  if (typeof helper !== 'function') {
+    // This should not happen, but apparently it does in https://github.com/wycats/handlebars.js/issues/1639
+    // We try to make the wrapper least-invasive by not wrapping it, if the helper is not a function.
+    return helper;
+  }
+  var wrapper = function wrapper() /* dynamic arguments */{
+    var options = arguments[arguments.length - 1];
+    arguments[arguments.length - 1] = transformOptionsFn(options);
+    return helper.apply(this, arguments);
+  };
+  return wrapper;
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL2xpYi9oYW5kbGViYXJzL2ludGVybmFsL3dyYXBIZWxwZXIuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7QUFBTyxTQUFTLFVBQVUsQ0FBQyxNQUFNLEVBQUUsa0JBQWtCLEVBQUU7QUFDckQsTUFBSSxPQUFPLE1BQU0sS0FBSyxVQUFVLEVBQUU7OztBQUdoQyxXQUFPLE1BQU0sQ0FBQztHQUNmO0FBQ0QsTUFBSSxPQUFPLEdBQUcsU0FBVixPQUFPLDBCQUFxQztBQUM5QyxRQUFNLE9BQU8sR0FBRyxTQUFTLENBQUMsU0FBUyxDQUFDLE1BQU0sR0FBRyxDQUFDLENBQUMsQ0FBQztBQUNoRCxhQUFTLENBQUMsU0FBUyxDQUFDLE1BQU0sR0FBRyxDQUFDLENBQUMsR0FBRyxrQkFBa0IsQ0FBQyxPQUFPLENBQUMsQ0FBQztBQUM5RCxXQUFPLE1BQU0sQ0FBQyxLQUFLLENBQUMsSUFBSSxFQUFFLFNBQVMsQ0FBQyxDQUFDO0dBQ3RDLENBQUM7QUFDRixTQUFPLE9BQU8sQ0FBQztDQUNoQiIsImZpbGUiOiJ3cmFwSGVscGVyLmpzIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IGZ1bmN0aW9uIHdyYXBIZWxwZXIoaGVscGVyLCB0cmFuc2Zvcm1PcHRpb25zRm4pIHtcbiAgaWYgKHR5cGVvZiBoZWxwZXIgIT09ICdmdW5jdGlvbicpIHtcbiAgICAvLyBUaGlzIHNob3VsZCBub3QgaGFwcGVuLCBidXQgYXBwYXJlbnRseSBpdCBkb2VzIGluIGh0dHBzOi8vZ2l0aHViLmNvbS93eWNhdHMvaGFuZGxlYmFycy5qcy9pc3N1ZXMvMTYzOVxuICAgIC8vIFdlIHRyeSB0byBtYWtlIHRoZSB3cmFwcGVyIGxlYXN0LWludmFzaXZlIGJ5IG5vdCB3cmFwcGluZyBpdCwgaWYgdGhlIGhlbHBlciBpcyBub3QgYSBmdW5jdGlvbi5cbiAgICByZXR1cm4gaGVscGVyO1xuICB9XG4gIGxldCB3cmFwcGVyID0gZnVuY3Rpb24oLyogZHluYW1pYyBhcmd1bWVudHMgKi8pIHtcbiAgICBjb25zdCBvcHRpb25zID0gYXJndW1lbnRzW2FyZ3VtZW50cy5sZW5ndGggLSAxXTtcbiAgICBhcmd1bWVudHNbYXJndW1lbnRzLmxlbmd0aCAtIDFdID0gdHJhbnNmb3JtT3B0aW9uc0ZuKG9wdGlvbnMpO1xuICAgIHJldHVybiBoZWxwZXIuYXBwbHkodGhpcywgYXJndW1lbnRzKTtcbiAgfTtcbiAgcmV0dXJuIHdyYXBwZXI7XG59XG4iXX0=
+
+
+/***/ }),
+
+/***/ 8037:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _utils = __webpack_require__(2392);
+
+var logger = {
+  methodMap: ['debug', 'info', 'warn', 'error'],
+  level: 'info',
+
+  // Maps a given level value to the `methodMap` indexes above.
+  lookupLevel: function lookupLevel(level) {
+    if (typeof level === 'string') {
+      var levelMap = _utils.indexOf(logger.methodMap, level.toLowerCase());
+      if (levelMap >= 0) {
+        level = levelMap;
+      } else {
+        level = parseInt(level, 10);
+      }
+    }
+
+    return level;
+  },
+
+  // Can be overridden in the host environment
+  log: function log(level) {
+    level = logger.lookupLevel(level);
+
+    if (typeof console !== 'undefined' && logger.lookupLevel(logger.level) <= level) {
+      var method = logger.methodMap[level];
+      // eslint-disable-next-line no-console
+      if (!console[method]) {
+        method = 'log';
+      }
+
+      for (var _len = arguments.length, message = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+        message[_key - 1] = arguments[_key];
+      }
+
+      console[method].apply(console, message); // eslint-disable-line no-console
+    }
+  }
+};
+
+exports.default = logger;
+module.exports = exports['default'];
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL2xpYi9oYW5kbGViYXJzL2xvZ2dlci5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7O3FCQUF3QixTQUFTOztBQUVqQyxJQUFJLE1BQU0sR0FBRztBQUNYLFdBQVMsRUFBRSxDQUFDLE9BQU8sRUFBRSxNQUFNLEVBQUUsTUFBTSxFQUFFLE9BQU8sQ0FBQztBQUM3QyxPQUFLLEVBQUUsTUFBTTs7O0FBR2IsYUFBVyxFQUFFLHFCQUFTLEtBQUssRUFBRTtBQUMzQixRQUFJLE9BQU8sS0FBSyxLQUFLLFFBQVEsRUFBRTtBQUM3QixVQUFJLFFBQVEsR0FBRyxlQUFRLE1BQU0sQ0FBQyxTQUFTLEVBQUUsS0FBSyxDQUFDLFdBQVcsRUFBRSxDQUFDLENBQUM7QUFDOUQsVUFBSSxRQUFRLElBQUksQ0FBQyxFQUFFO0FBQ2pCLGFBQUssR0FBRyxRQUFRLENBQUM7T0FDbEIsTUFBTTtBQUNMLGFBQUssR0FBRyxRQUFRLENBQUMsS0FBSyxFQUFFLEVBQUUsQ0FBQyxDQUFDO09BQzdCO0tBQ0Y7O0FBRUQsV0FBTyxLQUFLLENBQUM7R0FDZDs7O0FBR0QsS0FBRyxFQUFFLGFBQVMsS0FBSyxFQUFjO0FBQy9CLFNBQUssR0FBRyxNQUFNLENBQUMsV0FBVyxDQUFDLEtBQUssQ0FBQyxDQUFDOztBQUVsQyxRQUNFLE9BQU8sT0FBTyxLQUFLLFdBQVcsSUFDOUIsTUFBTSxDQUFDLFdBQVcsQ0FBQyxNQUFNLENBQUMsS0FBSyxDQUFDLElBQUksS0FBSyxFQUN6QztBQUNBLFVBQUksTUFBTSxHQUFHLE1BQU0sQ0FBQyxTQUFTLENBQUMsS0FBSyxDQUFDLENBQUM7O0FBRXJDLFVBQUksQ0FBQyxPQUFPLENBQUMsTUFBTSxDQUFDLEVBQUU7QUFDcEIsY0FBTSxHQUFHLEtBQUssQ0FBQztPQUNoQjs7d0NBWG1CLE9BQU87QUFBUCxlQUFPOzs7QUFZM0IsYUFBTyxDQUFDLE1BQU0sT0FBQyxDQUFmLE9BQU8sRUFBWSxPQUFPLENBQUMsQ0FBQztLQUM3QjtHQUNGO0NBQ0YsQ0FBQzs7cUJBRWEsTUFBTSIsImZpbGUiOiJsb2dnZXIuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBpbmRleE9mIH0gZnJvbSAnLi91dGlscyc7XG5cbmxldCBsb2dnZXIgPSB7XG4gIG1ldGhvZE1hcDogWydkZWJ1ZycsICdpbmZvJywgJ3dhcm4nLCAnZXJyb3InXSxcbiAgbGV2ZWw6ICdpbmZvJyxcblxuICAvLyBNYXBzIGEgZ2l2ZW4gbGV2ZWwgdmFsdWUgdG8gdGhlIGBtZXRob2RNYXBgIGluZGV4ZXMgYWJvdmUuXG4gIGxvb2t1cExldmVsOiBmdW5jdGlvbihsZXZlbCkge1xuICAgIGlmICh0eXBlb2YgbGV2ZWwgPT09ICdzdHJpbmcnKSB7XG4gICAgICBsZXQgbGV2ZWxNYXAgPSBpbmRleE9mKGxvZ2dlci5tZXRob2RNYXAsIGxldmVsLnRvTG93ZXJDYXNlKCkpO1xuICAgICAgaWYgKGxldmVsTWFwID49IDApIHtcbiAgICAgICAgbGV2ZWwgPSBsZXZlbE1hcDtcbiAgICAgIH0gZWxzZSB7XG4gICAgICAgIGxldmVsID0gcGFyc2VJbnQobGV2ZWwsIDEwKTtcbiAgICAgIH1cbiAgICB9XG5cbiAgICByZXR1cm4gbGV2ZWw7XG4gIH0sXG5cbiAgLy8gQ2FuIGJlIG92ZXJyaWRkZW4gaW4gdGhlIGhvc3QgZW52aXJvbm1lbnRcbiAgbG9nOiBmdW5jdGlvbihsZXZlbCwgLi4ubWVzc2FnZSkge1xuICAgIGxldmVsID0gbG9nZ2VyLmxvb2t1cExldmVsKGxldmVsKTtcblxuICAgIGlmIChcbiAgICAgIHR5cGVvZiBjb25zb2xlICE9PSAndW5kZWZpbmVkJyAmJlxuICAgICAgbG9nZ2VyLmxvb2t1cExldmVsKGxvZ2dlci5sZXZlbCkgPD0gbGV2ZWxcbiAgICApIHtcbiAgICAgIGxldCBtZXRob2QgPSBsb2dnZXIubWV0aG9kTWFwW2xldmVsXTtcbiAgICAgIC8vIGVzbGludC1kaXNhYmxlLW5leHQtbGluZSBuby1jb25zb2xlXG4gICAgICBpZiAoIWNvbnNvbGVbbWV0aG9kXSkge1xuICAgICAgICBtZXRob2QgPSAnbG9nJztcbiAgICAgIH1cbiAgICAgIGNvbnNvbGVbbWV0aG9kXSguLi5tZXNzYWdlKTsgLy8gZXNsaW50LWRpc2FibGUtbGluZSBuby1jb25zb2xlXG4gICAgfVxuICB9XG59O1xuXG5leHBvcnQgZGVmYXVsdCBsb2dnZXI7XG4iXX0=
+
+
+/***/ }),
+
+/***/ 3982:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+exports.default = function (Handlebars) {
+  /* istanbul ignore next */
+  var root = typeof __webpack_require__.g !== 'undefined' ? __webpack_require__.g : window,
+      $Handlebars = root.Handlebars;
+  /* istanbul ignore next */
+  Handlebars.noConflict = function () {
+    if (root.Handlebars === Handlebars) {
+      root.Handlebars = $Handlebars;
+    }
+    return Handlebars;
+  };
+};
+
+module.exports = exports['default'];
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL2xpYi9oYW5kbGViYXJzL25vLWNvbmZsaWN0LmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7cUJBQWUsVUFBUyxVQUFVLEVBQUU7O0FBRWxDLE1BQUksSUFBSSxHQUFHLE9BQU8sTUFBTSxLQUFLLFdBQVcsR0FBRyxNQUFNLEdBQUcsTUFBTTtNQUN4RCxXQUFXLEdBQUcsSUFBSSxDQUFDLFVBQVUsQ0FBQzs7QUFFaEMsWUFBVSxDQUFDLFVBQVUsR0FBRyxZQUFXO0FBQ2pDLFFBQUksSUFBSSxDQUFDLFVBQVUsS0FBSyxVQUFVLEVBQUU7QUFDbEMsVUFBSSxDQUFDLFVBQVUsR0FBRyxXQUFXLENBQUM7S0FDL0I7QUFDRCxXQUFPLFVBQVUsQ0FBQztHQUNuQixDQUFDO0NBQ0giLCJmaWxlIjoibm8tY29uZmxpY3QuanMiLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgZGVmYXVsdCBmdW5jdGlvbihIYW5kbGViYXJzKSB7XG4gIC8qIGlzdGFuYnVsIGlnbm9yZSBuZXh0ICovXG4gIGxldCByb290ID0gdHlwZW9mIGdsb2JhbCAhPT0gJ3VuZGVmaW5lZCcgPyBnbG9iYWwgOiB3aW5kb3csXG4gICAgJEhhbmRsZWJhcnMgPSByb290LkhhbmRsZWJhcnM7XG4gIC8qIGlzdGFuYnVsIGlnbm9yZSBuZXh0ICovXG4gIEhhbmRsZWJhcnMubm9Db25mbGljdCA9IGZ1bmN0aW9uKCkge1xuICAgIGlmIChyb290LkhhbmRsZWJhcnMgPT09IEhhbmRsZWJhcnMpIHtcbiAgICAgIHJvb3QuSGFuZGxlYmFycyA9ICRIYW5kbGViYXJzO1xuICAgIH1cbiAgICByZXR1cm4gSGFuZGxlYmFycztcbiAgfTtcbn1cbiJdfQ==
+
+
+/***/ }),
+
+/***/ 1628:
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports.checkRevision = checkRevision;
+exports.template = template;
+exports.wrapProgram = wrapProgram;
+exports.resolvePartial = resolvePartial;
+exports.invokePartial = invokePartial;
+exports.noop = noop;
+// istanbul ignore next
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+// istanbul ignore next
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
+
+var _utils = __webpack_require__(2392);
+
+var Utils = _interopRequireWildcard(_utils);
+
+var _exception = __webpack_require__(8728);
+
+var _exception2 = _interopRequireDefault(_exception);
+
+var _base = __webpack_require__(2067);
+
+var _helpers = __webpack_require__(2638);
+
+var _internalWrapHelper = __webpack_require__(5005);
+
+var _internalProtoAccess = __webpack_require__(6293);
+
+function checkRevision(compilerInfo) {
+  var compilerRevision = compilerInfo && compilerInfo[0] || 1,
+      currentRevision = _base.COMPILER_REVISION;
+
+  if (compilerRevision >= _base.LAST_COMPATIBLE_COMPILER_REVISION && compilerRevision <= _base.COMPILER_REVISION) {
+    return;
+  }
+
+  if (compilerRevision < _base.LAST_COMPATIBLE_COMPILER_REVISION) {
+    var runtimeVersions = _base.REVISION_CHANGES[currentRevision],
+        compilerVersions = _base.REVISION_CHANGES[compilerRevision];
+    throw new _exception2['default']('Template was precompiled with an older version of Handlebars than the current runtime. ' + 'Please update your precompiler to a newer version (' + runtimeVersions + ') or downgrade your runtime to an older version (' + compilerVersions + ').');
+  } else {
+    // Use the embedded version info since the runtime doesn't know about this revision yet
+    throw new _exception2['default']('Template was precompiled with a newer version of Handlebars than the current runtime. ' + 'Please update your runtime to a newer version (' + compilerInfo[1] + ').');
+  }
+}
+
+function template(templateSpec, env) {
+  /* istanbul ignore next */
+  if (!env) {
+    throw new _exception2['default']('No environment passed to template');
+  }
+  if (!templateSpec || !templateSpec.main) {
+    throw new _exception2['default']('Unknown template object: ' + typeof templateSpec);
+  }
+
+  templateSpec.main.decorator = templateSpec.main_d;
+
+  // Note: Using env.VM references rather than local var references throughout this section to allow
+  // for external users to override these as pseudo-supported APIs.
+  env.VM.checkRevision(templateSpec.compiler);
+
+  // backwards compatibility for precompiled templates with compiler-version 7 (<4.3.0)
+  var templateWasPrecompiledWithCompilerV7 = templateSpec.compiler && templateSpec.compiler[0] === 7;
+
+  function invokePartialWrapper(partial, context, options) {
+    if (options.hash) {
+      context = Utils.extend({}, context, options.hash);
+      if (options.ids) {
+        options.ids[0] = true;
+      }
+    }
+    partial = env.VM.resolvePartial.call(this, partial, context, options);
+
+    var extendedOptions = Utils.extend({}, options, {
+      hooks: this.hooks,
+      protoAccessControl: this.protoAccessControl
+    });
+
+    var result = env.VM.invokePartial.call(this, partial, context, extendedOptions);
+
+    if (result == null && env.compile) {
+      options.partials[options.name] = env.compile(partial, templateSpec.compilerOptions, env);
+      result = options.partials[options.name](context, extendedOptions);
+    }
+    if (result != null) {
+      if (options.indent) {
+        var lines = result.split('\n');
+        for (var i = 0, l = lines.length; i < l; i++) {
+          if (!lines[i] && i + 1 === l) {
+            break;
+          }
+
+          lines[i] = options.indent + lines[i];
+        }
+        result = lines.join('\n');
+      }
+      return result;
+    } else {
+      throw new _exception2['default']('The partial ' + options.name + ' could not be compiled when running in runtime-only mode');
+    }
+  }
+
+  // Just add water
+  var container = {
+    strict: function strict(obj, name, loc) {
+      if (!obj || !(name in obj)) {
+        throw new _exception2['default']('"' + name + '" not defined in ' + obj, {
+          loc: loc
+        });
+      }
+      return container.lookupProperty(obj, name);
+    },
+    lookupProperty: function lookupProperty(parent, propertyName) {
+      var result = parent[propertyName];
+      if (result == null) {
+        return result;
+      }
+      if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
+        return result;
+      }
+
+      if (_internalProtoAccess.resultIsAllowed(result, container.protoAccessControl, propertyName)) {
+        return result;
+      }
+      return undefined;
+    },
+    lookup: function lookup(depths, name) {
+      var len = depths.length;
+      for (var i = 0; i < len; i++) {
+        var result = depths[i] && container.lookupProperty(depths[i], name);
+        if (result != null) {
+          return depths[i][name];
+        }
+      }
+    },
+    lambda: function lambda(current, context) {
+      return typeof current === 'function' ? current.call(context) : current;
+    },
+
+    escapeExpression: Utils.escapeExpression,
+    invokePartial: invokePartialWrapper,
+
+    fn: function fn(i) {
+      var ret = templateSpec[i];
+      ret.decorator = templateSpec[i + '_d'];
+      return ret;
+    },
+
+    programs: [],
+    program: function program(i, data, declaredBlockParams, blockParams, depths) {
+      var programWrapper = this.programs[i],
+          fn = this.fn(i);
+      if (data || depths || blockParams || declaredBlockParams) {
+        programWrapper = wrapProgram(this, i, fn, data, declaredBlockParams, blockParams, depths);
+      } else if (!programWrapper) {
+        programWrapper = this.programs[i] = wrapProgram(this, i, fn);
+      }
+      return programWrapper;
+    },
+
+    data: function data(value, depth) {
+      while (value && depth--) {
+        value = value._parent;
+      }
+      return value;
+    },
+    mergeIfNeeded: function mergeIfNeeded(param, common) {
+      var obj = param || common;
+
+      if (param && common && param !== common) {
+        obj = Utils.extend({}, common, param);
+      }
+
+      return obj;
+    },
+    // An empty object to use as replacement for null-contexts
+    nullContext: Object.seal({}),
+
+    noop: env.VM.noop,
+    compilerInfo: templateSpec.compiler
+  };
+
+  function ret(context) {
+    var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+
+    var data = options.data;
+
+    ret._setup(options);
+    if (!options.partial && templateSpec.useData) {
+      data = initData(context, data);
+    }
+    var depths = undefined,
+        blockParams = templateSpec.useBlockParams ? [] : undefined;
+    if (templateSpec.useDepths) {
+      if (options.depths) {
+        depths = context != options.depths[0] ? [context].concat(options.depths) : options.depths;
+      } else {
+        depths = [context];
+      }
+    }
+
+    function main(context /*, options*/) {
+      return '' + templateSpec.main(container, context, container.helpers, container.partials, data, blockParams, depths);
+    }
+
+    main = executeDecorators(templateSpec.main, main, container, options.depths || [], data, blockParams);
+    return main(context, options);
+  }
+
+  ret.isTop = true;
+
+  ret._setup = function (options) {
+    if (!options.partial) {
+      var mergedHelpers = Utils.extend({}, env.helpers, options.helpers);
+      wrapHelpersToPassLookupProperty(mergedHelpers, container);
+      container.helpers = mergedHelpers;
+
+      if (templateSpec.usePartial) {
+        // Use mergeIfNeeded here to prevent compiling global partials multiple times
+        container.partials = container.mergeIfNeeded(options.partials, env.partials);
+      }
+      if (templateSpec.usePartial || templateSpec.useDecorators) {
+        container.decorators = Utils.extend({}, env.decorators, options.decorators);
+      }
+
+      container.hooks = {};
+      container.protoAccessControl = _internalProtoAccess.createProtoAccessControl(options);
+
+      var keepHelperInHelpers = options.allowCallsToHelperMissing || templateWasPrecompiledWithCompilerV7;
+      _helpers.moveHelperToHooks(container, 'helperMissing', keepHelperInHelpers);
+      _helpers.moveHelperToHooks(container, 'blockHelperMissing', keepHelperInHelpers);
+    } else {
+      container.protoAccessControl = options.protoAccessControl; // internal option
+      container.helpers = options.helpers;
+      container.partials = options.partials;
+      container.decorators = options.decorators;
+      container.hooks = options.hooks;
+    }
+  };
+
+  ret._child = function (i, data, blockParams, depths) {
+    if (templateSpec.useBlockParams && !blockParams) {
+      throw new _exception2['default']('must pass block params');
+    }
+    if (templateSpec.useDepths && !depths) {
+      throw new _exception2['default']('must pass parent depths');
+    }
+
+    return wrapProgram(container, i, templateSpec[i], data, 0, blockParams, depths);
+  };
+  return ret;
+}
+
+function wrapProgram(container, i, fn, data, declaredBlockParams, blockParams, depths) {
+  function prog(context) {
+    var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+
+    var currentDepths = depths;
+    if (depths && context != depths[0] && !(context === container.nullContext && depths[0] === null)) {
+      currentDepths = [context].concat(depths);
+    }
+
+    return fn(container, context, container.helpers, container.partials, options.data || data, blockParams && [options.blockParams].concat(blockParams), currentDepths);
+  }
+
+  prog = executeDecorators(fn, prog, container, depths, data, blockParams);
+
+  prog.program = i;
+  prog.depth = depths ? depths.length : 0;
+  prog.blockParams = declaredBlockParams || 0;
+  return prog;
+}
+
+/**
+ * This is currently part of the official API, therefore implementation details should not be changed.
+ */
+
+function resolvePartial(partial, context, options) {
+  if (!partial) {
+    if (options.name === '@partial-block') {
+      partial = options.data['partial-block'];
+    } else {
+      partial = options.partials[options.name];
+    }
+  } else if (!partial.call && !options.name) {
+    // This is a dynamic partial that returned a string
+    options.name = partial;
+    partial = options.partials[partial];
+  }
+  return partial;
+}
+
+function invokePartial(partial, context, options) {
+  // Use the current closure context to save the partial-block if this partial
+  var currentPartialBlock = options.data && options.data['partial-block'];
+  options.partial = true;
+  if (options.ids) {
+    options.data.contextPath = options.ids[0] || options.data.contextPath;
+  }
+
+  var partialBlock = undefined;
+  if (options.fn && options.fn !== noop) {
+    (function () {
+      options.data = _base.createFrame(options.data);
+      // Wrapper function to get access to currentPartialBlock from the closure
+      var fn = options.fn;
+      partialBlock = options.data['partial-block'] = function partialBlockWrapper(context) {
+        var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+
+        // Restore the partial-block from the closure for the execution of the block
+        // i.e. the part inside the block of the partial call.
+        options.data = _base.createFrame(options.data);
+        options.data['partial-block'] = currentPartialBlock;
+        return fn(context, options);
+      };
+      if (fn.partials) {
+        options.partials = Utils.extend({}, options.partials, fn.partials);
+      }
+    })();
+  }
+
+  if (partial === undefined && partialBlock) {
+    partial = partialBlock;
+  }
+
+  if (partial === undefined) {
+    throw new _exception2['default']('The partial ' + options.name + ' could not be found');
+  } else if (partial instanceof Function) {
+    return partial(context, options);
+  }
+}
+
+function noop() {
+  return '';
+}
+
+function initData(context, data) {
+  if (!data || !('root' in data)) {
+    data = data ? _base.createFrame(data) : {};
+    data.root = context;
+  }
+  return data;
+}
+
+function executeDecorators(fn, prog, container, depths, data, blockParams) {
+  if (fn.decorator) {
+    var props = {};
+    prog = fn.decorator(prog, props, container, depths && depths[0], data, blockParams, depths);
+    Utils.extend(prog, props);
+  }
+  return prog;
+}
+
+function wrapHelpersToPassLookupProperty(mergedHelpers, container) {
+  Object.keys(mergedHelpers).forEach(function (helperName) {
+    var helper = mergedHelpers[helperName];
+    mergedHelpers[helperName] = passLookupPropertyOption(helper, container);
+  });
+}
+
+function passLookupPropertyOption(helper, container) {
+  var lookupProperty = container.lookupProperty;
+  return _internalWrapHelper.wrapHelper(helper, function (options) {
+    return Utils.extend({ lookupProperty: lookupProperty }, options);
+  });
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL2xpYi9oYW5kbGViYXJzL3J1bnRpbWUuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7cUJBQXVCLFNBQVM7O0lBQXBCLEtBQUs7O3lCQUNLLGFBQWE7Ozs7b0JBTTVCLFFBQVE7O3VCQUNtQixXQUFXOztrQ0FDbEIsdUJBQXVCOzttQ0FJM0MseUJBQXlCOztBQUV6QixTQUFTLGFBQWEsQ0FBQyxZQUFZLEVBQUU7QUFDMUMsTUFBTSxnQkFBZ0IsR0FBRyxBQUFDLFlBQVksSUFBSSxZQUFZLENBQUMsQ0FBQyxDQUFDLElBQUssQ0FBQztNQUM3RCxlQUFlLDBCQUFvQixDQUFDOztBQUV0QyxNQUNFLGdCQUFnQiwyQ0FBcUMsSUFDckQsZ0JBQWdCLDJCQUFxQixFQUNyQztBQUNBLFdBQU87R0FDUjs7QUFFRCxNQUFJLGdCQUFnQiwwQ0FBb0MsRUFBRTtBQUN4RCxRQUFNLGVBQWUsR0FBRyx1QkFBaUIsZUFBZSxDQUFDO1FBQ3ZELGdCQUFnQixHQUFHLHVCQUFpQixnQkFBZ0IsQ0FBQyxDQUFDO0FBQ3hELFVBQU0sMkJBQ0oseUZBQXlGLEdBQ3ZGLHFEQUFxRCxHQUNyRCxlQUFlLEdBQ2YsbURBQW1ELEdBQ25ELGdCQUFnQixHQUNoQixJQUFJLENBQ1AsQ0FBQztHQUNILE1BQU07O0FBRUwsVUFBTSwyQkFDSix3RkFBd0YsR0FDdEYsaURBQWlELEdBQ2pELFlBQVksQ0FBQyxDQUFDLENBQUMsR0FDZixJQUFJLENBQ1AsQ0FBQztHQUNIO0NBQ0Y7O0FBRU0sU0FBUyxRQUFRLENBQUMsWUFBWSxFQUFFLEdBQUcsRUFBRTs7QUFFMUMsTUFBSSxDQUFDLEdBQUcsRUFBRTtBQUNSLFVBQU0sMkJBQWMsbUNBQW1DLENBQUMsQ0FBQztHQUMxRDtBQUNELE1BQUksQ0FBQyxZQUFZLElBQUksQ0FBQyxZQUFZLENBQUMsSUFBSSxFQUFFO0FBQ3ZDLFVBQU0sMkJBQWMsMkJBQTJCLEdBQUcsT0FBTyxZQUFZLENBQUMsQ0FBQztHQUN4RTs7QUFFRCxjQUFZLENBQUMsSUFBSSxDQUFDLFNBQVMsR0FBRyxZQUFZLENBQUMsTUFBTSxDQUFDOzs7O0FBSWxELEtBQUcsQ0FBQyxFQUFFLENBQUMsYUFBYSxDQUFDLFlBQVksQ0FBQyxRQUFRLENBQUMsQ0FBQzs7O0FBRzVDLE1BQU0sb0NBQW9DLEdBQ3hDLFlBQVksQ0FBQyxRQUFRLElBQUksWUFBWSxDQUFDLFFBQVEsQ0FBQyxDQUFDLENBQUMsS0FBSyxDQUFDLENBQUM7O0FBRTFELFdBQVMsb0JBQW9CLENBQUMsT0FBTyxFQUFFLE9BQU8sRUFBRSxPQUFPLEVBQUU7QUFDdkQsUUFBSSxPQUFPLENBQUMsSUFBSSxFQUFFO0FBQ2hCLGFBQU8sR0FBRyxLQUFLLENBQUMsTUFBTSxDQUFDLEVBQUUsRUFBRSxPQUFPLEVBQUUsT0FBTyxDQUFDLElBQUksQ0FBQyxDQUFDO0FBQ2xELFVBQUksT0FBTyxDQUFDLEdBQUcsRUFBRTtBQUNmLGVBQU8sQ0FBQyxHQUFHLENBQUMsQ0FBQyxDQUFDLEdBQUcsSUFBSSxDQUFDO09BQ3ZCO0tBQ0Y7QUFDRCxXQUFPLEdBQUcsR0FBRyxDQUFDLEVBQUUsQ0FBQyxjQUFjLENBQUMsSUFBSSxDQUFDLElBQUksRUFBRSxPQUFPLEVBQUUsT0FBTyxFQUFFLE9BQU8sQ0FBQyxDQUFDOztBQUV0RSxRQUFJLGVBQWUsR0FBRyxLQUFLLENBQUMsTUFBTSxDQUFDLEVBQUUsRUFBRSxPQUFPLEVBQUU7QUFDOUMsV0FBSyxFQUFFLElBQUksQ0FBQyxLQUFLO0FBQ2pCLHdCQUFrQixFQUFFLElBQUksQ0FBQyxrQkFBa0I7S0FDNUMsQ0FBQyxDQUFDOztBQUVILFFBQUksTUFBTSxHQUFHLEdBQUcsQ0FBQyxFQUFFLENBQUMsYUFBYSxDQUFDLElBQUksQ0FDcEMsSUFBSSxFQUNKLE9BQU8sRUFDUCxPQUFPLEVBQ1AsZUFBZSxDQUNoQixDQUFDOztBQUVGLFFBQUksTUFBTSxJQUFJLElBQUksSUFBSSxHQUFHLENBQUMsT0FBTyxFQUFFO0FBQ2pDLGFBQU8sQ0FBQyxRQUFRLENBQUMsT0FBTyxDQUFDLElBQUksQ0FBQyxHQUFHLEdBQUcsQ0FBQyxPQUFPLENBQzFDLE9BQU8sRUFDUCxZQUFZLENBQUMsZUFBZSxFQUM1QixHQUFHLENBQ0osQ0FBQztBQUNGLFlBQU0sR0FBRyxPQUFPLENBQUMsUUFBUSxDQUFDLE9BQU8sQ0FBQyxJQUFJLENBQUMsQ0FBQyxPQUFPLEVBQUUsZUFBZSxDQUFDLENBQUM7S0FDbkU7QUFDRCxRQUFJLE1BQU0sSUFBSSxJQUFJLEVBQUU7QUFDbEIsVUFBSSxPQUFPLENBQUMsTUFBTSxFQUFFO0FBQ2xCLFlBQUksS0FBSyxHQUFHLE1BQU0sQ0FBQyxLQUFLLENBQUMsSUFBSSxDQUFDLENBQUM7QUFDL0IsYUFBSyxJQUFJLENBQUMsR0FBRyxDQUFDLEVBQUUsQ0FBQyxHQUFHLEtBQUssQ0FBQyxNQUFNLEVBQUUsQ0FBQyxHQUFHLENBQUMsRUFBRSxDQUFDLEVBQUUsRUFBRTtBQUM1QyxjQUFJLENBQUMsS0FBSyxDQUFDLENBQUMsQ0FBQyxJQUFJLENBQUMsR0FBRyxDQUFDLEtBQUssQ0FBQyxFQUFFO0FBQzVCLGtCQUFNO1dBQ1A7O0FBRUQsZUFBSyxDQUFDLENBQUMsQ0FBQyxHQUFHLE9BQU8sQ0FBQyxNQUFNLEdBQUcsS0FBSyxDQUFDLENBQUMsQ0FBQyxDQUFDO1NBQ3RDO0FBQ0QsY0FBTSxHQUFHLEtBQUssQ0FBQyxJQUFJLENBQUMsSUFBSSxDQUFDLENBQUM7T0FDM0I7QUFDRCxhQUFPLE1BQU0sQ0FBQztLQUNmLE1BQU07QUFDTCxZQUFNLDJCQUNKLGNBQWMsR0FDWixPQUFPLENBQUMsSUFBSSxHQUNaLDBEQUEwRCxDQUM3RCxDQUFDO0tBQ0g7R0FDRjs7O0FBR0QsTUFBSSxTQUFTLEdBQUc7QUFDZCxVQUFNLEVBQUUsZ0JBQVMsR0FBRyxFQUFFLElBQUksRUFBRSxHQUFHLEVBQUU7QUFDL0IsVUFBSSxDQUFDLEdBQUcsSUFBSSxFQUFFLElBQUksSUFBSSxHQUFHLENBQUEsQUFBQyxFQUFFO0FBQzFCLGNBQU0sMkJBQWMsR0FBRyxHQUFHLElBQUksR0FBRyxtQkFBbUIsR0FBRyxHQUFHLEVBQUU7QUFDMUQsYUFBRyxFQUFFLEdBQUc7U0FDVCxDQUFDLENBQUM7T0FDSjtBQUNELGFBQU8sU0FBUyxDQUFDLGNBQWMsQ0FBQyxHQUFHLEVBQUUsSUFBSSxDQUFDLENBQUM7S0FDNUM7QUFDRCxrQkFBYyxFQUFFLHdCQUFTLE1BQU0sRUFBRSxZQUFZLEVBQUU7QUFDN0MsVUFBSSxNQUFNLEdBQUcsTUFBTSxDQUFDLFlBQVksQ0FBQyxDQUFDO0FBQ2xDLFVBQUksTUFBTSxJQUFJLElBQUksRUFBRTtBQUNsQixlQUFPLE1BQU0sQ0FBQztPQUNmO0FBQ0QsVUFBSSxNQUFNLENBQUMsU0FBUyxDQUFDLGNBQWMsQ0FBQyxJQUFJLENBQUMsTUFBTSxFQUFFLFlBQVksQ0FBQyxFQUFFO0FBQzlELGVBQU8sTUFBTSxDQUFDO09BQ2Y7O0FBRUQsVUFBSSxxQ0FBZ0IsTUFBTSxFQUFFLFNBQVMsQ0FBQyxrQkFBa0IsRUFBRSxZQUFZLENBQUMsRUFBRTtBQUN2RSxlQUFPLE1BQU0sQ0FBQztPQUNmO0FBQ0QsYUFBTyxTQUFTLENBQUM7S0FDbEI7QUFDRCxVQUFNLEVBQUUsZ0JBQVMsTUFBTSxFQUFFLElBQUksRUFBRTtBQUM3QixVQUFNLEdBQUcsR0FBRyxNQUFNLENBQUMsTUFBTSxDQUFDO0FBQzFCLFdBQUssSUFBSSxDQUFDLEdBQUcsQ0FBQyxFQUFFLENBQUMsR0FBRyxHQUFHLEVBQUUsQ0FBQyxFQUFFLEVBQUU7QUFDNUIsWUFBSSxNQUFNLEdBQUcsTUFBTSxDQUFDLENBQUMsQ0FBQyxJQUFJLFNBQVMsQ0FBQyxjQUFjLENBQUMsTUFBTSxDQUFDLENBQUMsQ0FBQyxFQUFFLElBQUksQ0FBQyxDQUFDO0FBQ3BFLFlBQUksTUFBTSxJQUFJLElBQUksRUFBRTtBQUNsQixpQkFBTyxNQUFNLENBQUMsQ0FBQyxDQUFDLENBQUMsSUFBSSxDQUFDLENBQUM7U0FDeEI7T0FDRjtLQUNGO0FBQ0QsVUFBTSxFQUFFLGdCQUFTLE9BQU8sRUFBRSxPQUFPLEVBQUU7QUFDakMsYUFBTyxPQUFPLE9BQU8sS0FBSyxVQUFVLEdBQUcsT0FBTyxDQUFDLElBQUksQ0FBQyxPQUFPLENBQUMsR0FBRyxPQUFPLENBQUM7S0FDeEU7O0FBRUQsb0JBQWdCLEVBQUUsS0FBSyxDQUFDLGdCQUFnQjtBQUN4QyxpQkFBYSxFQUFFLG9CQUFvQjs7QUFFbkMsTUFBRSxFQUFFLFlBQVMsQ0FBQyxFQUFFO0FBQ2QsVUFBSSxHQUFHLEdBQUcsWUFBWSxDQUFDLENBQUMsQ0FBQyxDQUFDO0FBQzFCLFNBQUcsQ0FBQyxTQUFTLEdBQUcsWUFBWSxDQUFDLENBQUMsR0FBRyxJQUFJLENBQUMsQ0FBQztBQUN2QyxhQUFPLEdBQUcsQ0FBQztLQUNaOztBQUVELFlBQVEsRUFBRSxFQUFFO0FBQ1osV0FBTyxFQUFFLGlCQUFTLENBQUMsRUFBRSxJQUFJLEVBQUUsbUJBQW1CLEVBQUUsV0FBVyxFQUFFLE1BQU0sRUFBRTtBQUNuRSxVQUFJLGNBQWMsR0FBRyxJQUFJLENBQUMsUUFBUSxDQUFDLENBQUMsQ0FBQztVQUNuQyxFQUFFLEdBQUcsSUFBSSxDQUFDLEVBQUUsQ0FBQyxDQUFDLENBQUMsQ0FBQztBQUNsQixVQUFJLElBQUksSUFBSSxNQUFNLElBQUksV0FBVyxJQUFJLG1CQUFtQixFQUFFO0FBQ3hELHNCQUFjLEdBQUcsV0FBVyxDQUMxQixJQUFJLEVBQ0osQ0FBQyxFQUNELEVBQUUsRUFDRixJQUFJLEVBQ0osbUJBQW1CLEVBQ25CLFdBQVcsRUFDWCxNQUFNLENBQ1AsQ0FBQztPQUNILE1BQU0sSUFBSSxDQUFDLGNBQWMsRUFBRTtBQUMxQixzQkFBYyxHQUFHLElBQUksQ0FBQyxRQUFRLENBQUMsQ0FBQyxDQUFDLEdBQUcsV0FBVyxDQUFDLElBQUksRUFBRSxDQUFDLEVBQUUsRUFBRSxDQUFDLENBQUM7T0FDOUQ7QUFDRCxhQUFPLGNBQWMsQ0FBQztLQUN2Qjs7QUFFRCxRQUFJLEVBQUUsY0FBUyxLQUFLLEVBQUUsS0FBSyxFQUFFO0FBQzNCLGFBQU8sS0FBSyxJQUFJLEtBQUssRUFBRSxFQUFFO0FBQ3ZCLGFBQUssR0FBRyxLQUFLLENBQUMsT0FBTyxDQUFDO09BQ3ZCO0FBQ0QsYUFBTyxLQUFLLENBQUM7S0FDZDtBQUNELGlCQUFhLEVBQUUsdUJBQVMsS0FBSyxFQUFFLE1BQU0sRUFBRTtBQUNyQyxVQUFJLEdBQUcsR0FBRyxLQUFLLElBQUksTUFBTSxDQUFDOztBQUUxQixVQUFJLEtBQUssSUFBSSxNQUFNLElBQUksS0FBSyxLQUFLLE1BQU0sRUFBRTtBQUN2QyxXQUFHLEdBQUcsS0FBSyxDQUFDLE1BQU0sQ0FBQyxFQUFFLEVBQUUsTUFBTSxFQUFFLEtBQUssQ0FBQyxDQUFDO09BQ3ZDOztBQUVELGFBQU8sR0FBRyxDQUFDO0tBQ1o7O0FBRUQsZUFBVyxFQUFFLE1BQU0sQ0FBQyxJQUFJLENBQUMsRUFBRSxDQUFDOztBQUU1QixRQUFJLEVBQUUsR0FBRyxDQUFDLEVBQUUsQ0FBQyxJQUFJO0FBQ2pCLGdCQUFZLEVBQUUsWUFBWSxDQUFDLFFBQVE7R0FDcEMsQ0FBQzs7QUFFRixXQUFTLEdBQUcsQ0FBQyxPQUFPLEVBQWdCO1FBQWQsT0FBTyx5REFBRyxFQUFFOztBQUNoQyxRQUFJLElBQUksR0FBRyxPQUFPLENBQUMsSUFBSSxDQUFDOztBQUV4QixPQUFHLENBQUMsTUFBTSxDQUFDLE9BQU8sQ0FBQyxDQUFDO0FBQ3BCLFFBQUksQ0FBQyxPQUFPLENBQUMsT0FBTyxJQUFJLFlBQVksQ0FBQyxPQUFPLEVBQUU7QUFDNUMsVUFBSSxHQUFHLFFBQVEsQ0FBQyxPQUFPLEVBQUUsSUFBSSxDQUFDLENBQUM7S0FDaEM7QUFDRCxRQUFJLE1BQU0sWUFBQTtRQUNSLFdBQVcsR0FBRyxZQUFZLENBQUMsY0FBYyxHQUFHLEVBQUUsR0FBRyxTQUFTLENBQUM7QUFDN0QsUUFBSSxZQUFZLENBQUMsU0FBUyxFQUFFO0FBQzFCLFVBQUksT0FBTyxDQUFDLE1BQU0sRUFBRTtBQUNsQixjQUFNLEdBQ0osT0FBTyxJQUFJLE9BQU8sQ0FBQyxNQUFNLENBQUMsQ0FBQyxDQUFDLEdBQ3hCLENBQUMsT0FBTyxDQUFDLENBQUMsTUFBTSxDQUFDLE9BQU8sQ0FBQyxNQUFNLENBQUMsR0FDaEMsT0FBTyxDQUFDLE1BQU0sQ0FBQztPQUN0QixNQUFNO0FBQ0wsY0FBTSxHQUFHLENBQUMsT0FBTyxDQUFDLENBQUM7T0FDcEI7S0FDRjs7QUFFRCxhQUFTLElBQUksQ0FBQyxPQUFPLGdCQUFnQjtBQUNuQyxhQUNFLEVBQUUsR0FDRixZQUFZLENBQUMsSUFBSSxDQUNmLFNBQVMsRUFDVCxPQUFPLEVBQ1AsU0FBUyxDQUFDLE9BQU8sRUFDakIsU0FBUyxDQUFDLFFBQVEsRUFDbEIsSUFBSSxFQUNKLFdBQVcsRUFDWCxNQUFNLENBQ1AsQ0FDRDtLQUNIOztBQUVELFFBQUksR0FBRyxpQkFBaUIsQ0FDdEIsWUFBWSxDQUFDLElBQUksRUFDakIsSUFBSSxFQUNKLFNBQVMsRUFDVCxPQUFPLENBQUMsTUFBTSxJQUFJLEVBQUUsRUFDcEIsSUFBSSxFQUNKLFdBQVcsQ0FDWixDQUFDO0FBQ0YsV0FBTyxJQUFJLENBQUMsT0FBTyxFQUFFLE9BQU8sQ0FBQyxDQUFDO0dBQy9COztBQUVELEtBQUcsQ0FBQyxLQUFLLEdBQUcsSUFBSSxDQUFDOztBQUVqQixLQUFHLENBQUMsTUFBTSxHQUFHLFVBQVMsT0FBTyxFQUFFO0FBQzdCLFFBQUksQ0FBQyxPQUFPLENBQUMsT0FBTyxFQUFFO0FBQ3BCLFVBQUksYUFBYSxHQUFHLEtBQUssQ0FBQyxNQUFNLENBQUMsRUFBRSxFQUFFLEdBQUcsQ0FBQyxPQUFPLEVBQUUsT0FBTyxDQUFDLE9BQU8sQ0FBQyxDQUFDO0FBQ25FLHFDQUErQixDQUFDLGFBQWEsRUFBRSxTQUFTLENBQUMsQ0FBQztBQUMxRCxlQUFTLENBQUMsT0FBTyxHQUFHLGFBQWEsQ0FBQzs7QUFFbEMsVUFBSSxZQUFZLENBQUMsVUFBVSxFQUFFOztBQUUzQixpQkFBUyxDQUFDLFFBQVEsR0FBRyxTQUFTLENBQUMsYUFBYSxDQUMxQyxPQUFPLENBQUMsUUFBUSxFQUNoQixHQUFHLENBQUMsUUFBUSxDQUNiLENBQUM7T0FDSDtBQUNELFVBQUksWUFBWSxDQUFDLFVBQVUsSUFBSSxZQUFZLENBQUMsYUFBYSxFQUFFO0FBQ3pELGlCQUFTLENBQUMsVUFBVSxHQUFHLEtBQUssQ0FBQyxNQUFNLENBQ2pDLEVBQUUsRUFDRixHQUFHLENBQUMsVUFBVSxFQUNkLE9BQU8sQ0FBQyxVQUFVLENBQ25CLENBQUM7T0FDSDs7QUFFRCxlQUFTLENBQUMsS0FBSyxHQUFHLEVBQUUsQ0FBQztBQUNyQixlQUFTLENBQUMsa0JBQWtCLEdBQUcsOENBQXlCLE9BQU8sQ0FBQyxDQUFDOztBQUVqRSxVQUFJLG1CQUFtQixHQUNyQixPQUFPLENBQUMseUJBQXlCLElBQ2pDLG9DQUFvQyxDQUFDO0FBQ3ZDLGlDQUFrQixTQUFTLEVBQUUsZUFBZSxFQUFFLG1CQUFtQixDQUFDLENBQUM7QUFDbkUsaUNBQWtCLFNBQVMsRUFBRSxvQkFBb0IsRUFBRSxtQkFBbUIsQ0FBQyxDQUFDO0tBQ3pFLE1BQU07QUFDTCxlQUFTLENBQUMsa0JBQWtCLEdBQUcsT0FBTyxDQUFDLGtCQUFrQixDQUFDO0FBQzFELGVBQVMsQ0FBQyxPQUFPLEdBQUcsT0FBTyxDQUFDLE9BQU8sQ0FBQztBQUNwQyxlQUFTLENBQUMsUUFBUSxHQUFHLE9BQU8sQ0FBQyxRQUFRLENBQUM7QUFDdEMsZUFBUyxDQUFDLFVBQVUsR0FBRyxPQUFPLENBQUMsVUFBVSxDQUFDO0FBQzFDLGVBQVMsQ0FBQyxLQUFLLEdBQUcsT0FBTyxDQUFDLEtBQUssQ0FBQztLQUNqQztHQUNGLENBQUM7O0FBRUYsS0FBRyxDQUFDLE1BQU0sR0FBRyxVQUFTLENBQUMsRUFBRSxJQUFJLEVBQUUsV0FBVyxFQUFFLE1BQU0sRUFBRTtBQUNsRCxRQUFJLFlBQVksQ0FBQyxjQUFjLElBQUksQ0FBQyxXQUFXLEVBQUU7QUFDL0MsWUFBTSwyQkFBYyx3QkFBd0IsQ0FBQyxDQUFDO0tBQy9DO0FBQ0QsUUFBSSxZQUFZLENBQUMsU0FBUyxJQUFJLENBQUMsTUFBTSxFQUFFO0FBQ3JDLFlBQU0sMkJBQWMseUJBQXlCLENBQUMsQ0FBQztLQUNoRDs7QUFFRCxXQUFPLFdBQVcsQ0FDaEIsU0FBUyxFQUNULENBQUMsRUFDRCxZQUFZLENBQUMsQ0FBQyxDQUFDLEVBQ2YsSUFBSSxFQUNKLENBQUMsRUFDRCxXQUFXLEVBQ1gsTUFBTSxDQUNQLENBQUM7R0FDSCxDQUFDO0FBQ0YsU0FBTyxHQUFHLENBQUM7Q0FDWjs7QUFFTSxTQUFTLFdBQVcsQ0FDekIsU0FBUyxFQUNULENBQUMsRUFDRCxFQUFFLEVBQ0YsSUFBSSxFQUNKLG1CQUFtQixFQUNuQixXQUFXLEVBQ1gsTUFBTSxFQUNOO0FBQ0EsV0FBUyxJQUFJLENBQUMsT0FBTyxFQUFnQjtRQUFkLE9BQU8seURBQUcsRUFBRTs7QUFDakMsUUFBSSxhQUFhLEdBQUcsTUFBTSxDQUFDO0FBQzNCLFFBQ0UsTUFBTSxJQUNOLE9BQU8sSUFBSSxNQUFNLENBQUMsQ0FBQyxDQUFDLElBQ3BCLEVBQUUsT0FBTyxLQUFLLFNBQVMsQ0FBQyxXQUFXLElBQUksTUFBTSxDQUFDLENBQUMsQ0FBQyxLQUFLLElBQUksQ0FBQSxBQUFDLEVBQzFEO0FBQ0EsbUJBQWEsR0FBRyxDQUFDLE9BQU8sQ0FBQyxDQUFDLE1BQU0sQ0FBQyxNQUFNLENBQUMsQ0FBQztLQUMxQzs7QUFFRCxXQUFPLEVBQUUsQ0FDUCxTQUFTLEVBQ1QsT0FBTyxFQUNQLFNBQVMsQ0FBQyxPQUFPLEVBQ2pCLFNBQVMsQ0FBQyxRQUFRLEVBQ2xCLE9BQU8sQ0FBQyxJQUFJLElBQUksSUFBSSxFQUNwQixXQUFXLElBQUksQ0FBQyxPQUFPLENBQUMsV0FBVyxDQUFDLENBQUMsTUFBTSxDQUFDLFdBQVcsQ0FBQyxFQUN4RCxhQUFhLENBQ2QsQ0FBQztHQUNIOztBQUVELE1BQUksR0FBRyxpQkFBaUIsQ0FBQyxFQUFFLEVBQUUsSUFBSSxFQUFFLFNBQVMsRUFBRSxNQUFNLEVBQUUsSUFBSSxFQUFFLFdBQVcsQ0FBQyxDQUFDOztBQUV6RSxNQUFJLENBQUMsT0FBTyxHQUFHLENBQUMsQ0FBQztBQUNqQixNQUFJLENBQUMsS0FBSyxHQUFHLE1BQU0sR0FBRyxNQUFNLENBQUMsTUFBTSxHQUFHLENBQUMsQ0FBQztBQUN4QyxNQUFJLENBQUMsV0FBVyxHQUFHLG1CQUFtQixJQUFJLENBQUMsQ0FBQztBQUM1QyxTQUFPLElBQUksQ0FBQztDQUNiOzs7Ozs7QUFLTSxTQUFTLGNBQWMsQ0FBQyxPQUFPLEVBQUUsT0FBTyxFQUFFLE9BQU8sRUFBRTtBQUN4RCxNQUFJLENBQUMsT0FBTyxFQUFFO0FBQ1osUUFBSSxPQUFPLENBQUMsSUFBSSxLQUFLLGdCQUFnQixFQUFFO0FBQ3JDLGFBQU8sR0FBRyxPQUFPLENBQUMsSUFBSSxDQUFDLGVBQWUsQ0FBQyxDQUFDO0tBQ3pDLE1BQU07QUFDTCxhQUFPLEdBQUcsT0FBTyxDQUFDLFFBQVEsQ0FBQyxPQUFPLENBQUMsSUFBSSxDQUFDLENBQUM7S0FDMUM7R0FDRixNQUFNLElBQUksQ0FBQyxPQUFPLENBQUMsSUFBSSxJQUFJLENBQUMsT0FBTyxDQUFDLElBQUksRUFBRTs7QUFFekMsV0FBTyxDQUFDLElBQUksR0FBRyxPQUFPLENBQUM7QUFDdkIsV0FBTyxHQUFHLE9BQU8sQ0FBQyxRQUFRLENBQUMsT0FBTyxDQUFDLENBQUM7R0FDckM7QUFDRCxTQUFPLE9BQU8sQ0FBQztDQUNoQjs7QUFFTSxTQUFTLGFBQWEsQ0FBQyxPQUFPLEVBQUUsT0FBTyxFQUFFLE9BQU8sRUFBRTs7QUFFdkQsTUFBTSxtQkFBbUIsR0FBRyxPQUFPLENBQUMsSUFBSSxJQUFJLE9BQU8sQ0FBQyxJQUFJLENBQUMsZUFBZSxDQUFDLENBQUM7QUFDMUUsU0FBTyxDQUFDLE9BQU8sR0FBRyxJQUFJLENBQUM7QUFDdkIsTUFBSSxPQUFPLENBQUMsR0FBRyxFQUFFO0FBQ2YsV0FBTyxDQUFDLElBQUksQ0FBQyxXQUFXLEdBQUcsT0FBTyxDQUFDLEdBQUcsQ0FBQyxDQUFDLENBQUMsSUFBSSxPQUFPLENBQUMsSUFBSSxDQUFDLFdBQVcsQ0FBQztHQUN2RTs7QUFFRCxNQUFJLFlBQVksWUFBQSxDQUFDO0FBQ2pCLE1BQUksT0FBTyxDQUFDLEVBQUUsSUFBSSxPQUFPLENBQUMsRUFBRSxLQUFLLElBQUksRUFBRTs7QUFDckMsYUFBTyxDQUFDLElBQUksR0FBRyxrQkFBWSxPQUFPLENBQUMsSUFBSSxDQUFDLENBQUM7O0FBRXpDLFVBQUksRUFBRSxHQUFHLE9BQU8sQ0FBQyxFQUFFLENBQUM7QUFDcEIsa0JBQVksR0FBRyxPQUFPLENBQUMsSUFBSSxDQUFDLGVBQWUsQ0FBQyxHQUFHLFNBQVMsbUJBQW1CLENBQ3pFLE9BQU8sRUFFUDtZQURBLE9BQU8seURBQUcsRUFBRTs7OztBQUlaLGVBQU8sQ0FBQyxJQUFJLEdBQUcsa0JBQVksT0FBTyxDQUFDLElBQUksQ0FBQyxDQUFDO0FBQ3pDLGVBQU8sQ0FBQyxJQUFJLENBQUMsZUFBZSxDQUFDLEdBQUcsbUJBQW1CLENBQUM7QUFDcEQsZUFBTyxFQUFFLENBQUMsT0FBTyxFQUFFLE9BQU8sQ0FBQyxDQUFDO09BQzdCLENBQUM7QUFDRixVQUFJLEVBQUUsQ0FBQyxRQUFRLEVBQUU7QUFDZixlQUFPLENBQUMsUUFBUSxHQUFHLEtBQUssQ0FBQyxNQUFNLENBQUMsRUFBRSxFQUFFLE9BQU8sQ0FBQyxRQUFRLEVBQUUsRUFBRSxDQUFDLFFBQVEsQ0FBQyxDQUFDO09BQ3BFOztHQUNGOztBQUVELE1BQUksT0FBTyxLQUFLLFNBQVMsSUFBSSxZQUFZLEVBQUU7QUFDekMsV0FBTyxHQUFHLFlBQVksQ0FBQztHQUN4Qjs7QUFFRCxNQUFJLE9BQU8sS0FBSyxTQUFTLEVBQUU7QUFDekIsVUFBTSwyQkFBYyxjQUFjLEdBQUcsT0FBTyxDQUFDLElBQUksR0FBRyxxQkFBcUIsQ0FBQyxDQUFDO0dBQzVFLE1BQU0sSUFBSSxPQUFPLFlBQVksUUFBUSxFQUFFO0FBQ3RDLFdBQU8sT0FBTyxDQUFDLE9BQU8sRUFBRSxPQUFPLENBQUMsQ0FBQztHQUNsQztDQUNGOztBQUVNLFNBQVMsSUFBSSxHQUFHO0FBQ3JCLFNBQU8sRUFBRSxDQUFDO0NBQ1g7O0FBRUQsU0FBUyxRQUFRLENBQUMsT0FBTyxFQUFFLElBQUksRUFBRTtBQUMvQixNQUFJLENBQUMsSUFBSSxJQUFJLEVBQUUsTUFBTSxJQUFJLElBQUksQ0FBQSxBQUFDLEVBQUU7QUFDOUIsUUFBSSxHQUFHLElBQUksR0FBRyxrQkFBWSxJQUFJLENBQUMsR0FBRyxFQUFFLENBQUM7QUFDckMsUUFBSSxDQUFDLElBQUksR0FBRyxPQUFPLENBQUM7R0FDckI7QUFDRCxTQUFPLElBQUksQ0FBQztDQUNiOztBQUVELFNBQVMsaUJBQWlCLENBQUMsRUFBRSxFQUFFLElBQUksRUFBRSxTQUFTLEVBQUUsTUFBTSxFQUFFLElBQUksRUFBRSxXQUFXLEVBQUU7QUFDekUsTUFBSSxFQUFFLENBQUMsU0FBUyxFQUFFO0FBQ2hCLFFBQUksS0FBSyxHQUFHLEVBQUUsQ0FBQztBQUNmLFFBQUksR0FBRyxFQUFFLENBQUMsU0FBUyxDQUNqQixJQUFJLEVBQ0osS0FBSyxFQUNMLFNBQVMsRUFDVCxNQUFNLElBQUksTUFBTSxDQUFDLENBQUMsQ0FBQyxFQUNuQixJQUFJLEVBQ0osV0FBVyxFQUNYLE1BQU0sQ0FDUCxDQUFDO0FBQ0YsU0FBSyxDQUFDLE1BQU0sQ0FBQyxJQUFJLEVBQUUsS0FBSyxDQUFDLENBQUM7R0FDM0I7QUFDRCxTQUFPLElBQUksQ0FBQztDQUNiOztBQUVELFNBQVMsK0JBQStCLENBQUMsYUFBYSxFQUFFLFNBQVMsRUFBRTtBQUNqRSxRQUFNLENBQUMsSUFBSSxDQUFDLGFBQWEsQ0FBQyxDQUFDLE9BQU8sQ0FBQyxVQUFBLFVBQVUsRUFBSTtBQUMvQyxRQUFJLE1BQU0sR0FBRyxhQUFhLENBQUMsVUFBVSxDQUFDLENBQUM7QUFDdkMsaUJBQWEsQ0FBQyxVQUFVLENBQUMsR0FBRyx3QkFBd0IsQ0FBQyxNQUFNLEVBQUUsU0FBUyxDQUFDLENBQUM7R0FDekUsQ0FBQyxDQUFDO0NBQ0o7O0FBRUQsU0FBUyx3QkFBd0IsQ0FBQyxNQUFNLEVBQUUsU0FBUyxFQUFFO0FBQ25ELE1BQU0sY0FBYyxHQUFHLFNBQVMsQ0FBQyxjQUFjLENBQUM7QUFDaEQsU0FBTywrQkFBVyxNQUFNLEVBQUUsVUFBQSxPQUFPLEVBQUk7QUFDbkMsV0FBTyxLQUFLLENBQUMsTUFBTSxDQUFDLEVBQUUsY0FBYyxFQUFkLGNBQWMsRUFBRSxFQUFFLE9BQU8sQ0FBQyxDQUFDO0dBQ2xELENBQUMsQ0FBQztDQUNKIiwiZmlsZSI6InJ1bnRpbWUuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgKiBhcyBVdGlscyBmcm9tICcuL3V0aWxzJztcbmltcG9ydCBFeGNlcHRpb24gZnJvbSAnLi9leGNlcHRpb24nO1xuaW1wb3J0IHtcbiAgQ09NUElMRVJfUkVWSVNJT04sXG4gIGNyZWF0ZUZyYW1lLFxuICBMQVNUX0NPTVBBVElCTEVfQ09NUElMRVJfUkVWSVNJT04sXG4gIFJFVklTSU9OX0NIQU5HRVNcbn0gZnJvbSAnLi9iYXNlJztcbmltcG9ydCB7IG1vdmVIZWxwZXJUb0hvb2tzIH0gZnJvbSAnLi9oZWxwZXJzJztcbmltcG9ydCB7IHdyYXBIZWxwZXIgfSBmcm9tICcuL2ludGVybmFsL3dyYXBIZWxwZXInO1xuaW1wb3J0IHtcbiAgY3JlYXRlUHJvdG9BY2Nlc3NDb250cm9sLFxuICByZXN1bHRJc0FsbG93ZWRcbn0gZnJvbSAnLi9pbnRlcm5hbC9wcm90by1hY2Nlc3MnO1xuXG5leHBvcnQgZnVuY3Rpb24gY2hlY2tSZXZpc2lvbihjb21waWxlckluZm8pIHtcbiAgY29uc3QgY29tcGlsZXJSZXZpc2lvbiA9IChjb21waWxlckluZm8gJiYgY29tcGlsZXJJbmZvWzBdKSB8fCAxLFxuICAgIGN1cnJlbnRSZXZpc2lvbiA9IENPTVBJTEVSX1JFVklTSU9OO1xuXG4gIGlmIChcbiAgICBjb21waWxlclJldmlzaW9uID49IExBU1RfQ09NUEFUSUJMRV9DT01QSUxFUl9SRVZJU0lPTiAmJlxuICAgIGNvbXBpbGVyUmV2aXNpb24gPD0gQ09NUElMRVJfUkVWSVNJT05cbiAgKSB7XG4gICAgcmV0dXJuO1xuICB9XG5cbiAgaWYgKGNvbXBpbGVyUmV2aXNpb24gPCBMQVNUX0NPTVBBVElCTEVfQ09NUElMRVJfUkVWSVNJT04pIHtcbiAgICBjb25zdCBydW50aW1lVmVyc2lvbnMgPSBSRVZJU0lPTl9DSEFOR0VTW2N1cnJlbnRSZXZpc2lvbl0sXG4gICAgICBjb21waWxlclZlcnNpb25zID0gUkVWSVNJT05fQ0hBTkdFU1tjb21waWxlclJldmlzaW9uXTtcbiAgICB0aHJvdyBuZXcgRXhjZXB0aW9uKFxuICAgICAgJ1RlbXBsYXRlIHdhcyBwcmVjb21waWxlZCB3aXRoIGFuIG9sZGVyIHZlcnNpb24gb2YgSGFuZGxlYmFycyB0aGFuIHRoZSBjdXJyZW50IHJ1bnRpbWUuICcgK1xuICAgICAgICAnUGxlYXNlIHVwZGF0ZSB5b3VyIHByZWNvbXBpbGVyIHRvIGEgbmV3ZXIgdmVyc2lvbiAoJyArXG4gICAgICAgIHJ1bnRpbWVWZXJzaW9ucyArXG4gICAgICAgICcpIG9yIGRvd25ncmFkZSB5b3VyIHJ1bnRpbWUgdG8gYW4gb2xkZXIgdmVyc2lvbiAoJyArXG4gICAgICAgIGNvbXBpbGVyVmVyc2lvbnMgK1xuICAgICAgICAnKS4nXG4gICAgKTtcbiAgfSBlbHNlIHtcbiAgICAvLyBVc2UgdGhlIGVtYmVkZGVkIHZlcnNpb24gaW5mbyBzaW5jZSB0aGUgcnVudGltZSBkb2Vzbid0IGtub3cgYWJvdXQgdGhpcyByZXZpc2lvbiB5ZXRcbiAgICB0aHJvdyBuZXcgRXhjZXB0aW9uKFxuICAgICAgJ1RlbXBsYXRlIHdhcyBwcmVjb21waWxlZCB3aXRoIGEgbmV3ZXIgdmVyc2lvbiBvZiBIYW5kbGViYXJzIHRoYW4gdGhlIGN1cnJlbnQgcnVudGltZS4gJyArXG4gICAgICAgICdQbGVhc2UgdXBkYXRlIHlvdXIgcnVudGltZSB0byBhIG5ld2VyIHZlcnNpb24gKCcgK1xuICAgICAgICBjb21waWxlckluZm9bMV0gK1xuICAgICAgICAnKS4nXG4gICAgKTtcbiAgfVxufVxuXG5leHBvcnQgZnVuY3Rpb24gdGVtcGxhdGUodGVtcGxhdGVTcGVjLCBlbnYpIHtcbiAgLyogaXN0YW5idWwgaWdub3JlIG5leHQgKi9cbiAgaWYgKCFlbnYpIHtcbiAgICB0aHJvdyBuZXcgRXhjZXB0aW9uKCdObyBlbnZpcm9ubWVudCBwYXNzZWQgdG8gdGVtcGxhdGUnKTtcbiAgfVxuICBpZiAoIXRlbXBsYXRlU3BlYyB8fCAhdGVtcGxhdGVTcGVjLm1haW4pIHtcbiAgICB0aHJvdyBuZXcgRXhjZXB0aW9uKCdVbmtub3duIHRlbXBsYXRlIG9iamVjdDogJyArIHR5cGVvZiB0ZW1wbGF0ZVNwZWMpO1xuICB9XG5cbiAgdGVtcGxhdGVTcGVjLm1haW4uZGVjb3JhdG9yID0gdGVtcGxhdGVTcGVjLm1haW5fZDtcblxuICAvLyBOb3RlOiBVc2luZyBlbnYuVk0gcmVmZXJlbmNlcyByYXRoZXIgdGhhbiBsb2NhbCB2YXIgcmVmZXJlbmNlcyB0aHJvdWdob3V0IHRoaXMgc2VjdGlvbiB0byBhbGxvd1xuICAvLyBmb3IgZXh0ZXJuYWwgdXNlcnMgdG8gb3ZlcnJpZGUgdGhlc2UgYXMgcHNldWRvLXN1cHBvcnRlZCBBUElzLlxuICBlbnYuVk0uY2hlY2tSZXZpc2lvbih0ZW1wbGF0ZVNwZWMuY29tcGlsZXIpO1xuXG4gIC8vIGJhY2t3YXJkcyBjb21wYXRpYmlsaXR5IGZvciBwcmVjb21waWxlZCB0ZW1wbGF0ZXMgd2l0aCBjb21waWxlci12ZXJzaW9uIDcgKDw0LjMuMClcbiAgY29uc3QgdGVtcGxhdGVXYXNQcmVjb21waWxlZFdpdGhDb21waWxlclY3ID1cbiAgICB0ZW1wbGF0ZVNwZWMuY29tcGlsZXIgJiYgdGVtcGxhdGVTcGVjLmNvbXBpbGVyWzBdID09PSA3O1xuXG4gIGZ1bmN0aW9uIGludm9rZVBhcnRpYWxXcmFwcGVyKHBhcnRpYWwsIGNvbnRleHQsIG9wdGlvbnMpIHtcbiAgICBpZiAob3B0aW9ucy5oYXNoKSB7XG4gICAgICBjb250ZXh0ID0gVXRpbHMuZXh0ZW5kKHt9LCBjb250ZXh0LCBvcHRpb25zLmhhc2gpO1xuICAgICAgaWYgKG9wdGlvbnMuaWRzKSB7XG4gICAgICAgIG9wdGlvbnMuaWRzWzBdID0gdHJ1ZTtcbiAgICAgIH1cbiAgICB9XG4gICAgcGFydGlhbCA9IGVudi5WTS5yZXNvbHZlUGFydGlhbC5jYWxsKHRoaXMsIHBhcnRpYWwsIGNvbnRleHQsIG9wdGlvbnMpO1xuXG4gICAgbGV0IGV4dGVuZGVkT3B0aW9ucyA9IFV0aWxzLmV4dGVuZCh7fSwgb3B0aW9ucywge1xuICAgICAgaG9va3M6IHRoaXMuaG9va3MsXG4gICAgICBwcm90b0FjY2Vzc0NvbnRyb2w6IHRoaXMucHJvdG9BY2Nlc3NDb250cm9sXG4gICAgfSk7XG5cbiAgICBsZXQgcmVzdWx0ID0gZW52LlZNLmludm9rZVBhcnRpYWwuY2FsbChcbiAgICAgIHRoaXMsXG4gICAgICBwYXJ0aWFsLFxuICAgICAgY29udGV4dCxcbiAgICAgIGV4dGVuZGVkT3B0aW9uc1xuICAgICk7XG5cbiAgICBpZiAocmVzdWx0ID09IG51bGwgJiYgZW52LmNvbXBpbGUpIHtcbiAgICAgIG9wdGlvbnMucGFydGlhbHNbb3B0aW9ucy5uYW1lXSA9IGVudi5jb21waWxlKFxuICAgICAgICBwYXJ0aWFsLFxuICAgICAgICB0ZW1wbGF0ZVNwZWMuY29tcGlsZXJPcHRpb25zLFxuICAgICAgICBlbnZcbiAgICAgICk7XG4gICAgICByZXN1bHQgPSBvcHRpb25zLnBhcnRpYWxzW29wdGlvbnMubmFtZV0oY29udGV4dCwgZXh0ZW5kZWRPcHRpb25zKTtcbiAgICB9XG4gICAgaWYgKHJlc3VsdCAhPSBudWxsKSB7XG4gICAgICBpZiAob3B0aW9ucy5pbmRlbnQpIHtcbiAgICAgICAgbGV0IGxpbmVzID0gcmVzdWx0LnNwbGl0KCdcXG4nKTtcbiAgICAgICAgZm9yIChsZXQgaSA9IDAsIGwgPSBsaW5lcy5sZW5ndGg7IGkgPCBsOyBpKyspIHtcbiAgICAgICAgICBpZiAoIWxpbmVzW2ldICYmIGkgKyAxID09PSBsKSB7XG4gICAgICAgICAgICBicmVhaztcbiAgICAgICAgICB9XG5cbiAgICAgICAgICBsaW5lc1tpXSA9IG9wdGlvbnMuaW5kZW50ICsgbGluZXNbaV07XG4gICAgICAgIH1cbiAgICAgICAgcmVzdWx0ID0gbGluZXMuam9pbignXFxuJyk7XG4gICAgICB9XG4gICAgICByZXR1cm4gcmVzdWx0O1xuICAgIH0gZWxzZSB7XG4gICAgICB0aHJvdyBuZXcgRXhjZXB0aW9uKFxuICAgICAgICAnVGhlIHBhcnRpYWwgJyArXG4gICAgICAgICAgb3B0aW9ucy5uYW1lICtcbiAgICAgICAgICAnIGNvdWxkIG5vdCBiZSBjb21waWxlZCB3aGVuIHJ1bm5pbmcgaW4gcnVudGltZS1vbmx5IG1vZGUnXG4gICAgICApO1xuICAgIH1cbiAgfVxuXG4gIC8vIEp1c3QgYWRkIHdhdGVyXG4gIGxldCBjb250YWluZXIgPSB7XG4gICAgc3RyaWN0OiBmdW5jdGlvbihvYmosIG5hbWUsIGxvYykge1xuICAgICAgaWYgKCFvYmogfHwgIShuYW1lIGluIG9iaikpIHtcbiAgICAgICAgdGhyb3cgbmV3IEV4Y2VwdGlvbignXCInICsgbmFtZSArICdcIiBub3QgZGVmaW5lZCBpbiAnICsgb2JqLCB7XG4gICAgICAgICAgbG9jOiBsb2NcbiAgICAgICAgfSk7XG4gICAgICB9XG4gICAgICByZXR1cm4gY29udGFpbmVyLmxvb2t1cFByb3BlcnR5KG9iaiwgbmFtZSk7XG4gICAgfSxcbiAgICBsb29rdXBQcm9wZXJ0eTogZnVuY3Rpb24ocGFyZW50LCBwcm9wZXJ0eU5hbWUpIHtcbiAgICAgIGxldCByZXN1bHQgPSBwYXJlbnRbcHJvcGVydHlOYW1lXTtcbiAgICAgIGlmIChyZXN1bHQgPT0gbnVsbCkge1xuICAgICAgICByZXR1cm4gcmVzdWx0O1xuICAgICAgfVxuICAgICAgaWYgKE9iamVjdC5wcm90b3R5cGUuaGFzT3duUHJvcGVydHkuY2FsbChwYXJlbnQsIHByb3BlcnR5TmFtZSkpIHtcbiAgICAgICAgcmV0dXJuIHJlc3VsdDtcbiAgICAgIH1cblxuICAgICAgaWYgKHJlc3VsdElzQWxsb3dlZChyZXN1bHQsIGNvbnRhaW5lci5wcm90b0FjY2Vzc0NvbnRyb2wsIHByb3BlcnR5TmFtZSkpIHtcbiAgICAgICAgcmV0dXJuIHJlc3VsdDtcbiAgICAgIH1cbiAgICAgIHJldHVybiB1bmRlZmluZWQ7XG4gICAgfSxcbiAgICBsb29rdXA6IGZ1bmN0aW9uKGRlcHRocywgbmFtZSkge1xuICAgICAgY29uc3QgbGVuID0gZGVwdGhzLmxlbmd0aDtcbiAgICAgIGZvciAobGV0IGkgPSAwOyBpIDwgbGVuOyBpKyspIHtcbiAgICAgICAgbGV0IHJlc3VsdCA9IGRlcHRoc1tpXSAmJiBjb250YWluZXIubG9va3VwUHJvcGVydHkoZGVwdGhzW2ldLCBuYW1lKTtcbiAgICAgICAgaWYgKHJlc3VsdCAhPSBudWxsKSB7XG4gICAgICAgICAgcmV0dXJuIGRlcHRoc1tpXVtuYW1lXTtcbiAgICAgICAgfVxuICAgICAgfVxuICAgIH0sXG4gICAgbGFtYmRhOiBmdW5jdGlvbihjdXJyZW50LCBjb250ZXh0KSB7XG4gICAgICByZXR1cm4gdHlwZW9mIGN1cnJlbnQgPT09ICdmdW5jdGlvbicgPyBjdXJyZW50LmNhbGwoY29udGV4dCkgOiBjdXJyZW50O1xuICAgIH0sXG5cbiAgICBlc2NhcGVFeHByZXNzaW9uOiBVdGlscy5lc2NhcGVFeHByZXNzaW9uLFxuICAgIGludm9rZVBhcnRpYWw6IGludm9rZVBhcnRpYWxXcmFwcGVyLFxuXG4gICAgZm46IGZ1bmN0aW9uKGkpIHtcbiAgICAgIGxldCByZXQgPSB0ZW1wbGF0ZVNwZWNbaV07XG4gICAgICByZXQuZGVjb3JhdG9yID0gdGVtcGxhdGVTcGVjW2kgKyAnX2QnXTtcbiAgICAgIHJldHVybiByZXQ7XG4gICAgfSxcblxuICAgIHByb2dyYW1zOiBbXSxcbiAgICBwcm9ncmFtOiBmdW5jdGlvbihpLCBkYXRhLCBkZWNsYXJlZEJsb2NrUGFyYW1zLCBibG9ja1BhcmFtcywgZGVwdGhzKSB7XG4gICAgICBsZXQgcHJvZ3JhbVdyYXBwZXIgPSB0aGlzLnByb2dyYW1zW2ldLFxuICAgICAgICBmbiA9IHRoaXMuZm4oaSk7XG4gICAgICBpZiAoZGF0YSB8fCBkZXB0aHMgfHwgYmxvY2tQYXJhbXMgfHwgZGVjbGFyZWRCbG9ja1BhcmFtcykge1xuICAgICAgICBwcm9ncmFtV3JhcHBlciA9IHdyYXBQcm9ncmFtKFxuICAgICAgICAgIHRoaXMsXG4gICAgICAgICAgaSxcbiAgICAgICAgICBmbixcbiAgICAgICAgICBkYXRhLFxuICAgICAgICAgIGRlY2xhcmVkQmxvY2tQYXJhbXMsXG4gICAgICAgICAgYmxvY2tQYXJhbXMsXG4gICAgICAgICAgZGVwdGhzXG4gICAgICAgICk7XG4gICAgICB9IGVsc2UgaWYgKCFwcm9ncmFtV3JhcHBlcikge1xuICAgICAgICBwcm9ncmFtV3JhcHBlciA9IHRoaXMucHJvZ3JhbXNbaV0gPSB3cmFwUHJvZ3JhbSh0aGlzLCBpLCBmbik7XG4gICAgICB9XG4gICAgICByZXR1cm4gcHJvZ3JhbVdyYXBwZXI7XG4gICAgfSxcblxuICAgIGRhdGE6IGZ1bmN0aW9uKHZhbHVlLCBkZXB0aCkge1xuICAgICAgd2hpbGUgKHZhbHVlICYmIGRlcHRoLS0pIHtcbiAgICAgICAgdmFsdWUgPSB2YWx1ZS5fcGFyZW50O1xuICAgICAgfVxuICAgICAgcmV0dXJuIHZhbHVlO1xuICAgIH0sXG4gICAgbWVyZ2VJZk5lZWRlZDogZnVuY3Rpb24ocGFyYW0sIGNvbW1vbikge1xuICAgICAgbGV0IG9iaiA9IHBhcmFtIHx8IGNvbW1vbjtcblxuICAgICAgaWYgKHBhcmFtICYmIGNvbW1vbiAmJiBwYXJhbSAhPT0gY29tbW9uKSB7XG4gICAgICAgIG9iaiA9IFV0aWxzLmV4dGVuZCh7fSwgY29tbW9uLCBwYXJhbSk7XG4gICAgICB9XG5cbiAgICAgIHJldHVybiBvYmo7XG4gICAgfSxcbiAgICAvLyBBbiBlbXB0eSBvYmplY3QgdG8gdXNlIGFzIHJlcGxhY2VtZW50IGZvciBudWxsLWNvbnRleHRzXG4gICAgbnVsbENvbnRleHQ6IE9iamVjdC5zZWFsKHt9KSxcblxuICAgIG5vb3A6IGVudi5WTS5ub29wLFxuICAgIGNvbXBpbGVySW5mbzogdGVtcGxhdGVTcGVjLmNvbXBpbGVyXG4gIH07XG5cbiAgZnVuY3Rpb24gcmV0KGNvbnRleHQsIG9wdGlvbnMgPSB7fSkge1xuICAgIGxldCBkYXRhID0gb3B0aW9ucy5kYXRhO1xuXG4gICAgcmV0Ll9zZXR1cChvcHRpb25zKTtcbiAgICBpZiAoIW9wdGlvbnMucGFydGlhbCAmJiB0ZW1wbGF0ZVNwZWMudXNlRGF0YSkge1xuICAgICAgZGF0YSA9IGluaXREYXRhKGNvbnRleHQsIGRhdGEpO1xuICAgIH1cbiAgICBsZXQgZGVwdGhzLFxuICAgICAgYmxvY2tQYXJhbXMgPSB0ZW1wbGF0ZVNwZWMudXNlQmxvY2tQYXJhbXMgPyBbXSA6IHVuZGVmaW5lZDtcbiAgICBpZiAodGVtcGxhdGVTcGVjLnVzZURlcHRocykge1xuICAgICAgaWYgKG9wdGlvbnMuZGVwdGhzKSB7XG4gICAgICAgIGRlcHRocyA9XG4gICAgICAgICAgY29udGV4dCAhPSBvcHRpb25zLmRlcHRoc1swXVxuICAgICAgICAgICAgPyBbY29udGV4dF0uY29uY2F0KG9wdGlvbnMuZGVwdGhzKVxuICAgICAgICAgICAgOiBvcHRpb25zLmRlcHRocztcbiAgICAgIH0gZWxzZSB7XG4gICAgICAgIGRlcHRocyA9IFtjb250ZXh0XTtcbiAgICAgIH1cbiAgICB9XG5cbiAgICBmdW5jdGlvbiBtYWluKGNvbnRleHQgLyosIG9wdGlvbnMqLykge1xuICAgICAgcmV0dXJuIChcbiAgICAgICAgJycgK1xuICAgICAgICB0ZW1wbGF0ZVNwZWMubWFpbihcbiAgICAgICAgICBjb250YWluZXIsXG4gICAgICAgICAgY29udGV4dCxcbiAgICAgICAgICBjb250YWluZXIuaGVscGVycyxcbiAgICAgICAgICBjb250YWluZXIucGFydGlhbHMsXG4gICAgICAgICAgZGF0YSxcbiAgICAgICAgICBibG9ja1BhcmFtcyxcbiAgICAgICAgICBkZXB0aHNcbiAgICAgICAgKVxuICAgICAgKTtcbiAgICB9XG5cbiAgICBtYWluID0gZXhlY3V0ZURlY29yYXRvcnMoXG4gICAgICB0ZW1wbGF0ZVNwZWMubWFpbixcbiAgICAgIG1haW4sXG4gICAgICBjb250YWluZXIsXG4gICAgICBvcHRpb25zLmRlcHRocyB8fCBbXSxcbiAgICAgIGRhdGEsXG4gICAgICBibG9ja1BhcmFtc1xuICAgICk7XG4gICAgcmV0dXJuIG1haW4oY29udGV4dCwgb3B0aW9ucyk7XG4gIH1cblxuICByZXQuaXNUb3AgPSB0cnVlO1xuXG4gIHJldC5fc2V0dXAgPSBmdW5jdGlvbihvcHRpb25zKSB7XG4gICAgaWYgKCFvcHRpb25zLnBhcnRpYWwpIHtcbiAgICAgIGxldCBtZXJnZWRIZWxwZXJzID0gVXRpbHMuZXh0ZW5kKHt9LCBlbnYuaGVscGVycywgb3B0aW9ucy5oZWxwZXJzKTtcbiAgICAgIHdyYXBIZWxwZXJzVG9QYXNzTG9va3VwUHJvcGVydHkobWVyZ2VkSGVscGVycywgY29udGFpbmVyKTtcbiAgICAgIGNvbnRhaW5lci5oZWxwZXJzID0gbWVyZ2VkSGVscGVycztcblxuICAgICAgaWYgKHRlbXBsYXRlU3BlYy51c2VQYXJ0aWFsKSB7XG4gICAgICAgIC8vIFVzZSBtZXJnZUlmTmVlZGVkIGhlcmUgdG8gcHJldmVudCBjb21waWxpbmcgZ2xvYmFsIHBhcnRpYWxzIG11bHRpcGxlIHRpbWVzXG4gICAgICAgIGNvbnRhaW5lci5wYXJ0aWFscyA9IGNvbnRhaW5lci5tZXJnZUlmTmVlZGVkKFxuICAgICAgICAgIG9wdGlvbnMucGFydGlhbHMsXG4gICAgICAgICAgZW52LnBhcnRpYWxzXG4gICAgICAgICk7XG4gICAgICB9XG4gICAgICBpZiAodGVtcGxhdGVTcGVjLnVzZVBhcnRpYWwgfHwgdGVtcGxhdGVTcGVjLnVzZURlY29yYXRvcnMpIHtcbiAgICAgICAgY29udGFpbmVyLmRlY29yYXRvcnMgPSBVdGlscy5leHRlbmQoXG4gICAgICAgICAge30sXG4gICAgICAgICAgZW52LmRlY29yYXRvcnMsXG4gICAgICAgICAgb3B0aW9ucy5kZWNvcmF0b3JzXG4gICAgICAgICk7XG4gICAgICB9XG5cbiAgICAgIGNvbnRhaW5lci5ob29rcyA9IHt9O1xuICAgICAgY29udGFpbmVyLnByb3RvQWNjZXNzQ29udHJvbCA9IGNyZWF0ZVByb3RvQWNjZXNzQ29udHJvbChvcHRpb25zKTtcblxuICAgICAgbGV0IGtlZXBIZWxwZXJJbkhlbHBlcnMgPVxuICAgICAgICBvcHRpb25zLmFsbG93Q2FsbHNUb0hlbHBlck1pc3NpbmcgfHxcbiAgICAgICAgdGVtcGxhdGVXYXNQcmVjb21waWxlZFdpdGhDb21waWxlclY3O1xuICAgICAgbW92ZUhlbHBlclRvSG9va3MoY29udGFpbmVyLCAnaGVscGVyTWlzc2luZycsIGtlZXBIZWxwZXJJbkhlbHBlcnMpO1xuICAgICAgbW92ZUhlbHBlclRvSG9va3MoY29udGFpbmVyLCAnYmxvY2tIZWxwZXJNaXNzaW5nJywga2VlcEhlbHBlckluSGVscGVycyk7XG4gICAgfSBlbHNlIHtcbiAgICAgIGNvbnRhaW5lci5wcm90b0FjY2Vzc0NvbnRyb2wgPSBvcHRpb25zLnByb3RvQWNjZXNzQ29udHJvbDsgLy8gaW50ZXJuYWwgb3B0aW9uXG4gICAgICBjb250YWluZXIuaGVscGVycyA9IG9wdGlvbnMuaGVscGVycztcbiAgICAgIGNvbnRhaW5lci5wYXJ0aWFscyA9IG9wdGlvbnMucGFydGlhbHM7XG4gICAgICBjb250YWluZXIuZGVjb3JhdG9ycyA9IG9wdGlvbnMuZGVjb3JhdG9ycztcbiAgICAgIGNvbnRhaW5lci5ob29rcyA9IG9wdGlvbnMuaG9va3M7XG4gICAgfVxuICB9O1xuXG4gIHJldC5fY2hpbGQgPSBmdW5jdGlvbihpLCBkYXRhLCBibG9ja1BhcmFtcywgZGVwdGhzKSB7XG4gICAgaWYgKHRlbXBsYXRlU3BlYy51c2VCbG9ja1BhcmFtcyAmJiAhYmxvY2tQYXJhbXMpIHtcbiAgICAgIHRocm93IG5ldyBFeGNlcHRpb24oJ211c3QgcGFzcyBibG9jayBwYXJhbXMnKTtcbiAgICB9XG4gICAgaWYgKHRlbXBsYXRlU3BlYy51c2VEZXB0aHMgJiYgIWRlcHRocykge1xuICAgICAgdGhyb3cgbmV3IEV4Y2VwdGlvbignbXVzdCBwYXNzIHBhcmVudCBkZXB0aHMnKTtcbiAgICB9XG5cbiAgICByZXR1cm4gd3JhcFByb2dyYW0oXG4gICAgICBjb250YWluZXIsXG4gICAgICBpLFxuICAgICAgdGVtcGxhdGVTcGVjW2ldLFxuICAgICAgZGF0YSxcbiAgICAgIDAsXG4gICAgICBibG9ja1BhcmFtcyxcbiAgICAgIGRlcHRoc1xuICAgICk7XG4gIH07XG4gIHJldHVybiByZXQ7XG59XG5cbmV4cG9ydCBmdW5jdGlvbiB3cmFwUHJvZ3JhbShcbiAgY29udGFpbmVyLFxuICBpLFxuICBmbixcbiAgZGF0YSxcbiAgZGVjbGFyZWRCbG9ja1BhcmFtcyxcbiAgYmxvY2tQYXJhbXMsXG4gIGRlcHRoc1xuKSB7XG4gIGZ1bmN0aW9uIHByb2coY29udGV4dCwgb3B0aW9ucyA9IHt9KSB7XG4gICAgbGV0IGN1cnJlbnREZXB0aHMgPSBkZXB0aHM7XG4gICAgaWYgKFxuICAgICAgZGVwdGhzICYmXG4gICAgICBjb250ZXh0ICE9IGRlcHRoc1swXSAmJlxuICAgICAgIShjb250ZXh0ID09PSBjb250YWluZXIubnVsbENvbnRleHQgJiYgZGVwdGhzWzBdID09PSBudWxsKVxuICAgICkge1xuICAgICAgY3VycmVudERlcHRocyA9IFtjb250ZXh0XS5jb25jYXQoZGVwdGhzKTtcbiAgICB9XG5cbiAgICByZXR1cm4gZm4oXG4gICAgICBjb250YWluZXIsXG4gICAgICBjb250ZXh0LFxuICAgICAgY29udGFpbmVyLmhlbHBlcnMsXG4gICAgICBjb250YWluZXIucGFydGlhbHMsXG4gICAgICBvcHRpb25zLmRhdGEgfHwgZGF0YSxcbiAgICAgIGJsb2NrUGFyYW1zICYmIFtvcHRpb25zLmJsb2NrUGFyYW1zXS5jb25jYXQoYmxvY2tQYXJhbXMpLFxuICAgICAgY3VycmVudERlcHRoc1xuICAgICk7XG4gIH1cblxuICBwcm9nID0gZXhlY3V0ZURlY29yYXRvcnMoZm4sIHByb2csIGNvbnRhaW5lciwgZGVwdGhzLCBkYXRhLCBibG9ja1BhcmFtcyk7XG5cbiAgcHJvZy5wcm9ncmFtID0gaTtcbiAgcHJvZy5kZXB0aCA9IGRlcHRocyA/IGRlcHRocy5sZW5ndGggOiAwO1xuICBwcm9nLmJsb2NrUGFyYW1zID0gZGVjbGFyZWRCbG9ja1BhcmFtcyB8fCAwO1xuICByZXR1cm4gcHJvZztcbn1cblxuLyoqXG4gKiBUaGlzIGlzIGN1cnJlbnRseSBwYXJ0IG9mIHRoZSBvZmZpY2lhbCBBUEksIHRoZXJlZm9yZSBpbXBsZW1lbnRhdGlvbiBkZXRhaWxzIHNob3VsZCBub3QgYmUgY2hhbmdlZC5cbiAqL1xuZXhwb3J0IGZ1bmN0aW9uIHJlc29sdmVQYXJ0aWFsKHBhcnRpYWwsIGNvbnRleHQsIG9wdGlvbnMpIHtcbiAgaWYgKCFwYXJ0aWFsKSB7XG4gICAgaWYgKG9wdGlvbnMubmFtZSA9PT0gJ0BwYXJ0aWFsLWJsb2NrJykge1xuICAgICAgcGFydGlhbCA9IG9wdGlvbnMuZGF0YVsncGFydGlhbC1ibG9jayddO1xuICAgIH0gZWxzZSB7XG4gICAgICBwYXJ0aWFsID0gb3B0aW9ucy5wYXJ0aWFsc1tvcHRpb25zLm5hbWVdO1xuICAgIH1cbiAgfSBlbHNlIGlmICghcGFydGlhbC5jYWxsICYmICFvcHRpb25zLm5hbWUpIHtcbiAgICAvLyBUaGlzIGlzIGEgZHluYW1pYyBwYXJ0aWFsIHRoYXQgcmV0dXJuZWQgYSBzdHJpbmdcbiAgICBvcHRpb25zLm5hbWUgPSBwYXJ0aWFsO1xuICAgIHBhcnRpYWwgPSBvcHRpb25zLnBhcnRpYWxzW3BhcnRpYWxdO1xuICB9XG4gIHJldHVybiBwYXJ0aWFsO1xufVxuXG5leHBvcnQgZnVuY3Rpb24gaW52b2tlUGFydGlhbChwYXJ0aWFsLCBjb250ZXh0LCBvcHRpb25zKSB7XG4gIC8vIFVzZSB0aGUgY3VycmVudCBjbG9zdXJlIGNvbnRleHQgdG8gc2F2ZSB0aGUgcGFydGlhbC1ibG9jayBpZiB0aGlzIHBhcnRpYWxcbiAgY29uc3QgY3VycmVudFBhcnRpYWxCbG9jayA9IG9wdGlvbnMuZGF0YSAmJiBvcHRpb25zLmRhdGFbJ3BhcnRpYWwtYmxvY2snXTtcbiAgb3B0aW9ucy5wYXJ0aWFsID0gdHJ1ZTtcbiAgaWYgKG9wdGlvbnMuaWRzKSB7XG4gICAgb3B0aW9ucy5kYXRhLmNvbnRleHRQYXRoID0gb3B0aW9ucy5pZHNbMF0gfHwgb3B0aW9ucy5kYXRhLmNvbnRleHRQYXRoO1xuICB9XG5cbiAgbGV0IHBhcnRpYWxCbG9jaztcbiAgaWYgKG9wdGlvbnMuZm4gJiYgb3B0aW9ucy5mbiAhPT0gbm9vcCkge1xuICAgIG9wdGlvbnMuZGF0YSA9IGNyZWF0ZUZyYW1lKG9wdGlvbnMuZGF0YSk7XG4gICAgLy8gV3JhcHBlciBmdW5jdGlvbiB0byBnZXQgYWNjZXNzIHRvIGN1cnJlbnRQYXJ0aWFsQmxvY2sgZnJvbSB0aGUgY2xvc3VyZVxuICAgIGxldCBmbiA9IG9wdGlvbnMuZm47XG4gICAgcGFydGlhbEJsb2NrID0gb3B0aW9ucy5kYXRhWydwYXJ0aWFsLWJsb2NrJ10gPSBmdW5jdGlvbiBwYXJ0aWFsQmxvY2tXcmFwcGVyKFxuICAgICAgY29udGV4dCxcbiAgICAgIG9wdGlvbnMgPSB7fVxuICAgICkge1xuICAgICAgLy8gUmVzdG9yZSB0aGUgcGFydGlhbC1ibG9jayBmcm9tIHRoZSBjbG9zdXJlIGZvciB0aGUgZXhlY3V0aW9uIG9mIHRoZSBibG9ja1xuICAgICAgLy8gaS5lLiB0aGUgcGFydCBpbnNpZGUgdGhlIGJsb2NrIG9mIHRoZSBwYXJ0aWFsIGNhbGwuXG4gICAgICBvcHRpb25zLmRhdGEgPSBjcmVhdGVGcmFtZShvcHRpb25zLmRhdGEpO1xuICAgICAgb3B0aW9ucy5kYXRhWydwYXJ0aWFsLWJsb2NrJ10gPSBjdXJyZW50UGFydGlhbEJsb2NrO1xuICAgICAgcmV0dXJuIGZuKGNvbnRleHQsIG9wdGlvbnMpO1xuICAgIH07XG4gICAgaWYgKGZuLnBhcnRpYWxzKSB7XG4gICAgICBvcHRpb25zLnBhcnRpYWxzID0gVXRpbHMuZXh0ZW5kKHt9LCBvcHRpb25zLnBhcnRpYWxzLCBmbi5wYXJ0aWFscyk7XG4gICAgfVxuICB9XG5cbiAgaWYgKHBhcnRpYWwgPT09IHVuZGVmaW5lZCAmJiBwYXJ0aWFsQmxvY2spIHtcbiAgICBwYXJ0aWFsID0gcGFydGlhbEJsb2NrO1xuICB9XG5cbiAgaWYgKHBhcnRpYWwgPT09IHVuZGVmaW5lZCkge1xuICAgIHRocm93IG5ldyBFeGNlcHRpb24oJ1RoZSBwYXJ0aWFsICcgKyBvcHRpb25zLm5hbWUgKyAnIGNvdWxkIG5vdCBiZSBmb3VuZCcpO1xuICB9IGVsc2UgaWYgKHBhcnRpYWwgaW5zdGFuY2VvZiBGdW5jdGlvbikge1xuICAgIHJldHVybiBwYXJ0aWFsKGNvbnRleHQsIG9wdGlvbnMpO1xuICB9XG59XG5cbmV4cG9ydCBmdW5jdGlvbiBub29wKCkge1xuICByZXR1cm4gJyc7XG59XG5cbmZ1bmN0aW9uIGluaXREYXRhKGNvbnRleHQsIGRhdGEpIHtcbiAgaWYgKCFkYXRhIHx8ICEoJ3Jvb3QnIGluIGRhdGEpKSB7XG4gICAgZGF0YSA9IGRhdGEgPyBjcmVhdGVGcmFtZShkYXRhKSA6IHt9O1xuICAgIGRhdGEucm9vdCA9IGNvbnRleHQ7XG4gIH1cbiAgcmV0dXJuIGRhdGE7XG59XG5cbmZ1bmN0aW9uIGV4ZWN1dGVEZWNvcmF0b3JzKGZuLCBwcm9nLCBjb250YWluZXIsIGRlcHRocywgZGF0YSwgYmxvY2tQYXJhbXMpIHtcbiAgaWYgKGZuLmRlY29yYXRvcikge1xuICAgIGxldCBwcm9wcyA9IHt9O1xuICAgIHByb2cgPSBmbi5kZWNvcmF0b3IoXG4gICAgICBwcm9nLFxuICAgICAgcHJvcHMsXG4gICAgICBjb250YWluZXIsXG4gICAgICBkZXB0aHMgJiYgZGVwdGhzWzBdLFxuICAgICAgZGF0YSxcbiAgICAgIGJsb2NrUGFyYW1zLFxuICAgICAgZGVwdGhzXG4gICAgKTtcbiAgICBVdGlscy5leHRlbmQocHJvZywgcHJvcHMpO1xuICB9XG4gIHJldHVybiBwcm9nO1xufVxuXG5mdW5jdGlvbiB3cmFwSGVscGVyc1RvUGFzc0xvb2t1cFByb3BlcnR5KG1lcmdlZEhlbHBlcnMsIGNvbnRhaW5lcikge1xuICBPYmplY3Qua2V5cyhtZXJnZWRIZWxwZXJzKS5mb3JFYWNoKGhlbHBlck5hbWUgPT4ge1xuICAgIGxldCBoZWxwZXIgPSBtZXJnZWRIZWxwZXJzW2hlbHBlck5hbWVdO1xuICAgIG1lcmdlZEhlbHBlcnNbaGVscGVyTmFtZV0gPSBwYXNzTG9va3VwUHJvcGVydHlPcHRpb24oaGVscGVyLCBjb250YWluZXIpO1xuICB9KTtcbn1cblxuZnVuY3Rpb24gcGFzc0xvb2t1cFByb3BlcnR5T3B0aW9uKGhlbHBlciwgY29udGFpbmVyKSB7XG4gIGNvbnN0IGxvb2t1cFByb3BlcnR5ID0gY29udGFpbmVyLmxvb2t1cFByb3BlcnR5O1xuICByZXR1cm4gd3JhcEhlbHBlcihoZWxwZXIsIG9wdGlvbnMgPT4ge1xuICAgIHJldHVybiBVdGlscy5leHRlbmQoeyBsb29rdXBQcm9wZXJ0eSB9LCBvcHRpb25zKTtcbiAgfSk7XG59XG4iXX0=
+
+
+/***/ }),
+
+/***/ 5558:
+/***/ (function(module, exports) {
+
+"use strict";
+// Build out our basic SafeString type
+
+
+exports.__esModule = true;
+function SafeString(string) {
+  this.string = string;
+}
+
+SafeString.prototype.toString = SafeString.prototype.toHTML = function () {
+  return '' + this.string;
+};
+
+exports.default = SafeString;
+module.exports = exports['default'];
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL2xpYi9oYW5kbGViYXJzL3NhZmUtc3RyaW5nLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7QUFDQSxTQUFTLFVBQVUsQ0FBQyxNQUFNLEVBQUU7QUFDMUIsTUFBSSxDQUFDLE1BQU0sR0FBRyxNQUFNLENBQUM7Q0FDdEI7O0FBRUQsVUFBVSxDQUFDLFNBQVMsQ0FBQyxRQUFRLEdBQUcsVUFBVSxDQUFDLFNBQVMsQ0FBQyxNQUFNLEdBQUcsWUFBVztBQUN2RSxTQUFPLEVBQUUsR0FBRyxJQUFJLENBQUMsTUFBTSxDQUFDO0NBQ3pCLENBQUM7O3FCQUVhLFVBQVUiLCJmaWxlIjoic2FmZS1zdHJpbmcuanMiLCJzb3VyY2VzQ29udGVudCI6WyIvLyBCdWlsZCBvdXQgb3VyIGJhc2ljIFNhZmVTdHJpbmcgdHlwZVxuZnVuY3Rpb24gU2FmZVN0cmluZyhzdHJpbmcpIHtcbiAgdGhpcy5zdHJpbmcgPSBzdHJpbmc7XG59XG5cblNhZmVTdHJpbmcucHJvdG90eXBlLnRvU3RyaW5nID0gU2FmZVN0cmluZy5wcm90b3R5cGUudG9IVE1MID0gZnVuY3Rpb24oKSB7XG4gIHJldHVybiAnJyArIHRoaXMuc3RyaW5nO1xufTtcblxuZXhwb3J0IGRlZmF1bHQgU2FmZVN0cmluZztcbiJdfQ==
+
+
+/***/ }),
+
+/***/ 2392:
+/***/ (function(__unused_webpack_module, exports) {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports.extend = extend;
+exports.indexOf = indexOf;
+exports.escapeExpression = escapeExpression;
+exports.isEmpty = isEmpty;
+exports.createFrame = createFrame;
+exports.blockParams = blockParams;
+exports.appendContextPath = appendContextPath;
+var escape = {
+  '&': '&amp;',
+  '<': '&lt;',
+  '>': '&gt;',
+  '"': '&quot;',
+  "'": '&#x27;',
+  '`': '&#x60;',
+  '=': '&#x3D;'
+};
+
+var badChars = /[&<>"'`=]/g,
+    possible = /[&<>"'`=]/;
+
+function escapeChar(chr) {
+  return escape[chr];
+}
+
+function extend(obj /* , ...source */) {
+  for (var i = 1; i < arguments.length; i++) {
+    for (var key in arguments[i]) {
+      if (Object.prototype.hasOwnProperty.call(arguments[i], key)) {
+        obj[key] = arguments[i][key];
+      }
+    }
+  }
+
+  return obj;
+}
+
+var toString = Object.prototype.toString;
+
+exports.toString = toString;
+// Sourced from lodash
+// https://github.com/bestiejs/lodash/blob/master/LICENSE.txt
+/* eslint-disable func-style */
+var isFunction = function isFunction(value) {
+  return typeof value === 'function';
+};
+// fallback for older versions of Chrome and Safari
+/* istanbul ignore next */
+if (isFunction(/x/)) {
+  exports.isFunction = isFunction = function (value) {
+    return typeof value === 'function' && toString.call(value) === '[object Function]';
+  };
+}
+exports.isFunction = isFunction;
+
+/* eslint-enable func-style */
+
+/* istanbul ignore next */
+var isArray = Array.isArray || function (value) {
+  return value && typeof value === 'object' ? toString.call(value) === '[object Array]' : false;
+};
+
+exports.isArray = isArray;
+// Older IE versions do not directly support indexOf so we must implement our own, sadly.
+
+function indexOf(array, value) {
+  for (var i = 0, len = array.length; i < len; i++) {
+    if (array[i] === value) {
+      return i;
+    }
+  }
+  return -1;
+}
+
+function escapeExpression(string) {
+  if (typeof string !== 'string') {
+    // don't escape SafeStrings, since they're already safe
+    if (string && string.toHTML) {
+      return string.toHTML();
+    } else if (string == null) {
+      return '';
+    } else if (!string) {
+      return string + '';
+    }
+
+    // Force a string conversion as this will be done by the append regardless and
+    // the regex test will do this transparently behind the scenes, causing issues if
+    // an object's to string has escaped characters in it.
+    string = '' + string;
+  }
+
+  if (!possible.test(string)) {
+    return string;
+  }
+  return string.replace(badChars, escapeChar);
+}
+
+function isEmpty(value) {
+  if (!value && value !== 0) {
+    return true;
+  } else if (isArray(value) && value.length === 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function createFrame(object) {
+  var frame = extend({}, object);
+  frame._parent = object;
+  return frame;
+}
+
+function blockParams(params, ids) {
+  params.path = ids;
+  return params;
+}
+
+function appendContextPath(contextPath, id) {
+  return (contextPath ? contextPath + '.' : '') + id;
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL2xpYi9oYW5kbGViYXJzL3V0aWxzLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7QUFBQSxJQUFNLE1BQU0sR0FBRztBQUNiLEtBQUcsRUFBRSxPQUFPO0FBQ1osS0FBRyxFQUFFLE1BQU07QUFDWCxLQUFHLEVBQUUsTUFBTTtBQUNYLEtBQUcsRUFBRSxRQUFRO0FBQ2IsS0FBRyxFQUFFLFFBQVE7QUFDYixLQUFHLEVBQUUsUUFBUTtBQUNiLEtBQUcsRUFBRSxRQUFRO0NBQ2QsQ0FBQzs7QUFFRixJQUFNLFFBQVEsR0FBRyxZQUFZO0lBQzNCLFFBQVEsR0FBRyxXQUFXLENBQUM7O0FBRXpCLFNBQVMsVUFBVSxDQUFDLEdBQUcsRUFBRTtBQUN2QixTQUFPLE1BQU0sQ0FBQyxHQUFHLENBQUMsQ0FBQztDQUNwQjs7QUFFTSxTQUFTLE1BQU0sQ0FBQyxHQUFHLG9CQUFvQjtBQUM1QyxPQUFLLElBQUksQ0FBQyxHQUFHLENBQUMsRUFBRSxDQUFDLEdBQUcsU0FBUyxDQUFDLE1BQU0sRUFBRSxDQUFDLEVBQUUsRUFBRTtBQUN6QyxTQUFLLElBQUksR0FBRyxJQUFJLFNBQVMsQ0FBQyxDQUFDLENBQUMsRUFBRTtBQUM1QixVQUFJLE1BQU0sQ0FBQyxTQUFTLENBQUMsY0FBYyxDQUFDLElBQUksQ0FBQyxTQUFTLENBQUMsQ0FBQyxDQUFDLEVBQUUsR0FBRyxDQUFDLEVBQUU7QUFDM0QsV0FBRyxDQUFDLEdBQUcsQ0FBQyxHQUFHLFNBQVMsQ0FBQyxDQUFDLENBQUMsQ0FBQyxHQUFHLENBQUMsQ0FBQztPQUM5QjtLQUNGO0dBQ0Y7O0FBRUQsU0FBTyxHQUFHLENBQUM7Q0FDWjs7QUFFTSxJQUFJLFFBQVEsR0FBRyxNQUFNLENBQUMsU0FBUyxDQUFDLFFBQVEsQ0FBQzs7Ozs7O0FBS2hELElBQUksVUFBVSxHQUFHLG9CQUFTLEtBQUssRUFBRTtBQUMvQixTQUFPLE9BQU8sS0FBSyxLQUFLLFVBQVUsQ0FBQztDQUNwQyxDQUFDOzs7QUFHRixJQUFJLFVBQVUsQ0FBQyxHQUFHLENBQUMsRUFBRTtBQUNuQixVQU9PLFVBQVUsR0FQakIsVUFBVSxHQUFHLFVBQVMsS0FBSyxFQUFFO0FBQzNCLFdBQ0UsT0FBTyxLQUFLLEtBQUssVUFBVSxJQUMzQixRQUFRLENBQUMsSUFBSSxDQUFDLEtBQUssQ0FBQyxLQUFLLG1CQUFtQixDQUM1QztHQUNILENBQUM7Q0FDSDtRQUNRLFVBQVUsR0FBVixVQUFVOzs7OztBQUlaLElBQU0sT0FBTyxHQUNsQixLQUFLLENBQUMsT0FBTyxJQUNiLFVBQVMsS0FBSyxFQUFFO0FBQ2QsU0FBTyxLQUFLLElBQUksT0FBTyxLQUFLLEtBQUssUUFBUSxHQUNyQyxRQUFRLENBQUMsSUFBSSxDQUFDLEtBQUssQ0FBQyxLQUFLLGdCQUFnQixHQUN6QyxLQUFLLENBQUM7Q0FDWCxDQUFDOzs7OztBQUdHLFNBQVMsT0FBTyxDQUFDLEtBQUssRUFBRSxLQUFLLEVBQUU7QUFDcEMsT0FBSyxJQUFJLENBQUMsR0FBRyxDQUFDLEVBQUUsR0FBRyxHQUFHLEtBQUssQ0FBQyxNQUFNLEVBQUUsQ0FBQyxHQUFHLEdBQUcsRUFBRSxDQUFDLEVBQUUsRUFBRTtBQUNoRCxRQUFJLEtBQUssQ0FBQyxDQUFDLENBQUMsS0FBSyxLQUFLLEVBQUU7QUFDdEIsYUFBTyxDQUFDLENBQUM7S0FDVjtHQUNGO0FBQ0QsU0FBTyxDQUFDLENBQUMsQ0FBQztDQUNYOztBQUVNLFNBQVMsZ0JBQWdCLENBQUMsTUFBTSxFQUFFO0FBQ3ZDLE1BQUksT0FBTyxNQUFNLEtBQUssUUFBUSxFQUFFOztBQUU5QixRQUFJLE1BQU0sSUFBSSxNQUFNLENBQUMsTUFBTSxFQUFFO0FBQzNCLGFBQU8sTUFBTSxDQUFDLE1BQU0sRUFBRSxDQUFDO0tBQ3hCLE1BQU0sSUFBSSxNQUFNLElBQUksSUFBSSxFQUFFO0FBQ3pCLGFBQU8sRUFBRSxDQUFDO0tBQ1gsTUFBTSxJQUFJLENBQUMsTUFBTSxFQUFFO0FBQ2xCLGFBQU8sTUFBTSxHQUFHLEVBQUUsQ0FBQztLQUNwQjs7Ozs7QUFLRCxVQUFNLEdBQUcsRUFBRSxHQUFHLE1BQU0sQ0FBQztHQUN0Qjs7QUFFRCxNQUFJLENBQUMsUUFBUSxDQUFDLElBQUksQ0FBQyxNQUFNLENBQUMsRUFBRTtBQUMxQixXQUFPLE1BQU0sQ0FBQztHQUNmO0FBQ0QsU0FBTyxNQUFNLENBQUMsT0FBTyxDQUFDLFFBQVEsRUFBRSxVQUFVLENBQUMsQ0FBQztDQUM3Qzs7QUFFTSxTQUFTLE9BQU8sQ0FBQyxLQUFLLEVBQUU7QUFDN0IsTUFBSSxDQUFDLEtBQUssSUFBSSxLQUFLLEtBQUssQ0FBQyxFQUFFO0FBQ3pCLFdBQU8sSUFBSSxDQUFDO0dBQ2IsTUFBTSxJQUFJLE9BQU8sQ0FBQyxLQUFLLENBQUMsSUFBSSxLQUFLLENBQUMsTUFBTSxLQUFLLENBQUMsRUFBRTtBQUMvQyxXQUFPLElBQUksQ0FBQztHQUNiLE1BQU07QUFDTCxXQUFPLEtBQUssQ0FBQztHQUNkO0NBQ0Y7O0FBRU0sU0FBUyxXQUFXLENBQUMsTUFBTSxFQUFFO0FBQ2xDLE1BQUksS0FBSyxHQUFHLE1BQU0sQ0FBQyxFQUFFLEVBQUUsTUFBTSxDQUFDLENBQUM7QUFDL0IsT0FBSyxDQUFDLE9BQU8sR0FBRyxNQUFNLENBQUM7QUFDdkIsU0FBTyxLQUFLLENBQUM7Q0FDZDs7QUFFTSxTQUFTLFdBQVcsQ0FBQyxNQUFNLEVBQUUsR0FBRyxFQUFFO0FBQ3ZDLFFBQU0sQ0FBQyxJQUFJLEdBQUcsR0FBRyxDQUFDO0FBQ2xCLFNBQU8sTUFBTSxDQUFDO0NBQ2Y7O0FBRU0sU0FBUyxpQkFBaUIsQ0FBQyxXQUFXLEVBQUUsRUFBRSxFQUFFO0FBQ2pELFNBQU8sQ0FBQyxXQUFXLEdBQUcsV0FBVyxHQUFHLEdBQUcsR0FBRyxFQUFFLENBQUEsR0FBSSxFQUFFLENBQUM7Q0FDcEQiLCJmaWxlIjoidXRpbHMuanMiLCJzb3VyY2VzQ29udGVudCI6WyJjb25zdCBlc2NhcGUgPSB7XG4gICcmJzogJyZhbXA7JyxcbiAgJzwnOiAnJmx0OycsXG4gICc+JzogJyZndDsnLFxuICAnXCInOiAnJnF1b3Q7JyxcbiAgXCInXCI6ICcmI3gyNzsnLFxuICAnYCc6ICcmI3g2MDsnLFxuICAnPSc6ICcmI3gzRDsnXG59O1xuXG5jb25zdCBiYWRDaGFycyA9IC9bJjw+XCInYD1dL2csXG4gIHBvc3NpYmxlID0gL1smPD5cIidgPV0vO1xuXG5mdW5jdGlvbiBlc2NhcGVDaGFyKGNocikge1xuICByZXR1cm4gZXNjYXBlW2Nocl07XG59XG5cbmV4cG9ydCBmdW5jdGlvbiBleHRlbmQob2JqIC8qICwgLi4uc291cmNlICovKSB7XG4gIGZvciAobGV0IGkgPSAxOyBpIDwgYXJndW1lbnRzLmxlbmd0aDsgaSsrKSB7XG4gICAgZm9yIChsZXQga2V5IGluIGFyZ3VtZW50c1tpXSkge1xuICAgICAgaWYgKE9iamVjdC5wcm90b3R5cGUuaGFzT3duUHJvcGVydHkuY2FsbChhcmd1bWVudHNbaV0sIGtleSkpIHtcbiAgICAgICAgb2JqW2tleV0gPSBhcmd1bWVudHNbaV1ba2V5XTtcbiAgICAgIH1cbiAgICB9XG4gIH1cblxuICByZXR1cm4gb2JqO1xufVxuXG5leHBvcnQgbGV0IHRvU3RyaW5nID0gT2JqZWN0LnByb3RvdHlwZS50b1N0cmluZztcblxuLy8gU291cmNlZCBmcm9tIGxvZGFzaFxuLy8gaHR0cHM6Ly9naXRodWIuY29tL2Jlc3RpZWpzL2xvZGFzaC9ibG9iL21hc3Rlci9MSUNFTlNFLnR4dFxuLyogZXNsaW50LWRpc2FibGUgZnVuYy1zdHlsZSAqL1xubGV0IGlzRnVuY3Rpb24gPSBmdW5jdGlvbih2YWx1ZSkge1xuICByZXR1cm4gdHlwZW9mIHZhbHVlID09PSAnZnVuY3Rpb24nO1xufTtcbi8vIGZhbGxiYWNrIGZvciBvbGRlciB2ZXJzaW9ucyBvZiBDaHJvbWUgYW5kIFNhZmFyaVxuLyogaXN0YW5idWwgaWdub3JlIG5leHQgKi9cbmlmIChpc0Z1bmN0aW9uKC94LykpIHtcbiAgaXNGdW5jdGlvbiA9IGZ1bmN0aW9uKHZhbHVlKSB7XG4gICAgcmV0dXJuIChcbiAgICAgIHR5cGVvZiB2YWx1ZSA9PT0gJ2Z1bmN0aW9uJyAmJlxuICAgICAgdG9TdHJpbmcuY2FsbCh2YWx1ZSkgPT09ICdbb2JqZWN0IEZ1bmN0aW9uXSdcbiAgICApO1xuICB9O1xufVxuZXhwb3J0IHsgaXNGdW5jdGlvbiB9O1xuLyogZXNsaW50LWVuYWJsZSBmdW5jLXN0eWxlICovXG5cbi8qIGlzdGFuYnVsIGlnbm9yZSBuZXh0ICovXG5leHBvcnQgY29uc3QgaXNBcnJheSA9XG4gIEFycmF5LmlzQXJyYXkgfHxcbiAgZnVuY3Rpb24odmFsdWUpIHtcbiAgICByZXR1cm4gdmFsdWUgJiYgdHlwZW9mIHZhbHVlID09PSAnb2JqZWN0J1xuICAgICAgPyB0b1N0cmluZy5jYWxsKHZhbHVlKSA9PT0gJ1tvYmplY3QgQXJyYXldJ1xuICAgICAgOiBmYWxzZTtcbiAgfTtcblxuLy8gT2xkZXIgSUUgdmVyc2lvbnMgZG8gbm90IGRpcmVjdGx5IHN1cHBvcnQgaW5kZXhPZiBzbyB3ZSBtdXN0IGltcGxlbWVudCBvdXIgb3duLCBzYWRseS5cbmV4cG9ydCBmdW5jdGlvbiBpbmRleE9mKGFycmF5LCB2YWx1ZSkge1xuICBmb3IgKGxldCBpID0gMCwgbGVuID0gYXJyYXkubGVuZ3RoOyBpIDwgbGVuOyBpKyspIHtcbiAgICBpZiAoYXJyYXlbaV0gPT09IHZhbHVlKSB7XG4gICAgICByZXR1cm4gaTtcbiAgICB9XG4gIH1cbiAgcmV0dXJuIC0xO1xufVxuXG5leHBvcnQgZnVuY3Rpb24gZXNjYXBlRXhwcmVzc2lvbihzdHJpbmcpIHtcbiAgaWYgKHR5cGVvZiBzdHJpbmcgIT09ICdzdHJpbmcnKSB7XG4gICAgLy8gZG9uJ3QgZXNjYXBlIFNhZmVTdHJpbmdzLCBzaW5jZSB0aGV5J3JlIGFscmVhZHkgc2FmZVxuICAgIGlmIChzdHJpbmcgJiYgc3RyaW5nLnRvSFRNTCkge1xuICAgICAgcmV0dXJuIHN0cmluZy50b0hUTUwoKTtcbiAgICB9IGVsc2UgaWYgKHN0cmluZyA9PSBudWxsKSB7XG4gICAgICByZXR1cm4gJyc7XG4gICAgfSBlbHNlIGlmICghc3RyaW5nKSB7XG4gICAgICByZXR1cm4gc3RyaW5nICsgJyc7XG4gICAgfVxuXG4gICAgLy8gRm9yY2UgYSBzdHJpbmcgY29udmVyc2lvbiBhcyB0aGlzIHdpbGwgYmUgZG9uZSBieSB0aGUgYXBwZW5kIHJlZ2FyZGxlc3MgYW5kXG4gICAgLy8gdGhlIHJlZ2V4IHRlc3Qgd2lsbCBkbyB0aGlzIHRyYW5zcGFyZW50bHkgYmVoaW5kIHRoZSBzY2VuZXMsIGNhdXNpbmcgaXNzdWVzIGlmXG4gICAgLy8gYW4gb2JqZWN0J3MgdG8gc3RyaW5nIGhhcyBlc2NhcGVkIGNoYXJhY3RlcnMgaW4gaXQuXG4gICAgc3RyaW5nID0gJycgKyBzdHJpbmc7XG4gIH1cblxuICBpZiAoIXBvc3NpYmxlLnRlc3Qoc3RyaW5nKSkge1xuICAgIHJldHVybiBzdHJpbmc7XG4gIH1cbiAgcmV0dXJuIHN0cmluZy5yZXBsYWNlKGJhZENoYXJzLCBlc2NhcGVDaGFyKTtcbn1cblxuZXhwb3J0IGZ1bmN0aW9uIGlzRW1wdHkodmFsdWUpIHtcbiAgaWYgKCF2YWx1ZSAmJiB2YWx1ZSAhPT0gMCkge1xuICAgIHJldHVybiB0cnVlO1xuICB9IGVsc2UgaWYgKGlzQXJyYXkodmFsdWUpICYmIHZhbHVlLmxlbmd0aCA9PT0gMCkge1xuICAgIHJldHVybiB0cnVlO1xuICB9IGVsc2Uge1xuICAgIHJldHVybiBmYWxzZTtcbiAgfVxufVxuXG5leHBvcnQgZnVuY3Rpb24gY3JlYXRlRnJhbWUob2JqZWN0KSB7XG4gIGxldCBmcmFtZSA9IGV4dGVuZCh7fSwgb2JqZWN0KTtcbiAgZnJhbWUuX3BhcmVudCA9IG9iamVjdDtcbiAgcmV0dXJuIGZyYW1lO1xufVxuXG5leHBvcnQgZnVuY3Rpb24gYmxvY2tQYXJhbXMocGFyYW1zLCBpZHMpIHtcbiAgcGFyYW1zLnBhdGggPSBpZHM7XG4gIHJldHVybiBwYXJhbXM7XG59XG5cbmV4cG9ydCBmdW5jdGlvbiBhcHBlbmRDb250ZXh0UGF0aChjb250ZXh0UGF0aCwgaWQpIHtcbiAgcmV0dXJuIChjb250ZXh0UGF0aCA/IGNvbnRleHRQYXRoICsgJy4nIDogJycpICsgaWQ7XG59XG4iXX0=
+
+
+/***/ }),
+
+/***/ 202:
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+// Create a simple path alias to allow browserify to resolve
+// the runtime on a supported path.
+module.exports = __webpack_require__(6834).default;
+
+
+/***/ }),
+
+/***/ 9755:
+/***/ (function(module, exports) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
  * jQuery JavaScript Library v3.6.0
@@ -11293,7 +14639,7 @@ if ( true ) {
 	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function() {
 		return jQuery;
 	}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 }
 
 
@@ -11334,1222 +14680,828 @@ return jQuery;
 
 
 /***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
+
+/***/ 841:
+/***/ (function(module) {
+
+module.exports = "/*\n * Copyright 2017 Google Inc.\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n *      http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n *\n * Generated from http://github.com/GoogleChrome/accessibility-developer-tools/tree/9acd1c6e3e72a39a0ec14506d68203a4e8cfafb4\n *\n * See project README for build steps.\n */\n\n// AUTO-GENERATED CONTENT BELOW: DO NOT EDIT! See above for details.\n\nvar fn = (function() {\n  var COMPILED = !0, goog = goog || {};\ngoog.global = this;\ngoog.isDef = function(a) {\n  return void 0 !== a;\n};\ngoog.exportPath_ = function(a, b, c) {\n  a = a.split(\".\");\n  c = c || goog.global;\n  a[0] in c || !c.execScript || c.execScript(\"var \" + a[0]);\n  for (var d;a.length && (d = a.shift());) {\n    !a.length && goog.isDef(b) ? c[d] = b : c = c[d] ? c[d] : c[d] = {};\n  }\n};\ngoog.define = function(a, b) {\n  var c = b;\n  COMPILED || (goog.global.CLOSURE_UNCOMPILED_DEFINES && Object.prototype.hasOwnProperty.call(goog.global.CLOSURE_UNCOMPILED_DEFINES, a) ? c = goog.global.CLOSURE_UNCOMPILED_DEFINES[a] : goog.global.CLOSURE_DEFINES && Object.prototype.hasOwnProperty.call(goog.global.CLOSURE_DEFINES, a) && (c = goog.global.CLOSURE_DEFINES[a]));\n  goog.exportPath_(a, c);\n};\ngoog.DEBUG = !0;\ngoog.LOCALE = \"en\";\ngoog.TRUSTED_SITE = !0;\ngoog.STRICT_MODE_COMPATIBLE = !1;\ngoog.DISALLOW_TEST_ONLY_CODE = COMPILED && !goog.DEBUG;\ngoog.ENABLE_CHROME_APP_SAFE_SCRIPT_LOADING = !1;\ngoog.provide = function(a) {\n  if (goog.isInModuleLoader_()) {\n    throw Error(\"goog.provide can not be used within a goog.module.\");\n  }\n  if (!COMPILED && goog.isProvided_(a)) {\n    throw Error('Namespace \"' + a + '\" already declared.');\n  }\n  goog.constructNamespace_(a);\n};\ngoog.constructNamespace_ = function(a, b) {\n  if (!COMPILED) {\n    delete goog.implicitNamespaces_[a];\n    for (var c = a;(c = c.substring(0, c.lastIndexOf(\".\"))) && !goog.getObjectByName(c);) {\n      goog.implicitNamespaces_[c] = !0;\n    }\n  }\n  goog.exportPath_(a, b);\n};\ngoog.VALID_MODULE_RE_ = /^[a-zA-Z_$][a-zA-Z0-9._$]*$/;\ngoog.module = function(a) {\n  if (!goog.isString(a) || !a || -1 == a.search(goog.VALID_MODULE_RE_)) {\n    throw Error(\"Invalid module identifier\");\n  }\n  if (!goog.isInModuleLoader_()) {\n    throw Error(\"Module \" + a + \" has been loaded incorrectly. Note, modules cannot be loaded as normal scripts. They require some kind of pre-processing step. You're likely trying to load a module via a script tag or as a part of a concatenated bundle without rewriting the module. For more info see: https://github.com/google/closure-library/wiki/goog.module:-an-ES6-module-like-alternative-to-goog.provide.\");\n  }\n  if (goog.moduleLoaderState_.moduleName) {\n    throw Error(\"goog.module may only be called once per module.\");\n  }\n  goog.moduleLoaderState_.moduleName = a;\n  if (!COMPILED) {\n    if (goog.isProvided_(a)) {\n      throw Error('Namespace \"' + a + '\" already declared.');\n    }\n    delete goog.implicitNamespaces_[a];\n  }\n};\ngoog.module.get = function(a) {\n  return goog.module.getInternal_(a);\n};\ngoog.module.getInternal_ = function(a) {\n  if (!COMPILED) {\n    if (a in goog.loadedModules_) {\n      return goog.loadedModules_[a];\n    }\n    if (!goog.implicitNamespaces_[a]) {\n      return a = goog.getObjectByName(a), null != a ? a : null;\n    }\n  }\n  return null;\n};\ngoog.moduleLoaderState_ = null;\ngoog.isInModuleLoader_ = function() {\n  return null != goog.moduleLoaderState_;\n};\ngoog.module.declareLegacyNamespace = function() {\n  if (!COMPILED && !goog.isInModuleLoader_()) {\n    throw Error(\"goog.module.declareLegacyNamespace must be called from within a goog.module\");\n  }\n  if (!COMPILED && !goog.moduleLoaderState_.moduleName) {\n    throw Error(\"goog.module must be called prior to goog.module.declareLegacyNamespace.\");\n  }\n  goog.moduleLoaderState_.declareLegacyNamespace = !0;\n};\ngoog.setTestOnly = function(a) {\n  if (goog.DISALLOW_TEST_ONLY_CODE) {\n    throw a = a || \"\", Error(\"Importing test-only code into non-debug environment\" + (a ? \": \" + a : \".\"));\n  }\n};\ngoog.forwardDeclare = function(a) {\n};\nCOMPILED || (goog.isProvided_ = function(a) {\n  return a in goog.loadedModules_ || !goog.implicitNamespaces_[a] && goog.isDefAndNotNull(goog.getObjectByName(a));\n}, goog.implicitNamespaces_ = {\"goog.module\":!0});\ngoog.getObjectByName = function(a, b) {\n  for (var c = a.split(\".\"), d = b || goog.global, e;e = c.shift();) {\n    if (goog.isDefAndNotNull(d[e])) {\n      d = d[e];\n    } else {\n      return null;\n    }\n  }\n  return d;\n};\ngoog.globalize = function(a, b) {\n  var c = b || goog.global, d;\n  for (d in a) {\n    c[d] = a[d];\n  }\n};\ngoog.addDependency = function(a, b, c, d) {\n  if (goog.DEPENDENCIES_ENABLED) {\n    var e;\n    a = a.replace(/\\\\/g, \"/\");\n    var f = goog.dependencies_;\n    d && \"boolean\" !== typeof d || (d = d ? {module:\"goog\"} : {});\n    for (var g = 0;e = b[g];g++) {\n      f.nameToPath[e] = a, f.loadFlags[a] = d;\n    }\n    for (d = 0;b = c[d];d++) {\n      a in f.requires || (f.requires[a] = {}), f.requires[a][b] = !0;\n    }\n  }\n};\ngoog.ENABLE_DEBUG_LOADER = !0;\ngoog.logToConsole_ = function(a) {\n  goog.global.console && goog.global.console.error(a);\n};\ngoog.require = function(a) {\n  if (!COMPILED) {\n    goog.ENABLE_DEBUG_LOADER && goog.IS_OLD_IE_ && goog.maybeProcessDeferredDep_(a);\n    if (goog.isProvided_(a)) {\n      if (goog.isInModuleLoader_()) {\n        return goog.module.getInternal_(a);\n      }\n    } else {\n      if (goog.ENABLE_DEBUG_LOADER) {\n        var b = goog.getPathFromDeps_(a);\n        if (b) {\n          goog.writeScripts_(b);\n        } else {\n          throw a = \"goog.require could not find: \" + a, goog.logToConsole_(a), Error(a);\n        }\n      }\n    }\n    return null;\n  }\n};\ngoog.basePath = \"\";\ngoog.nullFunction = function() {\n};\ngoog.abstractMethod = function() {\n  throw Error(\"unimplemented abstract method\");\n};\ngoog.addSingletonGetter = function(a) {\n  a.getInstance = function() {\n    if (a.instance_) {\n      return a.instance_;\n    }\n    goog.DEBUG && (goog.instantiatedSingletons_[goog.instantiatedSingletons_.length] = a);\n    return a.instance_ = new a;\n  };\n};\ngoog.instantiatedSingletons_ = [];\ngoog.LOAD_MODULE_USING_EVAL = !0;\ngoog.SEAL_MODULE_EXPORTS = goog.DEBUG;\ngoog.loadedModules_ = {};\ngoog.DEPENDENCIES_ENABLED = !COMPILED && goog.ENABLE_DEBUG_LOADER;\ngoog.TRANSPILE = \"detect\";\ngoog.TRANSPILER = \"transpile.js\";\ngoog.DEPENDENCIES_ENABLED && (goog.dependencies_ = {loadFlags:{}, nameToPath:{}, requires:{}, visited:{}, written:{}, deferred:{}}, goog.inHtmlDocument_ = function() {\n  var a = goog.global.document;\n  return null != a && \"write\" in a;\n}, goog.findBasePath_ = function() {\n  if (goog.isDef(goog.global.CLOSURE_BASE_PATH)) {\n    goog.basePath = goog.global.CLOSURE_BASE_PATH;\n  } else {\n    if (goog.inHtmlDocument_()) {\n      for (var a = goog.global.document.getElementsByTagName(\"SCRIPT\"), b = a.length - 1;0 <= b;--b) {\n        var c = a[b].src, d = c.lastIndexOf(\"?\"), d = -1 == d ? c.length : d;\n        if (\"base.js\" == c.substr(d - 7, 7)) {\n          goog.basePath = c.substr(0, d - 7);\n          break;\n        }\n      }\n    }\n  }\n}, goog.importScript_ = function(a, b) {\n  (goog.global.CLOSURE_IMPORT_SCRIPT || goog.writeScriptTag_)(a, b) && (goog.dependencies_.written[a] = !0);\n}, goog.IS_OLD_IE_ = !(goog.global.atob || !goog.global.document || !goog.global.document.all), goog.importProcessedScript_ = function(a, b, c) {\n  goog.importScript_(\"\", 'goog.retrieveAndExec_(\"' + a + '\", ' + b + \", \" + c + \");\");\n}, goog.queuedModules_ = [], goog.wrapModule_ = function(a, b) {\n  return goog.LOAD_MODULE_USING_EVAL && goog.isDef(goog.global.JSON) ? \"goog.loadModule(\" + goog.global.JSON.stringify(b + \"\\n//# sourceURL=\" + a + \"\\n\") + \");\" : 'goog.loadModule(function(exports) {\"use strict\";' + b + \"\\n;return exports});\\n//# sourceURL=\" + a + \"\\n\";\n}, goog.loadQueuedModules_ = function() {\n  var a = goog.queuedModules_.length;\n  if (0 < a) {\n    var b = goog.queuedModules_;\n    goog.queuedModules_ = [];\n    for (var c = 0;c < a;c++) {\n      goog.maybeProcessDeferredPath_(b[c]);\n    }\n  }\n}, goog.maybeProcessDeferredDep_ = function(a) {\n  goog.isDeferredModule_(a) && goog.allDepsAreAvailable_(a) && (a = goog.getPathFromDeps_(a), goog.maybeProcessDeferredPath_(goog.basePath + a));\n}, goog.isDeferredModule_ = function(a) {\n  var b = (a = goog.getPathFromDeps_(a)) && goog.dependencies_.loadFlags[a] || {}, c = b.lang || \"es3\";\n  return a && (\"goog\" == b.module || goog.needsTranspile_(c)) ? goog.basePath + a in goog.dependencies_.deferred : !1;\n}, goog.allDepsAreAvailable_ = function(a) {\n  if ((a = goog.getPathFromDeps_(a)) && a in goog.dependencies_.requires) {\n    for (var b in goog.dependencies_.requires[a]) {\n      if (!goog.isProvided_(b) && !goog.isDeferredModule_(b)) {\n        return !1;\n      }\n    }\n  }\n  return !0;\n}, goog.maybeProcessDeferredPath_ = function(a) {\n  if (a in goog.dependencies_.deferred) {\n    var b = goog.dependencies_.deferred[a];\n    delete goog.dependencies_.deferred[a];\n    goog.globalEval(b);\n  }\n}, goog.loadModuleFromUrl = function(a) {\n  goog.retrieveAndExec_(a, !0, !1);\n}, goog.writeScriptSrcNode_ = function(a) {\n  goog.global.document.write('<script type=\"text/javascript\" src=\"' + a + '\">\\x3c/script>');\n}, goog.appendScriptSrcNode_ = function(a) {\n  var b = goog.global.document, c = b.createElement(\"script\");\n  c.type = \"text/javascript\";\n  c.src = a;\n  c.defer = !1;\n  c.async = !1;\n  b.head.appendChild(c);\n}, goog.writeScriptTag_ = function(a, b) {\n  if (goog.inHtmlDocument_()) {\n    var c = goog.global.document;\n    if (!goog.ENABLE_CHROME_APP_SAFE_SCRIPT_LOADING && \"complete\" == c.readyState) {\n      if (/\\bdeps.js$/.test(a)) {\n        return !1;\n      }\n      throw Error('Cannot write \"' + a + '\" after document load');\n    }\n    if (void 0 === b) {\n      if (goog.IS_OLD_IE_) {\n        var d = \" onreadystatechange='goog.onScriptLoad_(this, \" + ++goog.lastNonModuleScriptIndex_ + \")' \";\n        c.write('<script type=\"text/javascript\" src=\"' + a + '\"' + d + \">\\x3c/script>\");\n      } else {\n        goog.ENABLE_CHROME_APP_SAFE_SCRIPT_LOADING ? goog.appendScriptSrcNode_(a) : goog.writeScriptSrcNode_(a);\n      }\n    } else {\n      c.write('<script type=\"text/javascript\">' + goog.protectScriptTag_(b) + \"\\x3c/script>\");\n    }\n    return !0;\n  }\n  return !1;\n}, goog.protectScriptTag_ = function(a) {\n  return a.replace(/<\\/(SCRIPT)/ig, \"\\\\x3c\\\\$1\");\n}, goog.needsTranspile_ = function(a) {\n  if (\"always\" == goog.TRANSPILE) {\n    return !0;\n  }\n  if (\"never\" == goog.TRANSPILE) {\n    return !1;\n  }\n  goog.requiresTranspilation_ || (goog.requiresTranspilation_ = goog.createRequiresTranspilation_());\n  if (a in goog.requiresTranspilation_) {\n    return goog.requiresTranspilation_[a];\n  }\n  throw Error(\"Unknown language mode: \" + a);\n}, goog.requiresTranspilation_ = null, goog.lastNonModuleScriptIndex_ = 0, goog.onScriptLoad_ = function(a, b) {\n  \"complete\" == a.readyState && goog.lastNonModuleScriptIndex_ == b && goog.loadQueuedModules_();\n  return !0;\n}, goog.writeScripts_ = function(a) {\n  function b(a) {\n    if (!(a in e.written || a in e.visited)) {\n      e.visited[a] = !0;\n      if (a in e.requires) {\n        for (var f in e.requires[a]) {\n          if (!goog.isProvided_(f)) {\n            if (f in e.nameToPath) {\n              b(e.nameToPath[f]);\n            } else {\n              throw Error(\"Undefined nameToPath for \" + f);\n            }\n          }\n        }\n      }\n      a in d || (d[a] = !0, c.push(a));\n    }\n  }\n  var c = [], d = {}, e = goog.dependencies_;\n  b(a);\n  for (a = 0;a < c.length;a++) {\n    var f = c[a];\n    goog.dependencies_.written[f] = !0;\n  }\n  var g = goog.moduleLoaderState_;\n  goog.moduleLoaderState_ = null;\n  for (a = 0;a < c.length;a++) {\n    if (f = c[a]) {\n      var h = e.loadFlags[f] || {}, k = goog.needsTranspile_(h.lang || \"es3\");\n      \"goog\" == h.module || k ? goog.importProcessedScript_(goog.basePath + f, \"goog\" == h.module, k) : goog.importScript_(goog.basePath + f);\n    } else {\n      throw goog.moduleLoaderState_ = g, Error(\"Undefined script input\");\n    }\n  }\n  goog.moduleLoaderState_ = g;\n}, goog.getPathFromDeps_ = function(a) {\n  return a in goog.dependencies_.nameToPath ? goog.dependencies_.nameToPath[a] : null;\n}, goog.findBasePath_(), goog.global.CLOSURE_NO_DEPS || goog.importScript_(goog.basePath + \"deps.js\"));\ngoog.loadModule = function(a) {\n  var b = goog.moduleLoaderState_;\n  try {\n    goog.moduleLoaderState_ = {moduleName:void 0, declareLegacyNamespace:!1};\n    var c;\n    if (goog.isFunction(a)) {\n      c = a.call(void 0, {});\n    } else {\n      if (goog.isString(a)) {\n        c = goog.loadModuleFromSource_.call(void 0, a);\n      } else {\n        throw Error(\"Invalid module definition\");\n      }\n    }\n    var d = goog.moduleLoaderState_.moduleName;\n    if (!goog.isString(d) || !d) {\n      throw Error('Invalid module name \"' + d + '\"');\n    }\n    goog.moduleLoaderState_.declareLegacyNamespace ? goog.constructNamespace_(d, c) : goog.SEAL_MODULE_EXPORTS && Object.seal && goog.isObject(c) && Object.seal(c);\n    goog.loadedModules_[d] = c;\n  } finally {\n    goog.moduleLoaderState_ = b;\n  }\n};\ngoog.loadModuleFromSource_ = function(a) {\n  eval(a);\n  return {};\n};\ngoog.normalizePath_ = function(a) {\n  a = a.split(\"/\");\n  for (var b = 0;b < a.length;) {\n    \".\" == a[b] ? a.splice(b, 1) : b && \"..\" == a[b] && a[b - 1] && \"..\" != a[b - 1] ? a.splice(--b, 2) : b++;\n  }\n  return a.join(\"/\");\n};\ngoog.loadFileSync_ = function(a) {\n  if (goog.global.CLOSURE_LOAD_FILE_SYNC) {\n    return goog.global.CLOSURE_LOAD_FILE_SYNC(a);\n  }\n  try {\n    var b = new goog.global.XMLHttpRequest;\n    b.open(\"get\", a, !1);\n    b.send();\n    return 0 == b.status || 200 == b.status ? b.responseText : null;\n  } catch (c) {\n    return null;\n  }\n};\ngoog.retrieveAndExec_ = function(a, b, c) {\n  if (!COMPILED) {\n    var d = a;\n    a = goog.normalizePath_(a);\n    var e = goog.global.CLOSURE_IMPORT_SCRIPT || goog.writeScriptTag_, f = goog.loadFileSync_(a);\n    if (null == f) {\n      throw Error('Load of \"' + a + '\" failed');\n    }\n    c && (f = goog.transpile_.call(goog.global, f, a));\n    f = b ? goog.wrapModule_(a, f) : f + (\"\\n//# sourceURL=\" + a);\n    goog.IS_OLD_IE_ ? (goog.dependencies_.deferred[d] = f, goog.queuedModules_.push(d)) : e(a, f);\n  }\n};\ngoog.transpile_ = function(a, b) {\n  var c = goog.global.$jscomp;\n  c || (goog.global.$jscomp = c = {});\n  var d = c.transpile;\n  if (!d) {\n    var e = goog.basePath + goog.TRANSPILER, f = goog.loadFileSync_(e);\n    if (f) {\n      eval(f + \"\\n//# sourceURL=\" + e);\n      if (goog.global.$gwtExport && goog.global.$gwtExport.$jscomp && !goog.global.$gwtExport.$jscomp.transpile) {\n        throw Error('The transpiler did not properly export the \"transpile\" method. $gwtExport: ' + JSON.stringify(goog.global.$gwtExport));\n      }\n      goog.global.$jscomp.transpile = goog.global.$gwtExport.$jscomp.transpile;\n      c = goog.global.$jscomp;\n      d = c.transpile;\n    }\n  }\n  d || (d = c.transpile = function(a, b) {\n    goog.logToConsole_(b + \" requires transpilation but no transpiler was found.\");\n    return a;\n  });\n  return d(a, b);\n};\ngoog.typeOf = function(a) {\n  var b = typeof a;\n  if (\"object\" == b) {\n    if (a) {\n      if (a instanceof Array) {\n        return \"array\";\n      }\n      if (a instanceof Object) {\n        return b;\n      }\n      var c = Object.prototype.toString.call(a);\n      if (\"[object Window]\" == c) {\n        return \"object\";\n      }\n      if (\"[object Array]\" == c || \"number\" == typeof a.length && \"undefined\" != typeof a.splice && \"undefined\" != typeof a.propertyIsEnumerable && !a.propertyIsEnumerable(\"splice\")) {\n        return \"array\";\n      }\n      if (\"[object Function]\" == c || \"undefined\" != typeof a.call && \"undefined\" != typeof a.propertyIsEnumerable && !a.propertyIsEnumerable(\"call\")) {\n        return \"function\";\n      }\n    } else {\n      return \"null\";\n    }\n  } else {\n    if (\"function\" == b && \"undefined\" == typeof a.call) {\n      return \"object\";\n    }\n  }\n  return b;\n};\ngoog.isNull = function(a) {\n  return null === a;\n};\ngoog.isDefAndNotNull = function(a) {\n  return null != a;\n};\ngoog.isArray = function(a) {\n  return \"array\" == goog.typeOf(a);\n};\ngoog.isArrayLike = function(a) {\n  var b = goog.typeOf(a);\n  return \"array\" == b || \"object\" == b && \"number\" == typeof a.length;\n};\ngoog.isDateLike = function(a) {\n  return goog.isObject(a) && \"function\" == typeof a.getFullYear;\n};\ngoog.isString = function(a) {\n  return \"string\" == typeof a;\n};\ngoog.isBoolean = function(a) {\n  return \"boolean\" == typeof a;\n};\ngoog.isNumber = function(a) {\n  return \"number\" == typeof a;\n};\ngoog.isFunction = function(a) {\n  return \"function\" == goog.typeOf(a);\n};\ngoog.isObject = function(a) {\n  var b = typeof a;\n  return \"object\" == b && null != a || \"function\" == b;\n};\ngoog.getUid = function(a) {\n  return a[goog.UID_PROPERTY_] || (a[goog.UID_PROPERTY_] = ++goog.uidCounter_);\n};\ngoog.hasUid = function(a) {\n  return !!a[goog.UID_PROPERTY_];\n};\ngoog.removeUid = function(a) {\n  null !== a && \"removeAttribute\" in a && a.removeAttribute(goog.UID_PROPERTY_);\n  try {\n    delete a[goog.UID_PROPERTY_];\n  } catch (b) {\n  }\n};\ngoog.UID_PROPERTY_ = \"closure_uid_\" + (1E9 * Math.random() >>> 0);\ngoog.uidCounter_ = 0;\ngoog.getHashCode = goog.getUid;\ngoog.removeHashCode = goog.removeUid;\ngoog.cloneObject = function(a) {\n  var b = goog.typeOf(a);\n  if (\"object\" == b || \"array\" == b) {\n    if (a.clone) {\n      return a.clone();\n    }\n    var b = \"array\" == b ? [] : {}, c;\n    for (c in a) {\n      b[c] = goog.cloneObject(a[c]);\n    }\n    return b;\n  }\n  return a;\n};\ngoog.bindNative_ = function(a, b, c) {\n  return a.call.apply(a.bind, arguments);\n};\ngoog.bindJs_ = function(a, b, c) {\n  if (!a) {\n    throw Error();\n  }\n  if (2 < arguments.length) {\n    var d = Array.prototype.slice.call(arguments, 2);\n    return function() {\n      var c = Array.prototype.slice.call(arguments);\n      Array.prototype.unshift.apply(c, d);\n      return a.apply(b, c);\n    };\n  }\n  return function() {\n    return a.apply(b, arguments);\n  };\n};\ngoog.bind = function(a, b, c) {\n  Function.prototype.bind && -1 != Function.prototype.bind.toString().indexOf(\"native code\") ? goog.bind = goog.bindNative_ : goog.bind = goog.bindJs_;\n  return goog.bind.apply(null, arguments);\n};\ngoog.partial = function(a, b) {\n  var c = Array.prototype.slice.call(arguments, 1);\n  return function() {\n    var b = c.slice();\n    b.push.apply(b, arguments);\n    return a.apply(this, b);\n  };\n};\ngoog.mixin = function(a, b) {\n  for (var c in b) {\n    a[c] = b[c];\n  }\n};\ngoog.now = goog.TRUSTED_SITE && Date.now || function() {\n  return +new Date;\n};\ngoog.globalEval = function(a) {\n  if (goog.global.execScript) {\n    goog.global.execScript(a, \"JavaScript\");\n  } else {\n    if (goog.global.eval) {\n      if (null == goog.evalWorksForGlobals_) {\n        if (goog.global.eval(\"var _evalTest_ = 1;\"), \"undefined\" != typeof goog.global._evalTest_) {\n          try {\n            delete goog.global._evalTest_;\n          } catch (d) {\n          }\n          goog.evalWorksForGlobals_ = !0;\n        } else {\n          goog.evalWorksForGlobals_ = !1;\n        }\n      }\n      if (goog.evalWorksForGlobals_) {\n        goog.global.eval(a);\n      } else {\n        var b = goog.global.document, c = b.createElement(\"SCRIPT\");\n        c.type = \"text/javascript\";\n        c.defer = !1;\n        c.appendChild(b.createTextNode(a));\n        b.body.appendChild(c);\n        b.body.removeChild(c);\n      }\n    } else {\n      throw Error(\"goog.globalEval not available\");\n    }\n  }\n};\ngoog.evalWorksForGlobals_ = null;\ngoog.getCssName = function(a, b) {\n  if (\".\" == String(a).charAt(0)) {\n    throw Error('className passed in goog.getCssName must not start with \".\". You passed: ' + a);\n  }\n  var c = function(a) {\n    return goog.cssNameMapping_[a] || a;\n  }, d = function(a) {\n    a = a.split(\"-\");\n    for (var b = [], d = 0;d < a.length;d++) {\n      b.push(c(a[d]));\n    }\n    return b.join(\"-\");\n  }, d = goog.cssNameMapping_ ? \"BY_WHOLE\" == goog.cssNameMappingStyle_ ? c : d : function(a) {\n    return a;\n  }, d = b ? a + \"-\" + d(b) : d(a);\n  return goog.global.CLOSURE_CSS_NAME_MAP_FN ? goog.global.CLOSURE_CSS_NAME_MAP_FN(d) : d;\n};\ngoog.setCssNameMapping = function(a, b) {\n  goog.cssNameMapping_ = a;\n  goog.cssNameMappingStyle_ = b;\n};\n!COMPILED && goog.global.CLOSURE_CSS_NAME_MAPPING && (goog.cssNameMapping_ = goog.global.CLOSURE_CSS_NAME_MAPPING);\ngoog.getMsg = function(a, b) {\n  b && (a = a.replace(/\\{\\$([^}]+)}/g, function(a, d) {\n    return null != b && d in b ? b[d] : a;\n  }));\n  return a;\n};\ngoog.getMsgWithFallback = function(a, b) {\n  return a;\n};\ngoog.exportSymbol = function(a, b, c) {\n  goog.exportPath_(a, b, c);\n};\ngoog.exportProperty = function(a, b, c) {\n  a[b] = c;\n};\ngoog.inherits = function(a, b) {\n  function c() {\n  }\n  c.prototype = b.prototype;\n  a.superClass_ = b.prototype;\n  a.prototype = new c;\n  a.prototype.constructor = a;\n  a.base = function(a, c, f) {\n    for (var d = Array(arguments.length - 2), e = 2;e < arguments.length;e++) {\n      d[e - 2] = arguments[e];\n    }\n    return b.prototype[c].apply(a, d);\n  };\n};\ngoog.base = function(a, b, c) {\n  var d = arguments.callee.caller;\n  if (goog.STRICT_MODE_COMPATIBLE || goog.DEBUG && !d) {\n    throw Error(\"arguments.caller not defined.  goog.base() cannot be used with strict mode code. See http://www.ecma-international.org/ecma-262/5.1/#sec-C\");\n  }\n  if (d.superClass_) {\n    for (var e = Array(arguments.length - 1), f = 1;f < arguments.length;f++) {\n      e[f - 1] = arguments[f];\n    }\n    return d.superClass_.constructor.apply(a, e);\n  }\n  e = Array(arguments.length - 2);\n  for (f = 2;f < arguments.length;f++) {\n    e[f - 2] = arguments[f];\n  }\n  for (var f = !1, g = a.constructor;g;g = g.superClass_ && g.superClass_.constructor) {\n    if (g.prototype[b] === d) {\n      f = !0;\n    } else {\n      if (f) {\n        return g.prototype[b].apply(a, e);\n      }\n    }\n  }\n  if (a[b] === d) {\n    return a.constructor.prototype[b].apply(a, e);\n  }\n  throw Error(\"goog.base called from a method of one name to a method of a different name\");\n};\ngoog.scope = function(a) {\n  if (goog.isInModuleLoader_()) {\n    throw Error(\"goog.scope is not supported within a goog.module.\");\n  }\n  a.call(goog.global);\n};\nCOMPILED || (goog.global.COMPILED = COMPILED);\ngoog.defineClass = function(a, b) {\n  var c = b.constructor, d = b.statics;\n  c && c != Object.prototype.constructor || (c = function() {\n    throw Error(\"cannot instantiate an interface (no constructor defined).\");\n  });\n  c = goog.defineClass.createSealingConstructor_(c, a);\n  a && goog.inherits(c, a);\n  delete b.constructor;\n  delete b.statics;\n  goog.defineClass.applyProperties_(c.prototype, b);\n  null != d && (d instanceof Function ? d(c) : goog.defineClass.applyProperties_(c, d));\n  return c;\n};\ngoog.defineClass.SEAL_CLASS_INSTANCES = goog.DEBUG;\ngoog.defineClass.createSealingConstructor_ = function(a, b) {\n  if (!goog.defineClass.SEAL_CLASS_INSTANCES) {\n    return a;\n  }\n  var c = !goog.defineClass.isUnsealable_(b), d = function() {\n    var b = a.apply(this, arguments) || this;\n    b[goog.UID_PROPERTY_] = b[goog.UID_PROPERTY_];\n    this.constructor === d && c && Object.seal instanceof Function && Object.seal(b);\n    return b;\n  };\n  return d;\n};\ngoog.defineClass.isUnsealable_ = function(a) {\n  return a && a.prototype && a.prototype[goog.UNSEALABLE_CONSTRUCTOR_PROPERTY_];\n};\ngoog.defineClass.OBJECT_PROTOTYPE_FIELDS_ = \"constructor hasOwnProperty isPrototypeOf propertyIsEnumerable toLocaleString toString valueOf\".split(\" \");\ngoog.defineClass.applyProperties_ = function(a, b) {\n  for (var c in b) {\n    Object.prototype.hasOwnProperty.call(b, c) && (a[c] = b[c]);\n  }\n  for (var d = 0;d < goog.defineClass.OBJECT_PROTOTYPE_FIELDS_.length;d++) {\n    c = goog.defineClass.OBJECT_PROTOTYPE_FIELDS_[d], Object.prototype.hasOwnProperty.call(b, c) && (a[c] = b[c]);\n  }\n};\ngoog.tagUnsealableClass = function(a) {\n  !COMPILED && goog.defineClass.SEAL_CLASS_INSTANCES && (a.prototype[goog.UNSEALABLE_CONSTRUCTOR_PROPERTY_] = !0);\n};\ngoog.UNSEALABLE_CONSTRUCTOR_PROPERTY_ = \"goog_defineClass_legacy_unsealable\";\ngoog.createRequiresTranspilation_ = function() {\n  function a(a, b) {\n    d ? c[a] = !0 : b() ? c[a] = !1 : d = c[a] = !0;\n  }\n  function b(a) {\n    try {\n      return !!eval(a);\n    } catch (f) {\n      return !1;\n    }\n  }\n  var c = {es3:!1}, d = !1;\n  a(\"es5\", function() {\n    return b(\"[1,].length==1\");\n  });\n  a(\"es6\", function() {\n    return b('(()=>{\"use strict\";class X{constructor(){if(new.target!=String)throw 1;this.x=42}}let q=Reflect.construct(X,[],String);if(q.x!=42||!(q instanceof String))throw 1;for(const a of[2,3]){if(a==2)continue;function f(z={a}){let a=0;return z.a}{function f(){return 0;}}return f()==3}})()');\n  });\n  a(\"es6-impl\", function() {\n    return !0;\n  });\n  a(\"es7\", function() {\n    return b(\"2 ** 2 == 4\");\n  });\n  a(\"es8\", function() {\n    return b(\"async () => 1, true\");\n  });\n  return c;\n};\nvar axs = {};\naxs.browserUtils = {};\naxs.browserUtils.matchSelector = function(a, b) {\n  return a.matches ? a.matches(b) : a.webkitMatchesSelector ? a.webkitMatchesSelector(b) : a.mozMatchesSelector ? a.mozMatchesSelector(b) : a.msMatchesSelector ? a.msMatchesSelector(b) : !1;\n};\naxs.color = {};\naxs.color.Color = function(a, b, c, d) {\n  this.red = a;\n  this.green = b;\n  this.blue = c;\n  this.alpha = d;\n};\naxs.color.YCbCr = function(a) {\n  this.luma = this.z = a[0];\n  this.Cb = this.x = a[1];\n  this.Cr = this.y = a[2];\n};\naxs.color.YCbCr.prototype = {multiply:function(a) {\n  return new axs.color.YCbCr([this.luma * a, this.Cb * a, this.Cr * a]);\n}, add:function(a) {\n  return new axs.color.YCbCr([this.luma + a.luma, this.Cb + a.Cb, this.Cr + a.Cr]);\n}, subtract:function(a) {\n  return new axs.color.YCbCr([this.luma - a.luma, this.Cb - a.Cb, this.Cr - a.Cr]);\n}};\naxs.color.calculateContrastRatio = function(a, b) {\n  1 > a.alpha && (a = axs.color.flattenColors(a, b));\n  var c = axs.color.calculateLuminance(a), d = axs.color.calculateLuminance(b);\n  return (Math.max(c, d) + .05) / (Math.min(c, d) + .05);\n};\naxs.color.calculateLuminance = function(a) {\n  return axs.color.toYCbCr(a).luma;\n};\naxs.color.luminanceRatio = function(a, b) {\n  return (Math.max(a, b) + .05) / (Math.min(a, b) + .05);\n};\naxs.color.parseColor = function(a) {\n  if (\"transparent\" === a) {\n    return new axs.color.Color(0, 0, 0, 0);\n  }\n  var b = a.match(/^rgb\\((\\d+), (\\d+), (\\d+)\\)$/);\n  if (b) {\n    a = parseInt(b[1], 10);\n    var c = parseInt(b[2], 10), d = parseInt(b[3], 10);\n    return new axs.color.Color(a, c, d, 1);\n  }\n  return (b = a.match(/^rgba\\((\\d+), (\\d+), (\\d+), (\\d*(\\.\\d+)?)\\)/)) ? (a = parseInt(b[1], 10), c = parseInt(b[2], 10), d = parseInt(b[3], 10), b = parseFloat(b[4]), new axs.color.Color(a, c, d, b)) : null;\n};\naxs.color.colorChannelToString = function(a) {\n  a = Math.round(a);\n  return 15 >= a ? \"0\" + a.toString(16) : a.toString(16);\n};\naxs.color.colorToString = function(a) {\n  return 1 == a.alpha ? \"#\" + axs.color.colorChannelToString(a.red) + axs.color.colorChannelToString(a.green) + axs.color.colorChannelToString(a.blue) : \"rgba(\" + [a.red, a.green, a.blue, a.alpha].join() + \")\";\n};\naxs.color.luminanceFromContrastRatio = function(a, b, c) {\n  return c ? (a + .05) * b - .05 : (a + .05) / b - .05;\n};\naxs.color.translateColor = function(a, b) {\n  for (var c = b > a.luma ? axs.color.WHITE_YCC : axs.color.BLACK_YCC, d = c == axs.color.WHITE_YCC ? axs.color.YCC_CUBE_FACES_WHITE : axs.color.YCC_CUBE_FACES_BLACK, e = new axs.color.YCbCr([0, a.Cb, a.Cr]), f = new axs.color.YCbCr([1, a.Cb, a.Cr]), f = {a:e, b:f}, e = null, g = 0;g < d.length && !(e = axs.color.findIntersection(f, d[g]), 0 <= e.z && 1 >= e.z);g++) {\n  }\n  if (!e) {\n    throw \"Couldn't find intersection with YCbCr color cube for Cb=\" + a.Cb + \", Cr=\" + a.Cr + \".\";\n  }\n  if (e.x != a.x || e.y != a.y) {\n    throw \"Intersection has wrong Cb/Cr values.\";\n  }\n  if (Math.abs(c.luma - e.luma) < Math.abs(c.luma - b)) {\n    return c = [b, a.Cb, a.Cr], axs.color.fromYCbCrArray(c);\n  }\n  c = (b - e.luma) / (c.luma - e.luma);\n  c = [b, e.Cb - e.Cb * c, e.Cr - e.Cr * c];\n  return axs.color.fromYCbCrArray(c);\n};\naxs.color.suggestColors = function(a, b, c) {\n  var d = {}, e = axs.color.calculateLuminance(a), f = axs.color.calculateLuminance(b), g = f > e, h = axs.color.toYCbCr(b), k = axs.color.toYCbCr(a), m;\n  for (m in c) {\n    var l = c[m], n = axs.color.luminanceFromContrastRatio(e, l + .02, g);\n    if (1 >= n && 0 <= n) {\n      var p = axs.color.translateColor(h, n), l = axs.color.calculateContrastRatio(p, a), n = {};\n      n.fg = axs.color.colorToString(p);\n      n.bg = axs.color.colorToString(a);\n      n.contrast = l.toFixed(2);\n      d[m] = n;\n    } else {\n      l = axs.color.luminanceFromContrastRatio(f, l + .02, !g), 1 >= l && 0 <= l && (p = axs.color.translateColor(k, l), l = axs.color.calculateContrastRatio(b, p), n = {}, n.bg = axs.color.colorToString(p), n.fg = axs.color.colorToString(b), n.contrast = l.toFixed(2), d[m] = n);\n    }\n  }\n  return d;\n};\naxs.color.flattenColors = function(a, b) {\n  var c = a.alpha;\n  return new axs.color.Color((1 - c) * b.red + c * a.red, (1 - c) * b.green + c * a.green, (1 - c) * b.blue + c * a.blue, a.alpha + b.alpha * (1 - a.alpha));\n};\naxs.color.multiplyMatrixVector = function(a, b) {\n  var c = b[0], d = b[1], e = b[2];\n  return [a[0][0] * c + a[0][1] * d + a[0][2] * e, a[1][0] * c + a[1][1] * d + a[1][2] * e, a[2][0] * c + a[2][1] * d + a[2][2] * e];\n};\naxs.color.toYCbCr = function(a) {\n  var b = a.red / 255, c = a.green / 255;\n  a = a.blue / 255;\n  return new axs.color.YCbCr(axs.color.multiplyMatrixVector(axs.color.YCC_MATRIX, [.03928 >= b ? b / 12.92 : Math.pow((b + .055) / 1.055, 2.4), .03928 >= c ? c / 12.92 : Math.pow((c + .055) / 1.055, 2.4), .03928 >= a ? a / 12.92 : Math.pow((a + .055) / 1.055, 2.4)]));\n};\naxs.color.fromYCbCr = function(a) {\n  return axs.color.fromYCbCrArray([a.luma, a.Cb, a.Cr]);\n};\naxs.color.fromYCbCrArray = function(a) {\n  var b = axs.color.multiplyMatrixVector(axs.color.INVERTED_YCC_MATRIX, a);\n  a = b[0];\n  var c = b[1], b = b[2];\n  return new axs.color.Color(Math.min(Math.max(Math.round(255 * (.00303949 >= a ? 12.92 * a : 1.055 * Math.pow(a, 1 / 2.4) - .055)), 0), 255), Math.min(Math.max(Math.round(255 * (.00303949 >= c ? 12.92 * c : 1.055 * Math.pow(c, 1 / 2.4) - .055)), 0), 255), Math.min(Math.max(Math.round(255 * (.00303949 >= b ? 12.92 * b : 1.055 * Math.pow(b, 1 / 2.4) - .055)), 0), 255), 1);\n};\naxs.color.RGBToYCbCrMatrix = function(a, b) {\n  return [[a, 1 - a - b, b], [-a / (2 - 2 * b), (a + b - 1) / (2 - 2 * b), (1 - b) / (2 - 2 * b)], [(1 - a) / (2 - 2 * a), (a + b - 1) / (2 - 2 * a), -b / (2 - 2 * a)]];\n};\naxs.color.invert3x3Matrix = function(a) {\n  var b = a[0][0], c = a[0][1], d = a[0][2], e = a[1][0], f = a[1][1], g = a[1][2], h = a[2][0], k = a[2][1];\n  a = a[2][2];\n  return axs.color.scalarMultiplyMatrix([[f * a - g * k, d * k - c * a, c * g - d * f], [g * h - e * a, b * a - d * h, d * e - b * g], [e * k - f * h, h * c - b * k, b * f - c * e]], 1 / (b * (f * a - g * k) - c * (a * e - g * h) + d * (e * k - f * h)));\n};\naxs.color.findIntersection = function(a, b) {\n  var c = [a.a.x - b.p0.x, a.a.y - b.p0.y, a.a.z - b.p0.z], d = axs.color.invert3x3Matrix([[a.a.x - a.b.x, b.p1.x - b.p0.x, b.p2.x - b.p0.x], [a.a.y - a.b.y, b.p1.y - b.p0.y, b.p2.y - b.p0.y], [a.a.z - a.b.z, b.p1.z - b.p0.z, b.p2.z - b.p0.z]]), c = axs.color.multiplyMatrixVector(d, c)[0];\n  return a.a.add(a.b.subtract(a.a).multiply(c));\n};\naxs.color.scalarMultiplyMatrix = function(a, b) {\n  for (var c = [], d = 0;3 > d;d++) {\n    c[d] = axs.color.scalarMultiplyVector(a[d], b);\n  }\n  return c;\n};\naxs.color.scalarMultiplyVector = function(a, b) {\n  for (var c = [], d = 0;d < a.length;d++) {\n    c[d] = a[d] * b;\n  }\n  return c;\n};\naxs.color.kR = .2126;\naxs.color.kB = .0722;\naxs.color.YCC_MATRIX = axs.color.RGBToYCbCrMatrix(axs.color.kR, axs.color.kB);\naxs.color.INVERTED_YCC_MATRIX = axs.color.invert3x3Matrix(axs.color.YCC_MATRIX);\naxs.color.BLACK = new axs.color.Color(0, 0, 0, 1);\naxs.color.BLACK_YCC = axs.color.toYCbCr(axs.color.BLACK);\naxs.color.WHITE = new axs.color.Color(255, 255, 255, 1);\naxs.color.WHITE_YCC = axs.color.toYCbCr(axs.color.WHITE);\naxs.color.RED = new axs.color.Color(255, 0, 0, 1);\naxs.color.RED_YCC = axs.color.toYCbCr(axs.color.RED);\naxs.color.GREEN = new axs.color.Color(0, 255, 0, 1);\naxs.color.GREEN_YCC = axs.color.toYCbCr(axs.color.GREEN);\naxs.color.BLUE = new axs.color.Color(0, 0, 255, 1);\naxs.color.BLUE_YCC = axs.color.toYCbCr(axs.color.BLUE);\naxs.color.CYAN = new axs.color.Color(0, 255, 255, 1);\naxs.color.CYAN_YCC = axs.color.toYCbCr(axs.color.CYAN);\naxs.color.MAGENTA = new axs.color.Color(255, 0, 255, 1);\naxs.color.MAGENTA_YCC = axs.color.toYCbCr(axs.color.MAGENTA);\naxs.color.YELLOW = new axs.color.Color(255, 255, 0, 1);\naxs.color.YELLOW_YCC = axs.color.toYCbCr(axs.color.YELLOW);\naxs.color.YCC_CUBE_FACES_BLACK = [{p0:axs.color.BLACK_YCC, p1:axs.color.RED_YCC, p2:axs.color.GREEN_YCC}, {p0:axs.color.BLACK_YCC, p1:axs.color.GREEN_YCC, p2:axs.color.BLUE_YCC}, {p0:axs.color.BLACK_YCC, p1:axs.color.BLUE_YCC, p2:axs.color.RED_YCC}];\naxs.color.YCC_CUBE_FACES_WHITE = [{p0:axs.color.WHITE_YCC, p1:axs.color.CYAN_YCC, p2:axs.color.MAGENTA_YCC}, {p0:axs.color.WHITE_YCC, p1:axs.color.MAGENTA_YCC, p2:axs.color.YELLOW_YCC}, {p0:axs.color.WHITE_YCC, p1:axs.color.YELLOW_YCC, p2:axs.color.CYAN_YCC}];\naxs.constants = {};\naxs.constants.ARIA_ROLES = {alert:{namefrom:[\"author\"], parent:[\"region\"]}, alertdialog:{namefrom:[\"author\"], namerequired:!0, parent:[\"alert\", \"dialog\"]}, application:{namefrom:[\"author\"], namerequired:!0, parent:[\"landmark\"]}, article:{namefrom:[\"author\"], parent:[\"document\", \"region\"]}, banner:{namefrom:[\"author\"], parent:[\"landmark\"]}, button:{childpresentational:!0, namefrom:[\"contents\", \"author\"], namerequired:!0, parent:[\"command\"], properties:[\"aria-expanded\", \"aria-pressed\"]}, checkbox:{namefrom:[\"contents\", \n\"author\"], namerequired:!0, parent:[\"input\"], requiredProperties:[\"aria-checked\"], properties:[\"aria-checked\"]}, columnheader:{namefrom:[\"contents\", \"author\"], namerequired:!0, parent:[\"gridcell\", \"sectionhead\", \"widget\"], properties:[\"aria-sort\"], scope:[\"row\"]}, combobox:{mustcontain:[\"listbox\", \"textbox\"], namefrom:[\"author\"], namerequired:!0, parent:[\"select\"], requiredProperties:[\"aria-expanded\"], properties:[\"aria-expanded\", \"aria-autocomplete\", \"aria-required\"]}, command:{\"abstract\":!0, namefrom:[\"author\"], \nparent:[\"widget\"]}, complementary:{namefrom:[\"author\"], parent:[\"landmark\"]}, composite:{\"abstract\":!0, childpresentational:!1, namefrom:[\"author\"], parent:[\"widget\"], properties:[\"aria-activedescendant\"]}, contentinfo:{namefrom:[\"author\"], parent:[\"landmark\"]}, definition:{namefrom:[\"author\"], parent:[\"section\"]}, dialog:{namefrom:[\"author\"], namerequired:!0, parent:[\"window\"]}, directory:{namefrom:[\"contents\", \"author\"], parent:[\"list\"]}, document:{namefrom:[\" author\"], namerequired:!0, parent:[\"structure\"], \nproperties:[\"aria-expanded\"]}, form:{namefrom:[\"author\"], parent:[\"landmark\"]}, grid:{mustcontain:[\"row\", \"rowgroup\"], namefrom:[\"author\"], namerequired:!0, parent:[\"composite\", \"region\"], properties:[\"aria-level\", \"aria-multiselectable\", \"aria-readonly\"]}, gridcell:{namefrom:[\"contents\", \"author\"], namerequired:!0, parent:[\"section\", \"widget\"], properties:[\"aria-readonly\", \"aria-required\", \"aria-selected\"], scope:[\"row\"]}, group:{namefrom:[\" author\"], parent:[\"section\"], properties:[\"aria-activedescendant\"]}, \nheading:{namerequired:!0, parent:[\"sectionhead\"], properties:[\"aria-level\"]}, img:{childpresentational:!0, namefrom:[\"author\"], namerequired:!0, parent:[\"section\"]}, input:{\"abstract\":!0, namefrom:[\"author\"], parent:[\"widget\"]}, landmark:{\"abstract\":!0, namefrom:[\"contents\", \"author\"], namerequired:!1, parent:[\"region\"]}, link:{namefrom:[\"contents\", \"author\"], namerequired:!0, parent:[\"command\"], properties:[\"aria-expanded\"]}, list:{mustcontain:[\"group\", \"listitem\"], namefrom:[\"author\"], parent:[\"region\"]}, \nlistbox:{mustcontain:[\"option\"], namefrom:[\"author\"], namerequired:!0, parent:[\"list\", \"select\"], properties:[\"aria-multiselectable\", \"aria-required\"]}, listitem:{namefrom:[\"contents\", \"author\"], namerequired:!0, parent:[\"section\"], properties:[\"aria-level\", \"aria-posinset\", \"aria-setsize\"], scope:[\"list\"]}, log:{namefrom:[\" author\"], namerequired:!0, parent:[\"region\"]}, main:{namefrom:[\"author\"], parent:[\"landmark\"]}, marquee:{namerequired:!0, parent:[\"section\"]}, math:{childpresentational:!0, namefrom:[\"author\"], \nparent:[\"section\"]}, menu:{mustcontain:[\"group\", \"menuitemradio\", \"menuitem\", \"menuitemcheckbox\"], namefrom:[\"author\"], namerequired:!0, parent:[\"list\", \"select\"]}, menubar:{namefrom:[\"author\"], parent:[\"menu\"]}, menuitem:{namefrom:[\"contents\", \"author\"], namerequired:!0, parent:[\"command\"], scope:[\"menu\", \"menubar\"]}, menuitemcheckbox:{namefrom:[\"contents\", \"author\"], namerequired:!0, parent:[\"checkbox\", \"menuitem\"], scope:[\"menu\", \"menubar\"]}, menuitemradio:{namefrom:[\"contents\", \"author\"], namerequired:!0, \nparent:[\"menuitemcheckbox\", \"radio\"], scope:[\"menu\", \"menubar\"]}, navigation:{namefrom:[\"author\"], parent:[\"landmark\"]}, note:{namefrom:[\"author\"], parent:[\"section\"]}, option:{namefrom:[\"contents\", \"author\"], namerequired:!0, parent:[\"input\"], properties:[\"aria-checked\", \"aria-posinset\", \"aria-selected\", \"aria-setsize\"]}, presentation:{parent:[\"structure\"]}, progressbar:{childpresentational:!0, namefrom:[\"author\"], namerequired:!0, parent:[\"range\"]}, radio:{namefrom:[\"contents\", \"author\"], namerequired:!0, \nparent:[\"checkbox\", \"option\"]}, radiogroup:{mustcontain:[\"radio\"], namefrom:[\"author\"], namerequired:!0, parent:[\"select\"], properties:[\"aria-required\"]}, range:{\"abstract\":!0, namefrom:[\"author\"], parent:[\"widget\"], properties:[\"aria-valuemax\", \"aria-valuemin\", \"aria-valuenow\", \"aria-valuetext\"]}, region:{namefrom:[\" author\"], parent:[\"section\"]}, roletype:{\"abstract\":!0, properties:\"aria-atomic aria-busy aria-controls aria-describedby aria-disabled aria-dropeffect aria-flowto aria-grabbed aria-haspopup aria-hidden aria-invalid aria-label aria-labelledby aria-live aria-owns aria-relevant\".split(\" \")}, \nrow:{mustcontain:[\"columnheader\", \"gridcell\", \"rowheader\"], namefrom:[\"contents\", \"author\"], parent:[\"group\", \"widget\"], properties:[\"aria-level\", \"aria-selected\"], scope:[\"grid\", \"rowgroup\", \"treegrid\"]}, rowgroup:{mustcontain:[\"row\"], namefrom:[\"contents\", \"author\"], parent:[\"group\"], scope:[\"grid\"]}, rowheader:{namefrom:[\"contents\", \"author\"], namerequired:!0, parent:[\"gridcell\", \"sectionhead\", \"widget\"], properties:[\"aria-sort\"], scope:[\"row\"]}, search:{namefrom:[\"author\"], parent:[\"landmark\"]}, \nsection:{\"abstract\":!0, namefrom:[\"contents\", \"author\"], parent:[\"structure\"], properties:[\"aria-expanded\"]}, sectionhead:{\"abstract\":!0, namefrom:[\"contents\", \"author\"], parent:[\"structure\"], properties:[\"aria-expanded\"]}, select:{\"abstract\":!0, namefrom:[\"author\"], parent:[\"composite\", \"group\", \"input\"]}, separator:{childpresentational:!0, namefrom:[\"author\"], parent:[\"structure\"], properties:[\"aria-expanded\", \"aria-orientation\"]}, scrollbar:{childpresentational:!0, namefrom:[\"author\"], namerequired:!1, \nparent:[\"input\", \"range\"], requiredProperties:[\"aria-controls\", \"aria-orientation\", \"aria-valuemax\", \"aria-valuemin\", \"aria-valuenow\"], properties:[\"aria-controls\", \"aria-orientation\", \"aria-valuemax\", \"aria-valuemin\", \"aria-valuenow\"]}, slider:{childpresentational:!0, namefrom:[\"author\"], namerequired:!0, parent:[\"input\", \"range\"], requiredProperties:[\"aria-valuemax\", \"aria-valuemin\", \"aria-valuenow\"], properties:[\"aria-valuemax\", \"aria-valuemin\", \"aria-valuenow\", \"aria-orientation\"]}, spinbutton:{namefrom:[\"author\"], \nnamerequired:!0, parent:[\"input\", \"range\"], requiredProperties:[\"aria-valuemax\", \"aria-valuemin\", \"aria-valuenow\"], properties:[\"aria-valuemax\", \"aria-valuemin\", \"aria-valuenow\", \"aria-required\"]}, status:{parent:[\"region\"]}, structure:{\"abstract\":!0, parent:[\"roletype\"]}, tab:{namefrom:[\"contents\", \"author\"], parent:[\"sectionhead\", \"widget\"], properties:[\"aria-selected\"], scope:[\"tablist\"]}, tablist:{mustcontain:[\"tab\"], namefrom:[\"author\"], parent:[\"composite\", \"directory\"], properties:[\"aria-level\"]}, \ntabpanel:{namefrom:[\"author\"], namerequired:!0, parent:[\"region\"]}, textbox:{namefrom:[\"author\"], namerequired:!0, parent:[\"input\"], properties:[\"aria-activedescendant\", \"aria-autocomplete\", \"aria-multiline\", \"aria-readonly\", \"aria-required\"]}, timer:{namefrom:[\"author\"], namerequired:!0, parent:[\"status\"]}, toolbar:{namefrom:[\"author\"], parent:[\"group\"]}, tooltip:{namerequired:!0, parent:[\"section\"]}, tree:{mustcontain:[\"group\", \"treeitem\"], namefrom:[\"author\"], namerequired:!0, parent:[\"select\"], \nproperties:[\"aria-multiselectable\", \"aria-required\"]}, treegrid:{mustcontain:[\"row\"], namefrom:[\"author\"], namerequired:!0, parent:[\"grid\", \"tree\"]}, treeitem:{namefrom:[\"contents\", \"author\"], namerequired:!0, parent:[\"listitem\", \"option\"], scope:[\"group\", \"tree\"]}, widget:{\"abstract\":!0, parent:[\"roletype\"]}, window:{\"abstract\":!0, namefrom:[\" author\"], parent:[\"roletype\"], properties:[\"aria-expanded\"]}};\naxs.constants.WIDGET_ROLES = {};\naxs.constants.addAllParentRolesToSet_ = function(a, b) {\n  if (a.parent) {\n    for (var c = a.parent, d = 0;d < c.length;d++) {\n      var e = c[d];\n      b[e] = !0;\n      axs.constants.addAllParentRolesToSet_(axs.constants.ARIA_ROLES[e], b);\n    }\n  }\n};\naxs.constants.addAllPropertiesToSet_ = function(a, b, c) {\n  var d = a[b];\n  if (d) {\n    for (var e = 0;e < d.length;e++) {\n      c[d[e]] = !0;\n    }\n  }\n  if (a.parent) {\n    for (a = a.parent, d = 0;d < a.length;d++) {\n      axs.constants.addAllPropertiesToSet_(axs.constants.ARIA_ROLES[a[d]], b, c);\n    }\n  }\n};\nfor (var roleName in axs.constants.ARIA_ROLES) {\n  var role = axs.constants.ARIA_ROLES[roleName], propertiesSet = {};\n  axs.constants.addAllPropertiesToSet_(role, \"properties\", propertiesSet);\n  role.propertiesSet = propertiesSet;\n  var requiredPropertiesSet = {};\n  axs.constants.addAllPropertiesToSet_(role, \"requiredProperties\", requiredPropertiesSet);\n  role.requiredPropertiesSet = requiredPropertiesSet;\n  var parentRolesSet = {};\n  axs.constants.addAllParentRolesToSet_(role, parentRolesSet);\n  role.allParentRolesSet = parentRolesSet;\n  \"widget\" in parentRolesSet && (axs.constants.WIDGET_ROLES[roleName] = role);\n}\naxs.constants.ARIA_PROPERTIES = {activedescendant:{type:\"property\", valueType:\"idref\"}, atomic:{defaultValue:\"false\", type:\"property\", valueType:\"boolean\"}, autocomplete:{defaultValue:\"none\", type:\"property\", valueType:\"token\", values:[\"inline\", \"list\", \"both\", \"none\"]}, busy:{defaultValue:\"false\", type:\"state\", valueType:\"boolean\"}, checked:{defaultValue:\"undefined\", type:\"state\", valueType:\"token\", values:[\"true\", \"false\", \"mixed\", \"undefined\"]}, controls:{type:\"property\", valueType:\"idref_list\"}, \ndescribedby:{type:\"property\", valueType:\"idref_list\"}, disabled:{defaultValue:\"false\", type:\"state\", valueType:\"boolean\"}, dropeffect:{defaultValue:\"none\", type:\"property\", valueType:\"token_list\", values:\"copy move link execute popup none\".split(\" \")}, expanded:{defaultValue:\"undefined\", type:\"state\", valueType:\"token\", values:[\"true\", \"false\", \"undefined\"]}, flowto:{type:\"property\", valueType:\"idref_list\"}, grabbed:{defaultValue:\"undefined\", type:\"state\", valueType:\"token\", values:[\"true\", \"false\", \n\"undefined\"]}, haspopup:{defaultValue:\"false\", type:\"property\", valueType:\"boolean\"}, hidden:{defaultValue:\"false\", type:\"state\", valueType:\"boolean\"}, invalid:{defaultValue:\"false\", type:\"state\", valueType:\"token\", values:[\"grammar\", \"false\", \"spelling\", \"true\"]}, label:{type:\"property\", valueType:\"string\"}, labelledby:{type:\"property\", valueType:\"idref_list\"}, level:{type:\"property\", valueType:\"integer\"}, live:{defaultValue:\"off\", type:\"property\", valueType:\"token\", values:[\"off\", \"polite\", \"assertive\"]}, \nmultiline:{defaultValue:\"false\", type:\"property\", valueType:\"boolean\"}, multiselectable:{defaultValue:\"false\", type:\"property\", valueType:\"boolean\"}, orientation:{defaultValue:\"vertical\", type:\"property\", valueType:\"token\", values:[\"horizontal\", \"vertical\"]}, owns:{type:\"property\", valueType:\"idref_list\"}, posinset:{type:\"property\", valueType:\"integer\"}, pressed:{defaultValue:\"undefined\", type:\"state\", valueType:\"token\", values:[\"true\", \"false\", \"mixed\", \"undefined\"]}, readonly:{defaultValue:\"false\", \ntype:\"property\", valueType:\"boolean\"}, relevant:{defaultValue:\"additions text\", type:\"property\", valueType:\"token_list\", values:[\"additions\", \"removals\", \"text\", \"all\"]}, required:{defaultValue:\"false\", type:\"property\", valueType:\"boolean\"}, selected:{defaultValue:\"undefined\", type:\"state\", valueType:\"token\", values:[\"true\", \"false\", \"undefined\"]}, setsize:{type:\"property\", valueType:\"integer\"}, sort:{defaultValue:\"none\", type:\"property\", valueType:\"token\", values:[\"ascending\", \"descending\", \"none\", \n\"other\"]}, valuemax:{type:\"property\", valueType:\"decimal\"}, valuemin:{type:\"property\", valueType:\"decimal\"}, valuenow:{type:\"property\", valueType:\"decimal\"}, valuetext:{type:\"property\", valueType:\"string\"}};\n(function() {\n  for (var a in axs.constants.ARIA_PROPERTIES) {\n    var b = axs.constants.ARIA_PROPERTIES[a];\n    if (b.values) {\n      for (var c = {}, d = 0;d < b.values.length;d++) {\n        c[b.values[d]] = !0;\n      }\n      b.valuesSet = c;\n    }\n  }\n})();\naxs.constants.GLOBAL_PROPERTIES = axs.constants.ARIA_ROLES.roletype.propertiesSet;\naxs.constants.NO_ROLE_NAME = \" \";\naxs.constants.WIDGET_ROLE_TO_NAME = {alert:\"aria_role_alert\", alertdialog:\"aria_role_alertdialog\", button:\"aria_role_button\", checkbox:\"aria_role_checkbox\", columnheader:\"aria_role_columnheader\", combobox:\"aria_role_combobox\", dialog:\"aria_role_dialog\", grid:\"aria_role_grid\", gridcell:\"aria_role_gridcell\", link:\"aria_role_link\", listbox:\"aria_role_listbox\", log:\"aria_role_log\", marquee:\"aria_role_marquee\", menu:\"aria_role_menu\", menubar:\"aria_role_menubar\", menuitem:\"aria_role_menuitem\", menuitemcheckbox:\"aria_role_menuitemcheckbox\", \nmenuitemradio:\"aria_role_menuitemradio\", option:axs.constants.NO_ROLE_NAME, progressbar:\"aria_role_progressbar\", radio:\"aria_role_radio\", radiogroup:\"aria_role_radiogroup\", rowheader:\"aria_role_rowheader\", scrollbar:\"aria_role_scrollbar\", slider:\"aria_role_slider\", spinbutton:\"aria_role_spinbutton\", status:\"aria_role_status\", tab:\"aria_role_tab\", tabpanel:\"aria_role_tabpanel\", textbox:\"aria_role_textbox\", timer:\"aria_role_timer\", toolbar:\"aria_role_toolbar\", tooltip:\"aria_role_tooltip\", treeitem:\"aria_role_treeitem\"};\naxs.constants.STRUCTURE_ROLE_TO_NAME = {article:\"aria_role_article\", application:\"aria_role_application\", banner:\"aria_role_banner\", columnheader:\"aria_role_columnheader\", complementary:\"aria_role_complementary\", contentinfo:\"aria_role_contentinfo\", definition:\"aria_role_definition\", directory:\"aria_role_directory\", document:\"aria_role_document\", form:\"aria_role_form\", group:\"aria_role_group\", heading:\"aria_role_heading\", img:\"aria_role_img\", list:\"aria_role_list\", listitem:\"aria_role_listitem\", \nmain:\"aria_role_main\", math:\"aria_role_math\", navigation:\"aria_role_navigation\", note:\"aria_role_note\", region:\"aria_role_region\", rowheader:\"aria_role_rowheader\", search:\"aria_role_search\", separator:\"aria_role_separator\"};\naxs.constants.ATTRIBUTE_VALUE_TO_STATUS = [{name:\"aria-autocomplete\", values:{inline:\"aria_autocomplete_inline\", list:\"aria_autocomplete_list\", both:\"aria_autocomplete_both\"}}, {name:\"aria-checked\", values:{\"true\":\"aria_checked_true\", \"false\":\"aria_checked_false\", mixed:\"aria_checked_mixed\"}}, {name:\"aria-disabled\", values:{\"true\":\"aria_disabled_true\"}}, {name:\"aria-expanded\", values:{\"true\":\"aria_expanded_true\", \"false\":\"aria_expanded_false\"}}, {name:\"aria-invalid\", values:{\"true\":\"aria_invalid_true\", \ngrammar:\"aria_invalid_grammar\", spelling:\"aria_invalid_spelling\"}}, {name:\"aria-multiline\", values:{\"true\":\"aria_multiline_true\"}}, {name:\"aria-multiselectable\", values:{\"true\":\"aria_multiselectable_true\"}}, {name:\"aria-pressed\", values:{\"true\":\"aria_pressed_true\", \"false\":\"aria_pressed_false\", mixed:\"aria_pressed_mixed\"}}, {name:\"aria-readonly\", values:{\"true\":\"aria_readonly_true\"}}, {name:\"aria-required\", values:{\"true\":\"aria_required_true\"}}, {name:\"aria-selected\", values:{\"true\":\"aria_selected_true\", \n\"false\":\"aria_selected_false\"}}];\naxs.constants.INPUT_TYPE_TO_INFORMATION_TABLE_MSG = {button:\"input_type_button\", checkbox:\"input_type_checkbox\", color:\"input_type_color\", datetime:\"input_type_datetime\", \"datetime-local\":\"input_type_datetime_local\", date:\"input_type_date\", email:\"input_type_email\", file:\"input_type_file\", image:\"input_type_image\", month:\"input_type_month\", number:\"input_type_number\", password:\"input_type_password\", radio:\"input_type_radio\", range:\"input_type_range\", reset:\"input_type_reset\", search:\"input_type_search\", \nsubmit:\"input_type_submit\", tel:\"input_type_tel\", text:\"input_type_text\", url:\"input_type_url\", week:\"input_type_week\"};\naxs.constants.TAG_TO_INFORMATION_TABLE_VERBOSE_MSG = {A:\"tag_link\", BUTTON:\"tag_button\", H1:\"tag_h1\", H2:\"tag_h2\", H3:\"tag_h3\", H4:\"tag_h4\", H5:\"tag_h5\", H6:\"tag_h6\", LI:\"tag_li\", OL:\"tag_ol\", SELECT:\"tag_select\", TEXTAREA:\"tag_textarea\", UL:\"tag_ul\", SECTION:\"tag_section\", NAV:\"tag_nav\", ARTICLE:\"tag_article\", ASIDE:\"tag_aside\", HGROUP:\"tag_hgroup\", HEADER:\"tag_header\", FOOTER:\"tag_footer\", TIME:\"tag_time\", MARK:\"tag_mark\"};\naxs.constants.TAG_TO_INFORMATION_TABLE_BRIEF_MSG = {BUTTON:\"tag_button\", SELECT:\"tag_select\", TEXTAREA:\"tag_textarea\"};\naxs.constants.MIXED_VALUES = {\"true\":!0, \"false\":!0, mixed:!0};\naxs.constants.Severity = {INFO:\"Info\", WARNING:\"Warning\", SEVERE:\"Severe\"};\naxs.constants.AuditResult = {PASS:\"PASS\", FAIL:\"FAIL\", NA:\"NA\"};\naxs.constants.InlineElements = {TT:!0, I:!0, B:!0, BIG:!0, SMALL:!0, EM:!0, STRONG:!0, DFN:!0, CODE:!0, SAMP:!0, KBD:!0, VAR:!0, CITE:!0, ABBR:!0, ACRONYM:!0, A:!0, IMG:!0, OBJECT:!0, BR:!0, SCRIPT:!0, MAP:!0, Q:!0, SUB:!0, SUP:!0, SPAN:!0, BDO:!0, INPUT:!0, SELECT:!0, TEXTAREA:!0, LABEL:!0, BUTTON:!0};\naxs.constants.NATIVELY_DISABLEABLE = {BUTTON:!0, INPUT:!0, SELECT:!0, TEXTAREA:!0, FIELDSET:!0, OPTGROUP:!0, OPTION:!0};\naxs.constants.ARIA_TO_HTML_ATTRIBUTE = {\"aria-checked\":\"checked\", \"aria-disabled\":\"disabled\", \"aria-hidden\":\"hidden\", \"aria-expanded\":\"open\", \"aria-valuemax\":\"max\", \"aria-valuemin\":\"min\", \"aria-readonly\":\"readonly\", \"aria-required\":\"required\", \"aria-selected\":\"selected\", \"aria-valuenow\":\"value\"};\naxs.constants.TAG_TO_IMPLICIT_SEMANTIC_INFO = {A:[{role:\"link\", allowed:\"button checkbox menuitem menuitemcheckbox menuitemradio tab treeitem\".split(\" \"), selector:\"a[href]\"}], ADDRESS:[{role:\"\", allowed:[\"contentinfo\", \"presentation\"]}], AREA:[{role:\"link\", selector:\"area[href]\"}], ARTICLE:[{role:\"article\", allowed:[\"presentation\", \"article\", \"document\", \"application\", \"main\"]}], ASIDE:[{role:\"complementary\", allowed:[\"note\", \"complementary\", \"search\", \"presentation\"]}], AUDIO:[{role:\"\", allowed:[\"application\", \n\"presentation\"]}], BASE:[{role:\"\", reserved:!0}], BODY:[{role:\"document\", allowed:[\"presentation\"]}], BUTTON:[{role:\"button\", allowed:[\"link\", \"menuitem\", \"menuitemcheckbox\", \"menuitemradio\", \"radio\"], selector:'button:not([aria-pressed]):not([type=\"menu\"])'}, {role:\"button\", allowed:[\"button\"], selector:\"button[aria-pressed]\"}, {role:\"button\", attributes:{\"aria-haspopup\":!0}, allowed:[\"link\", \"menuitem\", \"menuitemcheckbox\", \"menuitemradio\", \"radio\"], selector:'button[type=\"menu\"]'}], CAPTION:[{role:\"\", \nallowed:[\"presentation\"]}], COL:[{role:\"\", reserved:!0}], COLGROUP:[{role:\"\", reserved:!0}], DATALIST:[{role:\"listbox\", attributes:{\"aria-multiselectable\":!1}, allowed:[\"presentation\"]}], DEL:[{role:\"\", allowed:[\"*\"]}], DD:[{role:\"\", allowed:[\"presentation\"]}], DT:[{role:\"\", allowed:[\"presentation\"]}], DETAILS:[{role:\"group\", allowed:[\"group\", \"presentation\"]}], DIALOG:[{role:\"dialog\", allowed:\"dialog alert alertdialog application log marquee status\".split(\" \"), selector:\"dialog[open]\"}, {role:\"dialog\", \nattributes:{\"aria-hidden\":!0}, allowed:\"dialog alert alertdialog application log marquee status\".split(\" \"), selector:\"dialog:not([open])\"}], DIV:[{role:\"\", allowed:[\"*\"]}], DL:[{role:\"list\", allowed:[\"presentation\"]}], EMBED:[{role:\"\", allowed:[\"application\", \"document\", \"img\", \"presentation\"]}], FIGURE:[{role:\"\", allowed:[\"*\"]}], FOOTER:[{role:\"\", allowed:[\"contentinfo\", \"presentation\"]}], FORM:[{role:\"form\", allowed:[\"presentation\"]}], P:[{role:\"\", allowed:[\"*\"]}], PRE:[{role:\"\", allowed:[\"*\"]}], \nBLOCKQUOTE:[{role:\"\", allowed:[\"*\"]}], H1:[{role:\"heading\"}], H2:[{role:\"heading\"}], H3:[{role:\"heading\"}], H4:[{role:\"heading\"}], H5:[{role:\"heading\"}], H6:[{role:\"heading\"}], HEAD:[{role:\"\", reserved:!0}], HEADER:[{role:\"\", allowed:[\"banner\", \"presentation\"]}], HR:[{role:\"separator\", allowed:[\"presentation\"]}], HTML:[{role:\"\", reserved:!0}], IFRAME:[{role:\"\", allowed:[\"application\", \"document\", \"img\", \"presentation\"], selector:\"iframe:not([seamless])\"}, {role:\"\", allowed:[\"application\", \"document\", \n\"img\", \"presentation\", \"group\"], selector:\"iframe[seamless]\"}], IMG:[{role:\"presentation\", reserved:!0, selector:'img[alt=\"\"]'}, {role:\"img\", allowed:[\"*\"], selector:'img[alt]:not([alt=\"\"])'}], INPUT:[{role:\"button\", allowed:[\"link\", \"menuitem\", \"menuitemcheckbox\", \"menuitemradio\", \"radio\"], selector:'input[type=\"button\"]:not([aria-pressed])'}, {role:\"button\", allowed:[\"button\"], selector:'input[type=\"button\"][aria-pressed]'}, {role:\"checkbox\", allowed:[\"checkbox\"], selector:'input[type=\"checkbox\"]'}, \n{role:\"\", selector:'input[type=\"color\"]'}, {role:\"\", selector:'input[type=\"date\"]'}, {role:\"\", selector:'input[type=\"datetime\"]'}, {role:\"textbox\", selector:'input[type=\"email\"]:not([list])'}, {role:\"\", selector:'input[type=\"file\"]'}, {role:\"\", reserved:!0, selector:'input[type=\"hidden\"]'}, {role:\"button\", allowed:[\"button\"], selector:'input[type=\"image\"][aria-pressed]'}, {role:\"button\", allowed:[\"link\", \"menuitem\", \"menuitemcheckbox\", \"menuitemradio\", \"radio\"], selector:'input[type=\"image\"]:not([aria-pressed])'}, \n{role:\"\", selector:'input[type=\"month\"]'}, {role:\"\", selector:'input[type=\"number\"]'}, {role:\"textbox\", selector:'input[type=\"password\"]'}, {role:\"radio\", allowed:[\"menuitemradio\"], selector:'input[type=\"radio\"]'}, {role:\"slider\", selector:'input[type=\"range\"]'}, {role:\"button\", selector:'input[type=\"reset\"]'}, {role:\"combobox\", selector:'input[type=\"search\"][list]'}, {role:\"textbox\", selector:'input[type=\"search\"]:not([list])'}, {role:\"button\", selector:'input[type=\"submit\"]'}, {role:\"combobox\", \nselector:'input[type=\"tel\"][list]'}, {role:\"textbox\", selector:'input[type=\"tel\"]:not([list])'}, {role:\"combobox\", selector:'input[type=\"text\"][list]'}, {role:\"textbox\", selector:'input[type=\"text\"]:not([list])'}, {role:\"textbox\", selector:\"input:not([type])\"}, {role:\"\", selector:'input[type=\"time\"]'}, {role:\"combobox\", selector:'input[type=\"url\"][list]'}, {role:\"textbox\", selector:'input[type=\"url\"]:not([list])'}, {role:\"\", selector:'input[type=\"week\"]'}], INS:[{role:\"\", allowed:[\"*\"]}], KEYGEN:[{role:\"\"}], \nLABEL:[{role:\"\", allowed:[\"presentation\"]}], LI:[{role:\"listitem\", allowed:\"menuitem menuitemcheckbox menuitemradio option tab treeitem presentation\".split(\" \"), selector:'ol:not([role=\"presentation\"])>li, ul:not([role=\"presentation\"])>li'}, {role:\"listitem\", allowed:\"listitem menuitem menuitemcheckbox menuitemradio option tab treeitem presentation\".split(\" \"), selector:'ol[role=\"presentation\"]>li, ul[role=\"presentation\"]>li'}], LINK:[{role:\"link\", reserved:!0, selector:\"link[href]\"}], MAIN:[{role:\"\", \nallowed:[\"main\", \"presentation\"]}], MAP:[{role:\"\", reserved:!0}], MATH:[{role:\"\", allowed:[\"presentation\"]}], MENU:[{role:\"toolbar\", selector:'menu[type=\"toolbar\"]'}], MENUITEM:[{role:\"menuitem\", selector:'menuitem[type=\"command\"]'}, {role:\"menuitemcheckbox\", selector:'menuitem[type=\"checkbox\"]'}, {role:\"menuitemradio\", selector:'menuitem[type=\"radio\"]'}], META:[{role:\"\", reserved:!0}], METER:[{role:\"progressbar\", allowed:[\"presentation\"]}], NAV:[{role:\"navigation\", allowed:[\"navigation\", \"presentation\"]}], \nNOSCRIPT:[{role:\"\", reserved:!0}], OBJECT:[{role:\"\", allowed:[\"application\", \"document\", \"img\", \"presentation\"]}], OL:[{role:\"list\", allowed:\"directory group listbox menu menubar tablist toolbar tree presentation\".split(\" \")}], OPTGROUP:[{role:\"\", allowed:[\"presentation\"]}], OPTION:[{role:\"option\"}], OUTPUT:[{role:\"status\", allowed:[\"*\"]}], PARAM:[{role:\"\", reserved:!0}], PICTURE:[{role:\"\", reserved:!0}], PROGRESS:[{role:\"progressbar\", allowed:[\"presentation\"]}], SCRIPT:[{role:\"\", reserved:!0}], \nSECTION:[{role:\"region\", allowed:\"alert alertdialog application contentinfo dialog document log marquee search status presentation\".split(\" \")}], SELECT:[{role:\"listbox\"}], SOURCE:[{role:\"\", reserved:!0}], SPAN:[{role:\"\", allowed:[\"*\"]}], STYLE:[{role:\"\", reserved:!0}], SVG:[{role:\"\", allowed:[\"application\", \"document\", \"img\", \"presentation\"]}], SUMMARY:[{role:\"\", allowed:[\"presentation\"]}], TABLE:[{role:\"\", allowed:[\"*\"]}], TEMPLATE:[{role:\"\", reserved:!0}], TEXTAREA:[{role:\"textbox\"}], TBODY:[{role:\"rowgroup\", \nallowed:[\"*\"]}], THEAD:[{role:\"rowgroup\", allowed:[\"*\"]}], TFOOT:[{role:\"rowgroup\", allowed:[\"*\"]}], TITLE:[{role:\"\", reserved:!0}], TD:[{role:\"\", allowed:[\"*\"]}], TH:[{role:\"\", allowed:[\"*\"]}], TR:[{role:\"\", allowed:[\"*\"]}], TRACK:[{role:\"\", reserved:!0}], UL:[{role:\"list\", allowed:\"directory group listbox menu menubar tablist toolbar tree presentation\".split(\" \")}], VIDEO:[{role:\"\", allowed:[\"application\", \"presentation\"]}]};\naxs.dom = {};\naxs.dom.parentElement = function(a) {\n  if (!a) {\n    return null;\n  }\n  a = axs.dom.composedParentNode(a);\n  if (!a) {\n    return null;\n  }\n  switch(a.nodeType) {\n    case Node.ELEMENT_NODE:\n      return a;\n    default:\n      return axs.dom.parentElement(a);\n  }\n};\naxs.dom.shadowHost = function(a) {\n  return \"host\" in a ? a.host : null;\n};\naxs.dom.composedParentNode = function(a) {\n  if (!a) {\n    return null;\n  }\n  if (a.nodeType === Node.DOCUMENT_FRAGMENT_NODE) {\n    return axs.dom.shadowHost(a);\n  }\n  var b = a.parentNode;\n  if (!b) {\n    return null;\n  }\n  if (b.nodeType === Node.DOCUMENT_FRAGMENT_NODE) {\n    return axs.dom.shadowHost(b);\n  }\n  if (!b.shadowRoot) {\n    return b;\n  }\n  if (a.nodeType === Node.ELEMENT_NODE || a.nodeType === Node.TEXT_NODE) {\n    if (b = a.assignedSlot, HTMLSlotElement && b instanceof HTMLSlotElement) {\n      return axs.dom.composedParentNode(b);\n    }\n  }\n  return \"function\" === typeof a.getDestinationInsertionPoints && (a = a.getDestinationInsertionPoints(), 0 < a.length) ? axs.dom.composedParentNode(a[a.length - 1]) : null;\n};\naxs.dom.asElement = function(a) {\n  switch(a.nodeType) {\n    case Node.COMMENT_NODE:\n      break;\n    case Node.ELEMENT_NODE:\n      if (\"script\" == a.localName || \"template\" == a.localName) {\n        break;\n      }\n      return a;\n    case Node.DOCUMENT_FRAGMENT_NODE:\n      return a.host;\n    case Node.TEXT_NODE:\n      return axs.dom.parentElement(a);\n    default:\n      console.warn(\"Unhandled node type: \", a.nodeType);\n  }\n  return null;\n};\naxs.dom.composedTreeSearch = function(a, b, c, d, e) {\n  if (a === b) {\n    return !0;\n  }\n  if (a.nodeType == Node.ELEMENT_NODE) {\n    var f = a;\n  }\n  var g = !1;\n  d = Object.create(d);\n  if (f) {\n    var h = f.localName;\n    d.collectIdRefs && (d.idrefs = axs.utils.getReferencedIds(f));\n    if (!d.disabled || \"legend\" === h && axs.browserUtils.matchSelector(f, \"fieldset>legend:first-of-type\")) {\n      d.disabled = axs.utils.isElementDisabled(f, !0);\n    }\n    d.hidden || (d.hidden = axs.utils.isElementHidden(f));\n    if (c.preorder && !c.preorder(f, d)) {\n      return g;\n    }\n    var k = f.shadowRoot || f.webkitShadowRoot;\n    if (k) {\n      return d.level++, g = axs.dom.composedTreeSearch(k, b, c, d, k), f && c.postorder && !g && c.postorder(f, d), g;\n    }\n    if (\"content\" == h && \"function\" === typeof f.getDistributedNodes) {\n      a = f.getDistributedNodes();\n      for (h = 0;h < a.length && !g;h++) {\n        g = axs.dom.composedTreeSearch(a[h], b, c, d, e);\n      }\n      c.postorder && !g && c.postorder.call(null, f, d);\n      return g;\n    }\n  }\n  for (a = a.firstChild;null != a && !g;) {\n    g = axs.dom.composedTreeSearch(a, b, c, d, e), a = a.nextSibling;\n  }\n  f && c.postorder && !g && c.postorder.call(null, f, d);\n  return g;\n};\naxs.utils = {};\naxs.utils.FOCUSABLE_ELEMENTS_SELECTOR = \"input:not([type=hidden]):not([disabled]),select:not([disabled]),textarea:not([disabled]),button:not([disabled]),a[href],iframe,[tabindex]\";\naxs.utils.LABELABLE_ELEMENTS_SELECTOR = \"button,input:not([type=hidden]),keygen,meter,output,progress,select,textarea\";\naxs.utils.elementIsTransparent = function(a) {\n  return \"0\" == a.style.opacity;\n};\naxs.utils.elementHasZeroArea = function(a) {\n  a = a.getBoundingClientRect();\n  var b = a.top - a.bottom;\n  return a.right - a.left && b ? !1 : !0;\n};\naxs.utils.elementIsOutsideScrollArea = function(a) {\n  for (var b = axs.dom.parentElement(a), c = a.ownerDocument.defaultView;b != c.document.body;) {\n    if (axs.utils.isClippedBy(a, b)) {\n      return !0;\n    }\n    if (axs.utils.canScrollTo(a, b) && !axs.utils.elementIsOutsideScrollArea(b)) {\n      return !1;\n    }\n    b = axs.dom.parentElement(b);\n  }\n  return !axs.utils.canScrollTo(a, c.document.body);\n};\naxs.utils.canScrollTo = function(a, b) {\n  var c = a.getBoundingClientRect(), d = b.getBoundingClientRect();\n  if (b == b.ownerDocument.body) {\n    var e = d.top, f = d.left;\n  } else {\n    e = d.top - b.scrollTop, f = d.left - b.scrollLeft;\n  }\n  var g = e + b.scrollHeight, h = f + b.scrollWidth;\n  if (c.right < f || c.bottom < e || c.left > h || c.top > g) {\n    return !1;\n  }\n  e = a.ownerDocument.defaultView;\n  f = e.getComputedStyle(b);\n  return c.left > d.right || c.top > d.bottom ? \"scroll\" == f.overflow || \"auto\" == f.overflow || b instanceof e.HTMLBodyElement : !0;\n};\naxs.utils.isClippedBy = function(a, b) {\n  var c = a.getBoundingClientRect(), d = b.getBoundingClientRect(), e = d.top - b.scrollTop, f = d.left - b.scrollLeft, g = a.ownerDocument.defaultView.getComputedStyle(b);\n  return (c.right < d.left || c.bottom < d.top || c.left > d.right || c.top > d.bottom) && \"hidden\" == g.overflow ? !0 : c.right < f || c.bottom < e ? \"visible\" != g.overflow : !1;\n};\naxs.utils.isAncestor = function(a, b) {\n  if (null == b) {\n    return !1;\n  }\n  if (b === a) {\n    return !0;\n  }\n  var c = axs.dom.composedParentNode(b);\n  return axs.utils.isAncestor(a, c);\n};\naxs.utils.overlappingElements = function(a) {\n  if (axs.utils.elementHasZeroArea(a)) {\n    return null;\n  }\n  for (var b = [], c = a.getClientRects(), d = 0;d < c.length;d++) {\n    var e = c[d], e = document.elementFromPoint((e.left + e.right) / 2, (e.top + e.bottom) / 2);\n    if (null != e && e != a && !axs.utils.isAncestor(e, a) && !axs.utils.isAncestor(a, e)) {\n      var f = window.getComputedStyle(e, null);\n      f && (f = axs.utils.getBgColor(f, e)) && 0 < f.alpha && 0 > b.indexOf(e) && b.push(e);\n    }\n  }\n  return b;\n};\naxs.utils.elementIsHtmlControl = function(a) {\n  var b = a.ownerDocument.defaultView;\n  return a instanceof b.HTMLButtonElement || a instanceof b.HTMLInputElement || a instanceof b.HTMLSelectElement || a instanceof b.HTMLTextAreaElement ? !0 : !1;\n};\naxs.utils.elementIsAriaWidget = function(a) {\n  return a.hasAttribute(\"role\") && (a = a.getAttribute(\"role\")) && (a = axs.constants.ARIA_ROLES[a]) && \"widget\" in a.allParentRolesSet ? !0 : !1;\n};\naxs.utils.elementIsVisible = function(a) {\n  return axs.utils.elementIsTransparent(a) || axs.utils.elementHasZeroArea(a) || axs.utils.elementIsOutsideScrollArea(a) || axs.utils.overlappingElements(a).length ? !1 : !0;\n};\naxs.utils.isLargeFont = function(a) {\n  var b = a.fontSize;\n  a = \"bold\" == a.fontWeight;\n  var c = b.match(/(\\d+)px/);\n  if (c) {\n    b = parseInt(c[1], 10);\n    if (c = window.getComputedStyle(document.body, null).fontSize.match(/(\\d+)px/)) {\n      var d = parseInt(c[1], 10), c = 1.2 * d, d = 1.5 * d;\n    } else {\n      c = 19.2, d = 24;\n    }\n    return a && b >= c || b >= d;\n  }\n  if (c = b.match(/(\\d+)em/)) {\n    return b = parseInt(c[1], 10), a && 1.2 <= b || 1.5 <= b ? !0 : !1;\n  }\n  if (c = b.match(/(\\d+)%/)) {\n    return b = parseInt(c[1], 10), a && 120 <= b || 150 <= b ? !0 : !1;\n  }\n  if (c = b.match(/(\\d+)pt/)) {\n    if (b = parseInt(c[1], 10), a && 14 <= b || 18 <= b) {\n      return !0;\n    }\n  }\n  return !1;\n};\naxs.utils.getBgColor = function(a, b) {\n  var c = axs.color.parseColor(a.backgroundColor);\n  if (!c) {\n    return null;\n  }\n  1 > a.opacity && (c.alpha *= a.opacity);\n  if (1 > c.alpha) {\n    var d = axs.utils.getParentBgColor(b);\n    if (null == d) {\n      return null;\n    }\n    c = axs.color.flattenColors(c, d);\n  }\n  return c;\n};\naxs.utils.getParentBgColor = function(a) {\n  var b = a;\n  a = [];\n  for (var c = null;b = axs.dom.parentElement(b);) {\n    var d = window.getComputedStyle(b, null);\n    if (d) {\n      var e = axs.color.parseColor(d.backgroundColor);\n      if (e && (1 > d.opacity && (e.alpha *= d.opacity), 0 != e.alpha && (a.push(e), 1 == e.alpha))) {\n        c = !0;\n        break;\n      }\n    }\n  }\n  c || a.push(new axs.color.Color(255, 255, 255, 1));\n  for (b = a.pop();a.length;) {\n    c = a.pop(), b = axs.color.flattenColors(c, b);\n  }\n  return b;\n};\naxs.utils.getFgColor = function(a, b, c) {\n  var d = axs.color.parseColor(a.color);\n  if (!d) {\n    return null;\n  }\n  1 > d.alpha && (d = axs.color.flattenColors(d, c));\n  1 > a.opacity && (b = axs.utils.getParentBgColor(b), d.alpha *= a.opacity, d = axs.color.flattenColors(d, b));\n  return d;\n};\naxs.utils.getContrastRatioForElement = function(a) {\n  var b = window.getComputedStyle(a, null);\n  return axs.utils.getContrastRatioForElementWithComputedStyle(b, a);\n};\naxs.utils.getContrastRatioForElementWithComputedStyle = function(a, b) {\n  if (axs.utils.isElementHidden(b)) {\n    return null;\n  }\n  var c = axs.utils.getBgColor(a, b);\n  if (!c) {\n    return null;\n  }\n  var d = axs.utils.getFgColor(a, b, c);\n  return d ? axs.color.calculateContrastRatio(d, c) : null;\n};\naxs.utils.isNativeTextElement = function(a) {\n  var b = a.tagName.toLowerCase();\n  a = a.type ? a.type.toLowerCase() : \"\";\n  if (\"textarea\" == b) {\n    return !0;\n  }\n  if (\"input\" != b) {\n    return !1;\n  }\n  switch(a) {\n    case \"email\":\n    case \"number\":\n    case \"password\":\n    case \"search\":\n    case \"text\":\n    case \"tel\":\n    case \"url\":\n    case \"\":\n      return !0;\n    default:\n      return !1;\n  }\n};\naxs.utils.isLowContrast = function(a, b, c) {\n  a = Math.round(10 * a) / 10;\n  return c ? 4.5 > a || !axs.utils.isLargeFont(b) && 7 > a : 3 > a || !axs.utils.isLargeFont(b) && 4.5 > a;\n};\naxs.utils.hasLabel = function(a) {\n  var b = a.tagName.toLowerCase(), c = a.type ? a.type.toLowerCase() : \"\";\n  if (a.hasAttribute(\"aria-label\") || a.hasAttribute(\"title\") || \"img\" == b && a.hasAttribute(\"alt\") || \"input\" == b && \"image\" == c && a.hasAttribute(\"alt\") || \"input\" == b && (\"submit\" == c || \"reset\" == c) || a.hasAttribute(\"aria-labelledby\") || a.hasAttribute(\"id\") && 0 < document.querySelectorAll('label[for=\"' + a.id + '\"]').length) {\n    return !0;\n  }\n  for (b = axs.dom.parentElement(a);b;) {\n    if (\"label\" == b.tagName.toLowerCase() && b.control == a) {\n      return !0;\n    }\n    b = axs.dom.parentElement(b);\n  }\n  return !1;\n};\naxs.utils.isNativelyDisableable = function(a) {\n  return a.tagName.toUpperCase() in axs.constants.NATIVELY_DISABLEABLE;\n};\naxs.utils.isElementDisabled = function(a, b) {\n  if (axs.browserUtils.matchSelector(a, b ? \"[aria-disabled=true]\" : \"[aria-disabled=true], [aria-disabled=true] *\")) {\n    return !0;\n  }\n  if (!axs.utils.isNativelyDisableable(a) || axs.browserUtils.matchSelector(a, \"fieldset>legend:first-of-type *\")) {\n    return !1;\n  }\n  for (var c = a;null !== c;c = axs.dom.parentElement(c)) {\n    if (c.hasAttribute(\"disabled\")) {\n      return !0;\n    }\n    if (b) {\n      break;\n    }\n  }\n  return !1;\n};\naxs.utils.isElementHidden = function(a) {\n  if (!(a instanceof a.ownerDocument.defaultView.HTMLElement)) {\n    return !1;\n  }\n  if (a.hasAttribute(\"chromevoxignoreariahidden\")) {\n    var b = !0;\n  }\n  var c = window.getComputedStyle(a, null);\n  return \"none\" == c.display || \"hidden\" == c.visibility ? !0 : a.hasAttribute(\"aria-hidden\") && \"true\" == a.getAttribute(\"aria-hidden\").toLowerCase() ? !b : !1;\n};\naxs.utils.isElementOrAncestorHidden = function(a) {\n  return axs.utils.isElementHidden(a) ? !0 : axs.dom.parentElement(a) ? axs.utils.isElementOrAncestorHidden(axs.dom.parentElement(a)) : !1;\n};\naxs.utils.isInlineElement = function(a) {\n  a = a.tagName.toUpperCase();\n  return axs.constants.InlineElements[a];\n};\naxs.utils.getRoles = function(a, b) {\n  if (!a || a.nodeType !== Node.ELEMENT_NODE || !a.hasAttribute(\"role\") && !b) {\n    return null;\n  }\n  var c = a.getAttribute(\"role\");\n  !c && b && (c = axs.properties.getImplicitRole(a));\n  if (!c) {\n    return null;\n  }\n  for (var c = c.split(\" \"), d = {roles:[], valid:!1}, e = 0;e < c.length;e++) {\n    var f = c[e], g = axs.constants.ARIA_ROLES[f], f = {name:f};\n    g && !g[\"abstract\"] ? (f.details = g, d.applied || (d.applied = f), f.valid = d.valid = !0) : f.valid = !1;\n    d.roles.push(f);\n  }\n  return d;\n};\naxs.utils.getAriaPropertyValue = function(a, b, c) {\n  var d = a.replace(/^aria-/, \"\"), e = axs.constants.ARIA_PROPERTIES[d], d = {name:a, rawValue:b};\n  if (!e) {\n    return d.valid = !1, d.reason = '\"' + a + '\" is not a valid ARIA property', d;\n  }\n  e = e.valueType;\n  if (!e) {\n    return d.valid = !1, d.reason = '\"' + a + '\" is not a valid ARIA property', d;\n  }\n  switch(e) {\n    case \"idref\":\n      a = axs.utils.isValidIDRefValue(b, c), d.valid = a.valid, d.reason = a.reason, d.idref = a.idref;\n    case \"idref_list\":\n      a = b.split(/\\s+/);\n      d.valid = !0;\n      for (b = 0;b < a.length;b++) {\n        e = axs.utils.isValidIDRefValue(a[b], c), e.valid || (d.valid = !1), d.values ? d.values.push(e) : d.values = [e];\n      }\n      return d;\n    case \"integer\":\n      c = axs.utils.isValidNumber(b);\n      if (!c.valid) {\n        return d.valid = !1, d.reason = c.reason, d;\n      }\n      Math.floor(c.value) !== c.value ? (d.valid = !1, d.reason = \"\" + b + \" is not a whole integer\") : (d.valid = !0, d.value = c.value);\n      return d;\n    case \"decimal\":\n    case \"number\":\n      c = axs.utils.isValidNumber(b);\n      d.valid = c.valid;\n      if (!c.valid) {\n        return d.reason = c.reason, d;\n      }\n      d.value = c.value;\n      return d;\n    case \"string\":\n      return d.valid = !0, d.value = b, d;\n    case \"token\":\n      return c = axs.utils.isValidTokenValue(a, b.toLowerCase()), c.valid ? (d.valid = !0, d.value = c.value) : (d.valid = !1, d.value = b, d.reason = c.reason), d;\n    case \"token_list\":\n      e = b.split(/\\s+/);\n      d.valid = !0;\n      for (b = 0;b < e.length;b++) {\n        c = axs.utils.isValidTokenValue(a, e[b].toLowerCase()), c.valid || (d.valid = !1, d.reason ? (d.reason = [d.reason], d.reason.push(c.reason)) : (d.reason = c.reason, d.possibleValues = c.possibleValues)), d.values ? d.values.push(c.value) : d.values = [c.value];\n      }\n      return d;\n    case \"tristate\":\n      return c = axs.utils.isPossibleValue(b.toLowerCase(), axs.constants.MIXED_VALUES, a), c.valid ? (d.valid = !0, d.value = c.value) : (d.valid = !1, d.value = b, d.reason = c.reason), d;\n    case \"boolean\":\n      return c = axs.utils.isValidBoolean(b), c.valid ? (d.valid = !0, d.value = c.value) : (d.valid = !1, d.value = b, d.reason = c.reason), d;\n  }\n  d.valid = !1;\n  d.reason = \"Not a valid ARIA property\";\n  return d;\n};\naxs.utils.isValidTokenValue = function(a, b) {\n  var c = a.replace(/^aria-/, \"\");\n  return axs.utils.isPossibleValue(b, axs.constants.ARIA_PROPERTIES[c].valuesSet, a);\n};\naxs.utils.isPossibleValue = function(a, b, c) {\n  return b[a] ? {valid:!0, value:a} : {valid:!1, value:a, reason:'\"' + a + '\" is not a valid value for ' + c, possibleValues:Object.keys(b)};\n};\naxs.utils.isValidBoolean = function(a) {\n  try {\n    var b = JSON.parse(a);\n  } catch (c) {\n    b = \"\";\n  }\n  return \"boolean\" != typeof b ? {valid:!1, value:a, reason:'\"' + a + '\" is not a true/false value'} : {valid:!0, value:b};\n};\naxs.utils.isValidIDRefValue = function(a, b) {\n  return 0 == a.length ? {valid:!0, idref:a} : b.ownerDocument.getElementById(a) ? {valid:!0, idref:a} : {valid:!1, idref:a, reason:'No element with ID \"' + a + '\"'};\n};\naxs.utils.isValidNumber = function(a) {\n  var b = {valid:!1, value:a, reason:'\"' + a + '\" is not a number'};\n  if (!a) {\n    return b;\n  }\n  if (/^0x/i.test(a)) {\n    return b.reason = '\"' + a + '\" is not a decimal number', b;\n  }\n  a *= 1;\n  return isFinite(a) ? {valid:!0, value:a} : b;\n};\naxs.utils.isElementImplicitlyFocusable = function(a) {\n  var b = a.ownerDocument.defaultView;\n  return a instanceof b.HTMLAnchorElement || a instanceof b.HTMLAreaElement ? a.hasAttribute(\"href\") : a instanceof b.HTMLInputElement || a instanceof b.HTMLSelectElement || a instanceof b.HTMLTextAreaElement || a instanceof b.HTMLButtonElement || a instanceof b.HTMLIFrameElement ? !a.disabled : !1;\n};\naxs.utils.values = function(a) {\n  var b = [], c;\n  for (c in a) {\n    a.hasOwnProperty(c) && \"function\" != typeof a[c] && b.push(a[c]);\n  }\n  return b;\n};\naxs.utils.namedValues = function(a) {\n  var b = {}, c;\n  for (c in a) {\n    a.hasOwnProperty(c) && \"function\" != typeof a[c] && (b[c] = a[c]);\n  }\n  return b;\n};\nfunction escapeId(a) {\n  return a.replace(/[^a-zA-Z0-9_-]/g, function(a) {\n    return \"\\\\\" + a;\n  });\n}\naxs.utils.getQuerySelectorText = function(a) {\n  if (null == a || \"HTML\" == a.tagName) {\n    return \"html\";\n  }\n  if (\"BODY\" == a.tagName) {\n    return \"body\";\n  }\n  if (a.hasAttribute) {\n    if (a.id) {\n      return \"#\" + escapeId(a.id);\n    }\n    if (a.className) {\n      for (var b = \"\", c = 0;c < a.classList.length;c++) {\n        b += \".\" + a.classList[c];\n      }\n      var d = 0;\n      if (a.parentNode) {\n        for (c = 0;c < a.parentNode.children.length;c++) {\n          var e = a.parentNode.children[c];\n          axs.browserUtils.matchSelector(e, b) && d++;\n          if (e === a) {\n            break;\n          }\n        }\n      } else {\n        d = 1;\n      }\n      if (1 == d) {\n        return axs.utils.getQuerySelectorText(a.parentNode) + \" > \" + b;\n      }\n    }\n    if (a.parentNode) {\n      b = a.parentNode.children;\n      d = 1;\n      for (c = 0;b[c] !== a;) {\n        b[c].tagName == a.tagName && d++, c++;\n      }\n      c = \"\";\n      \"BODY\" != a.parentNode.tagName && (c = axs.utils.getQuerySelectorText(a.parentNode) + \" > \");\n      return 1 == d ? c + a.tagName : c + a.tagName + \":nth-of-type(\" + d + \")\";\n    }\n  } else {\n    if (a.selectorText) {\n      return a.selectorText;\n    }\n  }\n  return \"\";\n};\naxs.utils.getAriaIdReferrers = function(a, b) {\n  var c = function(a) {\n    var b = axs.constants.ARIA_PROPERTIES[a];\n    if (b) {\n      if (\"idref\" === b.valueType) {\n        return \"[aria-\" + a + \"='\" + d + \"']\";\n      }\n      if (\"idref_list\" === b.valueType) {\n        return \"[aria-\" + a + \"~='\" + d + \"']\";\n      }\n    }\n    return \"\";\n  };\n  if (!a) {\n    return null;\n  }\n  var d = a.id;\n  if (!d) {\n    return null;\n  }\n  d = d.replace(/'/g, \"\\\\'\");\n  if (b) {\n    var e = b.replace(/^aria-/, \"\"), f = c(e);\n    if (f) {\n      return a.ownerDocument.querySelectorAll(f);\n    }\n  } else {\n    var g = [];\n    for (e in axs.constants.ARIA_PROPERTIES) {\n      (f = c(e)) && g.push(f);\n    }\n    return a.ownerDocument.querySelectorAll(g.join(\",\"));\n  }\n  return null;\n};\naxs.utils.getHtmlIdReferrers = function(a) {\n  if (!a) {\n    return null;\n  }\n  var b = a.id;\n  if (!b) {\n    return null;\n  }\n  var b = b.replace(/'/g, \"\\\\'\"), c = \"[contextmenu='{id}'] [itemref~='{id}'] button[form='{id}'] button[menu='{id}'] fieldset[form='{id}'] input[form='{id}'] input[list='{id}'] keygen[form='{id}'] label[for='{id}'] label[form='{id}'] menuitem[command='{id}'] object[form='{id}'] output[for~='{id}'] output[form='{id}'] select[form='{id}'] td[headers~='{id}'] textarea[form='{id}'] tr[headers~='{id}']\".split(\" \").map(function(a) {\n    return a.replace(\"{id}\", b);\n  });\n  return a.ownerDocument.querySelectorAll(c.join(\",\"));\n};\naxs.utils.getReferencedIds = function(a) {\n  for (var b = [], c = function(a) {\n    a && (0 < a.indexOf(\" \") ? b = b.concat(f.value.split(\" \")) : b.push(a));\n  }, d = 0;d < a.attributes.length;d++) {\n    var e = a.tagName.toLowerCase(), f = a.attributes[d];\n    if (f.specified) {\n      var g = f.name, h = g.match(/aria-(.+)/);\n      if (h) {\n        e = axs.constants.ARIA_PROPERTIES[h[1]], !e || \"idref\" !== e.valueType && \"idref_list\" !== e.valueType || c(f.value);\n      } else {\n        switch(g) {\n          case \"contextmenu\":\n          case \"itemref\":\n            c(f.value);\n            break;\n          case \"form\":\n            \"button\" != e && \"fieldset\" != e && \"input\" != e && \"keygen\" != e && \"label\" != e && \"object\" != e && \"output\" != e && \"select\" != e && \"textarea\" != e || c(f.value);\n            break;\n          case \"for\":\n            \"label\" != e && \"output\" != e || c(f.value);\n            break;\n          case \"menu\":\n            \"button\" == e && c(f.value);\n            break;\n          case \"list\":\n            \"input\" == e && c(f.value);\n            break;\n          case \"command\":\n            \"menuitem\" == e && c(f.value);\n            break;\n          case \"headers\":\n            \"td\" != e && \"tr\" != e || c(f.value);\n        }\n      }\n    }\n  }\n  return b;\n};\naxs.utils.getIdReferrers = function(a) {\n  var b = [], c = axs.utils.getHtmlIdReferrers(a);\n  c && (b = b.concat(Array.prototype.slice.call(c)));\n  (c = axs.utils.getAriaIdReferrers(a)) && (b = b.concat(Array.prototype.slice.call(c)));\n  return b;\n};\naxs.utils.getIdReferents = function(a, b) {\n  var c = [], d = a.replace(/^aria-/, \"\"), d = axs.constants.ARIA_PROPERTIES[d];\n  if (!d || !b.hasAttribute(a)) {\n    return c;\n  }\n  d = d.valueType;\n  if (\"idref_list\" === d || \"idref\" === d) {\n    for (var d = b.ownerDocument, e = b.getAttribute(a), e = e.split(/\\s+/), f = 0, g = e.length;f < g;f++) {\n      var h = d.getElementById(e[f]);\n      h && (c[c.length] = h);\n    }\n  }\n  return c;\n};\naxs.utils.getAriaPropertiesByValueType = function(a) {\n  var b = {}, c;\n  for (c in axs.constants.ARIA_PROPERTIES) {\n    var d = axs.constants.ARIA_PROPERTIES[c];\n    d && 0 <= a.indexOf(d.valueType) && (b[c] = d);\n  }\n  return b;\n};\naxs.utils.getSelectorForAriaProperties = function(a) {\n  a = Object.keys(a).map(function(a) {\n    return \"[aria-\" + a + \"]\";\n  });\n  a.sort();\n  return a.join(\",\");\n};\naxs.utils.findDescendantsWithRole = function(a, b) {\n  if (!a || !b) {\n    return [];\n  }\n  var c = axs.properties.getSelectorForRole(b);\n  if (c && (c = a.querySelectorAll(c))) {\n    c = Array.prototype.map.call(c, function(a) {\n      return a;\n    });\n  } else {\n    return [];\n  }\n  return c;\n};\naxs.properties = {};\naxs.properties.TEXT_CONTENT_XPATH = './/text()[normalize-space(.)!=\"\"]/parent::*[name()!=\"script\"]';\naxs.properties.getFocusProperties = function(a) {\n  var b = {}, c = a.getAttribute(\"tabindex\");\n  void 0 != c ? b.tabindex = {value:c, valid:!0} : axs.utils.isElementImplicitlyFocusable(a) && (b.implicitlyFocusable = {value:!0, valid:!0});\n  if (0 == Object.keys(b).length) {\n    return null;\n  }\n  var d = axs.utils.elementIsTransparent(a), e = axs.utils.elementHasZeroArea(a), f = axs.utils.elementIsOutsideScrollArea(a), g = axs.utils.overlappingElements(a);\n  if (d || e || f || 0 < g.length) {\n    var c = axs.utils.isElementOrAncestorHidden(a), h = {value:!1, valid:c};\n    d && (h.transparent = !0);\n    e && (h.zeroArea = !0);\n    f && (h.outsideScrollArea = !0);\n    g && 0 < g.length && (h.overlappingElements = g);\n    d = {value:c, valid:c};\n    c && (d.reason = axs.properties.getHiddenReason(a));\n    h.hidden = d;\n    b.visible = h;\n  } else {\n    b.visible = {value:!0, valid:!0};\n  }\n  return b;\n};\naxs.properties.getHiddenReason = function(a) {\n  if (!(a && a instanceof a.ownerDocument.defaultView.HTMLElement)) {\n    return null;\n  }\n  if (a.hasAttribute(\"chromevoxignoreariahidden\")) {\n    var b = !0;\n  }\n  var c = window.getComputedStyle(a, null);\n  return \"none\" == c.display ? {property:\"display: none\", on:a} : \"hidden\" == c.visibility ? {property:\"visibility: hidden\", on:a} : a.hasAttribute(\"aria-hidden\") && \"true\" == a.getAttribute(\"aria-hidden\").toLowerCase() && !b ? {property:\"aria-hidden\", on:a} : axs.properties.getHiddenReason(axs.dom.parentElement(a));\n};\naxs.properties.getColorProperties = function(a) {\n  var b = {};\n  (a = axs.properties.getContrastRatioProperties(a)) && (b.contrastRatio = a);\n  return 0 == Object.keys(b).length ? null : b;\n};\naxs.properties.hasDirectTextDescendant = function(a) {\n  function b() {\n    for (var b = c.evaluate(axs.properties.TEXT_CONTENT_XPATH, a, null, XPathResult.ANY_TYPE, null), e = b.iterateNext();null != e;e = b.iterateNext()) {\n      if (e === a) {\n        return !0;\n      }\n    }\n    return !1;\n  }\n  var c;\n  c = a.nodeType == Node.DOCUMENT_NODE ? a : a.ownerDocument;\n  return c.evaluate ? b() : function() {\n    for (var b = c.createTreeWalker(a, NodeFilter.SHOW_TEXT, null, !1);b.nextNode();) {\n      var e = b.currentNode, f = e.parentNode, f = f.host || f, f = f.tagName.toLowerCase();\n      if (e.nodeValue.trim() && \"script\" !== f && a !== e) {\n        return !0;\n      }\n    }\n    return !1;\n  }();\n};\naxs.properties.getContrastRatioProperties = function(a) {\n  if (!axs.properties.hasDirectTextDescendant(a)) {\n    return null;\n  }\n  var b = {}, c = window.getComputedStyle(a, null), d = axs.utils.getBgColor(c, a);\n  if (!d) {\n    return null;\n  }\n  b.backgroundColor = axs.color.colorToString(d);\n  var e = axs.utils.getFgColor(c, a, d);\n  b.foregroundColor = axs.color.colorToString(e);\n  a = axs.utils.getContrastRatioForElementWithComputedStyle(c, a);\n  if (!a) {\n    return null;\n  }\n  b.value = a.toFixed(2);\n  axs.utils.isLowContrast(a, c) && (b.alert = !0);\n  var f = axs.utils.isLargeFont(c) ? 3 : 4.5, c = axs.utils.isLargeFont(c) ? 4.5 : 7, g = {};\n  f > a && (g.AA = f);\n  c > a && (g.AAA = c);\n  if (!Object.keys(g).length) {\n    return b;\n  }\n  (d = axs.color.suggestColors(d, e, g)) && Object.keys(d).length && (b.suggestedColors = d);\n  return b;\n};\naxs.properties.findTextAlternatives = function(a, b, c, d) {\n  var e = c || !1;\n  c = axs.dom.asElement(a);\n  if (!c || !d && axs.utils.isElementOrAncestorHidden(c)) {\n    return null;\n  }\n  if (a.nodeType == Node.TEXT_NODE) {\n    return c = {type:\"text\"}, c.text = a.textContent, c.lastWord = axs.properties.getLastWord(c.text), b.content = c, a.textContent;\n  }\n  a = null;\n  e || (a = axs.properties.getTextFromAriaLabelledby(c, b));\n  if (c.hasAttribute(\"aria-label\")) {\n    var f = {type:\"text\"};\n    f.text = c.getAttribute(\"aria-label\");\n    f.lastWord = axs.properties.getLastWord(f.text);\n    a ? f.unused = !0 : e && axs.utils.elementIsHtmlControl(c) || (a = f.text);\n    b.ariaLabel = f;\n  }\n  c.hasAttribute(\"role\") && \"presentation\" == c.getAttribute(\"role\") || (a = axs.properties.getTextFromHostLanguageAttributes(c, b, a, e));\n  e && axs.utils.elementIsHtmlControl(c) && (f = c.ownerDocument.defaultView, c instanceof f.HTMLInputElement && (\"text\" == c.type && c.value && 0 < c.value.length && (b.controlValue = {text:c.value}), \"range\" == c.type && (b.controlValue = {text:c.value})), c instanceof f.HTMLSelectElement && (b.controlValue = {text:c.value}), b.controlValue && (f = b.controlValue, a ? f.unused = !0 : a = f.text));\n  if (e && axs.utils.elementIsAriaWidget(c)) {\n    e = c.getAttribute(\"role\");\n    \"textbox\" == e && c.textContent && 0 < c.textContent.length && (b.controlValue = {text:c.textContent});\n    if (\"slider\" == e || \"spinbutton\" == e) {\n      c.hasAttribute(\"aria-valuetext\") ? b.controlValue = {text:c.getAttribute(\"aria-valuetext\")} : c.hasAttribute(\"aria-valuenow\") && (b.controlValue = {value:c.getAttribute(\"aria-valuenow\"), text:\"\" + c.getAttribute(\"aria-valuenow\")});\n    }\n    if (\"menu\" == e) {\n      for (var g = c.querySelectorAll(\"[role=menuitemcheckbox], [role=menuitemradio]\"), f = [], h = 0;h < g.length;h++) {\n        \"true\" == g[h].getAttribute(\"aria-checked\") && f.push(g[h]);\n      }\n      if (0 < f.length) {\n        g = \"\";\n        for (h = 0;h < f.length;h++) {\n          g += axs.properties.findTextAlternatives(f[h], {}, !0), h < f.length - 1 && (g += \", \");\n        }\n        b.controlValue = {text:g};\n      }\n    }\n    if (\"combobox\" == e || \"select\" == e) {\n      b.controlValue = {text:\"TODO\"};\n    }\n    b.controlValue && (f = b.controlValue, a ? f.unused = !0 : a = f.text);\n  }\n  f = !0;\n  c.hasAttribute(\"role\") && (e = c.getAttribute(\"role\"), (e = axs.constants.ARIA_ROLES[e]) && (!e.namefrom || 0 > e.namefrom.indexOf(\"contents\")) && (f = !1));\n  (d = axs.properties.getTextFromDescendantContent(c, d)) && f && (e = {type:\"text\"}, e.text = d, e.lastWord = axs.properties.getLastWord(e.text), a ? e.unused = !0 : a = d, b.content = e);\n  c.hasAttribute(\"title\") && (d = {type:\"string\", valid:!0}, d.text = c.getAttribute(\"title\"), d.lastWord = axs.properties.getLastWord(d.lastWord), a ? d.unused = !0 : a = d.text, b.title = d);\n  return 0 == Object.keys(b).length && null == a ? null : a;\n};\naxs.properties.getTextFromDescendantContent = function(a, b) {\n  for (var c = a.childNodes, d = [], e = 0;e < c.length;e++) {\n    var f = axs.properties.findTextAlternatives(c[e], {}, !0, b);\n    f && d.push(f.trim());\n  }\n  if (d.length) {\n    c = \"\";\n    for (e = 0;e < d.length;e++) {\n      c = [c, d[e]].join(\" \").trim();\n    }\n    return c;\n  }\n  return null;\n};\naxs.properties.getTextFromAriaLabelledby = function(a, b) {\n  var c = null;\n  if (!a.hasAttribute(\"aria-labelledby\")) {\n    return c;\n  }\n  for (var d = a.getAttribute(\"aria-labelledby\").split(/\\s+/), e = {valid:!0}, f = [], g = [], h = 0;h < d.length;h++) {\n    var k = {type:\"element\"}, m = d[h];\n    k.value = m;\n    var l = document.getElementById(m);\n    l ? (k.valid = !0, k.text = axs.properties.findTextAlternatives(l, {}, !0, !0), k.lastWord = axs.properties.getLastWord(k.text), f.push(k.text), k.element = l) : (k.valid = !1, e.valid = !1, k.errorMessage = {messageKey:\"noElementWithId\", args:[m]});\n    g.push(k);\n  }\n  0 < g.length && (g[g.length - 1].last = !0, e.values = g, e.text = f.join(\" \"), e.lastWord = axs.properties.getLastWord(e.text), c = e.text, b.ariaLabelledby = e);\n  return c;\n};\naxs.properties.getTextFromHostLanguageAttributes = function(a, b, c, d) {\n  if (axs.browserUtils.matchSelector(a, \"img\") && a.hasAttribute(\"alt\")) {\n    var e = {type:\"string\", valid:!0};\n    e.text = a.getAttribute(\"alt\");\n    c ? e.unused = !0 : c = e.text;\n    b.alt = e;\n  }\n  if (axs.browserUtils.matchSelector(a, 'input:not([type=\"hidden\"]):not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), video:not([disabled])') && !d) {\n    if (a.hasAttribute(\"id\")) {\n      d = document.querySelectorAll('label[for=\"' + a.id + '\"]');\n      for (var e = {}, f = [], g = [], h = 0;h < d.length;h++) {\n        var k = {type:\"element\"}, m = d[h], l = axs.properties.findTextAlternatives(m, {}, !0);\n        l && 0 < l.trim().length && (k.text = l.trim(), g.push(l.trim()));\n        k.element = m;\n        f.push(k);\n      }\n      0 < f.length && (f[f.length - 1].last = !0, e.values = f, e.text = g.join(\" \"), e.lastWord = axs.properties.getLastWord(e.text), c ? e.unused = !0 : c = e.text, b.labelFor = e);\n    }\n    d = axs.dom.parentElement(a);\n    for (e = {};d;) {\n      if (\"label\" == d.tagName.toLowerCase() && (f = d, f.control == a)) {\n        e.type = \"element\";\n        e.text = axs.properties.findTextAlternatives(f, {}, !0);\n        e.lastWord = axs.properties.getLastWord(e.text);\n        e.element = f;\n        break;\n      }\n      d = axs.dom.parentElement(d);\n    }\n    e.text && (c ? e.unused = !0 : c = e.text, b.labelWrapped = e);\n    axs.browserUtils.matchSelector(a, 'input[type=\"image\"]') && a.hasAttribute(\"alt\") && (e = {type:\"string\", valid:!0}, e.text = a.getAttribute(\"alt\"), c ? e.unused = !0 : c = e.text, b.alt = e);\n    Object.keys(b).length || (b.noLabel = !0);\n  }\n  return c;\n};\naxs.properties.getLastWord = function(a) {\n  if (!a) {\n    return null;\n  }\n  var b = a.lastIndexOf(\" \") + 1, c = a.length - 10;\n  return a.substring(b > c ? b : c);\n};\naxs.properties.getTextProperties = function(a) {\n  var b = {}, c = axs.properties.findTextAlternatives(a, b, !1, !0);\n  if (0 == Object.keys(b).length && ((a = axs.dom.asElement(a)) && axs.browserUtils.matchSelector(a, \"img\") && (b.alt = {valid:!1, errorMessage:\"No alt value provided\"}, a = a.src, \"string\" == typeof a && (c = a.split(\"/\").pop(), b.filename = {text:c})), !c)) {\n    return null;\n  }\n  b.hasProperties = !!Object.keys(b).length;\n  b.computedText = c;\n  b.lastWord = axs.properties.getLastWord(c);\n  return b;\n};\naxs.properties.getAriaProperties = function(a) {\n  var b = {}, c = axs.properties.getGlobalAriaProperties(a), d;\n  for (d in axs.constants.ARIA_PROPERTIES) {\n    var e = \"aria-\" + d;\n    if (a.hasAttribute(e)) {\n      var f = a.getAttribute(e);\n      c[e] = axs.utils.getAriaPropertyValue(e, f, a);\n    }\n  }\n  0 < Object.keys(c).length && (b.properties = axs.utils.values(c));\n  f = axs.utils.getRoles(a);\n  if (!f) {\n    return Object.keys(b).length ? b : null;\n  }\n  b.roles = f;\n  if (!f.valid || !f.roles) {\n    return b;\n  }\n  for (var e = f.roles, g = 0;g < e.length;g++) {\n    var h = e[g];\n    if (h.details && h.details.propertiesSet) {\n      for (d in h.details.propertiesSet) {\n        d in c || (a.hasAttribute(d) ? (f = a.getAttribute(d), c[d] = axs.utils.getAriaPropertyValue(d, f, a), \"values\" in c[d] && (f = c[d].values, f[f.length - 1].isLast = !0)) : h.details.requiredPropertiesSet[d] && (c[d] = {name:d, valid:!1, reason:\"Required property not set\"}));\n      }\n    }\n  }\n  0 < Object.keys(c).length && (b.properties = axs.utils.values(c));\n  return 0 < Object.keys(b).length ? b : null;\n};\naxs.properties.getGlobalAriaProperties = function(a) {\n  var b = {}, c;\n  for (c in axs.constants.GLOBAL_PROPERTIES) {\n    if (a.hasAttribute(c)) {\n      var d = a.getAttribute(c);\n      b[c] = axs.utils.getAriaPropertyValue(c, d, a);\n    }\n  }\n  return b;\n};\naxs.properties.getVideoProperties = function(a) {\n  if (!axs.browserUtils.matchSelector(a, \"video\")) {\n    return null;\n  }\n  var b = {};\n  b.captionTracks = axs.properties.getTrackElements(a, \"captions\");\n  b.descriptionTracks = axs.properties.getTrackElements(a, \"descriptions\");\n  b.chapterTracks = axs.properties.getTrackElements(a, \"chapters\");\n  return b;\n};\naxs.properties.getTrackElements = function(a, b) {\n  var c = a.querySelectorAll(\"track[kind=\" + b + \"]\"), d = {};\n  if (!c.length) {\n    return d.valid = !1, d.reason = {messageKey:\"noTracksProvided\", args:[[b]]}, d;\n  }\n  d.valid = !0;\n  for (var e = [], f = 0;f < c.length;f++) {\n    var g = {}, h = c[f].getAttribute(\"src\"), k = c[f].getAttribute(\"srcLang\"), m = c[f].getAttribute(\"label\");\n    h ? (g.valid = !0, g.src = h) : (g.valid = !1, g.reason = {messageKey:\"noSrcProvided\"});\n    h = \"\";\n    m && (h += m, k && (h += \" \"));\n    k && (h += \"(\" + k + \")\");\n    \"\" == h && (h = \"[[object Object]]\");\n    g.name = h;\n    e.push(g);\n  }\n  d.values = e;\n  return d;\n};\naxs.properties.getAllProperties = function(a) {\n  var b = axs.dom.asElement(a);\n  if (!b) {\n    return {};\n  }\n  var c = {};\n  c.ariaProperties = axs.properties.getAriaProperties(b);\n  c.colorProperties = axs.properties.getColorProperties(b);\n  c.focusProperties = axs.properties.getFocusProperties(b);\n  c.textProperties = axs.properties.getTextProperties(a);\n  c.videoProperties = axs.properties.getVideoProperties(b);\n  return c;\n};\n(function() {\n  function a(a) {\n    if (!a) {\n      return null;\n    }\n    var b = a.tagName;\n    if (!b) {\n      return null;\n    }\n    b = b.toUpperCase();\n    b = axs.constants.TAG_TO_IMPLICIT_SEMANTIC_INFO[b];\n    if (!b || !b.length) {\n      return null;\n    }\n    for (var d = null, e = 0, f = b.length;e < f;e++) {\n      var g = b[e];\n      if (g.selector) {\n        if (axs.browserUtils.matchSelector(a, g.selector)) {\n          return g;\n        }\n      } else {\n        d = g;\n      }\n    }\n    return d;\n  }\n  axs.properties.getImplicitRole = function(b) {\n    return (b = a(b)) ? b.role : \"\";\n  };\n  axs.properties.canTakeAriaAttributes = function(b) {\n    return (b = a(b)) ? !b.reserved : !0;\n  };\n})();\naxs.properties.getNativelySupportedAttributes = function(a) {\n  var b = [];\n  if (!a) {\n    return b;\n  }\n  a = a.cloneNode(!1);\n  for (var c = Object.keys(axs.constants.ARIA_TO_HTML_ATTRIBUTE), d = 0;d < c.length;d++) {\n    var e = c[d];\n    axs.constants.ARIA_TO_HTML_ATTRIBUTE[e] in a && (b[b.length] = e);\n  }\n  return b;\n};\n(function() {\n  var a = {};\n  axs.properties.getSelectorForRole = function(b) {\n    if (!b) {\n      return \"\";\n    }\n    if (a[b] && a.hasOwnProperty(b)) {\n      return a[b];\n    }\n    var c = ['[role=\"' + b + '\"]'];\n    Object.keys(axs.constants.TAG_TO_IMPLICIT_SEMANTIC_INFO).forEach(function(a) {\n      var d = axs.constants.TAG_TO_IMPLICIT_SEMANTIC_INFO[a];\n      if (d && d.length) {\n        for (var f = 0;f < d.length;f++) {\n          var g = d[f];\n          if (g.role === b) {\n            if (g.selector) {\n              c[c.length] = g.selector;\n            } else {\n              c[c.length] = a;\n              break;\n            }\n          }\n        }\n      }\n    });\n    return a[b] = c.join(\",\");\n  };\n})();\naxs.AuditRule = function(a) {\n  for (var b = a.opt_requires || {}, c = !0, d = [], e = 0;e < axs.AuditRule.requiredFields.length;e++) {\n    var f = axs.AuditRule.requiredFields[e];\n    f in a || (c = !1, d.push(f));\n  }\n  if (!c) {\n    throw \"Invalid spec; the following fields were not specified: \" + d.join(\", \") + \"\\n\" + JSON.stringify(a);\n  }\n  this.name = a.name;\n  this.severity = a.severity;\n  this.relevantElementMatcher_ = a.relevantElementMatcher;\n  this.isRelevant_ = a.isRelevant || function(a, b) {\n    return !0;\n  };\n  this.test_ = a.test;\n  this.code = a.code;\n  this.heading = a.heading || \"\";\n  this.url = a.url || \"\";\n  this.requiresConsoleAPI = !!b.consoleAPI;\n  this.relevantElements = [];\n  this.relatedElements = [];\n  this.collectIdRefs = b.idRefs || !1;\n};\naxs.AuditRule.requiredFields = \"name severity relevantElementMatcher test code heading\".split(\" \");\naxs.AuditRule.NOT_APPLICABLE = {result:axs.constants.AuditResult.NA};\naxs.AuditRule.prototype.addElement = function(a, b) {\n  a.push(b);\n};\naxs.AuditRule.prototype.collectMatchingElement = function(a, b) {\n  return this.relevantElementMatcher_(a, b) && b.inScope ? (this.relevantElements.push({element:a, flags:b}), !0) : !1;\n};\naxs.AuditRule.prototype.canRun = function(a) {\n  return this.disabled || !a.withConsoleApi && this.requiresConsoleAPI ? !1 : !0;\n};\naxs.AuditRule.Result = function(a, b) {\n  var c = axs.utils.namedValues(b);\n  c.severity = a.getSeverity(b.name) || c.severity;\n  this.rule = c;\n  this.maxResults = a.maxResults;\n  this.update(axs.constants.AuditResult.NA);\n};\naxs.AuditRule.Result.prototype.update = function(a, b) {\n  if (a === axs.constants.AuditResult.FAIL) {\n    var c = this.elements || (this.elements = []);\n    this.result = a;\n    this.maxResults && this.elements.length >= this.maxResults ? this.resultsTruncated = !0 : b && c.push(b);\n  } else {\n    a === axs.constants.AuditResult.PASS ? (this.elements || (this.elements = []), this.result !== axs.constants.AuditResult.FAIL && (this.result = a)) : this.result || (this.result = a);\n  }\n};\naxs.AuditRule.prototype.run = function(a) {\n  try {\n    for (var b = this._options || {}, c = new axs.AuditRule.Result(a, this), d;d = this.relevantElements.shift();) {\n      var e = d.element, f = d.flags;\n      this.isRelevant_(e, f) && (this.test_(e, f, b.config) ? c.update(axs.constants.AuditResult.FAIL, e) : c.update(axs.constants.AuditResult.PASS, e));\n    }\n    return c;\n  } finally {\n    this.relatedElements.length = 0;\n  }\n};\naxs.AuditRules = {};\n(function() {\n  var a = {}, b = {};\n  axs.AuditRules.specs = {};\n  axs.AuditRules.addRule = function(c) {\n    var d = new axs.AuditRule(c);\n    if (d.code in b) {\n      throw Error('Can not add audit rule with same code: \"' + d.code + '\"');\n    }\n    if (d.name in a) {\n      throw Error('Can not add audit rule with same name: \"' + d.name + '\"');\n    }\n    a[d.name] = b[d.code] = d;\n    axs.AuditRules.specs[c.name] = c;\n  };\n  axs.AuditRules.getRule = function(c) {\n    return a[c] || b[c] || null;\n  };\n  axs.AuditRules.getRules = function(b) {\n    var c = Object.keys(a);\n    return b ? c : c.map(function(a) {\n      return this.getRule(a);\n    }, axs.AuditRules);\n  };\n  axs.AuditRules.getActiveRules = function(a) {\n    var b;\n    b = a.auditRulesToRun && 0 < a.auditRulesToRun.length ? a.auditRulesToRun : axs.AuditRules.getRules(!0);\n    if (a.auditRulesToIgnore) {\n      for (var c = 0;c < a.auditRulesToIgnore.length;c++) {\n        var f = a.auditRulesToIgnore[c];\n        0 > b.indexOf(f) || b.splice(b.indexOf(f), 1);\n      }\n    }\n    return b.map(axs.AuditRules.getRule);\n  };\n})();\naxs.AuditResults = function() {\n  this.errors_ = [];\n  this.warnings_ = [];\n};\ngoog.exportSymbol(\"axs.AuditResults\", axs.AuditResults);\naxs.AuditResults.prototype.addError = function(a) {\n  \"\" != a && this.errors_.push(a);\n};\ngoog.exportProperty(axs.AuditResults.prototype, \"addError\", axs.AuditResults.prototype.addError);\naxs.AuditResults.prototype.addWarning = function(a) {\n  \"\" != a && this.warnings_.push(a);\n};\ngoog.exportProperty(axs.AuditResults.prototype, \"addWarning\", axs.AuditResults.prototype.addWarning);\naxs.AuditResults.prototype.numErrors = function() {\n  return this.errors_.length;\n};\ngoog.exportProperty(axs.AuditResults.prototype, \"numErrors\", axs.AuditResults.prototype.numErrors);\naxs.AuditResults.prototype.numWarnings = function() {\n  return this.warnings_.length;\n};\ngoog.exportProperty(axs.AuditResults.prototype, \"numWarnings\", axs.AuditResults.prototype.numWarnings);\naxs.AuditResults.prototype.getErrors = function() {\n  return this.errors_;\n};\ngoog.exportProperty(axs.AuditResults.prototype, \"getErrors\", axs.AuditResults.prototype.getErrors);\naxs.AuditResults.prototype.getWarnings = function() {\n  return this.warnings_;\n};\ngoog.exportProperty(axs.AuditResults.prototype, \"getWarnings\", axs.AuditResults.prototype.getWarnings);\naxs.AuditResults.prototype.toString = function() {\n  for (var a = \"\", b = 0;b < this.errors_.length;b++) {\n    0 == b && (a += \"\\nErrors:\\n\");\n    var c = this.errors_[b], a = a + (c + \"\\n\\n\");\n  }\n  for (b = 0;b < this.warnings_.length;b++) {\n    0 == b && (a += \"\\nWarnings:\\n\"), c = this.warnings_[b], a += c + \"\\n\\n\";\n  }\n  return a;\n};\ngoog.exportProperty(axs.AuditResults.prototype, \"toString\", axs.AuditResults.prototype.toString);\naxs.Audit = {};\naxs.AuditConfiguration = function(a) {\n  null == a && (a = {});\n  this.rules_ = {};\n  this.maxResults = this.auditRulesToIgnore = this.auditRulesToRun = this.scope = null;\n  this.withConsoleApi = !1;\n  this.showUnsupportedRulesWarning = this.walkDom = !0;\n  for (var b in this) {\n    this.hasOwnProperty(b) && b in a && (this[b] = a[b]);\n  }\n  goog.exportProperty(this, \"scope\", this.scope);\n  goog.exportProperty(this, \"auditRulesToRun\", this.auditRulesToRun);\n  goog.exportProperty(this, \"auditRulesToIgnore\", this.auditRulesToIgnore);\n  goog.exportProperty(this, \"withConsoleApi\", this.withConsoleApi);\n  goog.exportProperty(this, \"walkDom\", this.walkDom);\n  goog.exportProperty(this, \"showUnsupportedRulesWarning\", this.showUnsupportedRulesWarning);\n};\ngoog.exportSymbol(\"axs.AuditConfiguration\", axs.AuditConfiguration);\naxs.AuditConfiguration.prototype = {ignoreSelectors:function(a, b) {\n  a in this.rules_ || (this.rules_[a] = {});\n  \"ignore\" in this.rules_[a] || (this.rules_[a].ignore = []);\n  Array.prototype.push.call(this.rules_[a].ignore, b);\n}, getIgnoreSelectors:function(a) {\n  return a in this.rules_ && \"ignore\" in this.rules_[a] ? this.rules_[a].ignore : [];\n}, setSeverity:function(a, b) {\n  a in this.rules_ || (this.rules_[a] = {});\n  this.rules_[a].severity = b;\n}, getSeverity:function(a) {\n  return a in this.rules_ && \"severity\" in this.rules_[a] ? this.rules_[a].severity : null;\n}, setRuleConfig:function(a, b) {\n  a in this.rules_ || (this.rules_[a] = {});\n  this.rules_[a].config = b;\n}, getRuleConfig:function(a) {\n  return a in this.rules_ && \"config\" in this.rules_[a] ? this.rules_[a].config : null;\n}};\ngoog.exportProperty(axs.AuditConfiguration.prototype, \"ignoreSelectors\", axs.AuditConfiguration.prototype.ignoreSelectors);\ngoog.exportProperty(axs.AuditConfiguration.prototype, \"getIgnoreSelectors\", axs.AuditConfiguration.prototype.getIgnoreSelectors);\naxs.Audit.unsupportedRulesWarningShown = !1;\naxs.Audit.getRulesCannotRun = function(a) {\n  return a.withConsoleApi ? [] : axs.AuditRules.getRules().filter(function(a) {\n    return a.requiresConsoleAPI;\n  }).map(function(a) {\n    return a.code;\n  });\n};\naxs.Audit.run = function(a) {\n  a = a || new axs.AuditConfiguration;\n  if (!axs.Audit.unsupportedRulesWarningShown && a.showUnsupportedRulesWarning) {\n    var b = axs.Audit.getRulesCannotRun(a);\n    0 < b.length && (console.warn(\"Some rules cannot be checked using the axs.Audit.run() method call. Use the Chrome plugin to check these rules: \" + b.join(\", \")), console.warn(\"To remove this message, pass an AuditConfiguration object to axs.Audit.run() and set configuration.showUnsupportedRulesWarning = false.\"));\n    axs.Audit.unsupportedRulesWarningShown = !0;\n  }\n  b = axs.AuditRules.getActiveRules(a);\n  a.collectIdRefs = b.some(function(a) {\n    return a.collectIdRefs;\n  });\n  a.scope || (a.scope = document.documentElement);\n  axs.Audit.collectMatchingElements(a, b);\n  for (var c = [], d = 0;d < b.length;d++) {\n    var e = b[d];\n    e.canRun(a) && c.push(e.run(a));\n  }\n  return c;\n};\ngoog.exportSymbol(\"axs.Audit.run\", axs.Audit.run);\n(function() {\n  function a(a, c) {\n    var b = a.getIgnoreSelectors(c.name);\n    if (0 < b.length || a.scope) {\n      this.ignoreSelectors = b;\n    }\n    if (b = a.getRuleConfig(c.name)) {\n      this.config = b;\n    }\n  }\n  axs.Audit.collectMatchingElements = function(b, c) {\n    axs.dom.composedTreeSearch(b.walkDom ? document.documentElement : b.scope, null, {preorder:function(d, e) {\n      e.inScope || (e.inScope = d === b.scope);\n      for (var f = 0;f < c.length;f++) {\n        var g = c[f];\n        g.canRun(b) && (g._options = new a(b, g), e.ignoring[g.name] || (e.ignoring[g.name] = g._options.shouldIgnore(d)) || g.collectMatchingElement(d, e));\n      }\n      return !0;\n    }}, {walkDom:b.walkDom, collectIdRefs:b.collectIdRefs, level:0, ignoring:{}, disabled:!1, hidden:!1});\n  };\n  a.prototype.shouldIgnore = function(a) {\n    var b = this.ignoreSelectors;\n    if (b) {\n      for (var d = 0;d < b.length;d++) {\n        if (axs.browserUtils.matchSelector(a, b[d])) {\n          return !0;\n        }\n      }\n    }\n    return !1;\n  };\n})();\naxs.Audit.auditResults = function(a) {\n  for (var b = new axs.AuditResults, c = 0;c < a.length;c++) {\n    var d = a[c];\n    d.result == axs.constants.AuditResult.FAIL && (d.rule.severity == axs.constants.Severity.SEVERE ? b.addError(axs.Audit.accessibilityErrorMessage(d)) : b.addWarning(axs.Audit.accessibilityErrorMessage(d)));\n  }\n  return b;\n};\ngoog.exportSymbol(\"axs.Audit.auditResults\", axs.Audit.auditResults);\naxs.Audit.createReport = function(a, b) {\n  var c;\n  c = \"*** Begin accessibility audit results ***\\nAn accessibility audit found \" + axs.Audit.auditResults(a).toString();\n  b && (c = c + \"\\nFor more information, please see \" + b);\n  return c + \"\\n*** End accessibility audit results ***\";\n};\ngoog.exportSymbol(\"axs.Audit.createReport\", axs.Audit.createReport);\naxs.Audit.accessibilityErrorMessage = function(a) {\n  for (var b = a.rule.severity == axs.constants.Severity.SEVERE ? \"Error: \" : \"Warning: \", b = b + (a.rule.code + \" (\" + a.rule.heading + \") failed on the following \" + (1 == a.elements.length ? \"element\" : \"elements\")), b = 1 == a.elements.length ? b + \":\" : b + (\" (1 - \" + Math.min(5, a.elements.length) + \" of \" + a.elements.length + \"):\"), c = Math.min(a.elements.length, 5), d = 0;d < c;d++) {\n    var e = a.elements[d], b = b + \"\\n\";\n    try {\n      b += axs.utils.getQuerySelectorText(e);\n    } catch (f) {\n      b += \" tagName:\" + e.tagName, b += \" id:\" + e.id;\n    }\n  }\n  \"\" != a.rule.url && (b += \"\\nSee \" + a.rule.url + \" for more information.\");\n  return b;\n};\ngoog.exportSymbol(\"axs.Audit.accessibilityErrorMessage\", axs.Audit.accessibilityErrorMessage);\naxs.AuditRules.addRule({name:\"ariaOnReservedElement\", heading:\"This element does not support ARIA roles, states and properties\", url:\"https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#ax_aria_12\", severity:axs.constants.Severity.WARNING, relevantElementMatcher:function(a) {\n  return !axs.properties.canTakeAriaAttributes(a);\n}, test:function(a) {\n  return null !== axs.properties.getAriaProperties(a);\n}, code:\"AX_ARIA_12\"});\naxs.AuditRules.addRule({name:\"ariaOwnsDescendant\", heading:\"aria-owns should not be used if ownership is implicit in the DOM\", url:\"https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#ax_aria_06\", severity:axs.constants.Severity.WARNING, relevantElementMatcher:function(a) {\n  return axs.browserUtils.matchSelector(a, \"[aria-owns]\");\n}, test:function(a) {\n  return axs.utils.getIdReferents(\"aria-owns\", a).some(function(b) {\n    return a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_CONTAINED_BY;\n  });\n}, code:\"AX_ARIA_06\"});\naxs.AuditRules.addRule({name:\"ariaRoleNotScoped\", heading:\"Elements with ARIA roles must be in the correct scope\", url:\"https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#ax_aria_09\", severity:axs.constants.Severity.SEVERE, relevantElementMatcher:function(a) {\n  return axs.browserUtils.matchSelector(a, \"[role]\");\n}, test:function(a) {\n  var b = axs.utils.getRoles(a);\n  if (!b || !b.applied) {\n    return !1;\n  }\n  b = b.applied.details.scope;\n  if (!b || 0 === b.length) {\n    return !1;\n  }\n  for (var c = a;c = axs.dom.parentElement(c);) {\n    var d = axs.utils.getRoles(c, !0);\n    if (d && d.applied && 0 <= b.indexOf(d.applied.name)) {\n      return !1;\n    }\n  }\n  if (a = axs.utils.getAriaIdReferrers(a, \"aria-owns\")) {\n    for (c = 0;c < a.length;c++) {\n      if ((d = axs.utils.getRoles(a[c], !0)) && d.applied && 0 <= b.indexOf(d.applied.name)) {\n        return !1;\n      }\n    }\n  }\n  return !0;\n}, code:\"AX_ARIA_09\"});\naxs.AuditRules.addRule({name:\"audioWithoutControls\", heading:\"Audio elements should have controls\", url:\"https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#ax_audio_01\", severity:axs.constants.Severity.WARNING, relevantElementMatcher:function(a) {\n  return axs.browserUtils.matchSelector(a, \"audio[autoplay]\");\n}, test:function(a) {\n  return !a.querySelectorAll(\"[controls]\").length && 3 < a.duration;\n}, code:\"AX_AUDIO_01\"});\n(function() {\n  var a = /^aria\\-/;\n  axs.AuditRules.addRule({name:\"badAriaAttribute\", heading:\"This element has an invalid ARIA attribute\", url:\"https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#ax_aria_11\", severity:axs.constants.Severity.WARNING, relevantElementMatcher:function(b) {\n    b = b.attributes;\n    for (var c = 0, d = b.length;c < d;c++) {\n      if (a.test(b[c].name)) {\n        return !0;\n      }\n    }\n    return !1;\n  }, test:function(b) {\n    b = b.attributes;\n    for (var c = 0, d = b.length;c < d;c++) {\n      var e = b[c].name;\n      if (a.test(e) && (e = e.replace(a, \"\"), !axs.constants.ARIA_PROPERTIES.hasOwnProperty(e))) {\n        return !0;\n      }\n    }\n    return !1;\n  }, code:\"AX_ARIA_11\"});\n})();\naxs.AuditRules.addRule({name:\"badAriaAttributeValue\", heading:\"ARIA state and property values must be valid\", url:\"https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#ax_aria_04\", severity:axs.constants.Severity.SEVERE, relevantElementMatcher:function(a) {\n  var b = axs.utils.getSelectorForAriaProperties(axs.constants.ARIA_PROPERTIES);\n  return axs.browserUtils.matchSelector(a, b);\n}, test:function(a) {\n  for (var b in axs.constants.ARIA_PROPERTIES) {\n    var c = \"aria-\" + b;\n    if (a.hasAttribute(c)) {\n      var d = a.getAttribute(c);\n      if (!axs.utils.getAriaPropertyValue(c, d, a).valid) {\n        return !0;\n      }\n    }\n  }\n  return !1;\n}, code:\"AX_ARIA_04\"});\naxs.AuditRules.addRule({name:\"badAriaRole\", heading:\"Elements with ARIA roles must use a valid, non-abstract ARIA role\", url:\"https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#ax_aria_01\", severity:axs.constants.Severity.SEVERE, relevantElementMatcher:function(a) {\n  return axs.browserUtils.matchSelector(a, \"[role]\");\n}, test:function(a) {\n  return !axs.utils.getRoles(a).valid;\n}, code:\"AX_ARIA_01\"});\naxs.AuditRules.addRule({name:\"controlsWithoutLabel\", heading:\"Controls and media elements should have labels\", url:\"https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#ax_text_01\", severity:axs.constants.Severity.SEVERE, relevantElementMatcher:function(a) {\n  if (!axs.browserUtils.matchSelector(a, 'input:not([type=\"hidden\"]):not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), video:not([disabled])') || \"presentation\" == a.getAttribute(\"role\")) {\n    return !1;\n  }\n  if (0 <= a.tabIndex) {\n    return !0;\n  }\n  for (a = axs.dom.parentElement(a);null != a;a = axs.dom.parentElement(a)) {\n    if (axs.utils.elementIsAriaWidget(a)) {\n      return !1;\n    }\n  }\n  return !0;\n}, test:function(a, b) {\n  if (b.hidden || \"input\" == a.tagName.toLowerCase() && \"button\" == a.type && a.value.length || \"button\" == a.tagName.toLowerCase() && a.textContent.replace(/^\\s+|\\s+$/g, \"\").length || axs.utils.hasLabel(a)) {\n    return !1;\n  }\n  var c = axs.properties.findTextAlternatives(a, {});\n  return null === c || \"\" === c.trim() ? !0 : !1;\n}, code:\"AX_TEXT_01\", ruleName:\"Controls and media elements should have labels\"});\naxs.AuditRules.addRule({name:\"duplicateId\", heading:\"Any ID referred to via an IDREF must be unique in the DOM\", url:\"https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#ax_html_02\", severity:axs.constants.Severity.SEVERE, opt_requires:{idRefs:!0}, relevantElementMatcher:function(a, b) {\n  b.idrefs.length && !b.hidden && this.relatedElements.push({element:a, flags:b});\n  return a.hasAttribute(\"id\") ? !0 : !1;\n}, isRelevant:function(a, b) {\n  var c = a.id, d = b.level;\n  return this.relatedElements.some(function(a) {\n    var b = a.flags.idrefs;\n    return a.flags.level === d && 0 <= b.indexOf(c);\n  });\n}, test:function(a) {\n  var b = \"[id='\" + a.id.replace(/'/g, \"\\\\'\") + \"']\";\n  return 1 < a.ownerDocument.querySelectorAll(b).length;\n}, code:\"AX_HTML_02\"});\n\n  return axs;\n});\n\n// Define AMD module if possible, export globals otherwise.\nif (typeof define !== 'undefined' && define.amd) {\n  define([], fn);\n} else {\n  var axs = fn.call(this);\n}\n\n"
+
+/***/ }),
+
+/***/ 9685:
+/***/ (function(module) {
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+module.exports = function(src) {
+	function log(error) {
+		(typeof console !== "undefined")
+		&& (console.error || console.log)("[Script Loader]", error);
+	}
+
+	// Check for IE =< 8
+	function isIE() {
+		return typeof attachEvent !== "undefined" && typeof addEventListener === "undefined";
+	}
+
+	try {
+		if (typeof execScript !== "undefined" && isIE()) {
+			execScript(src);
+		} else if (typeof eval !== "undefined") {
+			eval.call(null, src);
+		} else {
+			log("EvalError: No eval function available");
+		}
+	} catch (error) {
+		log(error);
+	}
+}
+
+
+/***/ }),
+
+/***/ 9180:
+/***/ (function(__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
+
+__webpack_require__(9685)(__webpack_require__(841))
+
+/***/ }),
+
+/***/ 8897:
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3379);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7795);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_getTarget_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(695);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_getTarget_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_getTarget_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9216);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_tota11y_less__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(2258);
+
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = function(css, style){
+      if (style.styleSheet) {
+        style.styleSheet.cssText = css;
+      } else {
+      while (style.firstChild) {
+        style.removeChild(style.firstChild);
+      }
+
+      style.appendChild(document.createTextNode(css));
+    }
+  };
+options.setAttributes = function(style) {
+        var nonce =
+           true ? __webpack_require__.nc : 0;
+
+        if (nonce) {
+          style.setAttribute("nonce", nonce);
+        }
+      };
+options.insert = function(style){
+    var target = _node_modules_style_loader_dist_runtime_getTarget_js__WEBPACK_IMPORTED_MODULE_2___default()("head");
+
+    if (!target) {
+      throw new Error(
+        "Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid."
+      );
+    }
+
+    target.appendChild(style);
+  };
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_tota11y_less__WEBPACK_IMPORTED_MODULE_4__/* .default */ .Z, options);
+
+
+
+
+       /* harmony default export */ __webpack_exports__["default"] = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_tota11y_less__WEBPACK_IMPORTED_MODULE_4__/* .default */ .Z && _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_tota11y_less__WEBPACK_IMPORTED_MODULE_4__/* .default.locals */ .Z.locals ? _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_tota11y_less__WEBPACK_IMPORTED_MODULE_4__/* .default.locals */ .Z.locals : undefined);
+
+
+/***/ }),
+
+/***/ 7446:
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3379);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7795);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_getTarget_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(695);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_getTarget_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_getTarget_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9216);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(5093);
+
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = function(css, style){
+      if (style.styleSheet) {
+        style.styleSheet.cssText = css;
+      } else {
+      while (style.firstChild) {
+        style.removeChild(style.firstChild);
+      }
+
+      style.appendChild(document.createTextNode(css));
+    }
+  };
+options.setAttributes = function(style) {
+        var nonce =
+           true ? __webpack_require__.nc : 0;
+
+        if (nonce) {
+          style.setAttribute("nonce", nonce);
+        }
+      };
+options.insert = function(style){
+    var target = _node_modules_style_loader_dist_runtime_getTarget_js__WEBPACK_IMPORTED_MODULE_2___default()("head");
+
+    if (!target) {
+      throw new Error(
+        "Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid."
+      );
+    }
+
+    target.appendChild(style);
+  };
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_4__/* .default */ .Z, options);
+
+
+
+
+       /* harmony default export */ __webpack_exports__["default"] = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_4__/* .default */ .Z && _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_4__/* .default.locals */ .Z.locals ? _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_4__/* .default.locals */ .Z.locals : undefined);
+
+
+/***/ }),
+
+/***/ 3062:
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3379);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7795);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_getTarget_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(695);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_getTarget_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_getTarget_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9216);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(1053);
+
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = function(css, style){
+      if (style.styleSheet) {
+        style.styleSheet.cssText = css;
+      } else {
+      while (style.firstChild) {
+        style.removeChild(style.firstChild);
+      }
+
+      style.appendChild(document.createTextNode(css));
+    }
+  };
+options.setAttributes = function(style) {
+        var nonce =
+           true ? __webpack_require__.nc : 0;
+
+        if (nonce) {
+          style.setAttribute("nonce", nonce);
+        }
+      };
+options.insert = function(style){
+    var target = _node_modules_style_loader_dist_runtime_getTarget_js__WEBPACK_IMPORTED_MODULE_2___default()("head");
+
+    if (!target) {
+      throw new Error(
+        "Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid."
+      );
+    }
+
+    target.appendChild(style);
+  };
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_4__/* .default */ .Z, options);
+
+
+
+
+       /* harmony default export */ __webpack_exports__["default"] = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_4__/* .default */ .Z && _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_4__/* .default.locals */ .Z.locals ? _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_4__/* .default.locals */ .Z.locals : undefined);
+
+
+/***/ }),
+
+/***/ 6482:
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3379);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7795);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_getTarget_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(695);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_getTarget_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_getTarget_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9216);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6168);
+
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = function(css, style){
+      if (style.styleSheet) {
+        style.styleSheet.cssText = css;
+      } else {
+      while (style.firstChild) {
+        style.removeChild(style.firstChild);
+      }
+
+      style.appendChild(document.createTextNode(css));
+    }
+  };
+options.setAttributes = function(style) {
+        var nonce =
+           true ? __webpack_require__.nc : 0;
+
+        if (nonce) {
+          style.setAttribute("nonce", nonce);
+        }
+      };
+options.insert = function(style){
+    var target = _node_modules_style_loader_dist_runtime_getTarget_js__WEBPACK_IMPORTED_MODULE_2___default()("head");
+
+    if (!target) {
+      throw new Error(
+        "Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid."
+      );
+    }
+
+    target.appendChild(style);
+  };
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_4__/* .default */ .Z, options);
+
+
+
+
+       /* harmony default export */ __webpack_exports__["default"] = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_4__/* .default */ .Z && _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_4__/* .default.locals */ .Z.locals ? _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_4__/* .default.locals */ .Z.locals : undefined);
+
+
+/***/ }),
+
+/***/ 5124:
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3379);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7795);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_getTarget_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(695);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_getTarget_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_getTarget_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9216);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6271);
+
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = function(css, style){
+      if (style.styleSheet) {
+        style.styleSheet.cssText = css;
+      } else {
+      while (style.firstChild) {
+        style.removeChild(style.firstChild);
+      }
+
+      style.appendChild(document.createTextNode(css));
+    }
+  };
+options.setAttributes = function(style) {
+        var nonce =
+           true ? __webpack_require__.nc : 0;
+
+        if (nonce) {
+          style.setAttribute("nonce", nonce);
+        }
+      };
+options.insert = function(style){
+    var target = _node_modules_style_loader_dist_runtime_getTarget_js__WEBPACK_IMPORTED_MODULE_2___default()("head");
+
+    if (!target) {
+      throw new Error(
+        "Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid."
+      );
+    }
+
+    target.appendChild(style);
+  };
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_4__/* .default */ .Z, options);
+
+
+
+
+       /* harmony default export */ __webpack_exports__["default"] = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_4__/* .default */ .Z && _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_4__/* .default.locals */ .Z.locals ? _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_4__/* .default.locals */ .Z.locals : undefined);
+
+
+/***/ }),
+
+/***/ 64:
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3379);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7795);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_getTarget_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(695);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_getTarget_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_getTarget_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9216);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(2430);
+
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = function(css, style){
+      if (style.styleSheet) {
+        style.styleSheet.cssText = css;
+      } else {
+      while (style.firstChild) {
+        style.removeChild(style.firstChild);
+      }
+
+      style.appendChild(document.createTextNode(css));
+    }
+  };
+options.setAttributes = function(style) {
+        var nonce =
+           true ? __webpack_require__.nc : 0;
+
+        if (nonce) {
+          style.setAttribute("nonce", nonce);
+        }
+      };
+options.insert = function(style){
+    var target = _node_modules_style_loader_dist_runtime_getTarget_js__WEBPACK_IMPORTED_MODULE_2___default()("head");
+
+    if (!target) {
+      throw new Error(
+        "Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid."
+      );
+    }
+
+    target.appendChild(style);
+  };
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_4__/* .default */ .Z, options);
+
+
+
+
+       /* harmony default export */ __webpack_exports__["default"] = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_4__/* .default */ .Z && _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_4__/* .default.locals */ .Z.locals ? _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_4__/* .default.locals */ .Z.locals : undefined);
+
+
+/***/ }),
+
+/***/ 2296:
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3379);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7795);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_getTarget_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(695);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_getTarget_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_getTarget_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9216);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(1682);
+
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = function(css, style){
+      if (style.styleSheet) {
+        style.styleSheet.cssText = css;
+      } else {
+      while (style.firstChild) {
+        style.removeChild(style.firstChild);
+      }
+
+      style.appendChild(document.createTextNode(css));
+    }
+  };
+options.setAttributes = function(style) {
+        var nonce =
+           true ? __webpack_require__.nc : 0;
+
+        if (nonce) {
+          style.setAttribute("nonce", nonce);
+        }
+      };
+options.insert = function(style){
+    var target = _node_modules_style_loader_dist_runtime_getTarget_js__WEBPACK_IMPORTED_MODULE_2___default()("head");
+
+    if (!target) {
+      throw new Error(
+        "Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid."
+      );
+    }
+
+    target.appendChild(style);
+  };
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_4__/* .default */ .Z, options);
+
+
+
+
+       /* harmony default export */ __webpack_exports__["default"] = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_4__/* .default */ .Z && _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_4__/* .default.locals */ .Z.locals ? _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_4__/* .default.locals */ .Z.locals : undefined);
+
+
+/***/ }),
+
+/***/ 695:
+/***/ (function(module) {
 
 "use strict";
 
 
-exports.__esModule = true;
-exports.extend = extend;
-exports.indexOf = indexOf;
-exports.escapeExpression = escapeExpression;
-exports.isEmpty = isEmpty;
-exports.createFrame = createFrame;
-exports.blockParams = blockParams;
-exports.appendContextPath = appendContextPath;
-var escape = {
-  '&': '&amp;',
-  '<': '&lt;',
-  '>': '&gt;',
-  '"': '&quot;',
-  "'": '&#x27;',
-  '`': '&#x60;',
-  '=': '&#x3D;'
-};
+var memo = {};
+/* istanbul ignore next  */
 
-var badChars = /[&<>"'`=]/g,
-    possible = /[&<>"'`=]/;
+function getTarget(target) {
+  if (typeof memo[target] === "undefined") {
+    var styleTarget = document.querySelector(target); // Special case to return head of iframe instead of iframe itself
 
-function escapeChar(chr) {
-  return escape[chr];
-}
-
-function extend(obj /* , ...source */) {
-  for (var i = 1; i < arguments.length; i++) {
-    for (var key in arguments[i]) {
-      if (Object.prototype.hasOwnProperty.call(arguments[i], key)) {
-        obj[key] = arguments[i][key];
+    if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {
+      try {
+        // This will throw an exception if access to iframe is blocked
+        // due to cross-origin restrictions
+        styleTarget = styleTarget.contentDocument.head;
+      } catch (e) {
+        // istanbul ignore next
+        styleTarget = null;
       }
     }
+
+    memo[target] = styleTarget;
   }
 
-  return obj;
+  return memo[target];
 }
 
-var toString = Object.prototype.toString;
+module.exports = getTarget;
 
-exports.toString = toString;
-// Sourced from lodash
-// https://github.com/bestiejs/lodash/blob/master/LICENSE.txt
-/* eslint-disable func-style */
-var isFunction = function isFunction(value) {
-  return typeof value === 'function';
-};
-// fallback for older versions of Chrome and Safari
-/* istanbul ignore next */
-if (isFunction(/x/)) {
-  exports.isFunction = isFunction = function (value) {
-    return typeof value === 'function' && toString.call(value) === '[object Function]';
+/***/ }),
+
+/***/ 3379:
+/***/ (function(module) {
+
+"use strict";
+
+
+var stylesInDom = [];
+
+function getIndexByIdentifier(identifier) {
+  var result = -1;
+
+  for (var i = 0; i < stylesInDom.length; i++) {
+    if (stylesInDom[i].identifier === identifier) {
+      result = i;
+      break;
+    }
+  }
+
+  return result;
+}
+
+function modulesToDom(list, options) {
+  var idCountMap = {};
+  var identifiers = [];
+
+  for (var i = 0; i < list.length; i++) {
+    var item = list[i];
+    var id = options.base ? item[0] + options.base : item[0];
+    var count = idCountMap[id] || 0;
+    var identifier = "".concat(id, " ").concat(count);
+    idCountMap[id] = count + 1;
+    var index = getIndexByIdentifier(identifier);
+    var obj = {
+      css: item[1],
+      media: item[2],
+      sourceMap: item[3]
+    };
+
+    if (index !== -1) {
+      stylesInDom[index].references++;
+      stylesInDom[index].updater(obj);
+    } else {
+      stylesInDom.push({
+        identifier: identifier,
+        updater: addStyle(obj, options),
+        references: 1
+      });
+    }
+
+    identifiers.push(identifier);
+  }
+
+  return identifiers;
+}
+
+function addStyle(obj, options) {
+  var api = options.domAPI(options);
+  api.update(obj);
+  return function updateStyle(newObj) {
+    if (newObj) {
+      if (newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap) {
+        return;
+      }
+
+      api.update(obj = newObj);
+    } else {
+      api.remove();
+    }
   };
 }
-exports.isFunction = isFunction;
 
-/* eslint-enable func-style */
+module.exports = function (list, options) {
+  options = options || {};
+  list = list || [];
+  var lastIdentifiers = modulesToDom(list, options);
+  return function update(newList) {
+    newList = newList || [];
 
-/* istanbul ignore next */
-var isArray = Array.isArray || function (value) {
-  return value && typeof value === 'object' ? toString.call(value) === '[object Array]' : false;
+    for (var i = 0; i < lastIdentifiers.length; i++) {
+      var identifier = lastIdentifiers[i];
+      var index = getIndexByIdentifier(identifier);
+      stylesInDom[index].references--;
+    }
+
+    var newLastIdentifiers = modulesToDom(newList, options);
+
+    for (var _i = 0; _i < lastIdentifiers.length; _i++) {
+      var _identifier = lastIdentifiers[_i];
+
+      var _index = getIndexByIdentifier(_identifier);
+
+      if (stylesInDom[_index].references === 0) {
+        stylesInDom[_index].updater();
+
+        stylesInDom.splice(_index, 1);
+      }
+    }
+
+    lastIdentifiers = newLastIdentifiers;
+  };
 };
 
-exports.isArray = isArray;
-// Older IE versions do not directly support indexOf so we must implement our own, sadly.
+/***/ }),
 
-function indexOf(array, value) {
-  for (var i = 0, len = array.length; i < len; i++) {
-    if (array[i] === value) {
-      return i;
-    }
-  }
-  return -1;
+/***/ 9216:
+/***/ (function(module) {
+
+"use strict";
+
+
+/* istanbul ignore next  */
+function insertStyleElement(options) {
+  var style = document.createElement("style");
+  options.setAttributes(style, options.attributes);
+  options.insert(style);
+  return style;
 }
 
-function escapeExpression(string) {
-  if (typeof string !== 'string') {
-    // don't escape SafeStrings, since they're already safe
-    if (string && string.toHTML) {
-      return string.toHTML();
-    } else if (string == null) {
-      return '';
-    } else if (!string) {
-      return string + '';
-    }
+module.exports = insertStyleElement;
 
-    // Force a string conversion as this will be done by the append regardless and
-    // the regex test will do this transparently behind the scenes, causing issues if
-    // an object's to string has escaped characters in it.
-    string = '' + string;
-  }
+/***/ }),
 
-  if (!possible.test(string)) {
-    return string;
-  }
-  return string.replace(badChars, escapeChar);
-}
+/***/ 7795:
+/***/ (function(module) {
 
-function isEmpty(value) {
-  if (!value && value !== 0) {
-    return true;
-  } else if (isArray(value) && value.length === 0) {
-    return true;
+"use strict";
+
+
+/* istanbul ignore next  */
+function apply(style, options, obj) {
+  var css = obj.css;
+  var media = obj.media;
+  var sourceMap = obj.sourceMap;
+
+  if (media) {
+    style.setAttribute("media", media);
   } else {
+    style.removeAttribute("media");
+  }
+
+  if (sourceMap && typeof btoa !== "undefined") {
+    css += "\n/*# sourceMappingURL=data:application/json;base64,".concat(btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))), " */");
+  } // For old IE
+
+  /* istanbul ignore if  */
+
+
+  options.styleTagTransform(css, style);
+}
+
+function removeStyleElement(style) {
+  // istanbul ignore if
+  if (style.parentNode === null) {
     return false;
   }
+
+  style.parentNode.removeChild(style);
 }
+/* istanbul ignore next  */
 
-function createFrame(object) {
-  var frame = extend({}, object);
-  frame._parent = object;
-  return frame;
-}
 
-function blockParams(params, ids) {
-  params.path = ids;
-  return params;
-}
-
-function appendContextPath(contextPath, id) {
-  return (contextPath ? contextPath + '.' : '') + id;
-}
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL2xpYi9oYW5kbGViYXJzL3V0aWxzLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7QUFBQSxJQUFNLE1BQU0sR0FBRztBQUNiLEtBQUcsRUFBRSxPQUFPO0FBQ1osS0FBRyxFQUFFLE1BQU07QUFDWCxLQUFHLEVBQUUsTUFBTTtBQUNYLEtBQUcsRUFBRSxRQUFRO0FBQ2IsS0FBRyxFQUFFLFFBQVE7QUFDYixLQUFHLEVBQUUsUUFBUTtBQUNiLEtBQUcsRUFBRSxRQUFRO0NBQ2QsQ0FBQzs7QUFFRixJQUFNLFFBQVEsR0FBRyxZQUFZO0lBQzNCLFFBQVEsR0FBRyxXQUFXLENBQUM7O0FBRXpCLFNBQVMsVUFBVSxDQUFDLEdBQUcsRUFBRTtBQUN2QixTQUFPLE1BQU0sQ0FBQyxHQUFHLENBQUMsQ0FBQztDQUNwQjs7QUFFTSxTQUFTLE1BQU0sQ0FBQyxHQUFHLG9CQUFvQjtBQUM1QyxPQUFLLElBQUksQ0FBQyxHQUFHLENBQUMsRUFBRSxDQUFDLEdBQUcsU0FBUyxDQUFDLE1BQU0sRUFBRSxDQUFDLEVBQUUsRUFBRTtBQUN6QyxTQUFLLElBQUksR0FBRyxJQUFJLFNBQVMsQ0FBQyxDQUFDLENBQUMsRUFBRTtBQUM1QixVQUFJLE1BQU0sQ0FBQyxTQUFTLENBQUMsY0FBYyxDQUFDLElBQUksQ0FBQyxTQUFTLENBQUMsQ0FBQyxDQUFDLEVBQUUsR0FBRyxDQUFDLEVBQUU7QUFDM0QsV0FBRyxDQUFDLEdBQUcsQ0FBQyxHQUFHLFNBQVMsQ0FBQyxDQUFDLENBQUMsQ0FBQyxHQUFHLENBQUMsQ0FBQztPQUM5QjtLQUNGO0dBQ0Y7O0FBRUQsU0FBTyxHQUFHLENBQUM7Q0FDWjs7QUFFTSxJQUFJLFFBQVEsR0FBRyxNQUFNLENBQUMsU0FBUyxDQUFDLFFBQVEsQ0FBQzs7Ozs7O0FBS2hELElBQUksVUFBVSxHQUFHLG9CQUFTLEtBQUssRUFBRTtBQUMvQixTQUFPLE9BQU8sS0FBSyxLQUFLLFVBQVUsQ0FBQztDQUNwQyxDQUFDOzs7QUFHRixJQUFJLFVBQVUsQ0FBQyxHQUFHLENBQUMsRUFBRTtBQUNuQixVQU9PLFVBQVUsR0FQakIsVUFBVSxHQUFHLFVBQVMsS0FBSyxFQUFFO0FBQzNCLFdBQ0UsT0FBTyxLQUFLLEtBQUssVUFBVSxJQUMzQixRQUFRLENBQUMsSUFBSSxDQUFDLEtBQUssQ0FBQyxLQUFLLG1CQUFtQixDQUM1QztHQUNILENBQUM7Q0FDSDtRQUNRLFVBQVUsR0FBVixVQUFVOzs7OztBQUlaLElBQU0sT0FBTyxHQUNsQixLQUFLLENBQUMsT0FBTyxJQUNiLFVBQVMsS0FBSyxFQUFFO0FBQ2QsU0FBTyxLQUFLLElBQUksT0FBTyxLQUFLLEtBQUssUUFBUSxHQUNyQyxRQUFRLENBQUMsSUFBSSxDQUFDLEtBQUssQ0FBQyxLQUFLLGdCQUFnQixHQUN6QyxLQUFLLENBQUM7Q0FDWCxDQUFDOzs7OztBQUdHLFNBQVMsT0FBTyxDQUFDLEtBQUssRUFBRSxLQUFLLEVBQUU7QUFDcEMsT0FBSyxJQUFJLENBQUMsR0FBRyxDQUFDLEVBQUUsR0FBRyxHQUFHLEtBQUssQ0FBQyxNQUFNLEVBQUUsQ0FBQyxHQUFHLEdBQUcsRUFBRSxDQUFDLEVBQUUsRUFBRTtBQUNoRCxRQUFJLEtBQUssQ0FBQyxDQUFDLENBQUMsS0FBSyxLQUFLLEVBQUU7QUFDdEIsYUFBTyxDQUFDLENBQUM7S0FDVjtHQUNGO0FBQ0QsU0FBTyxDQUFDLENBQUMsQ0FBQztDQUNYOztBQUVNLFNBQVMsZ0JBQWdCLENBQUMsTUFBTSxFQUFFO0FBQ3ZDLE1BQUksT0FBTyxNQUFNLEtBQUssUUFBUSxFQUFFOztBQUU5QixRQUFJLE1BQU0sSUFBSSxNQUFNLENBQUMsTUFBTSxFQUFFO0FBQzNCLGFBQU8sTUFBTSxDQUFDLE1BQU0sRUFBRSxDQUFDO0tBQ3hCLE1BQU0sSUFBSSxNQUFNLElBQUksSUFBSSxFQUFFO0FBQ3pCLGFBQU8sRUFBRSxDQUFDO0tBQ1gsTUFBTSxJQUFJLENBQUMsTUFBTSxFQUFFO0FBQ2xCLGFBQU8sTUFBTSxHQUFHLEVBQUUsQ0FBQztLQUNwQjs7Ozs7QUFLRCxVQUFNLEdBQUcsRUFBRSxHQUFHLE1BQU0sQ0FBQztHQUN0Qjs7QUFFRCxNQUFJLENBQUMsUUFBUSxDQUFDLElBQUksQ0FBQyxNQUFNLENBQUMsRUFBRTtBQUMxQixXQUFPLE1BQU0sQ0FBQztHQUNmO0FBQ0QsU0FBTyxNQUFNLENBQUMsT0FBTyxDQUFDLFFBQVEsRUFBRSxVQUFVLENBQUMsQ0FBQztDQUM3Qzs7QUFFTSxTQUFTLE9BQU8sQ0FBQyxLQUFLLEVBQUU7QUFDN0IsTUFBSSxDQUFDLEtBQUssSUFBSSxLQUFLLEtBQUssQ0FBQyxFQUFFO0FBQ3pCLFdBQU8sSUFBSSxDQUFDO0dBQ2IsTUFBTSxJQUFJLE9BQU8sQ0FBQyxLQUFLLENBQUMsSUFBSSxLQUFLLENBQUMsTUFBTSxLQUFLLENBQUMsRUFBRTtBQUMvQyxXQUFPLElBQUksQ0FBQztHQUNiLE1BQU07QUFDTCxXQUFPLEtBQUssQ0FBQztHQUNkO0NBQ0Y7O0FBRU0sU0FBUyxXQUFXLENBQUMsTUFBTSxFQUFFO0FBQ2xDLE1BQUksS0FBSyxHQUFHLE1BQU0sQ0FBQyxFQUFFLEVBQUUsTUFBTSxDQUFDLENBQUM7QUFDL0IsT0FBSyxDQUFDLE9BQU8sR0FBRyxNQUFNLENBQUM7QUFDdkIsU0FBTyxLQUFLLENBQUM7Q0FDZDs7QUFFTSxTQUFTLFdBQVcsQ0FBQyxNQUFNLEVBQUUsR0FBRyxFQUFFO0FBQ3ZDLFFBQU0sQ0FBQyxJQUFJLEdBQUcsR0FBRyxDQUFDO0FBQ2xCLFNBQU8sTUFBTSxDQUFDO0NBQ2Y7O0FBRU0sU0FBUyxpQkFBaUIsQ0FBQyxXQUFXLEVBQUUsRUFBRSxFQUFFO0FBQ2pELFNBQU8sQ0FBQyxXQUFXLEdBQUcsV0FBVyxHQUFHLEdBQUcsR0FBRyxFQUFFLENBQUEsR0FBSSxFQUFFLENBQUM7Q0FDcEQiLCJmaWxlIjoidXRpbHMuanMiLCJzb3VyY2VzQ29udGVudCI6WyJjb25zdCBlc2NhcGUgPSB7XG4gICcmJzogJyZhbXA7JyxcbiAgJzwnOiAnJmx0OycsXG4gICc+JzogJyZndDsnLFxuICAnXCInOiAnJnF1b3Q7JyxcbiAgXCInXCI6ICcmI3gyNzsnLFxuICAnYCc6ICcmI3g2MDsnLFxuICAnPSc6ICcmI3gzRDsnXG59O1xuXG5jb25zdCBiYWRDaGFycyA9IC9bJjw+XCInYD1dL2csXG4gIHBvc3NpYmxlID0gL1smPD5cIidgPV0vO1xuXG5mdW5jdGlvbiBlc2NhcGVDaGFyKGNocikge1xuICByZXR1cm4gZXNjYXBlW2Nocl07XG59XG5cbmV4cG9ydCBmdW5jdGlvbiBleHRlbmQob2JqIC8qICwgLi4uc291cmNlICovKSB7XG4gIGZvciAobGV0IGkgPSAxOyBpIDwgYXJndW1lbnRzLmxlbmd0aDsgaSsrKSB7XG4gICAgZm9yIChsZXQga2V5IGluIGFyZ3VtZW50c1tpXSkge1xuICAgICAgaWYgKE9iamVjdC5wcm90b3R5cGUuaGFzT3duUHJvcGVydHkuY2FsbChhcmd1bWVudHNbaV0sIGtleSkpIHtcbiAgICAgICAgb2JqW2tleV0gPSBhcmd1bWVudHNbaV1ba2V5XTtcbiAgICAgIH1cbiAgICB9XG4gIH1cblxuICByZXR1cm4gb2JqO1xufVxuXG5leHBvcnQgbGV0IHRvU3RyaW5nID0gT2JqZWN0LnByb3RvdHlwZS50b1N0cmluZztcblxuLy8gU291cmNlZCBmcm9tIGxvZGFzaFxuLy8gaHR0cHM6Ly9naXRodWIuY29tL2Jlc3RpZWpzL2xvZGFzaC9ibG9iL21hc3Rlci9MSUNFTlNFLnR4dFxuLyogZXNsaW50LWRpc2FibGUgZnVuYy1zdHlsZSAqL1xubGV0IGlzRnVuY3Rpb24gPSBmdW5jdGlvbih2YWx1ZSkge1xuICByZXR1cm4gdHlwZW9mIHZhbHVlID09PSAnZnVuY3Rpb24nO1xufTtcbi8vIGZhbGxiYWNrIGZvciBvbGRlciB2ZXJzaW9ucyBvZiBDaHJvbWUgYW5kIFNhZmFyaVxuLyogaXN0YW5idWwgaWdub3JlIG5leHQgKi9cbmlmIChpc0Z1bmN0aW9uKC94LykpIHtcbiAgaXNGdW5jdGlvbiA9IGZ1bmN0aW9uKHZhbHVlKSB7XG4gICAgcmV0dXJuIChcbiAgICAgIHR5cGVvZiB2YWx1ZSA9PT0gJ2Z1bmN0aW9uJyAmJlxuICAgICAgdG9TdHJpbmcuY2FsbCh2YWx1ZSkgPT09ICdbb2JqZWN0IEZ1bmN0aW9uXSdcbiAgICApO1xuICB9O1xufVxuZXhwb3J0IHsgaXNGdW5jdGlvbiB9O1xuLyogZXNsaW50LWVuYWJsZSBmdW5jLXN0eWxlICovXG5cbi8qIGlzdGFuYnVsIGlnbm9yZSBuZXh0ICovXG5leHBvcnQgY29uc3QgaXNBcnJheSA9XG4gIEFycmF5LmlzQXJyYXkgfHxcbiAgZnVuY3Rpb24odmFsdWUpIHtcbiAgICByZXR1cm4gdmFsdWUgJiYgdHlwZW9mIHZhbHVlID09PSAnb2JqZWN0J1xuICAgICAgPyB0b1N0cmluZy5jYWxsKHZhbHVlKSA9PT0gJ1tvYmplY3QgQXJyYXldJ1xuICAgICAgOiBmYWxzZTtcbiAgfTtcblxuLy8gT2xkZXIgSUUgdmVyc2lvbnMgZG8gbm90IGRpcmVjdGx5IHN1cHBvcnQgaW5kZXhPZiBzbyB3ZSBtdXN0IGltcGxlbWVudCBvdXIgb3duLCBzYWRseS5cbmV4cG9ydCBmdW5jdGlvbiBpbmRleE9mKGFycmF5LCB2YWx1ZSkge1xuICBmb3IgKGxldCBpID0gMCwgbGVuID0gYXJyYXkubGVuZ3RoOyBpIDwgbGVuOyBpKyspIHtcbiAgICBpZiAoYXJyYXlbaV0gPT09IHZhbHVlKSB7XG4gICAgICByZXR1cm4gaTtcbiAgICB9XG4gIH1cbiAgcmV0dXJuIC0xO1xufVxuXG5leHBvcnQgZnVuY3Rpb24gZXNjYXBlRXhwcmVzc2lvbihzdHJpbmcpIHtcbiAgaWYgKHR5cGVvZiBzdHJpbmcgIT09ICdzdHJpbmcnKSB7XG4gICAgLy8gZG9uJ3QgZXNjYXBlIFNhZmVTdHJpbmdzLCBzaW5jZSB0aGV5J3JlIGFscmVhZHkgc2FmZVxuICAgIGlmIChzdHJpbmcgJiYgc3RyaW5nLnRvSFRNTCkge1xuICAgICAgcmV0dXJuIHN0cmluZy50b0hUTUwoKTtcbiAgICB9IGVsc2UgaWYgKHN0cmluZyA9PSBudWxsKSB7XG4gICAgICByZXR1cm4gJyc7XG4gICAgfSBlbHNlIGlmICghc3RyaW5nKSB7XG4gICAgICByZXR1cm4gc3RyaW5nICsgJyc7XG4gICAgfVxuXG4gICAgLy8gRm9yY2UgYSBzdHJpbmcgY29udmVyc2lvbiBhcyB0aGlzIHdpbGwgYmUgZG9uZSBieSB0aGUgYXBwZW5kIHJlZ2FyZGxlc3MgYW5kXG4gICAgLy8gdGhlIHJlZ2V4IHRlc3Qgd2lsbCBkbyB0aGlzIHRyYW5zcGFyZW50bHkgYmVoaW5kIHRoZSBzY2VuZXMsIGNhdXNpbmcgaXNzdWVzIGlmXG4gICAgLy8gYW4gb2JqZWN0J3MgdG8gc3RyaW5nIGhhcyBlc2NhcGVkIGNoYXJhY3RlcnMgaW4gaXQuXG4gICAgc3RyaW5nID0gJycgKyBzdHJpbmc7XG4gIH1cblxuICBpZiAoIXBvc3NpYmxlLnRlc3Qoc3RyaW5nKSkge1xuICAgIHJldHVybiBzdHJpbmc7XG4gIH1cbiAgcmV0dXJuIHN0cmluZy5yZXBsYWNlKGJhZENoYXJzLCBlc2NhcGVDaGFyKTtcbn1cblxuZXhwb3J0IGZ1bmN0aW9uIGlzRW1wdHkodmFsdWUpIHtcbiAgaWYgKCF2YWx1ZSAmJiB2YWx1ZSAhPT0gMCkge1xuICAgIHJldHVybiB0cnVlO1xuICB9IGVsc2UgaWYgKGlzQXJyYXkodmFsdWUpICYmIHZhbHVlLmxlbmd0aCA9PT0gMCkge1xuICAgIHJldHVybiB0cnVlO1xuICB9IGVsc2Uge1xuICAgIHJldHVybiBmYWxzZTtcbiAgfVxufVxuXG5leHBvcnQgZnVuY3Rpb24gY3JlYXRlRnJhbWUob2JqZWN0KSB7XG4gIGxldCBmcmFtZSA9IGV4dGVuZCh7fSwgb2JqZWN0KTtcbiAgZnJhbWUuX3BhcmVudCA9IG9iamVjdDtcbiAgcmV0dXJuIGZyYW1lO1xufVxuXG5leHBvcnQgZnVuY3Rpb24gYmxvY2tQYXJhbXMocGFyYW1zLCBpZHMpIHtcbiAgcGFyYW1zLnBhdGggPSBpZHM7XG4gIHJldHVybiBwYXJhbXM7XG59XG5cbmV4cG9ydCBmdW5jdGlvbiBhcHBlbmRDb250ZXh0UGF0aChjb250ZXh0UGF0aCwgaWQpIHtcbiAgcmV0dXJuIChjb250ZXh0UGF0aCA/IGNvbnRleHRQYXRoICsgJy4nIDogJycpICsgaWQ7XG59XG4iXX0=
-
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * A function used by Babel to transpile JSX code into jQuery elements
- */
-function buildElement(type, props) {
-    // We need to require jQuery inside of this method because `require()`
-    // will work different after mocha's magic "before" method runs.
-    //
-    // This allows us to use the jQuery instance provided by our jsdom
-    // instance.
-    var $ = __webpack_require__(2);
-
-    // Is our element a TextNode?
-    if (props === undefined) {
-        // Type will be the text content, which can simply be returned here
-        return type;
-
-        // Is our element a Plugin?
-    } else if (type.render) {
-        // Render the plugin with the passed-in click handler
-        return type.render(props && props.onClick);
-
-        // Otherwise, build the element with jQuery
-    } else {
-        var $el = $("<" + type + ">");
-
-        // Iterate through props
-        if (props !== null) {
-            for (var propName in props) {
-                // onClick gets turned into a jQuery event handler
-                // TODO: Handle props like onHover, onFocus, etc.
-                if (propName === "onClick") {
-                    var handler = props[propName];
-                    $el.click(handler);
-
-                    // Some passed-in props need to be set with $.attr
-                    // Currently we do this for role and aria-*
-                } else if (/^aria-/.test(propName) || propName === "role") {
-                    var value = props[propName];
-                    $el.attr(propName, value);
-
-                    // All other props can go right to $.prop
-                } else {
-                    var _value = props[propName];
-                    $el.prop(propName, _value);
-                }
-            }
-        }
-
-        // Recurse through the children and append each resulting element to
-        // the parent
-
-        for (var _len = arguments.length, children = Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
-            children[_key - 2] = arguments[_key];
-        }
-
-        children.forEach(function (child) {
-            $el.append(buildElement(child));
-        });
-
-        return $el;
-    }
-}
-
-module.exports = buildElement;
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(buildElement) {
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-/**
- * Base class for plugins.
- *
- * This module defines methods to render and mount plugins to the toolbar.
- * Each plugin will define four methods:
- *     getTitle: title to display in the toolbar
- *     getDescription: description to display in the toolbar
- *     run: code to run when the plugin is activated from the toolbar
- *     cleanup: code to run when the plugin is deactivated from the toolbar
- */
-
-var InfoPanel = __webpack_require__(26);
-
-__webpack_require__(46);
-
-var Plugin = function () {
-    function Plugin() {
-        _classCallCheck(this, Plugin);
-
-        this.panel = new InfoPanel(this);
-        this.$checkbox = null;
-    }
-
-    _createClass(Plugin, [{
-        key: "getTitle",
-        value: function getTitle() {
-            return "New plugin";
-        }
-    }, {
-        key: "getDescription",
-        value: function getDescription() {
-            return "";
-        }
-
-        /**
-         * Methods that communicate directly with the info panel
-         * TODO: Consider names like `setSummary` and `addError`
-         */
-
-        // Populates the info panel's "Summary" tab
-
-    }, {
-        key: "summary",
-        value: function summary($html) {
-            return this.panel.setSummary($html);
-        }
-
-        // Populates the info panel's "About" tab
-
-    }, {
-        key: "about",
-        value: function about($html) {
-            return this.panel.setAbout($html);
-        }
-
-        // Adds an entry to the info panel's "Errors" tab
-
-    }, {
-        key: "error",
-        value: function error(title, $description, $el) {
-            return this.panel.addError(title, $description, $el);
-        }
-
-        /**
-         * Renders the plugin view.
-         */
-
-    }, {
-        key: "render",
-        value: function render(clickHandler) {
-            var _this = this;
-
-            this.$checkbox = buildElement("input", {
-                className: "tota11y-plugin-checkbox tota11y-sr-only",
-                type: "checkbox",
-                onClick: function onClick() {
-                    return clickHandler(_this);
-                } });
-
-            var $switch = buildElement(
-                "label",
-                { className: "tota11y-plugin-switch" },
-                this.$checkbox,
-                buildElement(
-                    "div",
-                    { "aria-hidden": "true",
-                        className: "tota11y-plugin-indicator" },
-                    "\u2713"
-                ),
-                buildElement(
-                    "div",
-                    { className: "tota11y-plugin-info" },
-                    buildElement(
-                        "div",
-                        { className: "tota11y-plugin-title" },
-                        this.getTitle()
-                    ),
-                    buildElement(
-                        "div",
-                        { className: "tota11y-plugin-description" },
-                        this.getDescription()
-                    )
-                )
-            );
-
-            var $el = buildElement(
-                "li",
-                { role: "menuitem", className: "tota11y-plugin" },
-                $switch
-            );
-
-            return $el;
-        }
-
-        /**
-         * Activate the plugin from the UI.
-         */
-
-    }, {
-        key: "activate",
-        value: function activate() {
-            this.run();
-            this.panel.render();
-        }
-
-        /**
-         * Deactivate the plugin from the UI.
-         */
-
-    }, {
-        key: "deactivate",
-        value: function deactivate() {
-            this.cleanup();
-            this.panel.destroy();
-
-            this.$checkbox.prop("checked", false);
-        }
-    }]);
-
-    return Plugin;
-}();
-
-module.exports = Plugin;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(4)))
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Utility functions to annotate particular site elements.
- *
- * Annotations are namespaced, meaning you would normally include this
- * package like so:
- *
- *     let annotate = require("./annotate")("headers");
- *
- * This allows plugins to easily maintain their annotations, rather than
- * keeping track of an extra class name elsewhere.
- */
-
-var $ = __webpack_require__(2);
-
-var errorLabelTemplate = __webpack_require__(27);
-__webpack_require__(43);
-
-// For very small (or zero-area) elements, highlights are not very useful.
-// This constant declares highlights to be at least `MIN_HIGHLIGHT_SIZE` tall
-// and across.
-var MIN_HIGHLIGHT_SIZE = 25;
-
-// Polyfill fallback for IE < 10
-window.requestAnimationFrame = window.requestAnimationFrame || function (callback) {
-    window.setTimeout(callback, 16);
-};
-
-module.exports = function (namespace) {
-    // The class that will be applied to any annotation generated in this
-    // namespace
-    var ANNOTATION_CLASS = "tota11y-annotation-" + namespace;
-
-    // A queue of {$annotation, $parent}'s that is populated by
-    // `createAnnotation` and emptied by the `render()` method.
-    //
-    // Annotations are queued to reduce reflows.
-    var queue = [];
-
-    // Register a new annotation to a given jQuery element
-    var createAnnotation = function createAnnotation($el, className) {
-        // Create a position an annotation relative to its offset parent.
-        // We also store the element its annotation so we can reposition when
-        // the window resizes.
-        var $annotation = $("<div>").addClass("tota11y") // tota11y base class for styling
-        .addClass(ANNOTATION_CLASS).addClass(className).css($el.position()).data({ $el: $el });
-
-        // TODO: We can invoke a requestAnimationFrame(render) here to limit
-        // the amount of times we run that timer
-
-        // Append an object to the queue. We'll add the annotation to the DOM
-        // later to reduce reflows.
-        queue.push({
-            $annotation: $annotation,
-            $parent: $el.offsetParent()
-        });
-
-        return $annotation;
-    };
-
-    // To maintain a high framerate, we'll only render `RENDER_CHUNK_SIZE`
-    // annotations per frame.
-    //
-    // NOTE: A value of "20" consistently hits 60fps on facebook.com
-    var RENDER_CHUNK_SIZE = 20;
-
-    // Mount all annotations to the DOM in sequence. This is done by
-    // picking items off the queue, where each item consists of the
-    // annotation and the node to which we'll append it.
-    (function loop() {
-        for (var i = 0; queue.length > 0 && i < RENDER_CHUNK_SIZE; i++) {
-            var item = queue.shift();
-            item.$parent.append(item.$annotation);
-        }
-
-        window.requestAnimationFrame(loop);
-    })();
-
-    // Handle resizes by repositioning all annotations in bulk
-    $(window).resize(function () {
-        var $annotations = $("." + ANNOTATION_CLASS);
-
-        // Record the position of each annotation's corresponding element to
-        // batch measurements
-        var positions = $annotations.map(function (i, el) {
-            return $(el).data("$el").position();
-        });
-
-        // Reposition each annotation (batching invalidations)
-        $annotations.each(function (i, el) {
-            $(el).css({
-                top: positions[i].top,
-                left: positions[i].left
-            });
-        });
-    });
-
-    return {
-        // Places a small label in the top left corner of a given jQuery
-        // element. By default, this label contains the element's tagName.
-        label: function label($el) {
-            var text = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : $el.prop("tagName").toLowerCase();
-
-            var $label = createAnnotation($el, "tota11y-label");
-            return $label.html(text);
-        },
-
-
-        // Places a special label on an element that, when hovered, displays
-        // an expanded error message.
-        //
-        // This method also accepts an optional `errorEntry`, which
-        // corresponds to the object returned from `InfoPanel.addError`. This
-        // object will contain a "show()" method when the info panel is
-        // rendered, allowing us to externally open the entry in the info
-        // panel corresponding to this error.
-        errorLabel: function errorLabel($el, text, expanded, errorEntry) {
-            var $innerHtml = $(errorLabelTemplate({
-                text: text,
-                detail: expanded,
-                hasErrorEntry: !!errorEntry
-            }));
-
-            if (errorEntry) {
-                $innerHtml.find(".tota11y-label-link").click(function (e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    errorEntry.show();
-                });
-
-                $innerHtml.hover(function () {
-                    errorEntry.$trigger.addClass("trigger-highlight");
-                }, function () {
-                    errorEntry.$trigger.removeClass("trigger-highlight");
-                });
-            }
-
-            return this.label($el).addClass("tota11y-label-error").html($innerHtml);
-        },
-
-
-        // Highlights a given jQuery element by placing a translucent
-        // rectangle directly over it
-        highlight: function highlight($el) {
-            var $highlight = createAnnotation($el, "tota11y-highlight");
-            return $highlight.css({
-                // include margins
-                width: Math.max(MIN_HIGHLIGHT_SIZE, $el.outerWidth(true)),
-                height: Math.max(MIN_HIGHLIGHT_SIZE, $el.outerHeight(true))
-            });
-        },
-
-
-        // Toggles a highlight on a given jQuery element `$el` when `$trigger`
-        // is hovered (mouseenter/mouseleave) or focused (focus/blur)
-        toggleHighlight: function toggleHighlight($el, $trigger) {
-            var _this = this;
-
-            var $highlight = void 0;
-
-            $trigger.on("mouseenter focus", function () {
-                if ($highlight) {
-                    $highlight.remove();
-                }
-
-                $highlight = _this.highlight($el);
-            });
-
-            $trigger.on("mouseleave blur", function () {
-                if ($highlight) {
-                    $highlight.remove();
-                    $highlight = null;
-                }
-            });
-        },
-        hide: function hide() {
-            $(".tota11y.tota11y-label").hide();
-        },
-        show: function show() {
-            $(".tota11y.tota11y-label").show();
-        },
-        removeAll: function removeAll() {
-            // Remove all annotations
-            $("." + ANNOTATION_CLASS).remove();
-        }
-    };
-};
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// Create a simple path alias to allow browserify to resolve
-// the runtime on a supported path.
-module.exports = __webpack_require__(28)['default'];
-
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-var errorProps = ['description', 'fileName', 'lineNumber', 'endLineNumber', 'message', 'name', 'number', 'stack'];
-
-function Exception(message, node) {
-  var loc = node && node.loc,
-      line = undefined,
-      endLineNumber = undefined,
-      column = undefined,
-      endColumn = undefined;
-
-  if (loc) {
-    line = loc.start.line;
-    endLineNumber = loc.end.line;
-    column = loc.start.column;
-    endColumn = loc.end.column;
-
-    message += ' - ' + line + ':' + column;
-  }
-
-  var tmp = Error.prototype.constructor.call(this, message);
-
-  // Unfortunately errors are not enumerable in Chrome (at least), so `for prop in tmp` doesn't work.
-  for (var idx = 0; idx < errorProps.length; idx++) {
-    this[errorProps[idx]] = tmp[errorProps[idx]];
-  }
-
-  /* istanbul ignore else */
-  if (Error.captureStackTrace) {
-    Error.captureStackTrace(this, Exception);
-  }
-
-  try {
-    if (loc) {
-      this.lineNumber = line;
-      this.endLineNumber = endLineNumber;
-
-      // Work around issue under safari where we can't directly set the column value
-      /* istanbul ignore next */
-      if (Object.defineProperty) {
-        Object.defineProperty(this, 'column', {
-          value: column,
-          enumerable: true
-        });
-        Object.defineProperty(this, 'endColumn', {
-          value: endColumn,
-          enumerable: true
-        });
-      } else {
-        this.column = column;
-        this.endColumn = endColumn;
-      }
-    }
-  } catch (nop) {
-    /* Ignore if the browser is very particular */
-  }
-}
-
-Exception.prototype = new Error();
-
-exports['default'] = Exception;
-module.exports = exports['default'];
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL2xpYi9oYW5kbGViYXJzL2V4Y2VwdGlvbi5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7QUFBQSxJQUFNLFVBQVUsR0FBRyxDQUNqQixhQUFhLEVBQ2IsVUFBVSxFQUNWLFlBQVksRUFDWixlQUFlLEVBQ2YsU0FBUyxFQUNULE1BQU0sRUFDTixRQUFRLEVBQ1IsT0FBTyxDQUNSLENBQUM7O0FBRUYsU0FBUyxTQUFTLENBQUMsT0FBTyxFQUFFLElBQUksRUFBRTtBQUNoQyxNQUFJLEdBQUcsR0FBRyxJQUFJLElBQUksSUFBSSxDQUFDLEdBQUc7TUFDeEIsSUFBSSxZQUFBO01BQ0osYUFBYSxZQUFBO01BQ2IsTUFBTSxZQUFBO01BQ04sU0FBUyxZQUFBLENBQUM7O0FBRVosTUFBSSxHQUFHLEVBQUU7QUFDUCxRQUFJLEdBQUcsR0FBRyxDQUFDLEtBQUssQ0FBQyxJQUFJLENBQUM7QUFDdEIsaUJBQWEsR0FBRyxHQUFHLENBQUMsR0FBRyxDQUFDLElBQUksQ0FBQztBQUM3QixVQUFNLEdBQUcsR0FBRyxDQUFDLEtBQUssQ0FBQyxNQUFNLENBQUM7QUFDMUIsYUFBUyxHQUFHLEdBQUcsQ0FBQyxHQUFHLENBQUMsTUFBTSxDQUFDOztBQUUzQixXQUFPLElBQUksS0FBSyxHQUFHLElBQUksR0FBRyxHQUFHLEdBQUcsTUFBTSxDQUFDO0dBQ3hDOztBQUVELE1BQUksR0FBRyxHQUFHLEtBQUssQ0FBQyxTQUFTLENBQUMsV0FBVyxDQUFDLElBQUksQ0FBQyxJQUFJLEVBQUUsT0FBTyxDQUFDLENBQUM7OztBQUcxRCxPQUFLLElBQUksR0FBRyxHQUFHLENBQUMsRUFBRSxHQUFHLEdBQUcsVUFBVSxDQUFDLE1BQU0sRUFBRSxHQUFHLEVBQUUsRUFBRTtBQUNoRCxRQUFJLENBQUMsVUFBVSxDQUFDLEdBQUcsQ0FBQyxDQUFDLEdBQUcsR0FBRyxDQUFDLFVBQVUsQ0FBQyxHQUFHLENBQUMsQ0FBQyxDQUFDO0dBQzlDOzs7QUFHRCxNQUFJLEtBQUssQ0FBQyxpQkFBaUIsRUFBRTtBQUMzQixTQUFLLENBQUMsaUJBQWlCLENBQUMsSUFBSSxFQUFFLFNBQVMsQ0FBQyxDQUFDO0dBQzFDOztBQUVELE1BQUk7QUFDRixRQUFJLEdBQUcsRUFBRTtBQUNQLFVBQUksQ0FBQyxVQUFVLEdBQUcsSUFBSSxDQUFDO0FBQ3ZCLFVBQUksQ0FBQyxhQUFhLEdBQUcsYUFBYSxDQUFDOzs7O0FBSW5DLFVBQUksTUFBTSxDQUFDLGNBQWMsRUFBRTtBQUN6QixjQUFNLENBQUMsY0FBYyxDQUFDLElBQUksRUFBRSxRQUFRLEVBQUU7QUFDcEMsZUFBSyxFQUFFLE1BQU07QUFDYixvQkFBVSxFQUFFLElBQUk7U0FDakIsQ0FBQyxDQUFDO0FBQ0gsY0FBTSxDQUFDLGNBQWMsQ0FBQyxJQUFJLEVBQUUsV0FBVyxFQUFFO0FBQ3ZDLGVBQUssRUFBRSxTQUFTO0FBQ2hCLG9CQUFVLEVBQUUsSUFBSTtTQUNqQixDQUFDLENBQUM7T0FDSixNQUFNO0FBQ0wsWUFBSSxDQUFDLE1BQU0sR0FBRyxNQUFNLENBQUM7QUFDckIsWUFBSSxDQUFDLFNBQVMsR0FBRyxTQUFTLENBQUM7T0FDNUI7S0FDRjtHQUNGLENBQUMsT0FBTyxHQUFHLEVBQUU7O0dBRWI7Q0FDRjs7QUFFRCxTQUFTLENBQUMsU0FBUyxHQUFHLElBQUksS0FBSyxFQUFFLENBQUM7O3FCQUVuQixTQUFTIiwiZmlsZSI6ImV4Y2VwdGlvbi5qcyIsInNvdXJjZXNDb250ZW50IjpbImNvbnN0IGVycm9yUHJvcHMgPSBbXG4gICdkZXNjcmlwdGlvbicsXG4gICdmaWxlTmFtZScsXG4gICdsaW5lTnVtYmVyJyxcbiAgJ2VuZExpbmVOdW1iZXInLFxuICAnbWVzc2FnZScsXG4gICduYW1lJyxcbiAgJ251bWJlcicsXG4gICdzdGFjaydcbl07XG5cbmZ1bmN0aW9uIEV4Y2VwdGlvbihtZXNzYWdlLCBub2RlKSB7XG4gIGxldCBsb2MgPSBub2RlICYmIG5vZGUubG9jLFxuICAgIGxpbmUsXG4gICAgZW5kTGluZU51bWJlcixcbiAgICBjb2x1bW4sXG4gICAgZW5kQ29sdW1uO1xuXG4gIGlmIChsb2MpIHtcbiAgICBsaW5lID0gbG9jLnN0YXJ0LmxpbmU7XG4gICAgZW5kTGluZU51bWJlciA9IGxvYy5lbmQubGluZTtcbiAgICBjb2x1bW4gPSBsb2Muc3RhcnQuY29sdW1uO1xuICAgIGVuZENvbHVtbiA9IGxvYy5lbmQuY29sdW1uO1xuXG4gICAgbWVzc2FnZSArPSAnIC0gJyArIGxpbmUgKyAnOicgKyBjb2x1bW47XG4gIH1cblxuICBsZXQgdG1wID0gRXJyb3IucHJvdG90eXBlLmNvbnN0cnVjdG9yLmNhbGwodGhpcywgbWVzc2FnZSk7XG5cbiAgLy8gVW5mb3J0dW5hdGVseSBlcnJvcnMgYXJlIG5vdCBlbnVtZXJhYmxlIGluIENocm9tZSAoYXQgbGVhc3QpLCBzbyBgZm9yIHByb3AgaW4gdG1wYCBkb2Vzbid0IHdvcmsuXG4gIGZvciAobGV0IGlkeCA9IDA7IGlkeCA8IGVycm9yUHJvcHMubGVuZ3RoOyBpZHgrKykge1xuICAgIHRoaXNbZXJyb3JQcm9wc1tpZHhdXSA9IHRtcFtlcnJvclByb3BzW2lkeF1dO1xuICB9XG5cbiAgLyogaXN0YW5idWwgaWdub3JlIGVsc2UgKi9cbiAgaWYgKEVycm9yLmNhcHR1cmVTdGFja1RyYWNlKSB7XG4gICAgRXJyb3IuY2FwdHVyZVN0YWNrVHJhY2UodGhpcywgRXhjZXB0aW9uKTtcbiAgfVxuXG4gIHRyeSB7XG4gICAgaWYgKGxvYykge1xuICAgICAgdGhpcy5saW5lTnVtYmVyID0gbGluZTtcbiAgICAgIHRoaXMuZW5kTGluZU51bWJlciA9IGVuZExpbmVOdW1iZXI7XG5cbiAgICAgIC8vIFdvcmsgYXJvdW5kIGlzc3VlIHVuZGVyIHNhZmFyaSB3aGVyZSB3ZSBjYW4ndCBkaXJlY3RseSBzZXQgdGhlIGNvbHVtbiB2YWx1ZVxuICAgICAgLyogaXN0YW5idWwgaWdub3JlIG5leHQgKi9cbiAgICAgIGlmIChPYmplY3QuZGVmaW5lUHJvcGVydHkpIHtcbiAgICAgICAgT2JqZWN0LmRlZmluZVByb3BlcnR5KHRoaXMsICdjb2x1bW4nLCB7XG4gICAgICAgICAgdmFsdWU6IGNvbHVtbixcbiAgICAgICAgICBlbnVtZXJhYmxlOiB0cnVlXG4gICAgICAgIH0pO1xuICAgICAgICBPYmplY3QuZGVmaW5lUHJvcGVydHkodGhpcywgJ2VuZENvbHVtbicsIHtcbiAgICAgICAgICB2YWx1ZTogZW5kQ29sdW1uLFxuICAgICAgICAgIGVudW1lcmFibGU6IHRydWVcbiAgICAgICAgfSk7XG4gICAgICB9IGVsc2Uge1xuICAgICAgICB0aGlzLmNvbHVtbiA9IGNvbHVtbjtcbiAgICAgICAgdGhpcy5lbmRDb2x1bW4gPSBlbmRDb2x1bW47XG4gICAgICB9XG4gICAgfVxuICB9IGNhdGNoIChub3ApIHtcbiAgICAvKiBJZ25vcmUgaWYgdGhlIGJyb3dzZXIgaXMgdmVyeSBwYXJ0aWN1bGFyICovXG4gIH1cbn1cblxuRXhjZXB0aW9uLnByb3RvdHlwZSA9IG5ldyBFcnJvcigpO1xuXG5leHBvcnQgZGVmYXVsdCBFeGNlcHRpb247XG4iXX0=
-
-
-/***/ }),
-/* 9 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
-// Imports
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
-// Module
-___CSS_LOADER_EXPORT___.push([module.i, ".tota11y-dark-color-scheme {\n  background-color: #333 !important;\n  color: #f2f2f2 !important;\n}\n.tota11y-no-select {\n  -webkit-user-select: none !important;\n          user-select: none !important;\n}\n/**\n * Base styles for tota11y to make sure things look consistent under\n * reasonable circumstances.\n */\n.tota11y,\n.tota11y * {\n  border: none !important;\n  background-color: inherit !important;\n  box-sizing: border-box !important;\n  color: #f2f2f2 !important;\n  font-family: Arial !important;\n  font-size: 14px !important;\n  font-style: normal !important;\n  font-weight: 400 !important;\n  line-height: 1.35 !important;\n  margin: 0 !important;\n  padding: 0 !important;\n  text-align: left !important;\n  text-shadow: none !important;\n}\n.tota11y * {\n  height: auto !important;\n  width: auto !important;\n}\n.tota11y strong {\n  font-weight: bold !important;\n}\n.tota11y pre,\n.tota11y code {\n  background-color: #ddd !important;\n  border: none !important;\n  border-radius: 0 !important;\n  color: inherit !important;\n  font-family: monospace !important;\n  font-size: inherit !important;\n  line-height: inherit !important;\n}\n.tota11y pre {\n  padding: 5px 10px !important;\n  margin: 0 0 10px !important;\n  overflow-x: scroll !important;\n}\n.tota11y code {\n  border-radius: 2px !important;\n  display: inline !important;\n  padding: 1px !important;\n}\n.tota11y i,\n.tota11y em {\n  font-style: italic !important;\n}\n.tota11y p {\n  margin: 0 0 10px !important;\n}\n.tota11y a,\n.tota11y a:hover,\n.tota11y a:focus {\n  background-color: inherit !important;\n  color: inherit !important;\n  text-decoration: none !important;\n}\n.tota11y-toolbar {\n  background-color: #333 !important;\n  color: #f2f2f2 !important;\n  position: fixed !important;\n  top: auto !important;\n  right: auto !important;\n  bottom: 0 !important;\n  left: 10px !important;\n  border-top-left-radius: 5px !important;\n  border-top-right-radius: 5px !important;\n  overflow: hidden !important;\n  z-index: 9998 !important;\n}\n.tota11y-toolbar-toggle {\n  background-color: #333 !important;\n  display: block !important;\n  padding: 7px !important;\n  width: 100% !important;\n}\n.tota11y-toolbar-logo {\n  height: 25px !important;\n  margin: 0 auto !important;\n  text-align: center !important;\n  width: 35px !important;\n}\n.tota11y-toolbar-logo svg {\n  height: 25px !important;\n}\n.tota11y-toolbar-body {\n  display: none !important;\n}\n.tota11y-toolbar.tota11y-expanded .tota11y-toolbar-body {\n  display: block !important;\n}\n.tota11y-sr-only {\n  border: 0 !important;\n  clip: rect(0, 0, 0, 0) !important;\n  height: 1px !important;\n  margin: -1px !important;\n  overflow: hidden !important;\n  padding: 0 !important;\n  position: absolute !important;\n  width: 1px !important;\n}\n", ""]);
-// Exports
-/* harmony default export */ __webpack_exports__["a"] = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-/* 10 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
-// Imports
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
-// Module
-___CSS_LOADER_EXPORT___.push([module.i, ".tota11y-dark-color-scheme {\n  background-color: #333 !important;\n  color: #f2f2f2 !important;\n}\n.tota11y-no-select {\n  -webkit-user-select: none !important;\n          user-select: none !important;\n}\n.tota11y-label {\n  background-color: #ffe800 !important;\n  border: 1px solid rgba(0, 0, 0, 0.1) !important;\n  cursor: default !important;\n  padding: 3px !important;\n  position: absolute !important;\n  z-index: 9997 !important;\n}\n.tota11y-label-error {\n  background-color: #ffaeae !important;\n}\n.tota11y-label-error-icon {\n  display: block !important;\n  float: left !important;\n  margin-right: 3px !important;\n  width: 12px !important;\n}\n.tota11y-label-success {\n  background-color: #b9eda9 !important;\n}\n.tota11y-label-warning {\n  background-color: #ffe800 !important;\n}\n.tota11y-label,\n.tota11y-label-text,\n.tota11y-label-detail,\n.tota11y-label-link,\n.tota11y-label-help {\n  color: #333 !important;\n  font-size: 12px !important;\n}\n.tota11y-label-text {\n  float: left !important;\n}\n.tota11y-label-detail {\n  clear: both !important;\n  display: none !important;\n  max-width: 300px !important;\n}\n.tota11y-label:hover .tota11y-label-detail {\n  display: block !important;\n}\n.tota11y-label-help {\n  float: left !important;\n  margin-left: 5px !important;\n}\n.tota11y-label-link:hover,\n.tota11y-label-link:focus {\n  opacity: 0.6 !important;\n  text-decoration: underline !important;\n}\n.tota11y-highlight {\n  background-color: rgba(120, 130, 200, 0.4) !important;\n  pointer-events: none !important;\n  position: absolute !important;\n  z-index: 9999 !important;\n}\n", ""]);
-// Exports
-/* harmony default export */ __webpack_exports__["a"] = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-/* 11 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
-// Imports
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
-// Module
-___CSS_LOADER_EXPORT___.push([module.i, ".tota11y-dark-color-scheme {\n  background-color: #333 !important;\n  color: #f2f2f2 !important;\n}\n.tota11y-no-select {\n  -webkit-user-select: none !important;\n          user-select: none !important;\n}\n.tota11y-info {\n  background-color: #333 !important;\n  color: #f2f2f2 !important;\n  -webkit-user-select: none !important;\n          user-select: none !important;\n  border-radius: 5px !important;\n  position: fixed !important;\n  z-index: 9998 !important;\n}\n.tota11y-info-controls {\n  float: right !important;\n}\n.tota11y-info-annotation-toggle {\n  float: left !important;\n  margin-right: 10px !important;\n}\n.tota11y-info-hidden {\n  display: none !important;\n}\n.tota11y-info-dismiss-trigger {\n  font-size: 25px !important;\n  line-height: 25px !important;\n  position: relative !important;\n  top: -2px !important;\n}\n.tota11y-info-title,\n.tota11y-info-body {\n  padding: 10px 10px 0 !important;\n}\n.tota11y-info-title:hover {\n  cursor: move !important;\n}\n.tota11y-info-tabs {\n  display: flex !important;\n  margin: 0 !important;\n  padding: 0 0 10px !important;\n}\n.tota11y-info-tab {\n  height: 30px !important;\n  list-style: none !important;\n  position: relative !important;\n  text-align: center !important;\n  width: 100% !important;\n  flex-grow: 1 !important;\n}\n.tota11y-info-tab-anchor {\n  position: absolute !important;\n  top: 0 !important;\n  right: 0 !important;\n  bottom: 0 !important;\n  left: 0 !important;\n  text-align: center !important;\n}\n.tota11y-info-tab-anchor-text {\n  line-height: 30px !important;\n}\n.tota11y-info-tab:hover {\n  background-color: #555 !important;\n}\n.tota11y-info-tab.active,\n.tota11y-info-tab.active:hover {\n  background-color: #f2f2f2 !important;\n}\n.tota11y-info-tab.active .tota11y-info-tab-anchor-text {\n  color: #333 !important;\n}\n.tota11y-info-sections {\n  position: relative !important;\n  height: 270px !important;\n  width: 400px !important;\n}\n.tota11y-info-section {\n  position: absolute !important;\n  top: 0 !important;\n  right: 0 !important;\n  bottom: 0 !important;\n  left: 0 !important;\n  background-color: #f2f2f2 !important;\n  display: none !important;\n  overflow-y: scroll !important;\n  padding: 10px !important;\n}\n.tota11y-info-section,\n.tota11y-info-section * {\n  color: #333 !important;\n}\n.tota11y-info-section.active {\n  display: block !important;\n}\n.tota11y-info-errors {\n  margin: 0 !important;\n  padding: 0 !important;\n}\n.tota11y-info-error {\n  list-style: none !important;\n  margin-bottom: 10px !important;\n}\n.tota11y-info-error-trigger {\n  display: block !important;\n}\n.tota11y-info-error-trigger.trigger-highlight {\n  background-color: rgba(120, 130, 200, 0.4) !important;\n}\n.tota11y-info-error-chevron {\n  display: inline-block !important;\n  font-size: 20px !important;\n  height: 14px !important;\n  line-height: 14px !important;\n  margin-right: 3px !important;\n  transform: rotateZ(90deg) !important;\n  transform-origin: 3px 8px !important;\n  transition: transform ease-in-out 50ms !important;\n}\n.tota11y-info-error-trigger.tota11y-collapsed .tota11y-info-error-chevron {\n  transform: rotateZ(0deg) !important;\n}\n.tota11y-info-error-title {\n  font-weight: bold !important;\n}\n.tota11y-info-error-scroll {\n  float: right !important;\n  margin-top: 3px !important;\n  padding-left: 5px !important;\n}\n.tota11y-info-error-scroll-glyph {\n  border-color: #333 !important;\n}\n.tota11y-info-error-scroll:hover .tota11y-info-error-scroll-glyph {\n  border-color: #999 !important;\n}\n.tota11y-info-error-scroll-lens {\n  border: 1px solid !important;\n  border-radius: 50% !important;\n  height: 8px !important;\n  width: 8px !important;\n}\n.tota11y-info-error-scroll-handle {\n  border-left: 1px solid !important;\n  height: 7px !important;\n  transform: translateX(-2px) translateY(-2px) rotate(45deg) !important;\n  width: 1px !important;\n}\n.tota11y-info-error-description {\n  font-size: 13px !important;\n  padding: 10px 0 0 !important;\n  -webkit-user-select: text !important;\n          user-select: text !important;\n}\n.tota11y-info-error-description-code-container {\n  margin-top: 10px !important;\n}\n.tota11y-info-error-description-code-container code {\n  display: block !important;\n  margin-top: 10px !important;\n  padding: 5px 10px !important;\n  word-wrap: break-word !important;\n}\n.tota11y-info-error-description.tota11y-collapsed {\n  display: none !important;\n}\n.tota11y-info-error-count {\n  background-color: red !important;\n  border-radius: 20px !important;\n  color: white !important;\n  display: inline !important;\n  margin-left: 5px !important;\n  padding: 1px 8px !important;\n}\n", ""]);
-// Exports
-/* harmony default export */ __webpack_exports__["a"] = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-/* 12 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
-// Imports
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
-// Module
-___CSS_LOADER_EXPORT___.push([module.i, ".tota11y-dark-color-scheme {\n  background-color: #333 !important;\n  color: #f2f2f2 !important;\n}\n.tota11y-no-select {\n  -webkit-user-select: none !important;\n          user-select: none !important;\n}\n.tota11y-plugin {\n  -webkit-user-select: none !important;\n          user-select: none !important;\n  border-bottom: 1px solid #555 !important;\n  list-style: none !important;\n}\n.tota11y-plugin-switch {\n  align-items: center !important;\n  cursor: pointer !important;\n  display: flex !important;\n  padding: 12px 12px 12px 0 !important;\n  margin: 0 !important;\n}\n.tota11y-plugin-indicator {\n  margin: 0 15px !important;\n}\n.tota11y-plugin-indicator {\n  border-radius: 16px !important;\n  border: 1px solid #999 !important;\n  color: transparent !important;\n  font-size: 13px !important;\n  height: 16px !important;\n  line-height: 16px !important;\n  padding: 0 0 0 1px !important;\n  width: 16px !important;\n}\n.tota11y-plugin-checkbox:focus + .tota11y-plugin-indicator {\n  border-color: #639b24 !important;\n  background-color: #49721a !important;\n  color: #49721a !important;\n}\n.tota11y-plugin-checkbox:checked + .tota11y-plugin-indicator {\n  background-color: #639b24 !important;\n  border-color: #639b24 !important;\n  color: white !important;\n}\n.tota11y-plugin-title {\n  font-weight: bold !important;\n}\n.tota11y-plugin-description {\n  font-size: 11px !important;\n  font-style: italic !important;\n  width: 200px !important;\n  margin-right: 3px !important;\n}\n.tota11y-plugins-separator {\n  font-size: 12px !important;\n  margin: 7px 15px 0 !important;\n  text-transform: uppercase !important;\n}\n", ""]);
-// Exports
-/* harmony default export */ __webpack_exports__["a"] = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-/* 13 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
-// Imports
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
-// Module
-___CSS_LOADER_EXPORT___.push([module.i, ".tota11y-swatches {\n  margin-left: 5px !important;\n  margin-right: 5px !important;\n  position: relative !important;\n  top: 1px !important;\n}\n.tota11y-swatch {\n  border: 1px solid #000 !important;\n  display: inline-block !important;\n  height: 12px !important;\n  width: 12px !important;\n}\n.tota11y-contrast-suggestion {\n  margin: 0 0 15px 15px !important;\n}\n.tota11y-color-hexes {\n  font-family: monospace !important;\n}\n", ""]);
-// Exports
-/* harmony default export */ __webpack_exports__["a"] = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-/* 14 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
-// Imports
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
-// Module
-___CSS_LOADER_EXPORT___.push([module.i, ".tota11y-dark-color-scheme {\n  background-color: #333 !important;\n  color: #f2f2f2 !important;\n}\n.tota11y-no-select {\n  -webkit-user-select: none !important;\n          user-select: none !important;\n}\n.tota11y-heading-outline {\n  color: #333 !important;\n}\n.tota11y-heading-outline-entry {\n  margin-bottom: 8px !important;\n}\n.tota11y-heading-outline-entry.heading-level-1 {\n  margin-left: 0 !important;\n}\n.tota11y-heading-outline-entry.heading-level-2 {\n  margin-left: 20px !important;\n}\n.tota11y-heading-outline-entry.heading-level-3 {\n  margin-left: 40px !important;\n}\n.tota11y-heading-outline-entry.heading-level-4 {\n  margin-left: 60px !important;\n}\n.tota11y-heading-outline-entry.heading-level-5 {\n  margin-left: 80px !important;\n}\n.tota11y-heading-outline-entry.heading-level-6 {\n  margin-left: 100px !important;\n}\n.tota11y-heading-outline-level {\n  position: relative !important;\n  top: -2px !important;\n  right: auto !important;\n  bottom: auto !important;\n  left: auto !important;\n  margin-right: 5px !important;\n  padding: 2px 3px !important;\n  pointer-events: none !important;\n}\n", ""]);
-// Exports
-/* harmony default export */ __webpack_exports__["a"] = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-/* 15 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
-// Imports
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
-// Module
-___CSS_LOADER_EXPORT___.push([module.i, ".tota11y-dark-color-scheme {\n  background-color: #333 !important;\n  color: #f2f2f2 !important;\n}\n.tota11y-no-select {\n  -webkit-user-select: none !important;\n          user-select: none !important;\n}\n.tota11y-outlined {\n  outline: 2px solid #7882c8 !important;\n}\n.tota11y-nothingness {\n  color: #888 !important;\n}\n", ""]);
-// Exports
-/* harmony default export */ __webpack_exports__["a"] = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-/* 16 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.HandlebarsEnvironment = HandlebarsEnvironment;
-// istanbul ignore next
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-var _utils = __webpack_require__(3);
-
-var _exception = __webpack_require__(8);
-
-var _exception2 = _interopRequireDefault(_exception);
-
-var _helpers = __webpack_require__(17);
-
-var _decorators = __webpack_require__(36);
-
-var _logger = __webpack_require__(19);
-
-var _logger2 = _interopRequireDefault(_logger);
-
-var _internalProtoAccess = __webpack_require__(20);
-
-var VERSION = '4.7.7';
-exports.VERSION = VERSION;
-var COMPILER_REVISION = 8;
-exports.COMPILER_REVISION = COMPILER_REVISION;
-var LAST_COMPATIBLE_COMPILER_REVISION = 7;
-
-exports.LAST_COMPATIBLE_COMPILER_REVISION = LAST_COMPATIBLE_COMPILER_REVISION;
-var REVISION_CHANGES = {
-  1: '<= 1.0.rc.2', // 1.0.rc.2 is actually rev2 but doesn't report it
-  2: '== 1.0.0-rc.3',
-  3: '== 1.0.0-rc.4',
-  4: '== 1.x.x',
-  5: '== 2.0.0-alpha.x',
-  6: '>= 2.0.0-beta.1',
-  7: '>= 4.0.0 <4.3.0',
-  8: '>= 4.3.0'
-};
-
-exports.REVISION_CHANGES = REVISION_CHANGES;
-var objectType = '[object Object]';
-
-function HandlebarsEnvironment(helpers, partials, decorators) {
-  this.helpers = helpers || {};
-  this.partials = partials || {};
-  this.decorators = decorators || {};
-
-  _helpers.registerDefaultHelpers(this);
-  _decorators.registerDefaultDecorators(this);
-}
-
-HandlebarsEnvironment.prototype = {
-  constructor: HandlebarsEnvironment,
-
-  logger: _logger2['default'],
-  log: _logger2['default'].log,
-
-  registerHelper: function registerHelper(name, fn) {
-    if (_utils.toString.call(name) === objectType) {
-      if (fn) {
-        throw new _exception2['default']('Arg not supported with multiple helpers');
-      }
-      _utils.extend(this.helpers, name);
-    } else {
-      this.helpers[name] = fn;
-    }
-  },
-  unregisterHelper: function unregisterHelper(name) {
-    delete this.helpers[name];
-  },
-
-  registerPartial: function registerPartial(name, partial) {
-    if (_utils.toString.call(name) === objectType) {
-      _utils.extend(this.partials, name);
-    } else {
-      if (typeof partial === 'undefined') {
-        throw new _exception2['default']('Attempting to register a partial called "' + name + '" as undefined');
-      }
-      this.partials[name] = partial;
-    }
-  },
-  unregisterPartial: function unregisterPartial(name) {
-    delete this.partials[name];
-  },
-
-  registerDecorator: function registerDecorator(name, fn) {
-    if (_utils.toString.call(name) === objectType) {
-      if (fn) {
-        throw new _exception2['default']('Arg not supported with multiple decorators');
-      }
-      _utils.extend(this.decorators, name);
-    } else {
-      this.decorators[name] = fn;
-    }
-  },
-  unregisterDecorator: function unregisterDecorator(name) {
-    delete this.decorators[name];
-  },
-  /**
-   * Reset the memory of illegal property accesses that have already been logged.
-   * @deprecated should only be used in handlebars test-cases
-   */
-  resetLoggedPropertyAccesses: function resetLoggedPropertyAccesses() {
-    _internalProtoAccess.resetLoggedProperties();
-  }
-};
-
-var log = _logger2['default'].log;
-
-exports.log = log;
-exports.createFrame = _utils.createFrame;
-exports.logger = _logger2['default'];
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL2xpYi9oYW5kbGViYXJzL2Jhc2UuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7cUJBQThDLFNBQVM7O3lCQUNqQyxhQUFhOzs7O3VCQUNJLFdBQVc7OzBCQUNSLGNBQWM7O3NCQUNyQyxVQUFVOzs7O21DQUNTLHlCQUF5Qjs7QUFFeEQsSUFBTSxPQUFPLEdBQUcsT0FBTyxDQUFDOztBQUN4QixJQUFNLGlCQUFpQixHQUFHLENBQUMsQ0FBQzs7QUFDNUIsSUFBTSxpQ0FBaUMsR0FBRyxDQUFDLENBQUM7OztBQUU1QyxJQUFNLGdCQUFnQixHQUFHO0FBQzlCLEdBQUMsRUFBRSxhQUFhO0FBQ2hCLEdBQUMsRUFBRSxlQUFlO0FBQ2xCLEdBQUMsRUFBRSxlQUFlO0FBQ2xCLEdBQUMsRUFBRSxVQUFVO0FBQ2IsR0FBQyxFQUFFLGtCQUFrQjtBQUNyQixHQUFDLEVBQUUsaUJBQWlCO0FBQ3BCLEdBQUMsRUFBRSxpQkFBaUI7QUFDcEIsR0FBQyxFQUFFLFVBQVU7Q0FDZCxDQUFDOzs7QUFFRixJQUFNLFVBQVUsR0FBRyxpQkFBaUIsQ0FBQzs7QUFFOUIsU0FBUyxxQkFBcUIsQ0FBQyxPQUFPLEVBQUUsUUFBUSxFQUFFLFVBQVUsRUFBRTtBQUNuRSxNQUFJLENBQUMsT0FBTyxHQUFHLE9BQU8sSUFBSSxFQUFFLENBQUM7QUFDN0IsTUFBSSxDQUFDLFFBQVEsR0FBRyxRQUFRLElBQUksRUFBRSxDQUFDO0FBQy9CLE1BQUksQ0FBQyxVQUFVLEdBQUcsVUFBVSxJQUFJLEVBQUUsQ0FBQzs7QUFFbkMsa0NBQXVCLElBQUksQ0FBQyxDQUFDO0FBQzdCLHdDQUEwQixJQUFJLENBQUMsQ0FBQztDQUNqQzs7QUFFRCxxQkFBcUIsQ0FBQyxTQUFTLEdBQUc7QUFDaEMsYUFBVyxFQUFFLHFCQUFxQjs7QUFFbEMsUUFBTSxxQkFBUTtBQUNkLEtBQUcsRUFBRSxvQkFBTyxHQUFHOztBQUVmLGdCQUFjLEVBQUUsd0JBQVMsSUFBSSxFQUFFLEVBQUUsRUFBRTtBQUNqQyxRQUFJLGdCQUFTLElBQUksQ0FBQyxJQUFJLENBQUMsS0FBSyxVQUFVLEVBQUU7QUFDdEMsVUFBSSxFQUFFLEVBQUU7QUFDTixjQUFNLDJCQUFjLHlDQUF5QyxDQUFDLENBQUM7T0FDaEU7QUFDRCxvQkFBTyxJQUFJLENBQUMsT0FBTyxFQUFFLElBQUksQ0FBQyxDQUFDO0tBQzVCLE1BQU07QUFDTCxVQUFJLENBQUMsT0FBTyxDQUFDLElBQUksQ0FBQyxHQUFHLEVBQUUsQ0FBQztLQUN6QjtHQUNGO0FBQ0Qsa0JBQWdCLEVBQUUsMEJBQVMsSUFBSSxFQUFFO0FBQy9CLFdBQU8sSUFBSSxDQUFDLE9BQU8sQ0FBQyxJQUFJLENBQUMsQ0FBQztHQUMzQjs7QUFFRCxpQkFBZSxFQUFFLHlCQUFTLElBQUksRUFBRSxPQUFPLEVBQUU7QUFDdkMsUUFBSSxnQkFBUyxJQUFJLENBQUMsSUFBSSxDQUFDLEtBQUssVUFBVSxFQUFFO0FBQ3RDLG9CQUFPLElBQUksQ0FBQyxRQUFRLEVBQUUsSUFBSSxDQUFDLENBQUM7S0FDN0IsTUFBTTtBQUNMLFVBQUksT0FBTyxPQUFPLEtBQUssV0FBVyxFQUFFO0FBQ2xDLGNBQU0seUVBQ3dDLElBQUksb0JBQ2pELENBQUM7T0FDSDtBQUNELFVBQUksQ0FBQyxRQUFRLENBQUMsSUFBSSxDQUFDLEdBQUcsT0FBTyxDQUFDO0tBQy9CO0dBQ0Y7QUFDRCxtQkFBaUIsRUFBRSwyQkFBUyxJQUFJLEVBQUU7QUFDaEMsV0FBTyxJQUFJLENBQUMsUUFBUSxDQUFDLElBQUksQ0FBQyxDQUFDO0dBQzVCOztBQUVELG1CQUFpQixFQUFFLDJCQUFTLElBQUksRUFBRSxFQUFFLEVBQUU7QUFDcEMsUUFBSSxnQkFBUyxJQUFJLENBQUMsSUFBSSxDQUFDLEtBQUssVUFBVSxFQUFFO0FBQ3RDLFVBQUksRUFBRSxFQUFFO0FBQ04sY0FBTSwyQkFBYyw0Q0FBNEMsQ0FBQyxDQUFDO09BQ25FO0FBQ0Qsb0JBQU8sSUFBSSxDQUFDLFVBQVUsRUFBRSxJQUFJLENBQUMsQ0FBQztLQUMvQixNQUFNO0FBQ0wsVUFBSSxDQUFDLFVBQVUsQ0FBQyxJQUFJLENBQUMsR0FBRyxFQUFFLENBQUM7S0FDNUI7R0FDRjtBQUNELHFCQUFtQixFQUFFLDZCQUFTLElBQUksRUFBRTtBQUNsQyxXQUFPLElBQUksQ0FBQyxVQUFVLENBQUMsSUFBSSxDQUFDLENBQUM7R0FDOUI7Ozs7O0FBS0QsNkJBQTJCLEVBQUEsdUNBQUc7QUFDNUIsZ0RBQXVCLENBQUM7R0FDekI7Q0FDRixDQUFDOztBQUVLLElBQUksR0FBRyxHQUFHLG9CQUFPLEdBQUcsQ0FBQzs7O1FBRW5CLFdBQVc7UUFBRSxNQUFNIiwiZmlsZSI6ImJhc2UuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBjcmVhdGVGcmFtZSwgZXh0ZW5kLCB0b1N0cmluZyB9IGZyb20gJy4vdXRpbHMnO1xuaW1wb3J0IEV4Y2VwdGlvbiBmcm9tICcuL2V4Y2VwdGlvbic7XG5pbXBvcnQgeyByZWdpc3RlckRlZmF1bHRIZWxwZXJzIH0gZnJvbSAnLi9oZWxwZXJzJztcbmltcG9ydCB7IHJlZ2lzdGVyRGVmYXVsdERlY29yYXRvcnMgfSBmcm9tICcuL2RlY29yYXRvcnMnO1xuaW1wb3J0IGxvZ2dlciBmcm9tICcuL2xvZ2dlcic7XG5pbXBvcnQgeyByZXNldExvZ2dlZFByb3BlcnRpZXMgfSBmcm9tICcuL2ludGVybmFsL3Byb3RvLWFjY2Vzcyc7XG5cbmV4cG9ydCBjb25zdCBWRVJTSU9OID0gJzQuNy43JztcbmV4cG9ydCBjb25zdCBDT01QSUxFUl9SRVZJU0lPTiA9IDg7XG5leHBvcnQgY29uc3QgTEFTVF9DT01QQVRJQkxFX0NPTVBJTEVSX1JFVklTSU9OID0gNztcblxuZXhwb3J0IGNvbnN0IFJFVklTSU9OX0NIQU5HRVMgPSB7XG4gIDE6ICc8PSAxLjAucmMuMicsIC8vIDEuMC5yYy4yIGlzIGFjdHVhbGx5IHJldjIgYnV0IGRvZXNuJ3QgcmVwb3J0IGl0XG4gIDI6ICc9PSAxLjAuMC1yYy4zJyxcbiAgMzogJz09IDEuMC4wLXJjLjQnLFxuICA0OiAnPT0gMS54LngnLFxuICA1OiAnPT0gMi4wLjAtYWxwaGEueCcsXG4gIDY6ICc+PSAyLjAuMC1iZXRhLjEnLFxuICA3OiAnPj0gNC4wLjAgPDQuMy4wJyxcbiAgODogJz49IDQuMy4wJ1xufTtcblxuY29uc3Qgb2JqZWN0VHlwZSA9ICdbb2JqZWN0IE9iamVjdF0nO1xuXG5leHBvcnQgZnVuY3Rpb24gSGFuZGxlYmFyc0Vudmlyb25tZW50KGhlbHBlcnMsIHBhcnRpYWxzLCBkZWNvcmF0b3JzKSB7XG4gIHRoaXMuaGVscGVycyA9IGhlbHBlcnMgfHwge307XG4gIHRoaXMucGFydGlhbHMgPSBwYXJ0aWFscyB8fCB7fTtcbiAgdGhpcy5kZWNvcmF0b3JzID0gZGVjb3JhdG9ycyB8fCB7fTtcblxuICByZWdpc3RlckRlZmF1bHRIZWxwZXJzKHRoaXMpO1xuICByZWdpc3RlckRlZmF1bHREZWNvcmF0b3JzKHRoaXMpO1xufVxuXG5IYW5kbGViYXJzRW52aXJvbm1lbnQucHJvdG90eXBlID0ge1xuICBjb25zdHJ1Y3RvcjogSGFuZGxlYmFyc0Vudmlyb25tZW50LFxuXG4gIGxvZ2dlcjogbG9nZ2VyLFxuICBsb2c6IGxvZ2dlci5sb2csXG5cbiAgcmVnaXN0ZXJIZWxwZXI6IGZ1bmN0aW9uKG5hbWUsIGZuKSB7XG4gICAgaWYgKHRvU3RyaW5nLmNhbGwobmFtZSkgPT09IG9iamVjdFR5cGUpIHtcbiAgICAgIGlmIChmbikge1xuICAgICAgICB0aHJvdyBuZXcgRXhjZXB0aW9uKCdBcmcgbm90IHN1cHBvcnRlZCB3aXRoIG11bHRpcGxlIGhlbHBlcnMnKTtcbiAgICAgIH1cbiAgICAgIGV4dGVuZCh0aGlzLmhlbHBlcnMsIG5hbWUpO1xuICAgIH0gZWxzZSB7XG4gICAgICB0aGlzLmhlbHBlcnNbbmFtZV0gPSBmbjtcbiAgICB9XG4gIH0sXG4gIHVucmVnaXN0ZXJIZWxwZXI6IGZ1bmN0aW9uKG5hbWUpIHtcbiAgICBkZWxldGUgdGhpcy5oZWxwZXJzW25hbWVdO1xuICB9LFxuXG4gIHJlZ2lzdGVyUGFydGlhbDogZnVuY3Rpb24obmFtZSwgcGFydGlhbCkge1xuICAgIGlmICh0b1N0cmluZy5jYWxsKG5hbWUpID09PSBvYmplY3RUeXBlKSB7XG4gICAgICBleHRlbmQodGhpcy5wYXJ0aWFscywgbmFtZSk7XG4gICAgfSBlbHNlIHtcbiAgICAgIGlmICh0eXBlb2YgcGFydGlhbCA9PT0gJ3VuZGVmaW5lZCcpIHtcbiAgICAgICAgdGhyb3cgbmV3IEV4Y2VwdGlvbihcbiAgICAgICAgICBgQXR0ZW1wdGluZyB0byByZWdpc3RlciBhIHBhcnRpYWwgY2FsbGVkIFwiJHtuYW1lfVwiIGFzIHVuZGVmaW5lZGBcbiAgICAgICAgKTtcbiAgICAgIH1cbiAgICAgIHRoaXMucGFydGlhbHNbbmFtZV0gPSBwYXJ0aWFsO1xuICAgIH1cbiAgfSxcbiAgdW5yZWdpc3RlclBhcnRpYWw6IGZ1bmN0aW9uKG5hbWUpIHtcbiAgICBkZWxldGUgdGhpcy5wYXJ0aWFsc1tuYW1lXTtcbiAgfSxcblxuICByZWdpc3RlckRlY29yYXRvcjogZnVuY3Rpb24obmFtZSwgZm4pIHtcbiAgICBpZiAodG9TdHJpbmcuY2FsbChuYW1lKSA9PT0gb2JqZWN0VHlwZSkge1xuICAgICAgaWYgKGZuKSB7XG4gICAgICAgIHRocm93IG5ldyBFeGNlcHRpb24oJ0FyZyBub3Qgc3VwcG9ydGVkIHdpdGggbXVsdGlwbGUgZGVjb3JhdG9ycycpO1xuICAgICAgfVxuICAgICAgZXh0ZW5kKHRoaXMuZGVjb3JhdG9ycywgbmFtZSk7XG4gICAgfSBlbHNlIHtcbiAgICAgIHRoaXMuZGVjb3JhdG9yc1tuYW1lXSA9IGZuO1xuICAgIH1cbiAgfSxcbiAgdW5yZWdpc3RlckRlY29yYXRvcjogZnVuY3Rpb24obmFtZSkge1xuICAgIGRlbGV0ZSB0aGlzLmRlY29yYXRvcnNbbmFtZV07XG4gIH0sXG4gIC8qKlxuICAgKiBSZXNldCB0aGUgbWVtb3J5IG9mIGlsbGVnYWwgcHJvcGVydHkgYWNjZXNzZXMgdGhhdCBoYXZlIGFscmVhZHkgYmVlbiBsb2dnZWQuXG4gICAqIEBkZXByZWNhdGVkIHNob3VsZCBvbmx5IGJlIHVzZWQgaW4gaGFuZGxlYmFycyB0ZXN0LWNhc2VzXG4gICAqL1xuICByZXNldExvZ2dlZFByb3BlcnR5QWNjZXNzZXMoKSB7XG4gICAgcmVzZXRMb2dnZWRQcm9wZXJ0aWVzKCk7XG4gIH1cbn07XG5cbmV4cG9ydCBsZXQgbG9nID0gbG9nZ2VyLmxvZztcblxuZXhwb3J0IHsgY3JlYXRlRnJhbWUsIGxvZ2dlciB9O1xuIl19
-
-
-/***/ }),
-/* 17 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.registerDefaultHelpers = registerDefaultHelpers;
-exports.moveHelperToHooks = moveHelperToHooks;
-// istanbul ignore next
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-var _helpersBlockHelperMissing = __webpack_require__(29);
-
-var _helpersBlockHelperMissing2 = _interopRequireDefault(_helpersBlockHelperMissing);
-
-var _helpersEach = __webpack_require__(30);
-
-var _helpersEach2 = _interopRequireDefault(_helpersEach);
-
-var _helpersHelperMissing = __webpack_require__(31);
-
-var _helpersHelperMissing2 = _interopRequireDefault(_helpersHelperMissing);
-
-var _helpersIf = __webpack_require__(32);
-
-var _helpersIf2 = _interopRequireDefault(_helpersIf);
-
-var _helpersLog = __webpack_require__(33);
-
-var _helpersLog2 = _interopRequireDefault(_helpersLog);
-
-var _helpersLookup = __webpack_require__(34);
-
-var _helpersLookup2 = _interopRequireDefault(_helpersLookup);
-
-var _helpersWith = __webpack_require__(35);
-
-var _helpersWith2 = _interopRequireDefault(_helpersWith);
-
-function registerDefaultHelpers(instance) {
-  _helpersBlockHelperMissing2['default'](instance);
-  _helpersEach2['default'](instance);
-  _helpersHelperMissing2['default'](instance);
-  _helpersIf2['default'](instance);
-  _helpersLog2['default'](instance);
-  _helpersLookup2['default'](instance);
-  _helpersWith2['default'](instance);
-}
-
-function moveHelperToHooks(instance, helperName, keepHelper) {
-  if (instance.helpers[helperName]) {
-    instance.hooks[helperName] = instance.helpers[helperName];
-    if (!keepHelper) {
-      delete instance.helpers[helperName];
-    }
-  }
-}
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL2xpYi9oYW5kbGViYXJzL2hlbHBlcnMuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7O3lDQUF1QyxnQ0FBZ0M7Ozs7MkJBQzlDLGdCQUFnQjs7OztvQ0FDUCwwQkFBMEI7Ozs7eUJBQ3JDLGNBQWM7Ozs7MEJBQ2IsZUFBZTs7Ozs2QkFDWixrQkFBa0I7Ozs7MkJBQ3BCLGdCQUFnQjs7OztBQUVsQyxTQUFTLHNCQUFzQixDQUFDLFFBQVEsRUFBRTtBQUMvQyx5Q0FBMkIsUUFBUSxDQUFDLENBQUM7QUFDckMsMkJBQWEsUUFBUSxDQUFDLENBQUM7QUFDdkIsb0NBQXNCLFFBQVEsQ0FBQyxDQUFDO0FBQ2hDLHlCQUFXLFFBQVEsQ0FBQyxDQUFDO0FBQ3JCLDBCQUFZLFFBQVEsQ0FBQyxDQUFDO0FBQ3RCLDZCQUFlLFFBQVEsQ0FBQyxDQUFDO0FBQ3pCLDJCQUFhLFFBQVEsQ0FBQyxDQUFDO0NBQ3hCOztBQUVNLFNBQVMsaUJBQWlCLENBQUMsUUFBUSxFQUFFLFVBQVUsRUFBRSxVQUFVLEVBQUU7QUFDbEUsTUFBSSxRQUFRLENBQUMsT0FBTyxDQUFDLFVBQVUsQ0FBQyxFQUFFO0FBQ2hDLFlBQVEsQ0FBQyxLQUFLLENBQUMsVUFBVSxDQUFDLEdBQUcsUUFBUSxDQUFDLE9BQU8sQ0FBQyxVQUFVLENBQUMsQ0FBQztBQUMxRCxRQUFJLENBQUMsVUFBVSxFQUFFO0FBQ2YsYUFBTyxRQUFRLENBQUMsT0FBTyxDQUFDLFVBQVUsQ0FBQyxDQUFDO0tBQ3JDO0dBQ0Y7Q0FDRiIsImZpbGUiOiJoZWxwZXJzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHJlZ2lzdGVyQmxvY2tIZWxwZXJNaXNzaW5nIGZyb20gJy4vaGVscGVycy9ibG9jay1oZWxwZXItbWlzc2luZyc7XG5pbXBvcnQgcmVnaXN0ZXJFYWNoIGZyb20gJy4vaGVscGVycy9lYWNoJztcbmltcG9ydCByZWdpc3RlckhlbHBlck1pc3NpbmcgZnJvbSAnLi9oZWxwZXJzL2hlbHBlci1taXNzaW5nJztcbmltcG9ydCByZWdpc3RlcklmIGZyb20gJy4vaGVscGVycy9pZic7XG5pbXBvcnQgcmVnaXN0ZXJMb2cgZnJvbSAnLi9oZWxwZXJzL2xvZyc7XG5pbXBvcnQgcmVnaXN0ZXJMb29rdXAgZnJvbSAnLi9oZWxwZXJzL2xvb2t1cCc7XG5pbXBvcnQgcmVnaXN0ZXJXaXRoIGZyb20gJy4vaGVscGVycy93aXRoJztcblxuZXhwb3J0IGZ1bmN0aW9uIHJlZ2lzdGVyRGVmYXVsdEhlbHBlcnMoaW5zdGFuY2UpIHtcbiAgcmVnaXN0ZXJCbG9ja0hlbHBlck1pc3NpbmcoaW5zdGFuY2UpO1xuICByZWdpc3RlckVhY2goaW5zdGFuY2UpO1xuICByZWdpc3RlckhlbHBlck1pc3NpbmcoaW5zdGFuY2UpO1xuICByZWdpc3RlcklmKGluc3RhbmNlKTtcbiAgcmVnaXN0ZXJMb2coaW5zdGFuY2UpO1xuICByZWdpc3Rlckxvb2t1cChpbnN0YW5jZSk7XG4gIHJlZ2lzdGVyV2l0aChpbnN0YW5jZSk7XG59XG5cbmV4cG9ydCBmdW5jdGlvbiBtb3ZlSGVscGVyVG9Ib29rcyhpbnN0YW5jZSwgaGVscGVyTmFtZSwga2VlcEhlbHBlcikge1xuICBpZiAoaW5zdGFuY2UuaGVscGVyc1toZWxwZXJOYW1lXSkge1xuICAgIGluc3RhbmNlLmhvb2tzW2hlbHBlck5hbWVdID0gaW5zdGFuY2UuaGVscGVyc1toZWxwZXJOYW1lXTtcbiAgICBpZiAoIWtlZXBIZWxwZXIpIHtcbiAgICAgIGRlbGV0ZSBpbnN0YW5jZS5oZWxwZXJzW2hlbHBlck5hbWVdO1xuICAgIH1cbiAgfVxufVxuIl19
-
-
-/***/ }),
-/* 18 */
-/***/ (function(module, exports) {
-
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || new Function("return this")();
-} catch (e) {
-	// This works if the window reference is available
-	if (typeof window === "object") g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
-
-/***/ }),
-/* 19 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-var _utils = __webpack_require__(3);
-
-var logger = {
-  methodMap: ['debug', 'info', 'warn', 'error'],
-  level: 'info',
-
-  // Maps a given level value to the `methodMap` indexes above.
-  lookupLevel: function lookupLevel(level) {
-    if (typeof level === 'string') {
-      var levelMap = _utils.indexOf(logger.methodMap, level.toLowerCase());
-      if (levelMap >= 0) {
-        level = levelMap;
-      } else {
-        level = parseInt(level, 10);
-      }
-    }
-
-    return level;
-  },
-
-  // Can be overridden in the host environment
-  log: function log(level) {
-    level = logger.lookupLevel(level);
-
-    if (typeof console !== 'undefined' && logger.lookupLevel(logger.level) <= level) {
-      var method = logger.methodMap[level];
-      // eslint-disable-next-line no-console
-      if (!console[method]) {
-        method = 'log';
-      }
-
-      for (var _len = arguments.length, message = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-        message[_key - 1] = arguments[_key];
-      }
-
-      console[method].apply(console, message); // eslint-disable-line no-console
-    }
-  }
-};
-
-exports['default'] = logger;
-module.exports = exports['default'];
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL2xpYi9oYW5kbGViYXJzL2xvZ2dlci5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7O3FCQUF3QixTQUFTOztBQUVqQyxJQUFJLE1BQU0sR0FBRztBQUNYLFdBQVMsRUFBRSxDQUFDLE9BQU8sRUFBRSxNQUFNLEVBQUUsTUFBTSxFQUFFLE9BQU8sQ0FBQztBQUM3QyxPQUFLLEVBQUUsTUFBTTs7O0FBR2IsYUFBVyxFQUFFLHFCQUFTLEtBQUssRUFBRTtBQUMzQixRQUFJLE9BQU8sS0FBSyxLQUFLLFFBQVEsRUFBRTtBQUM3QixVQUFJLFFBQVEsR0FBRyxlQUFRLE1BQU0sQ0FBQyxTQUFTLEVBQUUsS0FBSyxDQUFDLFdBQVcsRUFBRSxDQUFDLENBQUM7QUFDOUQsVUFBSSxRQUFRLElBQUksQ0FBQyxFQUFFO0FBQ2pCLGFBQUssR0FBRyxRQUFRLENBQUM7T0FDbEIsTUFBTTtBQUNMLGFBQUssR0FBRyxRQUFRLENBQUMsS0FBSyxFQUFFLEVBQUUsQ0FBQyxDQUFDO09BQzdCO0tBQ0Y7O0FBRUQsV0FBTyxLQUFLLENBQUM7R0FDZDs7O0FBR0QsS0FBRyxFQUFFLGFBQVMsS0FBSyxFQUFjO0FBQy9CLFNBQUssR0FBRyxNQUFNLENBQUMsV0FBVyxDQUFDLEtBQUssQ0FBQyxDQUFDOztBQUVsQyxRQUNFLE9BQU8sT0FBTyxLQUFLLFdBQVcsSUFDOUIsTUFBTSxDQUFDLFdBQVcsQ0FBQyxNQUFNLENBQUMsS0FBSyxDQUFDLElBQUksS0FBSyxFQUN6QztBQUNBLFVBQUksTUFBTSxHQUFHLE1BQU0sQ0FBQyxTQUFTLENBQUMsS0FBSyxDQUFDLENBQUM7O0FBRXJDLFVBQUksQ0FBQyxPQUFPLENBQUMsTUFBTSxDQUFDLEVBQUU7QUFDcEIsY0FBTSxHQUFHLEtBQUssQ0FBQztPQUNoQjs7d0NBWG1CLE9BQU87QUFBUCxlQUFPOzs7QUFZM0IsYUFBTyxDQUFDLE1BQU0sT0FBQyxDQUFmLE9BQU8sRUFBWSxPQUFPLENBQUMsQ0FBQztLQUM3QjtHQUNGO0NBQ0YsQ0FBQzs7cUJBRWEsTUFBTSIsImZpbGUiOiJsb2dnZXIuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBpbmRleE9mIH0gZnJvbSAnLi91dGlscyc7XG5cbmxldCBsb2dnZXIgPSB7XG4gIG1ldGhvZE1hcDogWydkZWJ1ZycsICdpbmZvJywgJ3dhcm4nLCAnZXJyb3InXSxcbiAgbGV2ZWw6ICdpbmZvJyxcblxuICAvLyBNYXBzIGEgZ2l2ZW4gbGV2ZWwgdmFsdWUgdG8gdGhlIGBtZXRob2RNYXBgIGluZGV4ZXMgYWJvdmUuXG4gIGxvb2t1cExldmVsOiBmdW5jdGlvbihsZXZlbCkge1xuICAgIGlmICh0eXBlb2YgbGV2ZWwgPT09ICdzdHJpbmcnKSB7XG4gICAgICBsZXQgbGV2ZWxNYXAgPSBpbmRleE9mKGxvZ2dlci5tZXRob2RNYXAsIGxldmVsLnRvTG93ZXJDYXNlKCkpO1xuICAgICAgaWYgKGxldmVsTWFwID49IDApIHtcbiAgICAgICAgbGV2ZWwgPSBsZXZlbE1hcDtcbiAgICAgIH0gZWxzZSB7XG4gICAgICAgIGxldmVsID0gcGFyc2VJbnQobGV2ZWwsIDEwKTtcbiAgICAgIH1cbiAgICB9XG5cbiAgICByZXR1cm4gbGV2ZWw7XG4gIH0sXG5cbiAgLy8gQ2FuIGJlIG92ZXJyaWRkZW4gaW4gdGhlIGhvc3QgZW52aXJvbm1lbnRcbiAgbG9nOiBmdW5jdGlvbihsZXZlbCwgLi4ubWVzc2FnZSkge1xuICAgIGxldmVsID0gbG9nZ2VyLmxvb2t1cExldmVsKGxldmVsKTtcblxuICAgIGlmIChcbiAgICAgIHR5cGVvZiBjb25zb2xlICE9PSAndW5kZWZpbmVkJyAmJlxuICAgICAgbG9nZ2VyLmxvb2t1cExldmVsKGxvZ2dlci5sZXZlbCkgPD0gbGV2ZWxcbiAgICApIHtcbiAgICAgIGxldCBtZXRob2QgPSBsb2dnZXIubWV0aG9kTWFwW2xldmVsXTtcbiAgICAgIC8vIGVzbGludC1kaXNhYmxlLW5leHQtbGluZSBuby1jb25zb2xlXG4gICAgICBpZiAoIWNvbnNvbGVbbWV0aG9kXSkge1xuICAgICAgICBtZXRob2QgPSAnbG9nJztcbiAgICAgIH1cbiAgICAgIGNvbnNvbGVbbWV0aG9kXSguLi5tZXNzYWdlKTsgLy8gZXNsaW50LWRpc2FibGUtbGluZSBuby1jb25zb2xlXG4gICAgfVxuICB9XG59O1xuXG5leHBvcnQgZGVmYXVsdCBsb2dnZXI7XG4iXX0=
-
-
-/***/ }),
-/* 20 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.createProtoAccessControl = createProtoAccessControl;
-exports.resultIsAllowed = resultIsAllowed;
-exports.resetLoggedProperties = resetLoggedProperties;
-// istanbul ignore next
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
-
-var _createNewLookupObject = __webpack_require__(38);
-
-var _logger = __webpack_require__(19);
-
-var logger = _interopRequireWildcard(_logger);
-
-var loggedProperties = Object.create(null);
-
-function createProtoAccessControl(runtimeOptions) {
-  var defaultMethodWhiteList = Object.create(null);
-  defaultMethodWhiteList['constructor'] = false;
-  defaultMethodWhiteList['__defineGetter__'] = false;
-  defaultMethodWhiteList['__defineSetter__'] = false;
-  defaultMethodWhiteList['__lookupGetter__'] = false;
-
-  var defaultPropertyWhiteList = Object.create(null);
-  // eslint-disable-next-line no-proto
-  defaultPropertyWhiteList['__proto__'] = false;
-
+function domAPI(options) {
+  var style = options.insertStyleElement(options);
   return {
-    properties: {
-      whitelist: _createNewLookupObject.createNewLookupObject(defaultPropertyWhiteList, runtimeOptions.allowedProtoProperties),
-      defaultValue: runtimeOptions.allowProtoPropertiesByDefault
+    update: function update(obj) {
+      apply(style, options, obj);
     },
-    methods: {
-      whitelist: _createNewLookupObject.createNewLookupObject(defaultMethodWhiteList, runtimeOptions.allowedProtoMethods),
-      defaultValue: runtimeOptions.allowProtoMethodsByDefault
+    remove: function remove() {
+      removeStyleElement(style);
     }
   };
 }
 
-function resultIsAllowed(result, protoAccessControl, propertyName) {
-  if (typeof result === 'function') {
-    return checkWhiteList(protoAccessControl.methods, propertyName);
-  } else {
-    return checkWhiteList(protoAccessControl.properties, propertyName);
-  }
-}
+module.exports = domAPI;
 
-function checkWhiteList(protoAccessControlForType, propertyName) {
-  if (protoAccessControlForType.whitelist[propertyName] !== undefined) {
-    return protoAccessControlForType.whitelist[propertyName] === true;
-  }
-  if (protoAccessControlForType.defaultValue !== undefined) {
-    return protoAccessControlForType.defaultValue;
-  }
-  logUnexpecedPropertyAccessOnce(propertyName);
-  return false;
-}
+/***/ })
 
-function logUnexpecedPropertyAccessOnce(propertyName) {
-  if (loggedProperties[propertyName] !== true) {
-    loggedProperties[propertyName] = true;
-    logger.log('error', 'Handlebars: Access has been denied to resolve the property "' + propertyName + '" because it is not an "own property" of its parent.\n' + 'You can add a runtime option to disable the check or this warning:\n' + 'See https://handlebarsjs.com/api-reference/runtime-options.html#options-to-control-prototype-access for details');
-  }
-}
-
-function resetLoggedProperties() {
-  Object.keys(loggedProperties).forEach(function (propertyName) {
-    delete loggedProperties[propertyName];
-  });
-}
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL2xpYi9oYW5kbGViYXJzL2ludGVybmFsL3Byb3RvLWFjY2Vzcy5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7O3FDQUFzQyw0QkFBNEI7O3NCQUMxQyxXQUFXOztJQUF2QixNQUFNOztBQUVsQixJQUFNLGdCQUFnQixHQUFHLE1BQU0sQ0FBQyxNQUFNLENBQUMsSUFBSSxDQUFDLENBQUM7O0FBRXRDLFNBQVMsd0JBQXdCLENBQUMsY0FBYyxFQUFFO0FBQ3ZELE1BQUksc0JBQXNCLEdBQUcsTUFBTSxDQUFDLE1BQU0sQ0FBQyxJQUFJLENBQUMsQ0FBQztBQUNqRCx3QkFBc0IsQ0FBQyxhQUFhLENBQUMsR0FBRyxLQUFLLENBQUM7QUFDOUMsd0JBQXNCLENBQUMsa0JBQWtCLENBQUMsR0FBRyxLQUFLLENBQUM7QUFDbkQsd0JBQXNCLENBQUMsa0JBQWtCLENBQUMsR0FBRyxLQUFLLENBQUM7QUFDbkQsd0JBQXNCLENBQUMsa0JBQWtCLENBQUMsR0FBRyxLQUFLLENBQUM7O0FBRW5ELE1BQUksd0JBQXdCLEdBQUcsTUFBTSxDQUFDLE1BQU0sQ0FBQyxJQUFJLENBQUMsQ0FBQzs7QUFFbkQsMEJBQXdCLENBQUMsV0FBVyxDQUFDLEdBQUcsS0FBSyxDQUFDOztBQUU5QyxTQUFPO0FBQ0wsY0FBVSxFQUFFO0FBQ1YsZUFBUyxFQUFFLDZDQUNULHdCQUF3QixFQUN4QixjQUFjLENBQUMsc0JBQXNCLENBQ3RDO0FBQ0Qsa0JBQVksRUFBRSxjQUFjLENBQUMsNkJBQTZCO0tBQzNEO0FBQ0QsV0FBTyxFQUFFO0FBQ1AsZUFBUyxFQUFFLDZDQUNULHNCQUFzQixFQUN0QixjQUFjLENBQUMsbUJBQW1CLENBQ25DO0FBQ0Qsa0JBQVksRUFBRSxjQUFjLENBQUMsMEJBQTBCO0tBQ3hEO0dBQ0YsQ0FBQztDQUNIOztBQUVNLFNBQVMsZUFBZSxDQUFDLE1BQU0sRUFBRSxrQkFBa0IsRUFBRSxZQUFZLEVBQUU7QUFDeEUsTUFBSSxPQUFPLE1BQU0sS0FBSyxVQUFVLEVBQUU7QUFDaEMsV0FBTyxjQUFjLENBQUMsa0JBQWtCLENBQUMsT0FBTyxFQUFFLFlBQVksQ0FBQyxDQUFDO0dBQ2pFLE1BQU07QUFDTCxXQUFPLGNBQWMsQ0FBQyxrQkFBa0IsQ0FBQyxVQUFVLEVBQUUsWUFBWSxDQUFDLENBQUM7R0FDcEU7Q0FDRjs7QUFFRCxTQUFTLGNBQWMsQ0FBQyx5QkFBeUIsRUFBRSxZQUFZLEVBQUU7QUFDL0QsTUFBSSx5QkFBeUIsQ0FBQyxTQUFTLENBQUMsWUFBWSxDQUFDLEtBQUssU0FBUyxFQUFFO0FBQ25FLFdBQU8seUJBQXlCLENBQUMsU0FBUyxDQUFDLFlBQVksQ0FBQyxLQUFLLElBQUksQ0FBQztHQUNuRTtBQUNELE1BQUkseUJBQXlCLENBQUMsWUFBWSxLQUFLLFNBQVMsRUFBRTtBQUN4RCxXQUFPLHlCQUF5QixDQUFDLFlBQVksQ0FBQztHQUMvQztBQUNELGdDQUE4QixDQUFDLFlBQVksQ0FBQyxDQUFDO0FBQzdDLFNBQU8sS0FBSyxDQUFDO0NBQ2Q7O0FBRUQsU0FBUyw4QkFBOEIsQ0FBQyxZQUFZLEVBQUU7QUFDcEQsTUFBSSxnQkFBZ0IsQ0FBQyxZQUFZLENBQUMsS0FBSyxJQUFJLEVBQUU7QUFDM0Msb0JBQWdCLENBQUMsWUFBWSxDQUFDLEdBQUcsSUFBSSxDQUFDO0FBQ3RDLFVBQU0sQ0FBQyxHQUFHLENBQ1IsT0FBTyxFQUNQLGlFQUErRCxZQUFZLG9JQUNILG9IQUMyQyxDQUNwSCxDQUFDO0dBQ0g7Q0FDRjs7QUFFTSxTQUFTLHFCQUFxQixHQUFHO0FBQ3RDLFFBQU0sQ0FBQyxJQUFJLENBQUMsZ0JBQWdCLENBQUMsQ0FBQyxPQUFPLENBQUMsVUFBQSxZQUFZLEVBQUk7QUFDcEQsV0FBTyxnQkFBZ0IsQ0FBQyxZQUFZLENBQUMsQ0FBQztHQUN2QyxDQUFDLENBQUM7Q0FDSiIsImZpbGUiOiJwcm90by1hY2Nlc3MuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBjcmVhdGVOZXdMb29rdXBPYmplY3QgfSBmcm9tICcuL2NyZWF0ZS1uZXctbG9va3VwLW9iamVjdCc7XG5pbXBvcnQgKiBhcyBsb2dnZXIgZnJvbSAnLi4vbG9nZ2VyJztcblxuY29uc3QgbG9nZ2VkUHJvcGVydGllcyA9IE9iamVjdC5jcmVhdGUobnVsbCk7XG5cbmV4cG9ydCBmdW5jdGlvbiBjcmVhdGVQcm90b0FjY2Vzc0NvbnRyb2wocnVudGltZU9wdGlvbnMpIHtcbiAgbGV0IGRlZmF1bHRNZXRob2RXaGl0ZUxpc3QgPSBPYmplY3QuY3JlYXRlKG51bGwpO1xuICBkZWZhdWx0TWV0aG9kV2hpdGVMaXN0Wydjb25zdHJ1Y3RvciddID0gZmFsc2U7XG4gIGRlZmF1bHRNZXRob2RXaGl0ZUxpc3RbJ19fZGVmaW5lR2V0dGVyX18nXSA9IGZhbHNlO1xuICBkZWZhdWx0TWV0aG9kV2hpdGVMaXN0WydfX2RlZmluZVNldHRlcl9fJ10gPSBmYWxzZTtcbiAgZGVmYXVsdE1ldGhvZFdoaXRlTGlzdFsnX19sb29rdXBHZXR0ZXJfXyddID0gZmFsc2U7XG5cbiAgbGV0IGRlZmF1bHRQcm9wZXJ0eVdoaXRlTGlzdCA9IE9iamVjdC5jcmVhdGUobnVsbCk7XG4gIC8vIGVzbGludC1kaXNhYmxlLW5leHQtbGluZSBuby1wcm90b1xuICBkZWZhdWx0UHJvcGVydHlXaGl0ZUxpc3RbJ19fcHJvdG9fXyddID0gZmFsc2U7XG5cbiAgcmV0dXJuIHtcbiAgICBwcm9wZXJ0aWVzOiB7XG4gICAgICB3aGl0ZWxpc3Q6IGNyZWF0ZU5ld0xvb2t1cE9iamVjdChcbiAgICAgICAgZGVmYXVsdFByb3BlcnR5V2hpdGVMaXN0LFxuICAgICAgICBydW50aW1lT3B0aW9ucy5hbGxvd2VkUHJvdG9Qcm9wZXJ0aWVzXG4gICAgICApLFxuICAgICAgZGVmYXVsdFZhbHVlOiBydW50aW1lT3B0aW9ucy5hbGxvd1Byb3RvUHJvcGVydGllc0J5RGVmYXVsdFxuICAgIH0sXG4gICAgbWV0aG9kczoge1xuICAgICAgd2hpdGVsaXN0OiBjcmVhdGVOZXdMb29rdXBPYmplY3QoXG4gICAgICAgIGRlZmF1bHRNZXRob2RXaGl0ZUxpc3QsXG4gICAgICAgIHJ1bnRpbWVPcHRpb25zLmFsbG93ZWRQcm90b01ldGhvZHNcbiAgICAgICksXG4gICAgICBkZWZhdWx0VmFsdWU6IHJ1bnRpbWVPcHRpb25zLmFsbG93UHJvdG9NZXRob2RzQnlEZWZhdWx0XG4gICAgfVxuICB9O1xufVxuXG5leHBvcnQgZnVuY3Rpb24gcmVzdWx0SXNBbGxvd2VkKHJlc3VsdCwgcHJvdG9BY2Nlc3NDb250cm9sLCBwcm9wZXJ0eU5hbWUpIHtcbiAgaWYgKHR5cGVvZiByZXN1bHQgPT09ICdmdW5jdGlvbicpIHtcbiAgICByZXR1cm4gY2hlY2tXaGl0ZUxpc3QocHJvdG9BY2Nlc3NDb250cm9sLm1ldGhvZHMsIHByb3BlcnR5TmFtZSk7XG4gIH0gZWxzZSB7XG4gICAgcmV0dXJuIGNoZWNrV2hpdGVMaXN0KHByb3RvQWNjZXNzQ29udHJvbC5wcm9wZXJ0aWVzLCBwcm9wZXJ0eU5hbWUpO1xuICB9XG59XG5cbmZ1bmN0aW9uIGNoZWNrV2hpdGVMaXN0KHByb3RvQWNjZXNzQ29udHJvbEZvclR5cGUsIHByb3BlcnR5TmFtZSkge1xuICBpZiAocHJvdG9BY2Nlc3NDb250cm9sRm9yVHlwZS53aGl0ZWxpc3RbcHJvcGVydHlOYW1lXSAhPT0gdW5kZWZpbmVkKSB7XG4gICAgcmV0dXJuIHByb3RvQWNjZXNzQ29udHJvbEZvclR5cGUud2hpdGVsaXN0W3Byb3BlcnR5TmFtZV0gPT09IHRydWU7XG4gIH1cbiAgaWYgKHByb3RvQWNjZXNzQ29udHJvbEZvclR5cGUuZGVmYXVsdFZhbHVlICE9PSB1bmRlZmluZWQpIHtcbiAgICByZXR1cm4gcHJvdG9BY2Nlc3NDb250cm9sRm9yVHlwZS5kZWZhdWx0VmFsdWU7XG4gIH1cbiAgbG9nVW5leHBlY2VkUHJvcGVydHlBY2Nlc3NPbmNlKHByb3BlcnR5TmFtZSk7XG4gIHJldHVybiBmYWxzZTtcbn1cblxuZnVuY3Rpb24gbG9nVW5leHBlY2VkUHJvcGVydHlBY2Nlc3NPbmNlKHByb3BlcnR5TmFtZSkge1xuICBpZiAobG9nZ2VkUHJvcGVydGllc1twcm9wZXJ0eU5hbWVdICE9PSB0cnVlKSB7XG4gICAgbG9nZ2VkUHJvcGVydGllc1twcm9wZXJ0eU5hbWVdID0gdHJ1ZTtcbiAgICBsb2dnZXIubG9nKFxuICAgICAgJ2Vycm9yJyxcbiAgICAgIGBIYW5kbGViYXJzOiBBY2Nlc3MgaGFzIGJlZW4gZGVuaWVkIHRvIHJlc29sdmUgdGhlIHByb3BlcnR5IFwiJHtwcm9wZXJ0eU5hbWV9XCIgYmVjYXVzZSBpdCBpcyBub3QgYW4gXCJvd24gcHJvcGVydHlcIiBvZiBpdHMgcGFyZW50LlxcbmAgK1xuICAgICAgICBgWW91IGNhbiBhZGQgYSBydW50aW1lIG9wdGlvbiB0byBkaXNhYmxlIHRoZSBjaGVjayBvciB0aGlzIHdhcm5pbmc6XFxuYCArXG4gICAgICAgIGBTZWUgaHR0cHM6Ly9oYW5kbGViYXJzanMuY29tL2FwaS1yZWZlcmVuY2UvcnVudGltZS1vcHRpb25zLmh0bWwjb3B0aW9ucy10by1jb250cm9sLXByb3RvdHlwZS1hY2Nlc3MgZm9yIGRldGFpbHNgXG4gICAgKTtcbiAgfVxufVxuXG5leHBvcnQgZnVuY3Rpb24gcmVzZXRMb2dnZWRQcm9wZXJ0aWVzKCkge1xuICBPYmplY3Qua2V5cyhsb2dnZWRQcm9wZXJ0aWVzKS5mb3JFYWNoKHByb3BlcnR5TmFtZSA9PiB7XG4gICAgZGVsZXRlIGxvZ2dlZFByb3BlcnRpZXNbcHJvcGVydHlOYW1lXTtcbiAgfSk7XG59XG4iXX0=
-
-
-/***/ }),
-/* 21 */
-/***/ (function(module, exports, __webpack_require__) {
-
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			id: moduleId,
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	!function() {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = function(module) {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				function() { return module['default']; } :
+/******/ 				function() { return module; };
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	}();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	!function() {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = function(exports, definition) {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	}();
+/******/ 	
+/******/ 	/* webpack/runtime/global */
+/******/ 	!function() {
+/******/ 		__webpack_require__.g = (function() {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+/******/ 			} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+/******/ 			}
+/******/ 		})();
+/******/ 	}();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	!function() {
+/******/ 		__webpack_require__.o = function(obj, prop) { return Object.prototype.hasOwnProperty.call(obj, prop); }
+/******/ 	}();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	!function() {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = function(exports) {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	}();
+/******/ 	
+/************************************************************************/
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+!function() {
 "use strict";
+/* provided dependency */ var buildElement = __webpack_require__(9402);
 
-
-/**
- * Abstractions for how we use Accessibility Developer Tools
- */
-
-function allRuleNames() {
-    return axs.AuditRules.getRules().map(function (rule) {
-        return rule.name;
-    });
-}
-
-// Creates an audit configuration that whitelists a single rule and limits the
-// amount of tests to run
-function createWhitelist(ruleName) {
-    var config = new axs.AuditConfiguration();
-    config.showUnsupportedRulesWarning = false;
-
-    // Ignore elements that are part of the toolbar
-    config.ignoreSelectors(ruleName, ".tota11y *");
-
-    allRuleNames().forEach(function (name) {
-        if (name !== ruleName) {
-            config.ignoreSelectors(name, "*");
-        }
-    });
-
-    return config;
-}
-
-/*eslint-disable*/
-// Patch collectMatchingElements to match
-// https://github.com/GoogleChrome/accessibility-developer-tools/blob/0062f77258eb4eb8508dad3c92fd2df63c2381fc/src/js/AuditRule.js
-//
-// TODO: Remove once https://github.com/GoogleChrome/accessibility-developer-tools/commit/df400939addf6dbc5f2a9e1d52a6219f356f82d8
-// makes its way to npm
-function patchCollectMatchingElements() {
-    /**
-     * Recursively collect elements which match |matcher| into |collection|,
-     * starting at |node|.
-     * @param {Node} node
-     * @param {function(Element): boolean} matcher
-     * @param {Array.<Element>} collection
-     * @param {ShadowRoot=} opt_shadowRoot The nearest ShadowRoot ancestor, if any.
-     */
-    axs.AuditRule.collectMatchingElements = function (node, matcher, collection, opt_shadowRoot) {
-        if (node.nodeType === Node.ELEMENT_NODE) var element = /** @type {Element} */node;
-
-        if (element && matcher.call(null, element)) collection.push(element);
-
-        // Descend into node:
-        // If it has a ShadowRoot, ignore all child elements - these will be picked
-        // up by the <content> or <shadow> elements. Descend straight into the
-        // ShadowRoot.
-        if (element) {
-            // NOTE: grunt qunit DOES NOT support Shadow DOM, so if changing this
-            // code, be sure to run the tests in the browser before committing.
-            var shadowRoot = element.shadowRoot || element.webkitShadowRoot;
-            if (shadowRoot) {
-                axs.AuditRule.collectMatchingElements(shadowRoot, matcher, collection, shadowRoot);
-                return;
-            }
-        }
-
-        // If it is a <content> element, descend into distributed elements - descend
-        // into distributed elements - these are elements from outside the shadow
-        // root which are rendered inside the shadow DOM.
-        if (element && element.localName == 'content') {
-            var content = /** @type {HTMLContentElement} */element;
-            var distributedNodes = content.getDistributedNodes();
-            for (var i = 0; i < distributedNodes.length; i++) {
-                axs.AuditRule.collectMatchingElements(distributedNodes[i], matcher, collection, opt_shadowRoot);
-            }
-            return;
-        }
-
-        // If it is a <shadow> element, descend into the olderShadowRoot of the
-        // current ShadowRoot.
-        if (element && element.localName == 'shadow') {
-            var shadow = /** @type {HTMLShadowElement} */element;
-            if (!opt_shadowRoot) {
-                console.warn('ShadowRoot not provided for', element);
-            } else {
-                var distributedNodes = shadow.getDistributedNodes();
-                for (var i = 0; i < distributedNodes.length; i++) {
-                    axs.AuditRule.collectMatchingElements(distributedNodes[i], matcher, collection, opt_shadowRoot);
-                }
-            }
-        }
-
-        // If it is neither the parent of a ShadowRoot, a <content> element, nor
-        // a <shadow> element recurse normally.
-        var child = node.firstChild;
-        while (child != null) {
-            axs.AuditRule.collectMatchingElements(child, matcher, collection, opt_shadowRoot);
-            child = child.nextSibling;
-        }
-    };
-}
-/*eslint-enable*/
-
-// Audits for a single rule (by name) and returns the results for only that
-// rule
-function audit(ruleName) {
-    var whitelist = createWhitelist(ruleName);
-
-    patchCollectMatchingElements();
-
-    return axs.Audit.run(whitelist).filter(function (result) {
-        return result.rule.name === ruleName;
-    })[0];
-}
-
-module.exports = audit;
-
-/***/ }),
-/* 22 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(buildElement) {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -12562,15 +15514,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
  */
 
 // Require the base tota11y styles right away so they can be overwritten
-__webpack_require__(23);
+__webpack_require__(8897);
 
-var $ = __webpack_require__(2);
+var $ = __webpack_require__(9755);
 
-var plugins = __webpack_require__(24);
-var logoTemplate = __webpack_require__(60);
+var plugins = __webpack_require__(1793);
+var logoTemplate = __webpack_require__(6839);
 
 // Chrome Accessibility Developer Tools - required once as a global
-__webpack_require__(61);
+__webpack_require__(9180);
 
 var Toolbar = function () {
     function Toolbar() {
@@ -12695,2685 +15647,6 @@ $(function () {
     // TODO: Make this customizable
     bar.appendTo($("body"));
 });
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(4)))
-
-/***/ }),
-/* 23 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ref_6_1_node_modules_postcss_loader_dist_cjs_js_ref_6_2_node_modules_less_loader_dist_cjs_js_tota11y_less__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9);
-
-            
-
-var options = {};
-
-options.insert = "head";
-options.singleton = false;
-
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ref_6_1_node_modules_postcss_loader_dist_cjs_js_ref_6_2_node_modules_less_loader_dist_cjs_js_tota11y_less__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"], options);
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = (_node_modules_css_loader_dist_cjs_js_ref_6_1_node_modules_postcss_loader_dist_cjs_js_ref_6_2_node_modules_less_loader_dist_cjs_js_tota11y_less__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"].locals || {});
-
-/***/ }),
-/* 24 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * An index of plugins.
- *
- * Exposes an array of plugin instances.
- */
-
-var AltTextPlugin = __webpack_require__(25);
-var ContrastPlugin = __webpack_require__(47);
-var HeadingsPlugin = __webpack_require__(51);
-var LabelsPlugin = __webpack_require__(54);
-var LandmarksPlugin = __webpack_require__(56);
-var LinkTextPlugin = __webpack_require__(57);
-var A11yTextWand = __webpack_require__(58);
-
-module.exports = {
-    default: [new HeadingsPlugin(), new ContrastPlugin(), new LinkTextPlugin(), new LabelsPlugin(), new AltTextPlugin(), new LandmarksPlugin()],
-
-    experimental: [new A11yTextWand()]
-};
-
-/***/ }),
-/* 25 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(buildElement) {
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-/**
- * A plugin to check for valid alternative representations for images
- */
-
-var $ = __webpack_require__(2);
-var Plugin = __webpack_require__(5);
-var annotate = __webpack_require__(6)("alt-text");
-var audit = __webpack_require__(21);
-
-var AltTextPlugin = function (_Plugin) {
-    _inherits(AltTextPlugin, _Plugin);
-
-    function AltTextPlugin() {
-        _classCallCheck(this, AltTextPlugin);
-
-        return _possibleConstructorReturn(this, (AltTextPlugin.__proto__ || Object.getPrototypeOf(AltTextPlugin)).apply(this, arguments));
-    }
-
-    _createClass(AltTextPlugin, [{
-        key: "getTitle",
-        value: function getTitle() {
-            return "Tekst alt obrazów";
-        }
-    }, {
-        key: "getDescription",
-        value: function getDescription() {
-            return "Odnotowuje obrazy bez tekstu alternatywnego";
-        }
-    }, {
-        key: "reportError",
-        value: function reportError(el) {
-            var $el = $(el);
-            var src = $el.attr("src") || "..";
-            var title = "Obraz nie ma tekstu alt";
-            var $error = buildElement(
-                "div",
-                null,
-                buildElement(
-                    "p",
-                    null,
-                    "Ten obraz nie ma przypisanego atrybutu \"alt\". Przypisz teks atrybutu alt do tego obraz w taki spos\xF3b:"
-                ),
-                buildElement(
-                    "pre",
-                    null,
-                    buildElement(
-                        "code",
-                        null,
-                        "&lt;img src=\"" + src + "\" alt=\"Opis obrazu\"&gt"
-                    )
-                ),
-                buildElement(
-                    "p",
-                    null,
-                    "Je\u015Bli obraz jest dekoracyjny i nie wnosi \u017Cadnych istotnych informacji do ilustrowanego tekstu, mo\u017Cesz pozostawi\u0107 atrybut \"alt\" pusty lub doda\u0107 mu atrybut \"role\" z warto\u015Bci\u0105 \"presentation.\""
-                ),
-                buildElement(
-                    "pre",
-                    null,
-                    buildElement(
-                        "code",
-                        null,
-                        "&lt;img src=\"" + src + "\" alt=\"\"&gt;",
-                        buildElement("br", null),
-                        "&lt;img src=\"" + src + "\" role=\"presentation\"&gt;"
-                    )
-                )
-            );
-
-            // Place an error label on the element and register it as an
-            // error in the info panel
-            var entry = this.error(title, $error, $el);
-            annotate.errorLabel($el, "", title, entry);
-        }
-    }, {
-        key: "run",
-        value: function run() {
-            // Generate errors for any images that fail the Accessibility
-            // Developer Tools audit
-            var _audit = audit("imagesWithoutAltText"),
-                result = _audit.result,
-                elements = _audit.elements;
-
-            if (result === "FAIL") {
-                elements.forEach(this.reportError.bind(this));
-            }
-
-            // Additionally, label presentational images
-            $("img[role=\"presentation\"], img[alt=\"\"]").each(function (i, el) {
-                // "Error" labels have a warning icon and expanded text on hover,
-                // but we add a special `warning` class to color it differently.
-                annotate.errorLabel($(el), "", "To jest obraz dekoracyjny").addClass("tota11y-label-warning");
-            });
-        }
-    }, {
-        key: "cleanup",
-        value: function cleanup() {
-            annotate.removeAll();
-        }
-    }]);
-
-    return AltTextPlugin;
-}(Plugin);
-
-module.exports = AltTextPlugin;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(4)))
-
-/***/ }),
-/* 26 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(buildElement) {
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-/**
- * The following code defines an information panel that can be invoked from
- * any plugin to display summaries, errors, or more information about what
- * the plugin is doing.
- *
- * These panels are moveable and closeable, and are unique to the plugin that
- * created them. They appear in the bottom right corner of the viewport.
- *
- * Info panels consist of a title and three optional sections, which form
- * tabs that users can switch between.
- *
- *   Summary: A summary of the plugin's results
- *   Errors: A list of violations reported by this plugin. The tab marker also
- *           contains the number of errors listed
- */
-
-var $ = __webpack_require__(2);
-var annotate = __webpack_require__(6)("info-panel");
-
-var errorTemplate = __webpack_require__(44);
-__webpack_require__(45);
-
-var INITIAL_PANEL_MARGIN_PX = 10;
-var COLLAPSED_CLASS_NAME = "tota11y-collapsed";
-var HIDDEN_CLASS_NAME = "tota11y-info-hidden";
-
-var InfoPanel = function () {
-    function InfoPanel(plugin) {
-        _classCallCheck(this, InfoPanel);
-
-        this.plugin = plugin;
-
-        this.about = null;
-        this.summary = null;
-        this.errors = [];
-
-        this.$el = null;
-    }
-
-    /**
-     * Sets the contents of the about section as HTML
-     */
-
-
-    _createClass(InfoPanel, [{
-        key: "setAbout",
-        value: function setAbout(about) {
-            this.about = about;
-        }
-
-        /**
-         * Sets the contents of the summary section as HTML
-         */
-
-    }, {
-        key: "setSummary",
-        value: function setSummary(summary) {
-            this.summary = summary;
-        }
-
-        /**
-         * Adds an error to the errors tab. Also receives a jQuery element to
-         * highlight on hover.
-         */
-
-    }, {
-        key: "addError",
-        value: function addError(title, $description, $el) {
-            var error = { title: title, $description: $description, $el: $el };
-            this.errors.push(error);
-            return error;
-        }
-    }, {
-        key: "_addTab",
-        value: function _addTab(title, html) {
-            var _this = this;
-
-            // Create and append a tab marker
-            var $tab = buildElement(
-                "li",
-                { className: "tota11y-info-tab" },
-                buildElement(
-                    "a",
-                    { className: "tota11y-info-tab-anchor", href: "#" },
-                    buildElement(
-                        "span",
-                        { className: "tota11y-info-tab-anchor-text" },
-                        title
-                    )
-                )
-            );
-
-            this.$el.find(".tota11y-info-tabs").append($tab);
-
-            // Create and append the tab content
-            var $section = $("<div>").addClass("tota11y-info-section").html(html);
-            this.$el.find(".tota11y-info-sections").append($section);
-
-            // Register an "activate" event for the tab, which switches the
-            // tab's associated content to be visible, and changes the
-            // appearance of the newly-active tab marker
-            $tab.on("activate", function () {
-                _this.$el.find(".tota11y-info-tab.active").removeClass("active");
-                _this.$el.find(".tota11y-info-section.active").removeClass("active");
-
-                $tab.addClass("active");
-                $section.addClass("active");
-            });
-
-            // Activate the tab when its anchor is clicked
-            $tab.on("click", function (e) {
-                e.preventDefault();
-                e.stopPropagation();
-                $tab.trigger("activate");
-            });
-
-            return $tab;
-        }
-
-        /**
-         * Positions the info panel and sets up event listeners to make the
-         * panel draggable
-         */
-
-    }, {
-        key: "initAndPosition",
-        value: function initAndPosition() {
-            var _this2 = this;
-
-            var panelLeftPx = void 0,
-                panelTopPx = void 0;
-
-            // Wire up the dismiss button
-            this.$el.find(".tota11y-info-dismiss-trigger").click(function (e) {
-                e.preventDefault();
-                e.stopPropagation();
-                _this2.$el.addClass(HIDDEN_CLASS_NAME);
-
-                // (a11y) Bring the focus back to the plugin's checkbox
-                _this2.plugin.$checkbox.focus();
-            });
-
-            // Append the info panel to the body. In reality we'll likely want
-            // it directly adjacent to the toolbar.
-            $("body").append(this.$el);
-
-            // Position info panel on the bottom right of the window
-            panelLeftPx = window.innerWidth - this.$el.width() - INITIAL_PANEL_MARGIN_PX;
-            panelTopPx = window.innerHeight - this.$el.height() - INITIAL_PANEL_MARGIN_PX;
-
-            // Wire up draggable surface
-            var $draggable = this.$el.find(".tota11y-info-title");
-            var isDragging = false;
-
-            // Variables for the starting positions of the mouse and panel
-            var initMouseX = void 0,
-                initMouseY = void 0;
-            var initPanelLeft = void 0,
-                initPanelTop = void 0;
-
-            $draggable.on("mousedown", function (e) {
-                e.preventDefault();
-
-                // Start dragging, and record initial mouse and panel
-                // positions
-                isDragging = true;
-
-                initMouseX = e.pageX;
-                initMouseY = e.pageY;
-
-                initPanelLeft = panelLeftPx;
-                initPanelTop = panelTopPx;
-            }).on("mouseup", function (e) {
-                e.preventDefault();
-                isDragging = false;
-            });
-
-            $(window).on("mousemove", function (e) {
-                if (!isDragging) {
-                    return;
-                }
-                e.preventDefault();
-
-                var deltaX = e.pageX - initMouseX;
-                var deltaY = e.pageY - initMouseY;
-
-                panelLeftPx = initPanelLeft + deltaX;
-                panelTopPx = initPanelTop + deltaY;
-
-                _this2.$el.css({
-                    left: panelLeftPx,
-                    top: panelTopPx
-                });
-            });
-
-            this.$el.css({
-                left: panelLeftPx,
-                top: panelTopPx
-            });
-        }
-    }, {
-        key: "render",
-        value: function render() {
-            var _this3 = this;
-
-            // Destroy the existing info panel to prevent double-renders
-            if (this.$el) {
-                this.$el.remove();
-            }
-
-            var hasContent = false;
-
-            this.$el = buildElement(
-                "div",
-                { className: "tota11y tota11y-info", tabindex: "-1" },
-                buildElement(
-                    "header",
-                    { className: "tota11y-info-title" },
-                    this.plugin.getTitle(),
-                    buildElement(
-                        "span",
-                        { className: "tota11y-info-controls" },
-                        buildElement(
-                            "label",
-                            { className: "tota11y-info-annotation-toggle" },
-                            "Adnotacja:",
-                            " ",
-                            buildElement("input", {
-                                className: "toggle-annotation",
-                                type: "checkbox",
-                                checked: "checked" })
-                        ),
-                        buildElement(
-                            "a",
-                            { "aria-label": "Zamknij panel informacyjny",
-                                href: "#",
-                                className: "tota11y-info-dismiss-trigger" },
-                            "\xD7"
-                        )
-                    )
-                ),
-                buildElement(
-                    "div",
-                    { className: "tota11y-info-body" },
-                    buildElement("div", { className: "tota11y-info-sections" }),
-                    buildElement("ul", { role: "tablist", className: "tota11y-info-tabs" })
-                )
-            );
-
-            // Add the appropriate tabs based on which information the info panel
-            // was provided, then highlight the most important one.
-            var $activeTab = void 0;
-            if (this.about) {
-                $activeTab = this._addTab("O...", this.about);
-            }
-
-            if (this.summary) {
-                $activeTab = this._addTab("Podsumowanie", this.summary);
-            }
-
-            // Wire annotation toggling
-            this.$el.find(".toggle-annotation").click(function (e) {
-                if ($(e.target).prop("checked")) {
-                    annotate.show();
-                } else {
-                    annotate.hide();
-                }
-            });
-
-            if (this.errors.length > 0) {
-                var $errors = $("<ul>").addClass("tota11y-info-errors");
-
-                // Store a reference to the "Errors" tab so we can switch to it
-                // later
-                var $errorsTab = void 0;
-
-                this.errors.forEach(function (error, i) {
-                    var $error = $(errorTemplate(error));
-
-                    // Insert description jQuery object into template.
-                    // Description is passed as jQuery object
-                    // so that functionality can be inserted.
-                    $error.find(".tota11y-info-error-description").prepend(error.$description);
-
-                    $errors.append($error);
-
-                    // Wire up the expand/collapse trigger
-                    var $trigger = $error.find(".tota11y-info-error-trigger");
-                    var $desc = $error.find(".tota11y-info-error-description");
-
-                    $trigger.click(function (e) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        $trigger.toggleClass(COLLAPSED_CLASS_NAME);
-                        $desc.toggleClass(COLLAPSED_CLASS_NAME);
-                    });
-
-                    // Attach a function to the original error object to open
-                    // this error so it can be done externally. We'll use this to
-                    // access error entries in the info panel from labels.
-                    error.show = function () {
-                        // Make sure info panel is visible
-                        _this3.$el.removeClass(HIDDEN_CLASS_NAME);
-
-                        // Open the error entry
-                        $trigger.removeClass(COLLAPSED_CLASS_NAME);
-                        $desc.removeClass(COLLAPSED_CLASS_NAME);
-
-                        // Switch to the "Errors" tab
-                        $errorsTab.trigger("activate");
-
-                        // Scroll to the error entry
-                        var $scrollParent = $trigger.parents(".tota11y-info-section");
-                        $scrollParent[0].scrollTop = $trigger[0].offsetTop - 10;
-                    };
-
-                    // Attach the `$trigger` as well so can access it externally.
-                    // We use this to highlight the trigger when hovering over
-                    // inline error labels.
-                    error.$trigger = $trigger;
-
-                    // Wire up the scroll-to-error button
-                    var $scroll = $error.find(".tota11y-info-error-scroll");
-                    $scroll.click(function (e) {
-                        e.preventDefault();
-                        e.stopPropagation();
-
-                        // TODO: This attempts to scroll to fixed elements
-                        $(document).scrollTop(error.$el.offset().top - 80);
-                    });
-
-                    // Expand the first violation
-                    if (i === 0) {
-                        $desc.toggleClass(COLLAPSED_CLASS_NAME);
-                        $trigger.toggleClass(COLLAPSED_CLASS_NAME);
-                    }
-
-                    // Highlight the violating element on hover/focus. We do it
-                    // for both $trigger and $scroll to allow users to see the
-                    // highlight when scrolling to the element with the button.
-                    annotate.toggleHighlight(error.$el, $trigger);
-                    annotate.toggleHighlight(error.$el, $scroll);
-
-                    // Add code from error.$el to the information panel
-                    var errorHTML = error.$el[0].outerHTML;
-
-                    // Trim the code block if it is over 300 characters
-                    if (errorHTML.length > 300) {
-                        errorHTML = errorHTML.substring(0, 300) + "...";
-                    }
-
-                    var $relevantCode = $error.find(".tota11y-info-error-description-code-container code");
-                    $relevantCode.text(errorHTML);
-                });
-
-                $errorsTab = $activeTab = this._addTab("Błędy", $errors);
-
-                // Add a small badge next to the tab title
-                var $badge = $("<div>").addClass("tota11y-info-error-count").text(this.errors.length);
-
-                $activeTab.find(".tota11y-info-tab-anchor").append($badge);
-            }
-
-            if ($activeTab) {
-                $activeTab.trigger("activate");
-                // hasContent is technically coupled to $activeTab, since if there
-                // is no $activeTab then there is no content. This behavior may
-                // change in the future.
-                hasContent = true;
-            }
-
-            if (hasContent) {
-                this.initAndPosition();
-            }
-
-            // (a11y) Shift focus to the newly-opened info panel
-            this.$el.focus();
-
-            return this.$el;
-        }
-    }, {
-        key: "destroy",
-        value: function destroy() {
-            // Reset contents
-            this.about = null;
-            this.summary = null;
-            this.errors = [];
-
-            // Remove the element
-            if (this.$el) {
-                this.$el.remove();
-                this.$el = null;
-            }
-
-            // Remove the annotations
-            annotate.removeAll();
-        }
-    }]);
-
-    return InfoPanel;
 }();
-
-module.exports = InfoPanel;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(4)))
-
-/***/ }),
-/* 27 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Handlebars = __webpack_require__(7);
-function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
-module.exports = (Handlebars["default"] || Handlebars).template({"1":function(container,depth0,helpers,partials,data) {
-    return "        <div class=\"tota11y-label-help\">\n            (<a class=\"tota11y-label-link\" href=\"#\">?</a>)\n        </div>\n";
-},"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
-    var stack1, helper, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.hooks.helperMissing, alias3="function", lookupProperty = container.lookupProperty || function(parent, propertyName) {
-        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
-          return parent[propertyName];
-        }
-        return undefined
-    };
-
-  return "<span class=\"tota11y-label-error-icon\">\n    <!--\n        \"Warning\" icon by Lorena Salagre\n        https://thenounproject.com/lorens/\n\n        Licensed under Creative Commons by 3.0 US\n        http://creativecommons.org/licenses/by/3.0/us/legalcode\n    -->\n    <svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"1.1\" id=\"Capa_1\" x=\"0px\" y=\"0px\" width=\"100%\" height=\"100%\" viewBox=\"0 0 100 100\" enable-background=\"new 0 0 100 100\" xml:space=\"preserve\">\n        <path d=\"M80.515,90.781H19.485c-6.145,0-10.779-2.168-13.052-6.103c-2.273-3.938-1.832-9.036,1.24-14.356l30.515-52.851  c3.07-5.321,7.266-8.251,11.811-8.251s8.741,2.93,11.811,8.251l30.515,52.851c3.072,5.32,3.513,10.418,1.24,14.356  C91.293,88.613,86.659,90.781,80.515,90.781z M50,12.384c-3.367,0-6.59,2.369-9.071,6.669L10.415,71.904  c-2.483,4.3-2.924,8.275-1.24,11.191c1.683,2.916,5.345,4.521,10.311,4.521h61.029c4.966,0,8.628-1.605,10.311-4.521  c1.683-2.916,1.243-6.89-1.24-11.191L59.071,19.053C56.59,14.753,53.367,12.384,50,12.384z M56.227,72.18  c0-3.172-2.572-5.744-5.744-5.744s-5.744,2.572-5.744,5.744c0,3.172,2.572,5.744,5.744,5.744S56.227,75.352,56.227,72.18z   M56.382,37.613c0-3.257-2.641-5.898-5.898-5.898c-3.257,0-5.898,2.641-5.898,5.898l1.393,20.932h0.019  c0.202,2.312,2.121,4.132,4.486,4.132c2.187,0,4.012-1.551,4.434-3.613c0.034-0.167,0.037-0.345,0.052-0.518h0.04L56.382,37.613z\"/>\n    </svg>\n</span>\n\n<span class=\"tota11y-label-content\">\n    <div class=\"tota11y-label-text\">"
-    + ((stack1 = ((helper = (helper = lookupProperty(helpers,"text") || (depth0 != null ? lookupProperty(depth0,"text") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"text","hash":{},"data":data,"loc":{"start":{"line":15,"column":36},"end":{"line":15,"column":46}}}) : helper))) != null ? stack1 : "")
-    + "</div>\n"
-    + ((stack1 = lookupProperty(helpers,"if").call(alias1,(depth0 != null ? lookupProperty(depth0,"hasErrorEntry") : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":16,"column":4},"end":{"line":20,"column":11}}})) != null ? stack1 : "")
-    + "    <div class=\"tota11y-label-detail\">"
-    + ((stack1 = ((helper = (helper = lookupProperty(helpers,"detail") || (depth0 != null ? lookupProperty(depth0,"detail") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"detail","hash":{},"data":data,"loc":{"start":{"line":21,"column":38},"end":{"line":21,"column":50}}}) : helper))) != null ? stack1 : "")
-    + "</div>\n</span>\n";
-},"useData":true});
-
-/***/ }),
-/* 28 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-// istanbul ignore next
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-// istanbul ignore next
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
-
-var _handlebarsBase = __webpack_require__(16);
-
-var base = _interopRequireWildcard(_handlebarsBase);
-
-// Each of these augment the Handlebars object. No need to setup here.
-// (This is done to easily share code between commonjs and browse envs)
-
-var _handlebarsSafeString = __webpack_require__(39);
-
-var _handlebarsSafeString2 = _interopRequireDefault(_handlebarsSafeString);
-
-var _handlebarsException = __webpack_require__(8);
-
-var _handlebarsException2 = _interopRequireDefault(_handlebarsException);
-
-var _handlebarsUtils = __webpack_require__(3);
-
-var Utils = _interopRequireWildcard(_handlebarsUtils);
-
-var _handlebarsRuntime = __webpack_require__(40);
-
-var runtime = _interopRequireWildcard(_handlebarsRuntime);
-
-var _handlebarsNoConflict = __webpack_require__(42);
-
-var _handlebarsNoConflict2 = _interopRequireDefault(_handlebarsNoConflict);
-
-// For compatibility and usage outside of module systems, make the Handlebars object a namespace
-function create() {
-  var hb = new base.HandlebarsEnvironment();
-
-  Utils.extend(hb, base);
-  hb.SafeString = _handlebarsSafeString2['default'];
-  hb.Exception = _handlebarsException2['default'];
-  hb.Utils = Utils;
-  hb.escapeExpression = Utils.escapeExpression;
-
-  hb.VM = runtime;
-  hb.template = function (spec) {
-    return runtime.template(spec, hb);
-  };
-
-  return hb;
-}
-
-var inst = create();
-inst.create = create;
-
-_handlebarsNoConflict2['default'](inst);
-
-inst['default'] = inst;
-
-exports['default'] = inst;
-module.exports = exports['default'];
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL2xpYi9oYW5kbGViYXJzLnJ1bnRpbWUuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7OEJBQXNCLG1CQUFtQjs7SUFBN0IsSUFBSTs7Ozs7b0NBSU8sMEJBQTBCOzs7O21DQUMzQix3QkFBd0I7Ozs7K0JBQ3ZCLG9CQUFvQjs7SUFBL0IsS0FBSzs7aUNBQ1Esc0JBQXNCOztJQUFuQyxPQUFPOztvQ0FFSSwwQkFBMEI7Ozs7O0FBR2pELFNBQVMsTUFBTSxHQUFHO0FBQ2hCLE1BQUksRUFBRSxHQUFHLElBQUksSUFBSSxDQUFDLHFCQUFxQixFQUFFLENBQUM7O0FBRTFDLE9BQUssQ0FBQyxNQUFNLENBQUMsRUFBRSxFQUFFLElBQUksQ0FBQyxDQUFDO0FBQ3ZCLElBQUUsQ0FBQyxVQUFVLG9DQUFhLENBQUM7QUFDM0IsSUFBRSxDQUFDLFNBQVMsbUNBQVksQ0FBQztBQUN6QixJQUFFLENBQUMsS0FBSyxHQUFHLEtBQUssQ0FBQztBQUNqQixJQUFFLENBQUMsZ0JBQWdCLEdBQUcsS0FBSyxDQUFDLGdCQUFnQixDQUFDOztBQUU3QyxJQUFFLENBQUMsRUFBRSxHQUFHLE9BQU8sQ0FBQztBQUNoQixJQUFFLENBQUMsUUFBUSxHQUFHLFVBQVMsSUFBSSxFQUFFO0FBQzNCLFdBQU8sT0FBTyxDQUFDLFFBQVEsQ0FBQyxJQUFJLEVBQUUsRUFBRSxDQUFDLENBQUM7R0FDbkMsQ0FBQzs7QUFFRixTQUFPLEVBQUUsQ0FBQztDQUNYOztBQUVELElBQUksSUFBSSxHQUFHLE1BQU0sRUFBRSxDQUFDO0FBQ3BCLElBQUksQ0FBQyxNQUFNLEdBQUcsTUFBTSxDQUFDOztBQUVyQixrQ0FBVyxJQUFJLENBQUMsQ0FBQzs7QUFFakIsSUFBSSxDQUFDLFNBQVMsQ0FBQyxHQUFHLElBQUksQ0FBQzs7cUJBRVIsSUFBSSIsImZpbGUiOiJoYW5kbGViYXJzLnJ1bnRpbWUuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgKiBhcyBiYXNlIGZyb20gJy4vaGFuZGxlYmFycy9iYXNlJztcblxuLy8gRWFjaCBvZiB0aGVzZSBhdWdtZW50IHRoZSBIYW5kbGViYXJzIG9iamVjdC4gTm8gbmVlZCB0byBzZXR1cCBoZXJlLlxuLy8gKFRoaXMgaXMgZG9uZSB0byBlYXNpbHkgc2hhcmUgY29kZSBiZXR3ZWVuIGNvbW1vbmpzIGFuZCBicm93c2UgZW52cylcbmltcG9ydCBTYWZlU3RyaW5nIGZyb20gJy4vaGFuZGxlYmFycy9zYWZlLXN0cmluZyc7XG5pbXBvcnQgRXhjZXB0aW9uIGZyb20gJy4vaGFuZGxlYmFycy9leGNlcHRpb24nO1xuaW1wb3J0ICogYXMgVXRpbHMgZnJvbSAnLi9oYW5kbGViYXJzL3V0aWxzJztcbmltcG9ydCAqIGFzIHJ1bnRpbWUgZnJvbSAnLi9oYW5kbGViYXJzL3J1bnRpbWUnO1xuXG5pbXBvcnQgbm9Db25mbGljdCBmcm9tICcuL2hhbmRsZWJhcnMvbm8tY29uZmxpY3QnO1xuXG4vLyBGb3IgY29tcGF0aWJpbGl0eSBhbmQgdXNhZ2Ugb3V0c2lkZSBvZiBtb2R1bGUgc3lzdGVtcywgbWFrZSB0aGUgSGFuZGxlYmFycyBvYmplY3QgYSBuYW1lc3BhY2VcbmZ1bmN0aW9uIGNyZWF0ZSgpIHtcbiAgbGV0IGhiID0gbmV3IGJhc2UuSGFuZGxlYmFyc0Vudmlyb25tZW50KCk7XG5cbiAgVXRpbHMuZXh0ZW5kKGhiLCBiYXNlKTtcbiAgaGIuU2FmZVN0cmluZyA9IFNhZmVTdHJpbmc7XG4gIGhiLkV4Y2VwdGlvbiA9IEV4Y2VwdGlvbjtcbiAgaGIuVXRpbHMgPSBVdGlscztcbiAgaGIuZXNjYXBlRXhwcmVzc2lvbiA9IFV0aWxzLmVzY2FwZUV4cHJlc3Npb247XG5cbiAgaGIuVk0gPSBydW50aW1lO1xuICBoYi50ZW1wbGF0ZSA9IGZ1bmN0aW9uKHNwZWMpIHtcbiAgICByZXR1cm4gcnVudGltZS50ZW1wbGF0ZShzcGVjLCBoYik7XG4gIH07XG5cbiAgcmV0dXJuIGhiO1xufVxuXG5sZXQgaW5zdCA9IGNyZWF0ZSgpO1xuaW5zdC5jcmVhdGUgPSBjcmVhdGU7XG5cbm5vQ29uZmxpY3QoaW5zdCk7XG5cbmluc3RbJ2RlZmF1bHQnXSA9IGluc3Q7XG5cbmV4cG9ydCBkZWZhdWx0IGluc3Q7XG4iXX0=
-
-
-/***/ }),
-/* 29 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-var _utils = __webpack_require__(3);
-
-exports['default'] = function (instance) {
-  instance.registerHelper('blockHelperMissing', function (context, options) {
-    var inverse = options.inverse,
-        fn = options.fn;
-
-    if (context === true) {
-      return fn(this);
-    } else if (context === false || context == null) {
-      return inverse(this);
-    } else if (_utils.isArray(context)) {
-      if (context.length > 0) {
-        if (options.ids) {
-          options.ids = [options.name];
-        }
-
-        return instance.helpers.each(context, options);
-      } else {
-        return inverse(this);
-      }
-    } else {
-      if (options.data && options.ids) {
-        var data = _utils.createFrame(options.data);
-        data.contextPath = _utils.appendContextPath(options.data.contextPath, options.name);
-        options = { data: data };
-      }
-
-      return fn(context, options);
-    }
-  });
-};
-
-module.exports = exports['default'];
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL2xpYi9oYW5kbGViYXJzL2hlbHBlcnMvYmxvY2staGVscGVyLW1pc3NpbmcuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7OztxQkFBd0QsVUFBVTs7cUJBRW5ELFVBQVMsUUFBUSxFQUFFO0FBQ2hDLFVBQVEsQ0FBQyxjQUFjLENBQUMsb0JBQW9CLEVBQUUsVUFBUyxPQUFPLEVBQUUsT0FBTyxFQUFFO0FBQ3ZFLFFBQUksT0FBTyxHQUFHLE9BQU8sQ0FBQyxPQUFPO1FBQzNCLEVBQUUsR0FBRyxPQUFPLENBQUMsRUFBRSxDQUFDOztBQUVsQixRQUFJLE9BQU8sS0FBSyxJQUFJLEVBQUU7QUFDcEIsYUFBTyxFQUFFLENBQUMsSUFBSSxDQUFDLENBQUM7S0FDakIsTUFBTSxJQUFJLE9BQU8sS0FBSyxLQUFLLElBQUksT0FBTyxJQUFJLElBQUksRUFBRTtBQUMvQyxhQUFPLE9BQU8sQ0FBQyxJQUFJLENBQUMsQ0FBQztLQUN0QixNQUFNLElBQUksZUFBUSxPQUFPLENBQUMsRUFBRTtBQUMzQixVQUFJLE9BQU8sQ0FBQyxNQUFNLEdBQUcsQ0FBQyxFQUFFO0FBQ3RCLFlBQUksT0FBTyxDQUFDLEdBQUcsRUFBRTtBQUNmLGlCQUFPLENBQUMsR0FBRyxHQUFHLENBQUMsT0FBTyxDQUFDLElBQUksQ0FBQyxDQUFDO1NBQzlCOztBQUVELGVBQU8sUUFBUSxDQUFDLE9BQU8sQ0FBQyxJQUFJLENBQUMsT0FBTyxFQUFFLE9BQU8sQ0FBQyxDQUFDO09BQ2hELE1BQU07QUFDTCxlQUFPLE9BQU8sQ0FBQyxJQUFJLENBQUMsQ0FBQztPQUN0QjtLQUNGLE1BQU07QUFDTCxVQUFJLE9BQU8sQ0FBQyxJQUFJLElBQUksT0FBTyxDQUFDLEdBQUcsRUFBRTtBQUMvQixZQUFJLElBQUksR0FBRyxtQkFBWSxPQUFPLENBQUMsSUFBSSxDQUFDLENBQUM7QUFDckMsWUFBSSxDQUFDLFdBQVcsR0FBRyx5QkFDakIsT0FBTyxDQUFDLElBQUksQ0FBQyxXQUFXLEVBQ3hCLE9BQU8sQ0FBQyxJQUFJLENBQ2IsQ0FBQztBQUNGLGVBQU8sR0FBRyxFQUFFLElBQUksRUFBRSxJQUFJLEVBQUUsQ0FBQztPQUMxQjs7QUFFRCxhQUFPLEVBQUUsQ0FBQyxPQUFPLEVBQUUsT0FBTyxDQUFDLENBQUM7S0FDN0I7R0FDRixDQUFDLENBQUM7Q0FDSiIsImZpbGUiOiJibG9jay1oZWxwZXItbWlzc2luZy5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IGFwcGVuZENvbnRleHRQYXRoLCBjcmVhdGVGcmFtZSwgaXNBcnJheSB9IGZyb20gJy4uL3V0aWxzJztcblxuZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24oaW5zdGFuY2UpIHtcbiAgaW5zdGFuY2UucmVnaXN0ZXJIZWxwZXIoJ2Jsb2NrSGVscGVyTWlzc2luZycsIGZ1bmN0aW9uKGNvbnRleHQsIG9wdGlvbnMpIHtcbiAgICBsZXQgaW52ZXJzZSA9IG9wdGlvbnMuaW52ZXJzZSxcbiAgICAgIGZuID0gb3B0aW9ucy5mbjtcblxuICAgIGlmIChjb250ZXh0ID09PSB0cnVlKSB7XG4gICAgICByZXR1cm4gZm4odGhpcyk7XG4gICAgfSBlbHNlIGlmIChjb250ZXh0ID09PSBmYWxzZSB8fCBjb250ZXh0ID09IG51bGwpIHtcbiAgICAgIHJldHVybiBpbnZlcnNlKHRoaXMpO1xuICAgIH0gZWxzZSBpZiAoaXNBcnJheShjb250ZXh0KSkge1xuICAgICAgaWYgKGNvbnRleHQubGVuZ3RoID4gMCkge1xuICAgICAgICBpZiAob3B0aW9ucy5pZHMpIHtcbiAgICAgICAgICBvcHRpb25zLmlkcyA9IFtvcHRpb25zLm5hbWVdO1xuICAgICAgICB9XG5cbiAgICAgICAgcmV0dXJuIGluc3RhbmNlLmhlbHBlcnMuZWFjaChjb250ZXh0LCBvcHRpb25zKTtcbiAgICAgIH0gZWxzZSB7XG4gICAgICAgIHJldHVybiBpbnZlcnNlKHRoaXMpO1xuICAgICAgfVxuICAgIH0gZWxzZSB7XG4gICAgICBpZiAob3B0aW9ucy5kYXRhICYmIG9wdGlvbnMuaWRzKSB7XG4gICAgICAgIGxldCBkYXRhID0gY3JlYXRlRnJhbWUob3B0aW9ucy5kYXRhKTtcbiAgICAgICAgZGF0YS5jb250ZXh0UGF0aCA9IGFwcGVuZENvbnRleHRQYXRoKFxuICAgICAgICAgIG9wdGlvbnMuZGF0YS5jb250ZXh0UGF0aCxcbiAgICAgICAgICBvcHRpb25zLm5hbWVcbiAgICAgICAgKTtcbiAgICAgICAgb3B0aW9ucyA9IHsgZGF0YTogZGF0YSB9O1xuICAgICAgfVxuXG4gICAgICByZXR1cm4gZm4oY29udGV4dCwgb3B0aW9ucyk7XG4gICAgfVxuICB9KTtcbn1cbiJdfQ==
-
-
-/***/ }),
-/* 30 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(global) {
-
-exports.__esModule = true;
-// istanbul ignore next
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-var _utils = __webpack_require__(3);
-
-var _exception = __webpack_require__(8);
-
-var _exception2 = _interopRequireDefault(_exception);
-
-exports['default'] = function (instance) {
-  instance.registerHelper('each', function (context, options) {
-    if (!options) {
-      throw new _exception2['default']('Must pass iterator to #each');
-    }
-
-    var fn = options.fn,
-        inverse = options.inverse,
-        i = 0,
-        ret = '',
-        data = undefined,
-        contextPath = undefined;
-
-    if (options.data && options.ids) {
-      contextPath = _utils.appendContextPath(options.data.contextPath, options.ids[0]) + '.';
-    }
-
-    if (_utils.isFunction(context)) {
-      context = context.call(this);
-    }
-
-    if (options.data) {
-      data = _utils.createFrame(options.data);
-    }
-
-    function execIteration(field, index, last) {
-      if (data) {
-        data.key = field;
-        data.index = index;
-        data.first = index === 0;
-        data.last = !!last;
-
-        if (contextPath) {
-          data.contextPath = contextPath + field;
-        }
-      }
-
-      ret = ret + fn(context[field], {
-        data: data,
-        blockParams: _utils.blockParams([context[field], field], [contextPath + field, null])
-      });
-    }
-
-    if (context && typeof context === 'object') {
-      if (_utils.isArray(context)) {
-        for (var j = context.length; i < j; i++) {
-          if (i in context) {
-            execIteration(i, i, i === context.length - 1);
-          }
-        }
-      } else if (global.Symbol && context[global.Symbol.iterator]) {
-        var newContext = [];
-        var iterator = context[global.Symbol.iterator]();
-        for (var it = iterator.next(); !it.done; it = iterator.next()) {
-          newContext.push(it.value);
-        }
-        context = newContext;
-        for (var j = context.length; i < j; i++) {
-          execIteration(i, i, i === context.length - 1);
-        }
-      } else {
-        (function () {
-          var priorKey = undefined;
-
-          Object.keys(context).forEach(function (key) {
-            // We're running the iterations one step out of sync so we can detect
-            // the last iteration without have to scan the object twice and create
-            // an itermediate keys array.
-            if (priorKey !== undefined) {
-              execIteration(priorKey, i - 1);
-            }
-            priorKey = key;
-            i++;
-          });
-          if (priorKey !== undefined) {
-            execIteration(priorKey, i - 1, true);
-          }
-        })();
-      }
-    }
-
-    if (i === 0) {
-      ret = inverse(this);
-    }
-
-    return ret;
-  });
-};
-
-module.exports = exports['default'];
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL2xpYi9oYW5kbGViYXJzL2hlbHBlcnMvZWFjaC5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7O3FCQU1PLFVBQVU7O3lCQUNLLGNBQWM7Ozs7cUJBRXJCLFVBQVMsUUFBUSxFQUFFO0FBQ2hDLFVBQVEsQ0FBQyxjQUFjLENBQUMsTUFBTSxFQUFFLFVBQVMsT0FBTyxFQUFFLE9BQU8sRUFBRTtBQUN6RCxRQUFJLENBQUMsT0FBTyxFQUFFO0FBQ1osWUFBTSwyQkFBYyw2QkFBNkIsQ0FBQyxDQUFDO0tBQ3BEOztBQUVELFFBQUksRUFBRSxHQUFHLE9BQU8sQ0FBQyxFQUFFO1FBQ2pCLE9BQU8sR0FBRyxPQUFPLENBQUMsT0FBTztRQUN6QixDQUFDLEdBQUcsQ0FBQztRQUNMLEdBQUcsR0FBRyxFQUFFO1FBQ1IsSUFBSSxZQUFBO1FBQ0osV0FBVyxZQUFBLENBQUM7O0FBRWQsUUFBSSxPQUFPLENBQUMsSUFBSSxJQUFJLE9BQU8sQ0FBQyxHQUFHLEVBQUU7QUFDL0IsaUJBQVcsR0FDVCx5QkFBa0IsT0FBTyxDQUFDLElBQUksQ0FBQyxXQUFXLEVBQUUsT0FBTyxDQUFDLEdBQUcsQ0FBQyxDQUFDLENBQUMsQ0FBQyxHQUFHLEdBQUcsQ0FBQztLQUNyRTs7QUFFRCxRQUFJLGtCQUFXLE9BQU8sQ0FBQyxFQUFFO0FBQ3ZCLGFBQU8sR0FBRyxPQUFPLENBQUMsSUFBSSxDQUFDLElBQUksQ0FBQyxDQUFDO0tBQzlCOztBQUVELFFBQUksT0FBTyxDQUFDLElBQUksRUFBRTtBQUNoQixVQUFJLEdBQUcsbUJBQVksT0FBTyxDQUFDLElBQUksQ0FBQyxDQUFDO0tBQ2xDOztBQUVELGFBQVMsYUFBYSxDQUFDLEtBQUssRUFBRSxLQUFLLEVBQUUsSUFBSSxFQUFFO0FBQ3pDLFVBQUksSUFBSSxFQUFFO0FBQ1IsWUFBSSxDQUFDLEdBQUcsR0FBRyxLQUFLLENBQUM7QUFDakIsWUFBSSxDQUFDLEtBQUssR0FBRyxLQUFLLENBQUM7QUFDbkIsWUFBSSxDQUFDLEtBQUssR0FBRyxLQUFLLEtBQUssQ0FBQyxDQUFDO0FBQ3pCLFlBQUksQ0FBQyxJQUFJLEdBQUcsQ0FBQyxDQUFDLElBQUksQ0FBQzs7QUFFbkIsWUFBSSxXQUFXLEVBQUU7QUFDZixjQUFJLENBQUMsV0FBVyxHQUFHLFdBQVcsR0FBRyxLQUFLLENBQUM7U0FDeEM7T0FDRjs7QUFFRCxTQUFHLEdBQ0QsR0FBRyxHQUNILEVBQUUsQ0FBQyxPQUFPLENBQUMsS0FBSyxDQUFDLEVBQUU7QUFDakIsWUFBSSxFQUFFLElBQUk7QUFDVixtQkFBVyxFQUFFLG1CQUNYLENBQUMsT0FBTyxDQUFDLEtBQUssQ0FBQyxFQUFFLEtBQUssQ0FBQyxFQUN2QixDQUFDLFdBQVcsR0FBRyxLQUFLLEVBQUUsSUFBSSxDQUFDLENBQzVCO09BQ0YsQ0FBQyxDQUFDO0tBQ047O0FBRUQsUUFBSSxPQUFPLElBQUksT0FBTyxPQUFPLEtBQUssUUFBUSxFQUFFO0FBQzFDLFVBQUksZUFBUSxPQUFPLENBQUMsRUFBRTtBQUNwQixhQUFLLElBQUksQ0FBQyxHQUFHLE9BQU8sQ0FBQyxNQUFNLEVBQUUsQ0FBQyxHQUFHLENBQUMsRUFBRSxDQUFDLEVBQUUsRUFBRTtBQUN2QyxjQUFJLENBQUMsSUFBSSxPQUFPLEVBQUU7QUFDaEIseUJBQWEsQ0FBQyxDQUFDLEVBQUUsQ0FBQyxFQUFFLENBQUMsS0FBSyxPQUFPLENBQUMsTUFBTSxHQUFHLENBQUMsQ0FBQyxDQUFDO1dBQy9DO1NBQ0Y7T0FDRixNQUFNLElBQUksTUFBTSxDQUFDLE1BQU0sSUFBSSxPQUFPLENBQUMsTUFBTSxDQUFDLE1BQU0sQ0FBQyxRQUFRLENBQUMsRUFBRTtBQUMzRCxZQUFNLFVBQVUsR0FBRyxFQUFFLENBQUM7QUFDdEIsWUFBTSxRQUFRLEdBQUcsT0FBTyxDQUFDLE1BQU0sQ0FBQyxNQUFNLENBQUMsUUFBUSxDQUFDLEVBQUUsQ0FBQztBQUNuRCxhQUFLLElBQUksRUFBRSxHQUFHLFFBQVEsQ0FBQyxJQUFJLEVBQUUsRUFBRSxDQUFDLEVBQUUsQ0FBQyxJQUFJLEVBQUUsRUFBRSxHQUFHLFFBQVEsQ0FBQyxJQUFJLEVBQUUsRUFBRTtBQUM3RCxvQkFBVSxDQUFDLElBQUksQ0FBQyxFQUFFLENBQUMsS0FBSyxDQUFDLENBQUM7U0FDM0I7QUFDRCxlQUFPLEdBQUcsVUFBVSxDQUFDO0FBQ3JCLGFBQUssSUFBSSxDQUFDLEdBQUcsT0FBTyxDQUFDLE1BQU0sRUFBRSxDQUFDLEdBQUcsQ0FBQyxFQUFFLENBQUMsRUFBRSxFQUFFO0FBQ3ZDLHVCQUFhLENBQUMsQ0FBQyxFQUFFLENBQUMsRUFBRSxDQUFDLEtBQUssT0FBTyxDQUFDLE1BQU0sR0FBRyxDQUFDLENBQUMsQ0FBQztTQUMvQztPQUNGLE1BQU07O0FBQ0wsY0FBSSxRQUFRLFlBQUEsQ0FBQzs7QUFFYixnQkFBTSxDQUFDLElBQUksQ0FBQyxPQUFPLENBQUMsQ0FBQyxPQUFPLENBQUMsVUFBQSxHQUFHLEVBQUk7Ozs7QUFJbEMsZ0JBQUksUUFBUSxLQUFLLFNBQVMsRUFBRTtBQUMxQiwyQkFBYSxDQUFDLFFBQVEsRUFBRSxDQUFDLEdBQUcsQ0FBQyxDQUFDLENBQUM7YUFDaEM7QUFDRCxvQkFBUSxHQUFHLEdBQUcsQ0FBQztBQUNmLGFBQUMsRUFBRSxDQUFDO1dBQ0wsQ0FBQyxDQUFDO0FBQ0gsY0FBSSxRQUFRLEtBQUssU0FBUyxFQUFFO0FBQzFCLHlCQUFhLENBQUMsUUFBUSxFQUFFLENBQUMsR0FBRyxDQUFDLEVBQUUsSUFBSSxDQUFDLENBQUM7V0FDdEM7O09BQ0Y7S0FDRjs7QUFFRCxRQUFJLENBQUMsS0FBSyxDQUFDLEVBQUU7QUFDWCxTQUFHLEdBQUcsT0FBTyxDQUFDLElBQUksQ0FBQyxDQUFDO0tBQ3JCOztBQUVELFdBQU8sR0FBRyxDQUFDO0dBQ1osQ0FBQyxDQUFDO0NBQ0oiLCJmaWxlIjoiZWFjaC5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7XG4gIGFwcGVuZENvbnRleHRQYXRoLFxuICBibG9ja1BhcmFtcyxcbiAgY3JlYXRlRnJhbWUsXG4gIGlzQXJyYXksXG4gIGlzRnVuY3Rpb25cbn0gZnJvbSAnLi4vdXRpbHMnO1xuaW1wb3J0IEV4Y2VwdGlvbiBmcm9tICcuLi9leGNlcHRpb24nO1xuXG5leHBvcnQgZGVmYXVsdCBmdW5jdGlvbihpbnN0YW5jZSkge1xuICBpbnN0YW5jZS5yZWdpc3RlckhlbHBlcignZWFjaCcsIGZ1bmN0aW9uKGNvbnRleHQsIG9wdGlvbnMpIHtcbiAgICBpZiAoIW9wdGlvbnMpIHtcbiAgICAgIHRocm93IG5ldyBFeGNlcHRpb24oJ011c3QgcGFzcyBpdGVyYXRvciB0byAjZWFjaCcpO1xuICAgIH1cblxuICAgIGxldCBmbiA9IG9wdGlvbnMuZm4sXG4gICAgICBpbnZlcnNlID0gb3B0aW9ucy5pbnZlcnNlLFxuICAgICAgaSA9IDAsXG4gICAgICByZXQgPSAnJyxcbiAgICAgIGRhdGEsXG4gICAgICBjb250ZXh0UGF0aDtcblxuICAgIGlmIChvcHRpb25zLmRhdGEgJiYgb3B0aW9ucy5pZHMpIHtcbiAgICAgIGNvbnRleHRQYXRoID1cbiAgICAgICAgYXBwZW5kQ29udGV4dFBhdGgob3B0aW9ucy5kYXRhLmNvbnRleHRQYXRoLCBvcHRpb25zLmlkc1swXSkgKyAnLic7XG4gICAgfVxuXG4gICAgaWYgKGlzRnVuY3Rpb24oY29udGV4dCkpIHtcbiAgICAgIGNvbnRleHQgPSBjb250ZXh0LmNhbGwodGhpcyk7XG4gICAgfVxuXG4gICAgaWYgKG9wdGlvbnMuZGF0YSkge1xuICAgICAgZGF0YSA9IGNyZWF0ZUZyYW1lKG9wdGlvbnMuZGF0YSk7XG4gICAgfVxuXG4gICAgZnVuY3Rpb24gZXhlY0l0ZXJhdGlvbihmaWVsZCwgaW5kZXgsIGxhc3QpIHtcbiAgICAgIGlmIChkYXRhKSB7XG4gICAgICAgIGRhdGEua2V5ID0gZmllbGQ7XG4gICAgICAgIGRhdGEuaW5kZXggPSBpbmRleDtcbiAgICAgICAgZGF0YS5maXJzdCA9IGluZGV4ID09PSAwO1xuICAgICAgICBkYXRhLmxhc3QgPSAhIWxhc3Q7XG5cbiAgICAgICAgaWYgKGNvbnRleHRQYXRoKSB7XG4gICAgICAgICAgZGF0YS5jb250ZXh0UGF0aCA9IGNvbnRleHRQYXRoICsgZmllbGQ7XG4gICAgICAgIH1cbiAgICAgIH1cblxuICAgICAgcmV0ID1cbiAgICAgICAgcmV0ICtcbiAgICAgICAgZm4oY29udGV4dFtmaWVsZF0sIHtcbiAgICAgICAgICBkYXRhOiBkYXRhLFxuICAgICAgICAgIGJsb2NrUGFyYW1zOiBibG9ja1BhcmFtcyhcbiAgICAgICAgICAgIFtjb250ZXh0W2ZpZWxkXSwgZmllbGRdLFxuICAgICAgICAgICAgW2NvbnRleHRQYXRoICsgZmllbGQsIG51bGxdXG4gICAgICAgICAgKVxuICAgICAgICB9KTtcbiAgICB9XG5cbiAgICBpZiAoY29udGV4dCAmJiB0eXBlb2YgY29udGV4dCA9PT0gJ29iamVjdCcpIHtcbiAgICAgIGlmIChpc0FycmF5KGNvbnRleHQpKSB7XG4gICAgICAgIGZvciAobGV0IGogPSBjb250ZXh0Lmxlbmd0aDsgaSA8IGo7IGkrKykge1xuICAgICAgICAgIGlmIChpIGluIGNvbnRleHQpIHtcbiAgICAgICAgICAgIGV4ZWNJdGVyYXRpb24oaSwgaSwgaSA9PT0gY29udGV4dC5sZW5ndGggLSAxKTtcbiAgICAgICAgICB9XG4gICAgICAgIH1cbiAgICAgIH0gZWxzZSBpZiAoZ2xvYmFsLlN5bWJvbCAmJiBjb250ZXh0W2dsb2JhbC5TeW1ib2wuaXRlcmF0b3JdKSB7XG4gICAgICAgIGNvbnN0IG5ld0NvbnRleHQgPSBbXTtcbiAgICAgICAgY29uc3QgaXRlcmF0b3IgPSBjb250ZXh0W2dsb2JhbC5TeW1ib2wuaXRlcmF0b3JdKCk7XG4gICAgICAgIGZvciAobGV0IGl0ID0gaXRlcmF0b3IubmV4dCgpOyAhaXQuZG9uZTsgaXQgPSBpdGVyYXRvci5uZXh0KCkpIHtcbiAgICAgICAgICBuZXdDb250ZXh0LnB1c2goaXQudmFsdWUpO1xuICAgICAgICB9XG4gICAgICAgIGNvbnRleHQgPSBuZXdDb250ZXh0O1xuICAgICAgICBmb3IgKGxldCBqID0gY29udGV4dC5sZW5ndGg7IGkgPCBqOyBpKyspIHtcbiAgICAgICAgICBleGVjSXRlcmF0aW9uKGksIGksIGkgPT09IGNvbnRleHQubGVuZ3RoIC0gMSk7XG4gICAgICAgIH1cbiAgICAgIH0gZWxzZSB7XG4gICAgICAgIGxldCBwcmlvcktleTtcblxuICAgICAgICBPYmplY3Qua2V5cyhjb250ZXh0KS5mb3JFYWNoKGtleSA9PiB7XG4gICAgICAgICAgLy8gV2UncmUgcnVubmluZyB0aGUgaXRlcmF0aW9ucyBvbmUgc3RlcCBvdXQgb2Ygc3luYyBzbyB3ZSBjYW4gZGV0ZWN0XG4gICAgICAgICAgLy8gdGhlIGxhc3QgaXRlcmF0aW9uIHdpdGhvdXQgaGF2ZSB0byBzY2FuIHRoZSBvYmplY3QgdHdpY2UgYW5kIGNyZWF0ZVxuICAgICAgICAgIC8vIGFuIGl0ZXJtZWRpYXRlIGtleXMgYXJyYXkuXG4gICAgICAgICAgaWYgKHByaW9yS2V5ICE9PSB1bmRlZmluZWQpIHtcbiAgICAgICAgICAgIGV4ZWNJdGVyYXRpb24ocHJpb3JLZXksIGkgLSAxKTtcbiAgICAgICAgICB9XG4gICAgICAgICAgcHJpb3JLZXkgPSBrZXk7XG4gICAgICAgICAgaSsrO1xuICAgICAgICB9KTtcbiAgICAgICAgaWYgKHByaW9yS2V5ICE9PSB1bmRlZmluZWQpIHtcbiAgICAgICAgICBleGVjSXRlcmF0aW9uKHByaW9yS2V5LCBpIC0gMSwgdHJ1ZSk7XG4gICAgICAgIH1cbiAgICAgIH1cbiAgICB9XG5cbiAgICBpZiAoaSA9PT0gMCkge1xuICAgICAgcmV0ID0gaW52ZXJzZSh0aGlzKTtcbiAgICB9XG5cbiAgICByZXR1cm4gcmV0O1xuICB9KTtcbn1cbiJdfQ==
-
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(18)))
-
-/***/ }),
-/* 31 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-// istanbul ignore next
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-var _exception = __webpack_require__(8);
-
-var _exception2 = _interopRequireDefault(_exception);
-
-exports['default'] = function (instance) {
-  instance.registerHelper('helperMissing', function () /* [args, ]options */{
-    if (arguments.length === 1) {
-      // A missing field in a {{foo}} construct.
-      return undefined;
-    } else {
-      // Someone is actually trying to call something, blow up.
-      throw new _exception2['default']('Missing helper: "' + arguments[arguments.length - 1].name + '"');
-    }
-  });
-};
-
-module.exports = exports['default'];
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL2xpYi9oYW5kbGViYXJzL2hlbHBlcnMvaGVscGVyLW1pc3NpbmcuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozt5QkFBc0IsY0FBYzs7OztxQkFFckIsVUFBUyxRQUFRLEVBQUU7QUFDaEMsVUFBUSxDQUFDLGNBQWMsQ0FBQyxlQUFlLEVBQUUsaUNBQWdDO0FBQ3ZFLFFBQUksU0FBUyxDQUFDLE1BQU0sS0FBSyxDQUFDLEVBQUU7O0FBRTFCLGFBQU8sU0FBUyxDQUFDO0tBQ2xCLE1BQU07O0FBRUwsWUFBTSwyQkFDSixtQkFBbUIsR0FBRyxTQUFTLENBQUMsU0FBUyxDQUFDLE1BQU0sR0FBRyxDQUFDLENBQUMsQ0FBQyxJQUFJLEdBQUcsR0FBRyxDQUNqRSxDQUFDO0tBQ0g7R0FDRixDQUFDLENBQUM7Q0FDSiIsImZpbGUiOiJoZWxwZXItbWlzc2luZy5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBFeGNlcHRpb24gZnJvbSAnLi4vZXhjZXB0aW9uJztcblxuZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24oaW5zdGFuY2UpIHtcbiAgaW5zdGFuY2UucmVnaXN0ZXJIZWxwZXIoJ2hlbHBlck1pc3NpbmcnLCBmdW5jdGlvbigvKiBbYXJncywgXW9wdGlvbnMgKi8pIHtcbiAgICBpZiAoYXJndW1lbnRzLmxlbmd0aCA9PT0gMSkge1xuICAgICAgLy8gQSBtaXNzaW5nIGZpZWxkIGluIGEge3tmb299fSBjb25zdHJ1Y3QuXG4gICAgICByZXR1cm4gdW5kZWZpbmVkO1xuICAgIH0gZWxzZSB7XG4gICAgICAvLyBTb21lb25lIGlzIGFjdHVhbGx5IHRyeWluZyB0byBjYWxsIHNvbWV0aGluZywgYmxvdyB1cC5cbiAgICAgIHRocm93IG5ldyBFeGNlcHRpb24oXG4gICAgICAgICdNaXNzaW5nIGhlbHBlcjogXCInICsgYXJndW1lbnRzW2FyZ3VtZW50cy5sZW5ndGggLSAxXS5uYW1lICsgJ1wiJ1xuICAgICAgKTtcbiAgICB9XG4gIH0pO1xufVxuIl19
-
-
-/***/ }),
-/* 32 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-// istanbul ignore next
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-var _utils = __webpack_require__(3);
-
-var _exception = __webpack_require__(8);
-
-var _exception2 = _interopRequireDefault(_exception);
-
-exports['default'] = function (instance) {
-  instance.registerHelper('if', function (conditional, options) {
-    if (arguments.length != 2) {
-      throw new _exception2['default']('#if requires exactly one argument');
-    }
-    if (_utils.isFunction(conditional)) {
-      conditional = conditional.call(this);
-    }
-
-    // Default behavior is to render the positive path if the value is truthy and not empty.
-    // The `includeZero` option may be set to treat the condtional as purely not empty based on the
-    // behavior of isEmpty. Effectively this determines if 0 is handled by the positive path or negative.
-    if (!options.hash.includeZero && !conditional || _utils.isEmpty(conditional)) {
-      return options.inverse(this);
-    } else {
-      return options.fn(this);
-    }
-  });
-
-  instance.registerHelper('unless', function (conditional, options) {
-    if (arguments.length != 2) {
-      throw new _exception2['default']('#unless requires exactly one argument');
-    }
-    return instance.helpers['if'].call(this, conditional, {
-      fn: options.inverse,
-      inverse: options.fn,
-      hash: options.hash
-    });
-  });
-};
-
-module.exports = exports['default'];
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL2xpYi9oYW5kbGViYXJzL2hlbHBlcnMvaWYuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7OztxQkFBb0MsVUFBVTs7eUJBQ3hCLGNBQWM7Ozs7cUJBRXJCLFVBQVMsUUFBUSxFQUFFO0FBQ2hDLFVBQVEsQ0FBQyxjQUFjLENBQUMsSUFBSSxFQUFFLFVBQVMsV0FBVyxFQUFFLE9BQU8sRUFBRTtBQUMzRCxRQUFJLFNBQVMsQ0FBQyxNQUFNLElBQUksQ0FBQyxFQUFFO0FBQ3pCLFlBQU0sMkJBQWMsbUNBQW1DLENBQUMsQ0FBQztLQUMxRDtBQUNELFFBQUksa0JBQVcsV0FBVyxDQUFDLEVBQUU7QUFDM0IsaUJBQVcsR0FBRyxXQUFXLENBQUMsSUFBSSxDQUFDLElBQUksQ0FBQyxDQUFDO0tBQ3RDOzs7OztBQUtELFFBQUksQUFBQyxDQUFDLE9BQU8sQ0FBQyxJQUFJLENBQUMsV0FBVyxJQUFJLENBQUMsV0FBVyxJQUFLLGVBQVEsV0FBVyxDQUFDLEVBQUU7QUFDdkUsYUFBTyxPQUFPLENBQUMsT0FBTyxDQUFDLElBQUksQ0FBQyxDQUFDO0tBQzlCLE1BQU07QUFDTCxhQUFPLE9BQU8sQ0FBQyxFQUFFLENBQUMsSUFBSSxDQUFDLENBQUM7S0FDekI7R0FDRixDQUFDLENBQUM7O0FBRUgsVUFBUSxDQUFDLGNBQWMsQ0FBQyxRQUFRLEVBQUUsVUFBUyxXQUFXLEVBQUUsT0FBTyxFQUFFO0FBQy9ELFFBQUksU0FBUyxDQUFDLE1BQU0sSUFBSSxDQUFDLEVBQUU7QUFDekIsWUFBTSwyQkFBYyx1Q0FBdUMsQ0FBQyxDQUFDO0tBQzlEO0FBQ0QsV0FBTyxRQUFRLENBQUMsT0FBTyxDQUFDLElBQUksQ0FBQyxDQUFDLElBQUksQ0FBQyxJQUFJLEVBQUUsV0FBVyxFQUFFO0FBQ3BELFFBQUUsRUFBRSxPQUFPLENBQUMsT0FBTztBQUNuQixhQUFPLEVBQUUsT0FBTyxDQUFDLEVBQUU7QUFDbkIsVUFBSSxFQUFFLE9BQU8sQ0FBQyxJQUFJO0tBQ25CLENBQUMsQ0FBQztHQUNKLENBQUMsQ0FBQztDQUNKIiwiZmlsZSI6ImlmLmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgaXNFbXB0eSwgaXNGdW5jdGlvbiB9IGZyb20gJy4uL3V0aWxzJztcbmltcG9ydCBFeGNlcHRpb24gZnJvbSAnLi4vZXhjZXB0aW9uJztcblxuZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24oaW5zdGFuY2UpIHtcbiAgaW5zdGFuY2UucmVnaXN0ZXJIZWxwZXIoJ2lmJywgZnVuY3Rpb24oY29uZGl0aW9uYWwsIG9wdGlvbnMpIHtcbiAgICBpZiAoYXJndW1lbnRzLmxlbmd0aCAhPSAyKSB7XG4gICAgICB0aHJvdyBuZXcgRXhjZXB0aW9uKCcjaWYgcmVxdWlyZXMgZXhhY3RseSBvbmUgYXJndW1lbnQnKTtcbiAgICB9XG4gICAgaWYgKGlzRnVuY3Rpb24oY29uZGl0aW9uYWwpKSB7XG4gICAgICBjb25kaXRpb25hbCA9IGNvbmRpdGlvbmFsLmNhbGwodGhpcyk7XG4gICAgfVxuXG4gICAgLy8gRGVmYXVsdCBiZWhhdmlvciBpcyB0byByZW5kZXIgdGhlIHBvc2l0aXZlIHBhdGggaWYgdGhlIHZhbHVlIGlzIHRydXRoeSBhbmQgbm90IGVtcHR5LlxuICAgIC8vIFRoZSBgaW5jbHVkZVplcm9gIG9wdGlvbiBtYXkgYmUgc2V0IHRvIHRyZWF0IHRoZSBjb25kdGlvbmFsIGFzIHB1cmVseSBub3QgZW1wdHkgYmFzZWQgb24gdGhlXG4gICAgLy8gYmVoYXZpb3Igb2YgaXNFbXB0eS4gRWZmZWN0aXZlbHkgdGhpcyBkZXRlcm1pbmVzIGlmIDAgaXMgaGFuZGxlZCBieSB0aGUgcG9zaXRpdmUgcGF0aCBvciBuZWdhdGl2ZS5cbiAgICBpZiAoKCFvcHRpb25zLmhhc2guaW5jbHVkZVplcm8gJiYgIWNvbmRpdGlvbmFsKSB8fCBpc0VtcHR5KGNvbmRpdGlvbmFsKSkge1xuICAgICAgcmV0dXJuIG9wdGlvbnMuaW52ZXJzZSh0aGlzKTtcbiAgICB9IGVsc2Uge1xuICAgICAgcmV0dXJuIG9wdGlvbnMuZm4odGhpcyk7XG4gICAgfVxuICB9KTtcblxuICBpbnN0YW5jZS5yZWdpc3RlckhlbHBlcigndW5sZXNzJywgZnVuY3Rpb24oY29uZGl0aW9uYWwsIG9wdGlvbnMpIHtcbiAgICBpZiAoYXJndW1lbnRzLmxlbmd0aCAhPSAyKSB7XG4gICAgICB0aHJvdyBuZXcgRXhjZXB0aW9uKCcjdW5sZXNzIHJlcXVpcmVzIGV4YWN0bHkgb25lIGFyZ3VtZW50Jyk7XG4gICAgfVxuICAgIHJldHVybiBpbnN0YW5jZS5oZWxwZXJzWydpZiddLmNhbGwodGhpcywgY29uZGl0aW9uYWwsIHtcbiAgICAgIGZuOiBvcHRpb25zLmludmVyc2UsXG4gICAgICBpbnZlcnNlOiBvcHRpb25zLmZuLFxuICAgICAgaGFzaDogb3B0aW9ucy5oYXNoXG4gICAgfSk7XG4gIH0pO1xufVxuIl19
-
-
-/***/ }),
-/* 33 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-exports['default'] = function (instance) {
-  instance.registerHelper('log', function () /* message, options */{
-    var args = [undefined],
-        options = arguments[arguments.length - 1];
-    for (var i = 0; i < arguments.length - 1; i++) {
-      args.push(arguments[i]);
-    }
-
-    var level = 1;
-    if (options.hash.level != null) {
-      level = options.hash.level;
-    } else if (options.data && options.data.level != null) {
-      level = options.data.level;
-    }
-    args[0] = level;
-
-    instance.log.apply(instance, args);
-  });
-};
-
-module.exports = exports['default'];
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL2xpYi9oYW5kbGViYXJzL2hlbHBlcnMvbG9nLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7cUJBQWUsVUFBUyxRQUFRLEVBQUU7QUFDaEMsVUFBUSxDQUFDLGNBQWMsQ0FBQyxLQUFLLEVBQUUsa0NBQWlDO0FBQzlELFFBQUksSUFBSSxHQUFHLENBQUMsU0FBUyxDQUFDO1FBQ3BCLE9BQU8sR0FBRyxTQUFTLENBQUMsU0FBUyxDQUFDLE1BQU0sR0FBRyxDQUFDLENBQUMsQ0FBQztBQUM1QyxTQUFLLElBQUksQ0FBQyxHQUFHLENBQUMsRUFBRSxDQUFDLEdBQUcsU0FBUyxDQUFDLE1BQU0sR0FBRyxDQUFDLEVBQUUsQ0FBQyxFQUFFLEVBQUU7QUFDN0MsVUFBSSxDQUFDLElBQUksQ0FBQyxTQUFTLENBQUMsQ0FBQyxDQUFDLENBQUMsQ0FBQztLQUN6Qjs7QUFFRCxRQUFJLEtBQUssR0FBRyxDQUFDLENBQUM7QUFDZCxRQUFJLE9BQU8sQ0FBQyxJQUFJLENBQUMsS0FBSyxJQUFJLElBQUksRUFBRTtBQUM5QixXQUFLLEdBQUcsT0FBTyxDQUFDLElBQUksQ0FBQyxLQUFLLENBQUM7S0FDNUIsTUFBTSxJQUFJLE9BQU8sQ0FBQyxJQUFJLElBQUksT0FBTyxDQUFDLElBQUksQ0FBQyxLQUFLLElBQUksSUFBSSxFQUFFO0FBQ3JELFdBQUssR0FBRyxPQUFPLENBQUMsSUFBSSxDQUFDLEtBQUssQ0FBQztLQUM1QjtBQUNELFFBQUksQ0FBQyxDQUFDLENBQUMsR0FBRyxLQUFLLENBQUM7O0FBRWhCLFlBQVEsQ0FBQyxHQUFHLE1BQUEsQ0FBWixRQUFRLEVBQVEsSUFBSSxDQUFDLENBQUM7R0FDdkIsQ0FBQyxDQUFDO0NBQ0oiLCJmaWxlIjoibG9nLmpzIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24oaW5zdGFuY2UpIHtcbiAgaW5zdGFuY2UucmVnaXN0ZXJIZWxwZXIoJ2xvZycsIGZ1bmN0aW9uKC8qIG1lc3NhZ2UsIG9wdGlvbnMgKi8pIHtcbiAgICBsZXQgYXJncyA9IFt1bmRlZmluZWRdLFxuICAgICAgb3B0aW9ucyA9IGFyZ3VtZW50c1thcmd1bWVudHMubGVuZ3RoIC0gMV07XG4gICAgZm9yIChsZXQgaSA9IDA7IGkgPCBhcmd1bWVudHMubGVuZ3RoIC0gMTsgaSsrKSB7XG4gICAgICBhcmdzLnB1c2goYXJndW1lbnRzW2ldKTtcbiAgICB9XG5cbiAgICBsZXQgbGV2ZWwgPSAxO1xuICAgIGlmIChvcHRpb25zLmhhc2gubGV2ZWwgIT0gbnVsbCkge1xuICAgICAgbGV2ZWwgPSBvcHRpb25zLmhhc2gubGV2ZWw7XG4gICAgfSBlbHNlIGlmIChvcHRpb25zLmRhdGEgJiYgb3B0aW9ucy5kYXRhLmxldmVsICE9IG51bGwpIHtcbiAgICAgIGxldmVsID0gb3B0aW9ucy5kYXRhLmxldmVsO1xuICAgIH1cbiAgICBhcmdzWzBdID0gbGV2ZWw7XG5cbiAgICBpbnN0YW5jZS5sb2coLi4uYXJncyk7XG4gIH0pO1xufVxuIl19
-
-
-/***/ }),
-/* 34 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-exports['default'] = function (instance) {
-  instance.registerHelper('lookup', function (obj, field, options) {
-    if (!obj) {
-      // Note for 5.0: Change to "obj == null" in 5.0
-      return obj;
-    }
-    return options.lookupProperty(obj, field);
-  });
-};
-
-module.exports = exports['default'];
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL2xpYi9oYW5kbGViYXJzL2hlbHBlcnMvbG9va3VwLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7cUJBQWUsVUFBUyxRQUFRLEVBQUU7QUFDaEMsVUFBUSxDQUFDLGNBQWMsQ0FBQyxRQUFRLEVBQUUsVUFBUyxHQUFHLEVBQUUsS0FBSyxFQUFFLE9BQU8sRUFBRTtBQUM5RCxRQUFJLENBQUMsR0FBRyxFQUFFOztBQUVSLGFBQU8sR0FBRyxDQUFDO0tBQ1o7QUFDRCxXQUFPLE9BQU8sQ0FBQyxjQUFjLENBQUMsR0FBRyxFQUFFLEtBQUssQ0FBQyxDQUFDO0dBQzNDLENBQUMsQ0FBQztDQUNKIiwiZmlsZSI6Imxvb2t1cC5qcyIsInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uKGluc3RhbmNlKSB7XG4gIGluc3RhbmNlLnJlZ2lzdGVySGVscGVyKCdsb29rdXAnLCBmdW5jdGlvbihvYmosIGZpZWxkLCBvcHRpb25zKSB7XG4gICAgaWYgKCFvYmopIHtcbiAgICAgIC8vIE5vdGUgZm9yIDUuMDogQ2hhbmdlIHRvIFwib2JqID09IG51bGxcIiBpbiA1LjBcbiAgICAgIHJldHVybiBvYmo7XG4gICAgfVxuICAgIHJldHVybiBvcHRpb25zLmxvb2t1cFByb3BlcnR5KG9iaiwgZmllbGQpO1xuICB9KTtcbn1cbiJdfQ==
-
-
-/***/ }),
-/* 35 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-// istanbul ignore next
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-var _utils = __webpack_require__(3);
-
-var _exception = __webpack_require__(8);
-
-var _exception2 = _interopRequireDefault(_exception);
-
-exports['default'] = function (instance) {
-  instance.registerHelper('with', function (context, options) {
-    if (arguments.length != 2) {
-      throw new _exception2['default']('#with requires exactly one argument');
-    }
-    if (_utils.isFunction(context)) {
-      context = context.call(this);
-    }
-
-    var fn = options.fn;
-
-    if (!_utils.isEmpty(context)) {
-      var data = options.data;
-      if (options.data && options.ids) {
-        data = _utils.createFrame(options.data);
-        data.contextPath = _utils.appendContextPath(options.data.contextPath, options.ids[0]);
-      }
-
-      return fn(context, {
-        data: data,
-        blockParams: _utils.blockParams([context], [data && data.contextPath])
-      });
-    } else {
-      return options.inverse(this);
-    }
-  });
-};
-
-module.exports = exports['default'];
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL2xpYi9oYW5kbGViYXJzL2hlbHBlcnMvd2l0aC5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7O3FCQU1PLFVBQVU7O3lCQUNLLGNBQWM7Ozs7cUJBRXJCLFVBQVMsUUFBUSxFQUFFO0FBQ2hDLFVBQVEsQ0FBQyxjQUFjLENBQUMsTUFBTSxFQUFFLFVBQVMsT0FBTyxFQUFFLE9BQU8sRUFBRTtBQUN6RCxRQUFJLFNBQVMsQ0FBQyxNQUFNLElBQUksQ0FBQyxFQUFFO0FBQ3pCLFlBQU0sMkJBQWMscUNBQXFDLENBQUMsQ0FBQztLQUM1RDtBQUNELFFBQUksa0JBQVcsT0FBTyxDQUFDLEVBQUU7QUFDdkIsYUFBTyxHQUFHLE9BQU8sQ0FBQyxJQUFJLENBQUMsSUFBSSxDQUFDLENBQUM7S0FDOUI7O0FBRUQsUUFBSSxFQUFFLEdBQUcsT0FBTyxDQUFDLEVBQUUsQ0FBQzs7QUFFcEIsUUFBSSxDQUFDLGVBQVEsT0FBTyxDQUFDLEVBQUU7QUFDckIsVUFBSSxJQUFJLEdBQUcsT0FBTyxDQUFDLElBQUksQ0FBQztBQUN4QixVQUFJLE9BQU8sQ0FBQyxJQUFJLElBQUksT0FBTyxDQUFDLEdBQUcsRUFBRTtBQUMvQixZQUFJLEdBQUcsbUJBQVksT0FBTyxDQUFDLElBQUksQ0FBQyxDQUFDO0FBQ2pDLFlBQUksQ0FBQyxXQUFXLEdBQUcseUJBQ2pCLE9BQU8sQ0FBQyxJQUFJLENBQUMsV0FBVyxFQUN4QixPQUFPLENBQUMsR0FBRyxDQUFDLENBQUMsQ0FBQyxDQUNmLENBQUM7T0FDSDs7QUFFRCxhQUFPLEVBQUUsQ0FBQyxPQUFPLEVBQUU7QUFDakIsWUFBSSxFQUFFLElBQUk7QUFDVixtQkFBVyxFQUFFLG1CQUFZLENBQUMsT0FBTyxDQUFDLEVBQUUsQ0FBQyxJQUFJLElBQUksSUFBSSxDQUFDLFdBQVcsQ0FBQyxDQUFDO09BQ2hFLENBQUMsQ0FBQztLQUNKLE1BQU07QUFDTCxhQUFPLE9BQU8sQ0FBQyxPQUFPLENBQUMsSUFBSSxDQUFDLENBQUM7S0FDOUI7R0FDRixDQUFDLENBQUM7Q0FDSiIsImZpbGUiOiJ3aXRoLmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHtcbiAgYXBwZW5kQ29udGV4dFBhdGgsXG4gIGJsb2NrUGFyYW1zLFxuICBjcmVhdGVGcmFtZSxcbiAgaXNFbXB0eSxcbiAgaXNGdW5jdGlvblxufSBmcm9tICcuLi91dGlscyc7XG5pbXBvcnQgRXhjZXB0aW9uIGZyb20gJy4uL2V4Y2VwdGlvbic7XG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uKGluc3RhbmNlKSB7XG4gIGluc3RhbmNlLnJlZ2lzdGVySGVscGVyKCd3aXRoJywgZnVuY3Rpb24oY29udGV4dCwgb3B0aW9ucykge1xuICAgIGlmIChhcmd1bWVudHMubGVuZ3RoICE9IDIpIHtcbiAgICAgIHRocm93IG5ldyBFeGNlcHRpb24oJyN3aXRoIHJlcXVpcmVzIGV4YWN0bHkgb25lIGFyZ3VtZW50Jyk7XG4gICAgfVxuICAgIGlmIChpc0Z1bmN0aW9uKGNvbnRleHQpKSB7XG4gICAgICBjb250ZXh0ID0gY29udGV4dC5jYWxsKHRoaXMpO1xuICAgIH1cblxuICAgIGxldCBmbiA9IG9wdGlvbnMuZm47XG5cbiAgICBpZiAoIWlzRW1wdHkoY29udGV4dCkpIHtcbiAgICAgIGxldCBkYXRhID0gb3B0aW9ucy5kYXRhO1xuICAgICAgaWYgKG9wdGlvbnMuZGF0YSAmJiBvcHRpb25zLmlkcykge1xuICAgICAgICBkYXRhID0gY3JlYXRlRnJhbWUob3B0aW9ucy5kYXRhKTtcbiAgICAgICAgZGF0YS5jb250ZXh0UGF0aCA9IGFwcGVuZENvbnRleHRQYXRoKFxuICAgICAgICAgIG9wdGlvbnMuZGF0YS5jb250ZXh0UGF0aCxcbiAgICAgICAgICBvcHRpb25zLmlkc1swXVxuICAgICAgICApO1xuICAgICAgfVxuXG4gICAgICByZXR1cm4gZm4oY29udGV4dCwge1xuICAgICAgICBkYXRhOiBkYXRhLFxuICAgICAgICBibG9ja1BhcmFtczogYmxvY2tQYXJhbXMoW2NvbnRleHRdLCBbZGF0YSAmJiBkYXRhLmNvbnRleHRQYXRoXSlcbiAgICAgIH0pO1xuICAgIH0gZWxzZSB7XG4gICAgICByZXR1cm4gb3B0aW9ucy5pbnZlcnNlKHRoaXMpO1xuICAgIH1cbiAgfSk7XG59XG4iXX0=
-
-
-/***/ }),
-/* 36 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.registerDefaultDecorators = registerDefaultDecorators;
-// istanbul ignore next
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-var _decoratorsInline = __webpack_require__(37);
-
-var _decoratorsInline2 = _interopRequireDefault(_decoratorsInline);
-
-function registerDefaultDecorators(instance) {
-  _decoratorsInline2['default'](instance);
-}
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL2xpYi9oYW5kbGViYXJzL2RlY29yYXRvcnMuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Z0NBQTJCLHFCQUFxQjs7OztBQUV6QyxTQUFTLHlCQUF5QixDQUFDLFFBQVEsRUFBRTtBQUNsRCxnQ0FBZSxRQUFRLENBQUMsQ0FBQztDQUMxQiIsImZpbGUiOiJkZWNvcmF0b3JzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHJlZ2lzdGVySW5saW5lIGZyb20gJy4vZGVjb3JhdG9ycy9pbmxpbmUnO1xuXG5leHBvcnQgZnVuY3Rpb24gcmVnaXN0ZXJEZWZhdWx0RGVjb3JhdG9ycyhpbnN0YW5jZSkge1xuICByZWdpc3RlcklubGluZShpbnN0YW5jZSk7XG59XG4iXX0=
-
-
-/***/ }),
-/* 37 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-var _utils = __webpack_require__(3);
-
-exports['default'] = function (instance) {
-  instance.registerDecorator('inline', function (fn, props, container, options) {
-    var ret = fn;
-    if (!props.partials) {
-      props.partials = {};
-      ret = function (context, options) {
-        // Create a new partials stack frame prior to exec.
-        var original = container.partials;
-        container.partials = _utils.extend({}, original, props.partials);
-        var ret = fn(context, options);
-        container.partials = original;
-        return ret;
-      };
-    }
-
-    props.partials[options.args[0]] = options.fn;
-
-    return ret;
-  });
-};
-
-module.exports = exports['default'];
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL2xpYi9oYW5kbGViYXJzL2RlY29yYXRvcnMvaW5saW5lLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7cUJBQXVCLFVBQVU7O3FCQUVsQixVQUFTLFFBQVEsRUFBRTtBQUNoQyxVQUFRLENBQUMsaUJBQWlCLENBQUMsUUFBUSxFQUFFLFVBQVMsRUFBRSxFQUFFLEtBQUssRUFBRSxTQUFTLEVBQUUsT0FBTyxFQUFFO0FBQzNFLFFBQUksR0FBRyxHQUFHLEVBQUUsQ0FBQztBQUNiLFFBQUksQ0FBQyxLQUFLLENBQUMsUUFBUSxFQUFFO0FBQ25CLFdBQUssQ0FBQyxRQUFRLEdBQUcsRUFBRSxDQUFDO0FBQ3BCLFNBQUcsR0FBRyxVQUFTLE9BQU8sRUFBRSxPQUFPLEVBQUU7O0FBRS9CLFlBQUksUUFBUSxHQUFHLFNBQVMsQ0FBQyxRQUFRLENBQUM7QUFDbEMsaUJBQVMsQ0FBQyxRQUFRLEdBQUcsY0FBTyxFQUFFLEVBQUUsUUFBUSxFQUFFLEtBQUssQ0FBQyxRQUFRLENBQUMsQ0FBQztBQUMxRCxZQUFJLEdBQUcsR0FBRyxFQUFFLENBQUMsT0FBTyxFQUFFLE9BQU8sQ0FBQyxDQUFDO0FBQy9CLGlCQUFTLENBQUMsUUFBUSxHQUFHLFFBQVEsQ0FBQztBQUM5QixlQUFPLEdBQUcsQ0FBQztPQUNaLENBQUM7S0FDSDs7QUFFRCxTQUFLLENBQUMsUUFBUSxDQUFDLE9BQU8sQ0FBQyxJQUFJLENBQUMsQ0FBQyxDQUFDLENBQUMsR0FBRyxPQUFPLENBQUMsRUFBRSxDQUFDOztBQUU3QyxXQUFPLEdBQUcsQ0FBQztHQUNaLENBQUMsQ0FBQztDQUNKIiwiZmlsZSI6ImlubGluZS5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IGV4dGVuZCB9IGZyb20gJy4uL3V0aWxzJztcblxuZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24oaW5zdGFuY2UpIHtcbiAgaW5zdGFuY2UucmVnaXN0ZXJEZWNvcmF0b3IoJ2lubGluZScsIGZ1bmN0aW9uKGZuLCBwcm9wcywgY29udGFpbmVyLCBvcHRpb25zKSB7XG4gICAgbGV0IHJldCA9IGZuO1xuICAgIGlmICghcHJvcHMucGFydGlhbHMpIHtcbiAgICAgIHByb3BzLnBhcnRpYWxzID0ge307XG4gICAgICByZXQgPSBmdW5jdGlvbihjb250ZXh0LCBvcHRpb25zKSB7XG4gICAgICAgIC8vIENyZWF0ZSBhIG5ldyBwYXJ0aWFscyBzdGFjayBmcmFtZSBwcmlvciB0byBleGVjLlxuICAgICAgICBsZXQgb3JpZ2luYWwgPSBjb250YWluZXIucGFydGlhbHM7XG4gICAgICAgIGNvbnRhaW5lci5wYXJ0aWFscyA9IGV4dGVuZCh7fSwgb3JpZ2luYWwsIHByb3BzLnBhcnRpYWxzKTtcbiAgICAgICAgbGV0IHJldCA9IGZuKGNvbnRleHQsIG9wdGlvbnMpO1xuICAgICAgICBjb250YWluZXIucGFydGlhbHMgPSBvcmlnaW5hbDtcbiAgICAgICAgcmV0dXJuIHJldDtcbiAgICAgIH07XG4gICAgfVxuXG4gICAgcHJvcHMucGFydGlhbHNbb3B0aW9ucy5hcmdzWzBdXSA9IG9wdGlvbnMuZm47XG5cbiAgICByZXR1cm4gcmV0O1xuICB9KTtcbn1cbiJdfQ==
-
-
-/***/ }),
-/* 38 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.createNewLookupObject = createNewLookupObject;
-
-var _utils = __webpack_require__(3);
-
-/**
- * Create a new object with "null"-prototype to avoid truthy results on prototype properties.
- * The resulting object can be used with "object[property]" to check if a property exists
- * @param {...object} sources a varargs parameter of source objects that will be merged
- * @returns {object}
- */
-
-function createNewLookupObject() {
-  for (var _len = arguments.length, sources = Array(_len), _key = 0; _key < _len; _key++) {
-    sources[_key] = arguments[_key];
-  }
-
-  return _utils.extend.apply(undefined, [Object.create(null)].concat(sources));
-}
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL2xpYi9oYW5kbGViYXJzL2ludGVybmFsL2NyZWF0ZS1uZXctbG9va3VwLW9iamVjdC5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7OztxQkFBdUIsVUFBVTs7Ozs7Ozs7O0FBUTFCLFNBQVMscUJBQXFCLEdBQWE7b0NBQVQsT0FBTztBQUFQLFdBQU87OztBQUM5QyxTQUFPLGdDQUFPLE1BQU0sQ0FBQyxNQUFNLENBQUMsSUFBSSxDQUFDLFNBQUssT0FBTyxFQUFDLENBQUM7Q0FDaEQiLCJmaWxlIjoiY3JlYXRlLW5ldy1sb29rdXAtb2JqZWN0LmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgZXh0ZW5kIH0gZnJvbSAnLi4vdXRpbHMnO1xuXG4vKipcbiAqIENyZWF0ZSBhIG5ldyBvYmplY3Qgd2l0aCBcIm51bGxcIi1wcm90b3R5cGUgdG8gYXZvaWQgdHJ1dGh5IHJlc3VsdHMgb24gcHJvdG90eXBlIHByb3BlcnRpZXMuXG4gKiBUaGUgcmVzdWx0aW5nIG9iamVjdCBjYW4gYmUgdXNlZCB3aXRoIFwib2JqZWN0W3Byb3BlcnR5XVwiIHRvIGNoZWNrIGlmIGEgcHJvcGVydHkgZXhpc3RzXG4gKiBAcGFyYW0gey4uLm9iamVjdH0gc291cmNlcyBhIHZhcmFyZ3MgcGFyYW1ldGVyIG9mIHNvdXJjZSBvYmplY3RzIHRoYXQgd2lsbCBiZSBtZXJnZWRcbiAqIEByZXR1cm5zIHtvYmplY3R9XG4gKi9cbmV4cG9ydCBmdW5jdGlvbiBjcmVhdGVOZXdMb29rdXBPYmplY3QoLi4uc291cmNlcykge1xuICByZXR1cm4gZXh0ZW5kKE9iamVjdC5jcmVhdGUobnVsbCksIC4uLnNvdXJjZXMpO1xufVxuIl19
-
-
-/***/ }),
-/* 39 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-// Build out our basic SafeString type
-
-
-exports.__esModule = true;
-function SafeString(string) {
-  this.string = string;
-}
-
-SafeString.prototype.toString = SafeString.prototype.toHTML = function () {
-  return '' + this.string;
-};
-
-exports['default'] = SafeString;
-module.exports = exports['default'];
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL2xpYi9oYW5kbGViYXJzL3NhZmUtc3RyaW5nLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7QUFDQSxTQUFTLFVBQVUsQ0FBQyxNQUFNLEVBQUU7QUFDMUIsTUFBSSxDQUFDLE1BQU0sR0FBRyxNQUFNLENBQUM7Q0FDdEI7O0FBRUQsVUFBVSxDQUFDLFNBQVMsQ0FBQyxRQUFRLEdBQUcsVUFBVSxDQUFDLFNBQVMsQ0FBQyxNQUFNLEdBQUcsWUFBVztBQUN2RSxTQUFPLEVBQUUsR0FBRyxJQUFJLENBQUMsTUFBTSxDQUFDO0NBQ3pCLENBQUM7O3FCQUVhLFVBQVUiLCJmaWxlIjoic2FmZS1zdHJpbmcuanMiLCJzb3VyY2VzQ29udGVudCI6WyIvLyBCdWlsZCBvdXQgb3VyIGJhc2ljIFNhZmVTdHJpbmcgdHlwZVxuZnVuY3Rpb24gU2FmZVN0cmluZyhzdHJpbmcpIHtcbiAgdGhpcy5zdHJpbmcgPSBzdHJpbmc7XG59XG5cblNhZmVTdHJpbmcucHJvdG90eXBlLnRvU3RyaW5nID0gU2FmZVN0cmluZy5wcm90b3R5cGUudG9IVE1MID0gZnVuY3Rpb24oKSB7XG4gIHJldHVybiAnJyArIHRoaXMuc3RyaW5nO1xufTtcblxuZXhwb3J0IGRlZmF1bHQgU2FmZVN0cmluZztcbiJdfQ==
-
-
-/***/ }),
-/* 40 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.checkRevision = checkRevision;
-exports.template = template;
-exports.wrapProgram = wrapProgram;
-exports.resolvePartial = resolvePartial;
-exports.invokePartial = invokePartial;
-exports.noop = noop;
-// istanbul ignore next
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-// istanbul ignore next
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
-
-var _utils = __webpack_require__(3);
-
-var Utils = _interopRequireWildcard(_utils);
-
-var _exception = __webpack_require__(8);
-
-var _exception2 = _interopRequireDefault(_exception);
-
-var _base = __webpack_require__(16);
-
-var _helpers = __webpack_require__(17);
-
-var _internalWrapHelper = __webpack_require__(41);
-
-var _internalProtoAccess = __webpack_require__(20);
-
-function checkRevision(compilerInfo) {
-  var compilerRevision = compilerInfo && compilerInfo[0] || 1,
-      currentRevision = _base.COMPILER_REVISION;
-
-  if (compilerRevision >= _base.LAST_COMPATIBLE_COMPILER_REVISION && compilerRevision <= _base.COMPILER_REVISION) {
-    return;
-  }
-
-  if (compilerRevision < _base.LAST_COMPATIBLE_COMPILER_REVISION) {
-    var runtimeVersions = _base.REVISION_CHANGES[currentRevision],
-        compilerVersions = _base.REVISION_CHANGES[compilerRevision];
-    throw new _exception2['default']('Template was precompiled with an older version of Handlebars than the current runtime. ' + 'Please update your precompiler to a newer version (' + runtimeVersions + ') or downgrade your runtime to an older version (' + compilerVersions + ').');
-  } else {
-    // Use the embedded version info since the runtime doesn't know about this revision yet
-    throw new _exception2['default']('Template was precompiled with a newer version of Handlebars than the current runtime. ' + 'Please update your runtime to a newer version (' + compilerInfo[1] + ').');
-  }
-}
-
-function template(templateSpec, env) {
-  /* istanbul ignore next */
-  if (!env) {
-    throw new _exception2['default']('No environment passed to template');
-  }
-  if (!templateSpec || !templateSpec.main) {
-    throw new _exception2['default']('Unknown template object: ' + typeof templateSpec);
-  }
-
-  templateSpec.main.decorator = templateSpec.main_d;
-
-  // Note: Using env.VM references rather than local var references throughout this section to allow
-  // for external users to override these as pseudo-supported APIs.
-  env.VM.checkRevision(templateSpec.compiler);
-
-  // backwards compatibility for precompiled templates with compiler-version 7 (<4.3.0)
-  var templateWasPrecompiledWithCompilerV7 = templateSpec.compiler && templateSpec.compiler[0] === 7;
-
-  function invokePartialWrapper(partial, context, options) {
-    if (options.hash) {
-      context = Utils.extend({}, context, options.hash);
-      if (options.ids) {
-        options.ids[0] = true;
-      }
-    }
-    partial = env.VM.resolvePartial.call(this, partial, context, options);
-
-    var extendedOptions = Utils.extend({}, options, {
-      hooks: this.hooks,
-      protoAccessControl: this.protoAccessControl
-    });
-
-    var result = env.VM.invokePartial.call(this, partial, context, extendedOptions);
-
-    if (result == null && env.compile) {
-      options.partials[options.name] = env.compile(partial, templateSpec.compilerOptions, env);
-      result = options.partials[options.name](context, extendedOptions);
-    }
-    if (result != null) {
-      if (options.indent) {
-        var lines = result.split('\n');
-        for (var i = 0, l = lines.length; i < l; i++) {
-          if (!lines[i] && i + 1 === l) {
-            break;
-          }
-
-          lines[i] = options.indent + lines[i];
-        }
-        result = lines.join('\n');
-      }
-      return result;
-    } else {
-      throw new _exception2['default']('The partial ' + options.name + ' could not be compiled when running in runtime-only mode');
-    }
-  }
-
-  // Just add water
-  var container = {
-    strict: function strict(obj, name, loc) {
-      if (!obj || !(name in obj)) {
-        throw new _exception2['default']('"' + name + '" not defined in ' + obj, {
-          loc: loc
-        });
-      }
-      return container.lookupProperty(obj, name);
-    },
-    lookupProperty: function lookupProperty(parent, propertyName) {
-      var result = parent[propertyName];
-      if (result == null) {
-        return result;
-      }
-      if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
-        return result;
-      }
-
-      if (_internalProtoAccess.resultIsAllowed(result, container.protoAccessControl, propertyName)) {
-        return result;
-      }
-      return undefined;
-    },
-    lookup: function lookup(depths, name) {
-      var len = depths.length;
-      for (var i = 0; i < len; i++) {
-        var result = depths[i] && container.lookupProperty(depths[i], name);
-        if (result != null) {
-          return depths[i][name];
-        }
-      }
-    },
-    lambda: function lambda(current, context) {
-      return typeof current === 'function' ? current.call(context) : current;
-    },
-
-    escapeExpression: Utils.escapeExpression,
-    invokePartial: invokePartialWrapper,
-
-    fn: function fn(i) {
-      var ret = templateSpec[i];
-      ret.decorator = templateSpec[i + '_d'];
-      return ret;
-    },
-
-    programs: [],
-    program: function program(i, data, declaredBlockParams, blockParams, depths) {
-      var programWrapper = this.programs[i],
-          fn = this.fn(i);
-      if (data || depths || blockParams || declaredBlockParams) {
-        programWrapper = wrapProgram(this, i, fn, data, declaredBlockParams, blockParams, depths);
-      } else if (!programWrapper) {
-        programWrapper = this.programs[i] = wrapProgram(this, i, fn);
-      }
-      return programWrapper;
-    },
-
-    data: function data(value, depth) {
-      while (value && depth--) {
-        value = value._parent;
-      }
-      return value;
-    },
-    mergeIfNeeded: function mergeIfNeeded(param, common) {
-      var obj = param || common;
-
-      if (param && common && param !== common) {
-        obj = Utils.extend({}, common, param);
-      }
-
-      return obj;
-    },
-    // An empty object to use as replacement for null-contexts
-    nullContext: Object.seal({}),
-
-    noop: env.VM.noop,
-    compilerInfo: templateSpec.compiler
-  };
-
-  function ret(context) {
-    var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
-
-    var data = options.data;
-
-    ret._setup(options);
-    if (!options.partial && templateSpec.useData) {
-      data = initData(context, data);
-    }
-    var depths = undefined,
-        blockParams = templateSpec.useBlockParams ? [] : undefined;
-    if (templateSpec.useDepths) {
-      if (options.depths) {
-        depths = context != options.depths[0] ? [context].concat(options.depths) : options.depths;
-      } else {
-        depths = [context];
-      }
-    }
-
-    function main(context /*, options*/) {
-      return '' + templateSpec.main(container, context, container.helpers, container.partials, data, blockParams, depths);
-    }
-
-    main = executeDecorators(templateSpec.main, main, container, options.depths || [], data, blockParams);
-    return main(context, options);
-  }
-
-  ret.isTop = true;
-
-  ret._setup = function (options) {
-    if (!options.partial) {
-      var mergedHelpers = Utils.extend({}, env.helpers, options.helpers);
-      wrapHelpersToPassLookupProperty(mergedHelpers, container);
-      container.helpers = mergedHelpers;
-
-      if (templateSpec.usePartial) {
-        // Use mergeIfNeeded here to prevent compiling global partials multiple times
-        container.partials = container.mergeIfNeeded(options.partials, env.partials);
-      }
-      if (templateSpec.usePartial || templateSpec.useDecorators) {
-        container.decorators = Utils.extend({}, env.decorators, options.decorators);
-      }
-
-      container.hooks = {};
-      container.protoAccessControl = _internalProtoAccess.createProtoAccessControl(options);
-
-      var keepHelperInHelpers = options.allowCallsToHelperMissing || templateWasPrecompiledWithCompilerV7;
-      _helpers.moveHelperToHooks(container, 'helperMissing', keepHelperInHelpers);
-      _helpers.moveHelperToHooks(container, 'blockHelperMissing', keepHelperInHelpers);
-    } else {
-      container.protoAccessControl = options.protoAccessControl; // internal option
-      container.helpers = options.helpers;
-      container.partials = options.partials;
-      container.decorators = options.decorators;
-      container.hooks = options.hooks;
-    }
-  };
-
-  ret._child = function (i, data, blockParams, depths) {
-    if (templateSpec.useBlockParams && !blockParams) {
-      throw new _exception2['default']('must pass block params');
-    }
-    if (templateSpec.useDepths && !depths) {
-      throw new _exception2['default']('must pass parent depths');
-    }
-
-    return wrapProgram(container, i, templateSpec[i], data, 0, blockParams, depths);
-  };
-  return ret;
-}
-
-function wrapProgram(container, i, fn, data, declaredBlockParams, blockParams, depths) {
-  function prog(context) {
-    var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
-
-    var currentDepths = depths;
-    if (depths && context != depths[0] && !(context === container.nullContext && depths[0] === null)) {
-      currentDepths = [context].concat(depths);
-    }
-
-    return fn(container, context, container.helpers, container.partials, options.data || data, blockParams && [options.blockParams].concat(blockParams), currentDepths);
-  }
-
-  prog = executeDecorators(fn, prog, container, depths, data, blockParams);
-
-  prog.program = i;
-  prog.depth = depths ? depths.length : 0;
-  prog.blockParams = declaredBlockParams || 0;
-  return prog;
-}
-
-/**
- * This is currently part of the official API, therefore implementation details should not be changed.
- */
-
-function resolvePartial(partial, context, options) {
-  if (!partial) {
-    if (options.name === '@partial-block') {
-      partial = options.data['partial-block'];
-    } else {
-      partial = options.partials[options.name];
-    }
-  } else if (!partial.call && !options.name) {
-    // This is a dynamic partial that returned a string
-    options.name = partial;
-    partial = options.partials[partial];
-  }
-  return partial;
-}
-
-function invokePartial(partial, context, options) {
-  // Use the current closure context to save the partial-block if this partial
-  var currentPartialBlock = options.data && options.data['partial-block'];
-  options.partial = true;
-  if (options.ids) {
-    options.data.contextPath = options.ids[0] || options.data.contextPath;
-  }
-
-  var partialBlock = undefined;
-  if (options.fn && options.fn !== noop) {
-    (function () {
-      options.data = _base.createFrame(options.data);
-      // Wrapper function to get access to currentPartialBlock from the closure
-      var fn = options.fn;
-      partialBlock = options.data['partial-block'] = function partialBlockWrapper(context) {
-        var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
-
-        // Restore the partial-block from the closure for the execution of the block
-        // i.e. the part inside the block of the partial call.
-        options.data = _base.createFrame(options.data);
-        options.data['partial-block'] = currentPartialBlock;
-        return fn(context, options);
-      };
-      if (fn.partials) {
-        options.partials = Utils.extend({}, options.partials, fn.partials);
-      }
-    })();
-  }
-
-  if (partial === undefined && partialBlock) {
-    partial = partialBlock;
-  }
-
-  if (partial === undefined) {
-    throw new _exception2['default']('The partial ' + options.name + ' could not be found');
-  } else if (partial instanceof Function) {
-    return partial(context, options);
-  }
-}
-
-function noop() {
-  return '';
-}
-
-function initData(context, data) {
-  if (!data || !('root' in data)) {
-    data = data ? _base.createFrame(data) : {};
-    data.root = context;
-  }
-  return data;
-}
-
-function executeDecorators(fn, prog, container, depths, data, blockParams) {
-  if (fn.decorator) {
-    var props = {};
-    prog = fn.decorator(prog, props, container, depths && depths[0], data, blockParams, depths);
-    Utils.extend(prog, props);
-  }
-  return prog;
-}
-
-function wrapHelpersToPassLookupProperty(mergedHelpers, container) {
-  Object.keys(mergedHelpers).forEach(function (helperName) {
-    var helper = mergedHelpers[helperName];
-    mergedHelpers[helperName] = passLookupPropertyOption(helper, container);
-  });
-}
-
-function passLookupPropertyOption(helper, container) {
-  var lookupProperty = container.lookupProperty;
-  return _internalWrapHelper.wrapHelper(helper, function (options) {
-    return Utils.extend({ lookupProperty: lookupProperty }, options);
-  });
-}
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL2xpYi9oYW5kbGViYXJzL3J1bnRpbWUuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7cUJBQXVCLFNBQVM7O0lBQXBCLEtBQUs7O3lCQUNLLGFBQWE7Ozs7b0JBTTVCLFFBQVE7O3VCQUNtQixXQUFXOztrQ0FDbEIsdUJBQXVCOzttQ0FJM0MseUJBQXlCOztBQUV6QixTQUFTLGFBQWEsQ0FBQyxZQUFZLEVBQUU7QUFDMUMsTUFBTSxnQkFBZ0IsR0FBRyxBQUFDLFlBQVksSUFBSSxZQUFZLENBQUMsQ0FBQyxDQUFDLElBQUssQ0FBQztNQUM3RCxlQUFlLDBCQUFvQixDQUFDOztBQUV0QyxNQUNFLGdCQUFnQiwyQ0FBcUMsSUFDckQsZ0JBQWdCLDJCQUFxQixFQUNyQztBQUNBLFdBQU87R0FDUjs7QUFFRCxNQUFJLGdCQUFnQiwwQ0FBb0MsRUFBRTtBQUN4RCxRQUFNLGVBQWUsR0FBRyx1QkFBaUIsZUFBZSxDQUFDO1FBQ3ZELGdCQUFnQixHQUFHLHVCQUFpQixnQkFBZ0IsQ0FBQyxDQUFDO0FBQ3hELFVBQU0sMkJBQ0oseUZBQXlGLEdBQ3ZGLHFEQUFxRCxHQUNyRCxlQUFlLEdBQ2YsbURBQW1ELEdBQ25ELGdCQUFnQixHQUNoQixJQUFJLENBQ1AsQ0FBQztHQUNILE1BQU07O0FBRUwsVUFBTSwyQkFDSix3RkFBd0YsR0FDdEYsaURBQWlELEdBQ2pELFlBQVksQ0FBQyxDQUFDLENBQUMsR0FDZixJQUFJLENBQ1AsQ0FBQztHQUNIO0NBQ0Y7O0FBRU0sU0FBUyxRQUFRLENBQUMsWUFBWSxFQUFFLEdBQUcsRUFBRTs7QUFFMUMsTUFBSSxDQUFDLEdBQUcsRUFBRTtBQUNSLFVBQU0sMkJBQWMsbUNBQW1DLENBQUMsQ0FBQztHQUMxRDtBQUNELE1BQUksQ0FBQyxZQUFZLElBQUksQ0FBQyxZQUFZLENBQUMsSUFBSSxFQUFFO0FBQ3ZDLFVBQU0sMkJBQWMsMkJBQTJCLEdBQUcsT0FBTyxZQUFZLENBQUMsQ0FBQztHQUN4RTs7QUFFRCxjQUFZLENBQUMsSUFBSSxDQUFDLFNBQVMsR0FBRyxZQUFZLENBQUMsTUFBTSxDQUFDOzs7O0FBSWxELEtBQUcsQ0FBQyxFQUFFLENBQUMsYUFBYSxDQUFDLFlBQVksQ0FBQyxRQUFRLENBQUMsQ0FBQzs7O0FBRzVDLE1BQU0sb0NBQW9DLEdBQ3hDLFlBQVksQ0FBQyxRQUFRLElBQUksWUFBWSxDQUFDLFFBQVEsQ0FBQyxDQUFDLENBQUMsS0FBSyxDQUFDLENBQUM7O0FBRTFELFdBQVMsb0JBQW9CLENBQUMsT0FBTyxFQUFFLE9BQU8sRUFBRSxPQUFPLEVBQUU7QUFDdkQsUUFBSSxPQUFPLENBQUMsSUFBSSxFQUFFO0FBQ2hCLGFBQU8sR0FBRyxLQUFLLENBQUMsTUFBTSxDQUFDLEVBQUUsRUFBRSxPQUFPLEVBQUUsT0FBTyxDQUFDLElBQUksQ0FBQyxDQUFDO0FBQ2xELFVBQUksT0FBTyxDQUFDLEdBQUcsRUFBRTtBQUNmLGVBQU8sQ0FBQyxHQUFHLENBQUMsQ0FBQyxDQUFDLEdBQUcsSUFBSSxDQUFDO09BQ3ZCO0tBQ0Y7QUFDRCxXQUFPLEdBQUcsR0FBRyxDQUFDLEVBQUUsQ0FBQyxjQUFjLENBQUMsSUFBSSxDQUFDLElBQUksRUFBRSxPQUFPLEVBQUUsT0FBTyxFQUFFLE9BQU8sQ0FBQyxDQUFDOztBQUV0RSxRQUFJLGVBQWUsR0FBRyxLQUFLLENBQUMsTUFBTSxDQUFDLEVBQUUsRUFBRSxPQUFPLEVBQUU7QUFDOUMsV0FBSyxFQUFFLElBQUksQ0FBQyxLQUFLO0FBQ2pCLHdCQUFrQixFQUFFLElBQUksQ0FBQyxrQkFBa0I7S0FDNUMsQ0FBQyxDQUFDOztBQUVILFFBQUksTUFBTSxHQUFHLEdBQUcsQ0FBQyxFQUFFLENBQUMsYUFBYSxDQUFDLElBQUksQ0FDcEMsSUFBSSxFQUNKLE9BQU8sRUFDUCxPQUFPLEVBQ1AsZUFBZSxDQUNoQixDQUFDOztBQUVGLFFBQUksTUFBTSxJQUFJLElBQUksSUFBSSxHQUFHLENBQUMsT0FBTyxFQUFFO0FBQ2pDLGFBQU8sQ0FBQyxRQUFRLENBQUMsT0FBTyxDQUFDLElBQUksQ0FBQyxHQUFHLEdBQUcsQ0FBQyxPQUFPLENBQzFDLE9BQU8sRUFDUCxZQUFZLENBQUMsZUFBZSxFQUM1QixHQUFHLENBQ0osQ0FBQztBQUNGLFlBQU0sR0FBRyxPQUFPLENBQUMsUUFBUSxDQUFDLE9BQU8sQ0FBQyxJQUFJLENBQUMsQ0FBQyxPQUFPLEVBQUUsZUFBZSxDQUFDLENBQUM7S0FDbkU7QUFDRCxRQUFJLE1BQU0sSUFBSSxJQUFJLEVBQUU7QUFDbEIsVUFBSSxPQUFPLENBQUMsTUFBTSxFQUFFO0FBQ2xCLFlBQUksS0FBSyxHQUFHLE1BQU0sQ0FBQyxLQUFLLENBQUMsSUFBSSxDQUFDLENBQUM7QUFDL0IsYUFBSyxJQUFJLENBQUMsR0FBRyxDQUFDLEVBQUUsQ0FBQyxHQUFHLEtBQUssQ0FBQyxNQUFNLEVBQUUsQ0FBQyxHQUFHLENBQUMsRUFBRSxDQUFDLEVBQUUsRUFBRTtBQUM1QyxjQUFJLENBQUMsS0FBSyxDQUFDLENBQUMsQ0FBQyxJQUFJLENBQUMsR0FBRyxDQUFDLEtBQUssQ0FBQyxFQUFFO0FBQzVCLGtCQUFNO1dBQ1A7O0FBRUQsZUFBSyxDQUFDLENBQUMsQ0FBQyxHQUFHLE9BQU8sQ0FBQyxNQUFNLEdBQUcsS0FBSyxDQUFDLENBQUMsQ0FBQyxDQUFDO1NBQ3RDO0FBQ0QsY0FBTSxHQUFHLEtBQUssQ0FBQyxJQUFJLENBQUMsSUFBSSxDQUFDLENBQUM7T0FDM0I7QUFDRCxhQUFPLE1BQU0sQ0FBQztLQUNmLE1BQU07QUFDTCxZQUFNLDJCQUNKLGNBQWMsR0FDWixPQUFPLENBQUMsSUFBSSxHQUNaLDBEQUEwRCxDQUM3RCxDQUFDO0tBQ0g7R0FDRjs7O0FBR0QsTUFBSSxTQUFTLEdBQUc7QUFDZCxVQUFNLEVBQUUsZ0JBQVMsR0FBRyxFQUFFLElBQUksRUFBRSxHQUFHLEVBQUU7QUFDL0IsVUFBSSxDQUFDLEdBQUcsSUFBSSxFQUFFLElBQUksSUFBSSxHQUFHLENBQUEsQUFBQyxFQUFFO0FBQzFCLGNBQU0sMkJBQWMsR0FBRyxHQUFHLElBQUksR0FBRyxtQkFBbUIsR0FBRyxHQUFHLEVBQUU7QUFDMUQsYUFBRyxFQUFFLEdBQUc7U0FDVCxDQUFDLENBQUM7T0FDSjtBQUNELGFBQU8sU0FBUyxDQUFDLGNBQWMsQ0FBQyxHQUFHLEVBQUUsSUFBSSxDQUFDLENBQUM7S0FDNUM7QUFDRCxrQkFBYyxFQUFFLHdCQUFTLE1BQU0sRUFBRSxZQUFZLEVBQUU7QUFDN0MsVUFBSSxNQUFNLEdBQUcsTUFBTSxDQUFDLFlBQVksQ0FBQyxDQUFDO0FBQ2xDLFVBQUksTUFBTSxJQUFJLElBQUksRUFBRTtBQUNsQixlQUFPLE1BQU0sQ0FBQztPQUNmO0FBQ0QsVUFBSSxNQUFNLENBQUMsU0FBUyxDQUFDLGNBQWMsQ0FBQyxJQUFJLENBQUMsTUFBTSxFQUFFLFlBQVksQ0FBQyxFQUFFO0FBQzlELGVBQU8sTUFBTSxDQUFDO09BQ2Y7O0FBRUQsVUFBSSxxQ0FBZ0IsTUFBTSxFQUFFLFNBQVMsQ0FBQyxrQkFBa0IsRUFBRSxZQUFZLENBQUMsRUFBRTtBQUN2RSxlQUFPLE1BQU0sQ0FBQztPQUNmO0FBQ0QsYUFBTyxTQUFTLENBQUM7S0FDbEI7QUFDRCxVQUFNLEVBQUUsZ0JBQVMsTUFBTSxFQUFFLElBQUksRUFBRTtBQUM3QixVQUFNLEdBQUcsR0FBRyxNQUFNLENBQUMsTUFBTSxDQUFDO0FBQzFCLFdBQUssSUFBSSxDQUFDLEdBQUcsQ0FBQyxFQUFFLENBQUMsR0FBRyxHQUFHLEVBQUUsQ0FBQyxFQUFFLEVBQUU7QUFDNUIsWUFBSSxNQUFNLEdBQUcsTUFBTSxDQUFDLENBQUMsQ0FBQyxJQUFJLFNBQVMsQ0FBQyxjQUFjLENBQUMsTUFBTSxDQUFDLENBQUMsQ0FBQyxFQUFFLElBQUksQ0FBQyxDQUFDO0FBQ3BFLFlBQUksTUFBTSxJQUFJLElBQUksRUFBRTtBQUNsQixpQkFBTyxNQUFNLENBQUMsQ0FBQyxDQUFDLENBQUMsSUFBSSxDQUFDLENBQUM7U0FDeEI7T0FDRjtLQUNGO0FBQ0QsVUFBTSxFQUFFLGdCQUFTLE9BQU8sRUFBRSxPQUFPLEVBQUU7QUFDakMsYUFBTyxPQUFPLE9BQU8sS0FBSyxVQUFVLEdBQUcsT0FBTyxDQUFDLElBQUksQ0FBQyxPQUFPLENBQUMsR0FBRyxPQUFPLENBQUM7S0FDeEU7O0FBRUQsb0JBQWdCLEVBQUUsS0FBSyxDQUFDLGdCQUFnQjtBQUN4QyxpQkFBYSxFQUFFLG9CQUFvQjs7QUFFbkMsTUFBRSxFQUFFLFlBQVMsQ0FBQyxFQUFFO0FBQ2QsVUFBSSxHQUFHLEdBQUcsWUFBWSxDQUFDLENBQUMsQ0FBQyxDQUFDO0FBQzFCLFNBQUcsQ0FBQyxTQUFTLEdBQUcsWUFBWSxDQUFDLENBQUMsR0FBRyxJQUFJLENBQUMsQ0FBQztBQUN2QyxhQUFPLEdBQUcsQ0FBQztLQUNaOztBQUVELFlBQVEsRUFBRSxFQUFFO0FBQ1osV0FBTyxFQUFFLGlCQUFTLENBQUMsRUFBRSxJQUFJLEVBQUUsbUJBQW1CLEVBQUUsV0FBVyxFQUFFLE1BQU0sRUFBRTtBQUNuRSxVQUFJLGNBQWMsR0FBRyxJQUFJLENBQUMsUUFBUSxDQUFDLENBQUMsQ0FBQztVQUNuQyxFQUFFLEdBQUcsSUFBSSxDQUFDLEVBQUUsQ0FBQyxDQUFDLENBQUMsQ0FBQztBQUNsQixVQUFJLElBQUksSUFBSSxNQUFNLElBQUksV0FBVyxJQUFJLG1CQUFtQixFQUFFO0FBQ3hELHNCQUFjLEdBQUcsV0FBVyxDQUMxQixJQUFJLEVBQ0osQ0FBQyxFQUNELEVBQUUsRUFDRixJQUFJLEVBQ0osbUJBQW1CLEVBQ25CLFdBQVcsRUFDWCxNQUFNLENBQ1AsQ0FBQztPQUNILE1BQU0sSUFBSSxDQUFDLGNBQWMsRUFBRTtBQUMxQixzQkFBYyxHQUFHLElBQUksQ0FBQyxRQUFRLENBQUMsQ0FBQyxDQUFDLEdBQUcsV0FBVyxDQUFDLElBQUksRUFBRSxDQUFDLEVBQUUsRUFBRSxDQUFDLENBQUM7T0FDOUQ7QUFDRCxhQUFPLGNBQWMsQ0FBQztLQUN2Qjs7QUFFRCxRQUFJLEVBQUUsY0FBUyxLQUFLLEVBQUUsS0FBSyxFQUFFO0FBQzNCLGFBQU8sS0FBSyxJQUFJLEtBQUssRUFBRSxFQUFFO0FBQ3ZCLGFBQUssR0FBRyxLQUFLLENBQUMsT0FBTyxDQUFDO09BQ3ZCO0FBQ0QsYUFBTyxLQUFLLENBQUM7S0FDZDtBQUNELGlCQUFhLEVBQUUsdUJBQVMsS0FBSyxFQUFFLE1BQU0sRUFBRTtBQUNyQyxVQUFJLEdBQUcsR0FBRyxLQUFLLElBQUksTUFBTSxDQUFDOztBQUUxQixVQUFJLEtBQUssSUFBSSxNQUFNLElBQUksS0FBSyxLQUFLLE1BQU0sRUFBRTtBQUN2QyxXQUFHLEdBQUcsS0FBSyxDQUFDLE1BQU0sQ0FBQyxFQUFFLEVBQUUsTUFBTSxFQUFFLEtBQUssQ0FBQyxDQUFDO09BQ3ZDOztBQUVELGFBQU8sR0FBRyxDQUFDO0tBQ1o7O0FBRUQsZUFBVyxFQUFFLE1BQU0sQ0FBQyxJQUFJLENBQUMsRUFBRSxDQUFDOztBQUU1QixRQUFJLEVBQUUsR0FBRyxDQUFDLEVBQUUsQ0FBQyxJQUFJO0FBQ2pCLGdCQUFZLEVBQUUsWUFBWSxDQUFDLFFBQVE7R0FDcEMsQ0FBQzs7QUFFRixXQUFTLEdBQUcsQ0FBQyxPQUFPLEVBQWdCO1FBQWQsT0FBTyx5REFBRyxFQUFFOztBQUNoQyxRQUFJLElBQUksR0FBRyxPQUFPLENBQUMsSUFBSSxDQUFDOztBQUV4QixPQUFHLENBQUMsTUFBTSxDQUFDLE9BQU8sQ0FBQyxDQUFDO0FBQ3BCLFFBQUksQ0FBQyxPQUFPLENBQUMsT0FBTyxJQUFJLFlBQVksQ0FBQyxPQUFPLEVBQUU7QUFDNUMsVUFBSSxHQUFHLFFBQVEsQ0FBQyxPQUFPLEVBQUUsSUFBSSxDQUFDLENBQUM7S0FDaEM7QUFDRCxRQUFJLE1BQU0sWUFBQTtRQUNSLFdBQVcsR0FBRyxZQUFZLENBQUMsY0FBYyxHQUFHLEVBQUUsR0FBRyxTQUFTLENBQUM7QUFDN0QsUUFBSSxZQUFZLENBQUMsU0FBUyxFQUFFO0FBQzFCLFVBQUksT0FBTyxDQUFDLE1BQU0sRUFBRTtBQUNsQixjQUFNLEdBQ0osT0FBTyxJQUFJLE9BQU8sQ0FBQyxNQUFNLENBQUMsQ0FBQyxDQUFDLEdBQ3hCLENBQUMsT0FBTyxDQUFDLENBQUMsTUFBTSxDQUFDLE9BQU8sQ0FBQyxNQUFNLENBQUMsR0FDaEMsT0FBTyxDQUFDLE1BQU0sQ0FBQztPQUN0QixNQUFNO0FBQ0wsY0FBTSxHQUFHLENBQUMsT0FBTyxDQUFDLENBQUM7T0FDcEI7S0FDRjs7QUFFRCxhQUFTLElBQUksQ0FBQyxPQUFPLGdCQUFnQjtBQUNuQyxhQUNFLEVBQUUsR0FDRixZQUFZLENBQUMsSUFBSSxDQUNmLFNBQVMsRUFDVCxPQUFPLEVBQ1AsU0FBUyxDQUFDLE9BQU8sRUFDakIsU0FBUyxDQUFDLFFBQVEsRUFDbEIsSUFBSSxFQUNKLFdBQVcsRUFDWCxNQUFNLENBQ1AsQ0FDRDtLQUNIOztBQUVELFFBQUksR0FBRyxpQkFBaUIsQ0FDdEIsWUFBWSxDQUFDLElBQUksRUFDakIsSUFBSSxFQUNKLFNBQVMsRUFDVCxPQUFPLENBQUMsTUFBTSxJQUFJLEVBQUUsRUFDcEIsSUFBSSxFQUNKLFdBQVcsQ0FDWixDQUFDO0FBQ0YsV0FBTyxJQUFJLENBQUMsT0FBTyxFQUFFLE9BQU8sQ0FBQyxDQUFDO0dBQy9COztBQUVELEtBQUcsQ0FBQyxLQUFLLEdBQUcsSUFBSSxDQUFDOztBQUVqQixLQUFHLENBQUMsTUFBTSxHQUFHLFVBQVMsT0FBTyxFQUFFO0FBQzdCLFFBQUksQ0FBQyxPQUFPLENBQUMsT0FBTyxFQUFFO0FBQ3BCLFVBQUksYUFBYSxHQUFHLEtBQUssQ0FBQyxNQUFNLENBQUMsRUFBRSxFQUFFLEdBQUcsQ0FBQyxPQUFPLEVBQUUsT0FBTyxDQUFDLE9BQU8sQ0FBQyxDQUFDO0FBQ25FLHFDQUErQixDQUFDLGFBQWEsRUFBRSxTQUFTLENBQUMsQ0FBQztBQUMxRCxlQUFTLENBQUMsT0FBTyxHQUFHLGFBQWEsQ0FBQzs7QUFFbEMsVUFBSSxZQUFZLENBQUMsVUFBVSxFQUFFOztBQUUzQixpQkFBUyxDQUFDLFFBQVEsR0FBRyxTQUFTLENBQUMsYUFBYSxDQUMxQyxPQUFPLENBQUMsUUFBUSxFQUNoQixHQUFHLENBQUMsUUFBUSxDQUNiLENBQUM7T0FDSDtBQUNELFVBQUksWUFBWSxDQUFDLFVBQVUsSUFBSSxZQUFZLENBQUMsYUFBYSxFQUFFO0FBQ3pELGlCQUFTLENBQUMsVUFBVSxHQUFHLEtBQUssQ0FBQyxNQUFNLENBQ2pDLEVBQUUsRUFDRixHQUFHLENBQUMsVUFBVSxFQUNkLE9BQU8sQ0FBQyxVQUFVLENBQ25CLENBQUM7T0FDSDs7QUFFRCxlQUFTLENBQUMsS0FBSyxHQUFHLEVBQUUsQ0FBQztBQUNyQixlQUFTLENBQUMsa0JBQWtCLEdBQUcsOENBQXlCLE9BQU8sQ0FBQyxDQUFDOztBQUVqRSxVQUFJLG1CQUFtQixHQUNyQixPQUFPLENBQUMseUJBQXlCLElBQ2pDLG9DQUFvQyxDQUFDO0FBQ3ZDLGlDQUFrQixTQUFTLEVBQUUsZUFBZSxFQUFFLG1CQUFtQixDQUFDLENBQUM7QUFDbkUsaUNBQWtCLFNBQVMsRUFBRSxvQkFBb0IsRUFBRSxtQkFBbUIsQ0FBQyxDQUFDO0tBQ3pFLE1BQU07QUFDTCxlQUFTLENBQUMsa0JBQWtCLEdBQUcsT0FBTyxDQUFDLGtCQUFrQixDQUFDO0FBQzFELGVBQVMsQ0FBQyxPQUFPLEdBQUcsT0FBTyxDQUFDLE9BQU8sQ0FBQztBQUNwQyxlQUFTLENBQUMsUUFBUSxHQUFHLE9BQU8sQ0FBQyxRQUFRLENBQUM7QUFDdEMsZUFBUyxDQUFDLFVBQVUsR0FBRyxPQUFPLENBQUMsVUFBVSxDQUFDO0FBQzFDLGVBQVMsQ0FBQyxLQUFLLEdBQUcsT0FBTyxDQUFDLEtBQUssQ0FBQztLQUNqQztHQUNGLENBQUM7O0FBRUYsS0FBRyxDQUFDLE1BQU0sR0FBRyxVQUFTLENBQUMsRUFBRSxJQUFJLEVBQUUsV0FBVyxFQUFFLE1BQU0sRUFBRTtBQUNsRCxRQUFJLFlBQVksQ0FBQyxjQUFjLElBQUksQ0FBQyxXQUFXLEVBQUU7QUFDL0MsWUFBTSwyQkFBYyx3QkFBd0IsQ0FBQyxDQUFDO0tBQy9DO0FBQ0QsUUFBSSxZQUFZLENBQUMsU0FBUyxJQUFJLENBQUMsTUFBTSxFQUFFO0FBQ3JDLFlBQU0sMkJBQWMseUJBQXlCLENBQUMsQ0FBQztLQUNoRDs7QUFFRCxXQUFPLFdBQVcsQ0FDaEIsU0FBUyxFQUNULENBQUMsRUFDRCxZQUFZLENBQUMsQ0FBQyxDQUFDLEVBQ2YsSUFBSSxFQUNKLENBQUMsRUFDRCxXQUFXLEVBQ1gsTUFBTSxDQUNQLENBQUM7R0FDSCxDQUFDO0FBQ0YsU0FBTyxHQUFHLENBQUM7Q0FDWjs7QUFFTSxTQUFTLFdBQVcsQ0FDekIsU0FBUyxFQUNULENBQUMsRUFDRCxFQUFFLEVBQ0YsSUFBSSxFQUNKLG1CQUFtQixFQUNuQixXQUFXLEVBQ1gsTUFBTSxFQUNOO0FBQ0EsV0FBUyxJQUFJLENBQUMsT0FBTyxFQUFnQjtRQUFkLE9BQU8seURBQUcsRUFBRTs7QUFDakMsUUFBSSxhQUFhLEdBQUcsTUFBTSxDQUFDO0FBQzNCLFFBQ0UsTUFBTSxJQUNOLE9BQU8sSUFBSSxNQUFNLENBQUMsQ0FBQyxDQUFDLElBQ3BCLEVBQUUsT0FBTyxLQUFLLFNBQVMsQ0FBQyxXQUFXLElBQUksTUFBTSxDQUFDLENBQUMsQ0FBQyxLQUFLLElBQUksQ0FBQSxBQUFDLEVBQzFEO0FBQ0EsbUJBQWEsR0FBRyxDQUFDLE9BQU8sQ0FBQyxDQUFDLE1BQU0sQ0FBQyxNQUFNLENBQUMsQ0FBQztLQUMxQzs7QUFFRCxXQUFPLEVBQUUsQ0FDUCxTQUFTLEVBQ1QsT0FBTyxFQUNQLFNBQVMsQ0FBQyxPQUFPLEVBQ2pCLFNBQVMsQ0FBQyxRQUFRLEVBQ2xCLE9BQU8sQ0FBQyxJQUFJLElBQUksSUFBSSxFQUNwQixXQUFXLElBQUksQ0FBQyxPQUFPLENBQUMsV0FBVyxDQUFDLENBQUMsTUFBTSxDQUFDLFdBQVcsQ0FBQyxFQUN4RCxhQUFhLENBQ2QsQ0FBQztHQUNIOztBQUVELE1BQUksR0FBRyxpQkFBaUIsQ0FBQyxFQUFFLEVBQUUsSUFBSSxFQUFFLFNBQVMsRUFBRSxNQUFNLEVBQUUsSUFBSSxFQUFFLFdBQVcsQ0FBQyxDQUFDOztBQUV6RSxNQUFJLENBQUMsT0FBTyxHQUFHLENBQUMsQ0FBQztBQUNqQixNQUFJLENBQUMsS0FBSyxHQUFHLE1BQU0sR0FBRyxNQUFNLENBQUMsTUFBTSxHQUFHLENBQUMsQ0FBQztBQUN4QyxNQUFJLENBQUMsV0FBVyxHQUFHLG1CQUFtQixJQUFJLENBQUMsQ0FBQztBQUM1QyxTQUFPLElBQUksQ0FBQztDQUNiOzs7Ozs7QUFLTSxTQUFTLGNBQWMsQ0FBQyxPQUFPLEVBQUUsT0FBTyxFQUFFLE9BQU8sRUFBRTtBQUN4RCxNQUFJLENBQUMsT0FBTyxFQUFFO0FBQ1osUUFBSSxPQUFPLENBQUMsSUFBSSxLQUFLLGdCQUFnQixFQUFFO0FBQ3JDLGFBQU8sR0FBRyxPQUFPLENBQUMsSUFBSSxDQUFDLGVBQWUsQ0FBQyxDQUFDO0tBQ3pDLE1BQU07QUFDTCxhQUFPLEdBQUcsT0FBTyxDQUFDLFFBQVEsQ0FBQyxPQUFPLENBQUMsSUFBSSxDQUFDLENBQUM7S0FDMUM7R0FDRixNQUFNLElBQUksQ0FBQyxPQUFPLENBQUMsSUFBSSxJQUFJLENBQUMsT0FBTyxDQUFDLElBQUksRUFBRTs7QUFFekMsV0FBTyxDQUFDLElBQUksR0FBRyxPQUFPLENBQUM7QUFDdkIsV0FBTyxHQUFHLE9BQU8sQ0FBQyxRQUFRLENBQUMsT0FBTyxDQUFDLENBQUM7R0FDckM7QUFDRCxTQUFPLE9BQU8sQ0FBQztDQUNoQjs7QUFFTSxTQUFTLGFBQWEsQ0FBQyxPQUFPLEVBQUUsT0FBTyxFQUFFLE9BQU8sRUFBRTs7QUFFdkQsTUFBTSxtQkFBbUIsR0FBRyxPQUFPLENBQUMsSUFBSSxJQUFJLE9BQU8sQ0FBQyxJQUFJLENBQUMsZUFBZSxDQUFDLENBQUM7QUFDMUUsU0FBTyxDQUFDLE9BQU8sR0FBRyxJQUFJLENBQUM7QUFDdkIsTUFBSSxPQUFPLENBQUMsR0FBRyxFQUFFO0FBQ2YsV0FBTyxDQUFDLElBQUksQ0FBQyxXQUFXLEdBQUcsT0FBTyxDQUFDLEdBQUcsQ0FBQyxDQUFDLENBQUMsSUFBSSxPQUFPLENBQUMsSUFBSSxDQUFDLFdBQVcsQ0FBQztHQUN2RTs7QUFFRCxNQUFJLFlBQVksWUFBQSxDQUFDO0FBQ2pCLE1BQUksT0FBTyxDQUFDLEVBQUUsSUFBSSxPQUFPLENBQUMsRUFBRSxLQUFLLElBQUksRUFBRTs7QUFDckMsYUFBTyxDQUFDLElBQUksR0FBRyxrQkFBWSxPQUFPLENBQUMsSUFBSSxDQUFDLENBQUM7O0FBRXpDLFVBQUksRUFBRSxHQUFHLE9BQU8sQ0FBQyxFQUFFLENBQUM7QUFDcEIsa0JBQVksR0FBRyxPQUFPLENBQUMsSUFBSSxDQUFDLGVBQWUsQ0FBQyxHQUFHLFNBQVMsbUJBQW1CLENBQ3pFLE9BQU8sRUFFUDtZQURBLE9BQU8seURBQUcsRUFBRTs7OztBQUlaLGVBQU8sQ0FBQyxJQUFJLEdBQUcsa0JBQVksT0FBTyxDQUFDLElBQUksQ0FBQyxDQUFDO0FBQ3pDLGVBQU8sQ0FBQyxJQUFJLENBQUMsZUFBZSxDQUFDLEdBQUcsbUJBQW1CLENBQUM7QUFDcEQsZUFBTyxFQUFFLENBQUMsT0FBTyxFQUFFLE9BQU8sQ0FBQyxDQUFDO09BQzdCLENBQUM7QUFDRixVQUFJLEVBQUUsQ0FBQyxRQUFRLEVBQUU7QUFDZixlQUFPLENBQUMsUUFBUSxHQUFHLEtBQUssQ0FBQyxNQUFNLENBQUMsRUFBRSxFQUFFLE9BQU8sQ0FBQyxRQUFRLEVBQUUsRUFBRSxDQUFDLFFBQVEsQ0FBQyxDQUFDO09BQ3BFOztHQUNGOztBQUVELE1BQUksT0FBTyxLQUFLLFNBQVMsSUFBSSxZQUFZLEVBQUU7QUFDekMsV0FBTyxHQUFHLFlBQVksQ0FBQztHQUN4Qjs7QUFFRCxNQUFJLE9BQU8sS0FBSyxTQUFTLEVBQUU7QUFDekIsVUFBTSwyQkFBYyxjQUFjLEdBQUcsT0FBTyxDQUFDLElBQUksR0FBRyxxQkFBcUIsQ0FBQyxDQUFDO0dBQzVFLE1BQU0sSUFBSSxPQUFPLFlBQVksUUFBUSxFQUFFO0FBQ3RDLFdBQU8sT0FBTyxDQUFDLE9BQU8sRUFBRSxPQUFPLENBQUMsQ0FBQztHQUNsQztDQUNGOztBQUVNLFNBQVMsSUFBSSxHQUFHO0FBQ3JCLFNBQU8sRUFBRSxDQUFDO0NBQ1g7O0FBRUQsU0FBUyxRQUFRLENBQUMsT0FBTyxFQUFFLElBQUksRUFBRTtBQUMvQixNQUFJLENBQUMsSUFBSSxJQUFJLEVBQUUsTUFBTSxJQUFJLElBQUksQ0FBQSxBQUFDLEVBQUU7QUFDOUIsUUFBSSxHQUFHLElBQUksR0FBRyxrQkFBWSxJQUFJLENBQUMsR0FBRyxFQUFFLENBQUM7QUFDckMsUUFBSSxDQUFDLElBQUksR0FBRyxPQUFPLENBQUM7R0FDckI7QUFDRCxTQUFPLElBQUksQ0FBQztDQUNiOztBQUVELFNBQVMsaUJBQWlCLENBQUMsRUFBRSxFQUFFLElBQUksRUFBRSxTQUFTLEVBQUUsTUFBTSxFQUFFLElBQUksRUFBRSxXQUFXLEVBQUU7QUFDekUsTUFBSSxFQUFFLENBQUMsU0FBUyxFQUFFO0FBQ2hCLFFBQUksS0FBSyxHQUFHLEVBQUUsQ0FBQztBQUNmLFFBQUksR0FBRyxFQUFFLENBQUMsU0FBUyxDQUNqQixJQUFJLEVBQ0osS0FBSyxFQUNMLFNBQVMsRUFDVCxNQUFNLElBQUksTUFBTSxDQUFDLENBQUMsQ0FBQyxFQUNuQixJQUFJLEVBQ0osV0FBVyxFQUNYLE1BQU0sQ0FDUCxDQUFDO0FBQ0YsU0FBSyxDQUFDLE1BQU0sQ0FBQyxJQUFJLEVBQUUsS0FBSyxDQUFDLENBQUM7R0FDM0I7QUFDRCxTQUFPLElBQUksQ0FBQztDQUNiOztBQUVELFNBQVMsK0JBQStCLENBQUMsYUFBYSxFQUFFLFNBQVMsRUFBRTtBQUNqRSxRQUFNLENBQUMsSUFBSSxDQUFDLGFBQWEsQ0FBQyxDQUFDLE9BQU8sQ0FBQyxVQUFBLFVBQVUsRUFBSTtBQUMvQyxRQUFJLE1BQU0sR0FBRyxhQUFhLENBQUMsVUFBVSxDQUFDLENBQUM7QUFDdkMsaUJBQWEsQ0FBQyxVQUFVLENBQUMsR0FBRyx3QkFBd0IsQ0FBQyxNQUFNLEVBQUUsU0FBUyxDQUFDLENBQUM7R0FDekUsQ0FBQyxDQUFDO0NBQ0o7O0FBRUQsU0FBUyx3QkFBd0IsQ0FBQyxNQUFNLEVBQUUsU0FBUyxFQUFFO0FBQ25ELE1BQU0sY0FBYyxHQUFHLFNBQVMsQ0FBQyxjQUFjLENBQUM7QUFDaEQsU0FBTywrQkFBVyxNQUFNLEVBQUUsVUFBQSxPQUFPLEVBQUk7QUFDbkMsV0FBTyxLQUFLLENBQUMsTUFBTSxDQUFDLEVBQUUsY0FBYyxFQUFkLGNBQWMsRUFBRSxFQUFFLE9BQU8sQ0FBQyxDQUFDO0dBQ2xELENBQUMsQ0FBQztDQUNKIiwiZmlsZSI6InJ1bnRpbWUuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgKiBhcyBVdGlscyBmcm9tICcuL3V0aWxzJztcbmltcG9ydCBFeGNlcHRpb24gZnJvbSAnLi9leGNlcHRpb24nO1xuaW1wb3J0IHtcbiAgQ09NUElMRVJfUkVWSVNJT04sXG4gIGNyZWF0ZUZyYW1lLFxuICBMQVNUX0NPTVBBVElCTEVfQ09NUElMRVJfUkVWSVNJT04sXG4gIFJFVklTSU9OX0NIQU5HRVNcbn0gZnJvbSAnLi9iYXNlJztcbmltcG9ydCB7IG1vdmVIZWxwZXJUb0hvb2tzIH0gZnJvbSAnLi9oZWxwZXJzJztcbmltcG9ydCB7IHdyYXBIZWxwZXIgfSBmcm9tICcuL2ludGVybmFsL3dyYXBIZWxwZXInO1xuaW1wb3J0IHtcbiAgY3JlYXRlUHJvdG9BY2Nlc3NDb250cm9sLFxuICByZXN1bHRJc0FsbG93ZWRcbn0gZnJvbSAnLi9pbnRlcm5hbC9wcm90by1hY2Nlc3MnO1xuXG5leHBvcnQgZnVuY3Rpb24gY2hlY2tSZXZpc2lvbihjb21waWxlckluZm8pIHtcbiAgY29uc3QgY29tcGlsZXJSZXZpc2lvbiA9IChjb21waWxlckluZm8gJiYgY29tcGlsZXJJbmZvWzBdKSB8fCAxLFxuICAgIGN1cnJlbnRSZXZpc2lvbiA9IENPTVBJTEVSX1JFVklTSU9OO1xuXG4gIGlmIChcbiAgICBjb21waWxlclJldmlzaW9uID49IExBU1RfQ09NUEFUSUJMRV9DT01QSUxFUl9SRVZJU0lPTiAmJlxuICAgIGNvbXBpbGVyUmV2aXNpb24gPD0gQ09NUElMRVJfUkVWSVNJT05cbiAgKSB7XG4gICAgcmV0dXJuO1xuICB9XG5cbiAgaWYgKGNvbXBpbGVyUmV2aXNpb24gPCBMQVNUX0NPTVBBVElCTEVfQ09NUElMRVJfUkVWSVNJT04pIHtcbiAgICBjb25zdCBydW50aW1lVmVyc2lvbnMgPSBSRVZJU0lPTl9DSEFOR0VTW2N1cnJlbnRSZXZpc2lvbl0sXG4gICAgICBjb21waWxlclZlcnNpb25zID0gUkVWSVNJT05fQ0hBTkdFU1tjb21waWxlclJldmlzaW9uXTtcbiAgICB0aHJvdyBuZXcgRXhjZXB0aW9uKFxuICAgICAgJ1RlbXBsYXRlIHdhcyBwcmVjb21waWxlZCB3aXRoIGFuIG9sZGVyIHZlcnNpb24gb2YgSGFuZGxlYmFycyB0aGFuIHRoZSBjdXJyZW50IHJ1bnRpbWUuICcgK1xuICAgICAgICAnUGxlYXNlIHVwZGF0ZSB5b3VyIHByZWNvbXBpbGVyIHRvIGEgbmV3ZXIgdmVyc2lvbiAoJyArXG4gICAgICAgIHJ1bnRpbWVWZXJzaW9ucyArXG4gICAgICAgICcpIG9yIGRvd25ncmFkZSB5b3VyIHJ1bnRpbWUgdG8gYW4gb2xkZXIgdmVyc2lvbiAoJyArXG4gICAgICAgIGNvbXBpbGVyVmVyc2lvbnMgK1xuICAgICAgICAnKS4nXG4gICAgKTtcbiAgfSBlbHNlIHtcbiAgICAvLyBVc2UgdGhlIGVtYmVkZGVkIHZlcnNpb24gaW5mbyBzaW5jZSB0aGUgcnVudGltZSBkb2Vzbid0IGtub3cgYWJvdXQgdGhpcyByZXZpc2lvbiB5ZXRcbiAgICB0aHJvdyBuZXcgRXhjZXB0aW9uKFxuICAgICAgJ1RlbXBsYXRlIHdhcyBwcmVjb21waWxlZCB3aXRoIGEgbmV3ZXIgdmVyc2lvbiBvZiBIYW5kbGViYXJzIHRoYW4gdGhlIGN1cnJlbnQgcnVudGltZS4gJyArXG4gICAgICAgICdQbGVhc2UgdXBkYXRlIHlvdXIgcnVudGltZSB0byBhIG5ld2VyIHZlcnNpb24gKCcgK1xuICAgICAgICBjb21waWxlckluZm9bMV0gK1xuICAgICAgICAnKS4nXG4gICAgKTtcbiAgfVxufVxuXG5leHBvcnQgZnVuY3Rpb24gdGVtcGxhdGUodGVtcGxhdGVTcGVjLCBlbnYpIHtcbiAgLyogaXN0YW5idWwgaWdub3JlIG5leHQgKi9cbiAgaWYgKCFlbnYpIHtcbiAgICB0aHJvdyBuZXcgRXhjZXB0aW9uKCdObyBlbnZpcm9ubWVudCBwYXNzZWQgdG8gdGVtcGxhdGUnKTtcbiAgfVxuICBpZiAoIXRlbXBsYXRlU3BlYyB8fCAhdGVtcGxhdGVTcGVjLm1haW4pIHtcbiAgICB0aHJvdyBuZXcgRXhjZXB0aW9uKCdVbmtub3duIHRlbXBsYXRlIG9iamVjdDogJyArIHR5cGVvZiB0ZW1wbGF0ZVNwZWMpO1xuICB9XG5cbiAgdGVtcGxhdGVTcGVjLm1haW4uZGVjb3JhdG9yID0gdGVtcGxhdGVTcGVjLm1haW5fZDtcblxuICAvLyBOb3RlOiBVc2luZyBlbnYuVk0gcmVmZXJlbmNlcyByYXRoZXIgdGhhbiBsb2NhbCB2YXIgcmVmZXJlbmNlcyB0aHJvdWdob3V0IHRoaXMgc2VjdGlvbiB0byBhbGxvd1xuICAvLyBmb3IgZXh0ZXJuYWwgdXNlcnMgdG8gb3ZlcnJpZGUgdGhlc2UgYXMgcHNldWRvLXN1cHBvcnRlZCBBUElzLlxuICBlbnYuVk0uY2hlY2tSZXZpc2lvbih0ZW1wbGF0ZVNwZWMuY29tcGlsZXIpO1xuXG4gIC8vIGJhY2t3YXJkcyBjb21wYXRpYmlsaXR5IGZvciBwcmVjb21waWxlZCB0ZW1wbGF0ZXMgd2l0aCBjb21waWxlci12ZXJzaW9uIDcgKDw0LjMuMClcbiAgY29uc3QgdGVtcGxhdGVXYXNQcmVjb21waWxlZFdpdGhDb21waWxlclY3ID1cbiAgICB0ZW1wbGF0ZVNwZWMuY29tcGlsZXIgJiYgdGVtcGxhdGVTcGVjLmNvbXBpbGVyWzBdID09PSA3O1xuXG4gIGZ1bmN0aW9uIGludm9rZVBhcnRpYWxXcmFwcGVyKHBhcnRpYWwsIGNvbnRleHQsIG9wdGlvbnMpIHtcbiAgICBpZiAob3B0aW9ucy5oYXNoKSB7XG4gICAgICBjb250ZXh0ID0gVXRpbHMuZXh0ZW5kKHt9LCBjb250ZXh0LCBvcHRpb25zLmhhc2gpO1xuICAgICAgaWYgKG9wdGlvbnMuaWRzKSB7XG4gICAgICAgIG9wdGlvbnMuaWRzWzBdID0gdHJ1ZTtcbiAgICAgIH1cbiAgICB9XG4gICAgcGFydGlhbCA9IGVudi5WTS5yZXNvbHZlUGFydGlhbC5jYWxsKHRoaXMsIHBhcnRpYWwsIGNvbnRleHQsIG9wdGlvbnMpO1xuXG4gICAgbGV0IGV4dGVuZGVkT3B0aW9ucyA9IFV0aWxzLmV4dGVuZCh7fSwgb3B0aW9ucywge1xuICAgICAgaG9va3M6IHRoaXMuaG9va3MsXG4gICAgICBwcm90b0FjY2Vzc0NvbnRyb2w6IHRoaXMucHJvdG9BY2Nlc3NDb250cm9sXG4gICAgfSk7XG5cbiAgICBsZXQgcmVzdWx0ID0gZW52LlZNLmludm9rZVBhcnRpYWwuY2FsbChcbiAgICAgIHRoaXMsXG4gICAgICBwYXJ0aWFsLFxuICAgICAgY29udGV4dCxcbiAgICAgIGV4dGVuZGVkT3B0aW9uc1xuICAgICk7XG5cbiAgICBpZiAocmVzdWx0ID09IG51bGwgJiYgZW52LmNvbXBpbGUpIHtcbiAgICAgIG9wdGlvbnMucGFydGlhbHNbb3B0aW9ucy5uYW1lXSA9IGVudi5jb21waWxlKFxuICAgICAgICBwYXJ0aWFsLFxuICAgICAgICB0ZW1wbGF0ZVNwZWMuY29tcGlsZXJPcHRpb25zLFxuICAgICAgICBlbnZcbiAgICAgICk7XG4gICAgICByZXN1bHQgPSBvcHRpb25zLnBhcnRpYWxzW29wdGlvbnMubmFtZV0oY29udGV4dCwgZXh0ZW5kZWRPcHRpb25zKTtcbiAgICB9XG4gICAgaWYgKHJlc3VsdCAhPSBudWxsKSB7XG4gICAgICBpZiAob3B0aW9ucy5pbmRlbnQpIHtcbiAgICAgICAgbGV0IGxpbmVzID0gcmVzdWx0LnNwbGl0KCdcXG4nKTtcbiAgICAgICAgZm9yIChsZXQgaSA9IDAsIGwgPSBsaW5lcy5sZW5ndGg7IGkgPCBsOyBpKyspIHtcbiAgICAgICAgICBpZiAoIWxpbmVzW2ldICYmIGkgKyAxID09PSBsKSB7XG4gICAgICAgICAgICBicmVhaztcbiAgICAgICAgICB9XG5cbiAgICAgICAgICBsaW5lc1tpXSA9IG9wdGlvbnMuaW5kZW50ICsgbGluZXNbaV07XG4gICAgICAgIH1cbiAgICAgICAgcmVzdWx0ID0gbGluZXMuam9pbignXFxuJyk7XG4gICAgICB9XG4gICAgICByZXR1cm4gcmVzdWx0O1xuICAgIH0gZWxzZSB7XG4gICAgICB0aHJvdyBuZXcgRXhjZXB0aW9uKFxuICAgICAgICAnVGhlIHBhcnRpYWwgJyArXG4gICAgICAgICAgb3B0aW9ucy5uYW1lICtcbiAgICAgICAgICAnIGNvdWxkIG5vdCBiZSBjb21waWxlZCB3aGVuIHJ1bm5pbmcgaW4gcnVudGltZS1vbmx5IG1vZGUnXG4gICAgICApO1xuICAgIH1cbiAgfVxuXG4gIC8vIEp1c3QgYWRkIHdhdGVyXG4gIGxldCBjb250YWluZXIgPSB7XG4gICAgc3RyaWN0OiBmdW5jdGlvbihvYmosIG5hbWUsIGxvYykge1xuICAgICAgaWYgKCFvYmogfHwgIShuYW1lIGluIG9iaikpIHtcbiAgICAgICAgdGhyb3cgbmV3IEV4Y2VwdGlvbignXCInICsgbmFtZSArICdcIiBub3QgZGVmaW5lZCBpbiAnICsgb2JqLCB7XG4gICAgICAgICAgbG9jOiBsb2NcbiAgICAgICAgfSk7XG4gICAgICB9XG4gICAgICByZXR1cm4gY29udGFpbmVyLmxvb2t1cFByb3BlcnR5KG9iaiwgbmFtZSk7XG4gICAgfSxcbiAgICBsb29rdXBQcm9wZXJ0eTogZnVuY3Rpb24ocGFyZW50LCBwcm9wZXJ0eU5hbWUpIHtcbiAgICAgIGxldCByZXN1bHQgPSBwYXJlbnRbcHJvcGVydHlOYW1lXTtcbiAgICAgIGlmIChyZXN1bHQgPT0gbnVsbCkge1xuICAgICAgICByZXR1cm4gcmVzdWx0O1xuICAgICAgfVxuICAgICAgaWYgKE9iamVjdC5wcm90b3R5cGUuaGFzT3duUHJvcGVydHkuY2FsbChwYXJlbnQsIHByb3BlcnR5TmFtZSkpIHtcbiAgICAgICAgcmV0dXJuIHJlc3VsdDtcbiAgICAgIH1cblxuICAgICAgaWYgKHJlc3VsdElzQWxsb3dlZChyZXN1bHQsIGNvbnRhaW5lci5wcm90b0FjY2Vzc0NvbnRyb2wsIHByb3BlcnR5TmFtZSkpIHtcbiAgICAgICAgcmV0dXJuIHJlc3VsdDtcbiAgICAgIH1cbiAgICAgIHJldHVybiB1bmRlZmluZWQ7XG4gICAgfSxcbiAgICBsb29rdXA6IGZ1bmN0aW9uKGRlcHRocywgbmFtZSkge1xuICAgICAgY29uc3QgbGVuID0gZGVwdGhzLmxlbmd0aDtcbiAgICAgIGZvciAobGV0IGkgPSAwOyBpIDwgbGVuOyBpKyspIHtcbiAgICAgICAgbGV0IHJlc3VsdCA9IGRlcHRoc1tpXSAmJiBjb250YWluZXIubG9va3VwUHJvcGVydHkoZGVwdGhzW2ldLCBuYW1lKTtcbiAgICAgICAgaWYgKHJlc3VsdCAhPSBudWxsKSB7XG4gICAgICAgICAgcmV0dXJuIGRlcHRoc1tpXVtuYW1lXTtcbiAgICAgICAgfVxuICAgICAgfVxuICAgIH0sXG4gICAgbGFtYmRhOiBmdW5jdGlvbihjdXJyZW50LCBjb250ZXh0KSB7XG4gICAgICByZXR1cm4gdHlwZW9mIGN1cnJlbnQgPT09ICdmdW5jdGlvbicgPyBjdXJyZW50LmNhbGwoY29udGV4dCkgOiBjdXJyZW50O1xuICAgIH0sXG5cbiAgICBlc2NhcGVFeHByZXNzaW9uOiBVdGlscy5lc2NhcGVFeHByZXNzaW9uLFxuICAgIGludm9rZVBhcnRpYWw6IGludm9rZVBhcnRpYWxXcmFwcGVyLFxuXG4gICAgZm46IGZ1bmN0aW9uKGkpIHtcbiAgICAgIGxldCByZXQgPSB0ZW1wbGF0ZVNwZWNbaV07XG4gICAgICByZXQuZGVjb3JhdG9yID0gdGVtcGxhdGVTcGVjW2kgKyAnX2QnXTtcbiAgICAgIHJldHVybiByZXQ7XG4gICAgfSxcblxuICAgIHByb2dyYW1zOiBbXSxcbiAgICBwcm9ncmFtOiBmdW5jdGlvbihpLCBkYXRhLCBkZWNsYXJlZEJsb2NrUGFyYW1zLCBibG9ja1BhcmFtcywgZGVwdGhzKSB7XG4gICAgICBsZXQgcHJvZ3JhbVdyYXBwZXIgPSB0aGlzLnByb2dyYW1zW2ldLFxuICAgICAgICBmbiA9IHRoaXMuZm4oaSk7XG4gICAgICBpZiAoZGF0YSB8fCBkZXB0aHMgfHwgYmxvY2tQYXJhbXMgfHwgZGVjbGFyZWRCbG9ja1BhcmFtcykge1xuICAgICAgICBwcm9ncmFtV3JhcHBlciA9IHdyYXBQcm9ncmFtKFxuICAgICAgICAgIHRoaXMsXG4gICAgICAgICAgaSxcbiAgICAgICAgICBmbixcbiAgICAgICAgICBkYXRhLFxuICAgICAgICAgIGRlY2xhcmVkQmxvY2tQYXJhbXMsXG4gICAgICAgICAgYmxvY2tQYXJhbXMsXG4gICAgICAgICAgZGVwdGhzXG4gICAgICAgICk7XG4gICAgICB9IGVsc2UgaWYgKCFwcm9ncmFtV3JhcHBlcikge1xuICAgICAgICBwcm9ncmFtV3JhcHBlciA9IHRoaXMucHJvZ3JhbXNbaV0gPSB3cmFwUHJvZ3JhbSh0aGlzLCBpLCBmbik7XG4gICAgICB9XG4gICAgICByZXR1cm4gcHJvZ3JhbVdyYXBwZXI7XG4gICAgfSxcblxuICAgIGRhdGE6IGZ1bmN0aW9uKHZhbHVlLCBkZXB0aCkge1xuICAgICAgd2hpbGUgKHZhbHVlICYmIGRlcHRoLS0pIHtcbiAgICAgICAgdmFsdWUgPSB2YWx1ZS5fcGFyZW50O1xuICAgICAgfVxuICAgICAgcmV0dXJuIHZhbHVlO1xuICAgIH0sXG4gICAgbWVyZ2VJZk5lZWRlZDogZnVuY3Rpb24ocGFyYW0sIGNvbW1vbikge1xuICAgICAgbGV0IG9iaiA9IHBhcmFtIHx8IGNvbW1vbjtcblxuICAgICAgaWYgKHBhcmFtICYmIGNvbW1vbiAmJiBwYXJhbSAhPT0gY29tbW9uKSB7XG4gICAgICAgIG9iaiA9IFV0aWxzLmV4dGVuZCh7fSwgY29tbW9uLCBwYXJhbSk7XG4gICAgICB9XG5cbiAgICAgIHJldHVybiBvYmo7XG4gICAgfSxcbiAgICAvLyBBbiBlbXB0eSBvYmplY3QgdG8gdXNlIGFzIHJlcGxhY2VtZW50IGZvciBudWxsLWNvbnRleHRzXG4gICAgbnVsbENvbnRleHQ6IE9iamVjdC5zZWFsKHt9KSxcblxuICAgIG5vb3A6IGVudi5WTS5ub29wLFxuICAgIGNvbXBpbGVySW5mbzogdGVtcGxhdGVTcGVjLmNvbXBpbGVyXG4gIH07XG5cbiAgZnVuY3Rpb24gcmV0KGNvbnRleHQsIG9wdGlvbnMgPSB7fSkge1xuICAgIGxldCBkYXRhID0gb3B0aW9ucy5kYXRhO1xuXG4gICAgcmV0Ll9zZXR1cChvcHRpb25zKTtcbiAgICBpZiAoIW9wdGlvbnMucGFydGlhbCAmJiB0ZW1wbGF0ZVNwZWMudXNlRGF0YSkge1xuICAgICAgZGF0YSA9IGluaXREYXRhKGNvbnRleHQsIGRhdGEpO1xuICAgIH1cbiAgICBsZXQgZGVwdGhzLFxuICAgICAgYmxvY2tQYXJhbXMgPSB0ZW1wbGF0ZVNwZWMudXNlQmxvY2tQYXJhbXMgPyBbXSA6IHVuZGVmaW5lZDtcbiAgICBpZiAodGVtcGxhdGVTcGVjLnVzZURlcHRocykge1xuICAgICAgaWYgKG9wdGlvbnMuZGVwdGhzKSB7XG4gICAgICAgIGRlcHRocyA9XG4gICAgICAgICAgY29udGV4dCAhPSBvcHRpb25zLmRlcHRoc1swXVxuICAgICAgICAgICAgPyBbY29udGV4dF0uY29uY2F0KG9wdGlvbnMuZGVwdGhzKVxuICAgICAgICAgICAgOiBvcHRpb25zLmRlcHRocztcbiAgICAgIH0gZWxzZSB7XG4gICAgICAgIGRlcHRocyA9IFtjb250ZXh0XTtcbiAgICAgIH1cbiAgICB9XG5cbiAgICBmdW5jdGlvbiBtYWluKGNvbnRleHQgLyosIG9wdGlvbnMqLykge1xuICAgICAgcmV0dXJuIChcbiAgICAgICAgJycgK1xuICAgICAgICB0ZW1wbGF0ZVNwZWMubWFpbihcbiAgICAgICAgICBjb250YWluZXIsXG4gICAgICAgICAgY29udGV4dCxcbiAgICAgICAgICBjb250YWluZXIuaGVscGVycyxcbiAgICAgICAgICBjb250YWluZXIucGFydGlhbHMsXG4gICAgICAgICAgZGF0YSxcbiAgICAgICAgICBibG9ja1BhcmFtcyxcbiAgICAgICAgICBkZXB0aHNcbiAgICAgICAgKVxuICAgICAgKTtcbiAgICB9XG5cbiAgICBtYWluID0gZXhlY3V0ZURlY29yYXRvcnMoXG4gICAgICB0ZW1wbGF0ZVNwZWMubWFpbixcbiAgICAgIG1haW4sXG4gICAgICBjb250YWluZXIsXG4gICAgICBvcHRpb25zLmRlcHRocyB8fCBbXSxcbiAgICAgIGRhdGEsXG4gICAgICBibG9ja1BhcmFtc1xuICAgICk7XG4gICAgcmV0dXJuIG1haW4oY29udGV4dCwgb3B0aW9ucyk7XG4gIH1cblxuICByZXQuaXNUb3AgPSB0cnVlO1xuXG4gIHJldC5fc2V0dXAgPSBmdW5jdGlvbihvcHRpb25zKSB7XG4gICAgaWYgKCFvcHRpb25zLnBhcnRpYWwpIHtcbiAgICAgIGxldCBtZXJnZWRIZWxwZXJzID0gVXRpbHMuZXh0ZW5kKHt9LCBlbnYuaGVscGVycywgb3B0aW9ucy5oZWxwZXJzKTtcbiAgICAgIHdyYXBIZWxwZXJzVG9QYXNzTG9va3VwUHJvcGVydHkobWVyZ2VkSGVscGVycywgY29udGFpbmVyKTtcbiAgICAgIGNvbnRhaW5lci5oZWxwZXJzID0gbWVyZ2VkSGVscGVycztcblxuICAgICAgaWYgKHRlbXBsYXRlU3BlYy51c2VQYXJ0aWFsKSB7XG4gICAgICAgIC8vIFVzZSBtZXJnZUlmTmVlZGVkIGhlcmUgdG8gcHJldmVudCBjb21waWxpbmcgZ2xvYmFsIHBhcnRpYWxzIG11bHRpcGxlIHRpbWVzXG4gICAgICAgIGNvbnRhaW5lci5wYXJ0aWFscyA9IGNvbnRhaW5lci5tZXJnZUlmTmVlZGVkKFxuICAgICAgICAgIG9wdGlvbnMucGFydGlhbHMsXG4gICAgICAgICAgZW52LnBhcnRpYWxzXG4gICAgICAgICk7XG4gICAgICB9XG4gICAgICBpZiAodGVtcGxhdGVTcGVjLnVzZVBhcnRpYWwgfHwgdGVtcGxhdGVTcGVjLnVzZURlY29yYXRvcnMpIHtcbiAgICAgICAgY29udGFpbmVyLmRlY29yYXRvcnMgPSBVdGlscy5leHRlbmQoXG4gICAgICAgICAge30sXG4gICAgICAgICAgZW52LmRlY29yYXRvcnMsXG4gICAgICAgICAgb3B0aW9ucy5kZWNvcmF0b3JzXG4gICAgICAgICk7XG4gICAgICB9XG5cbiAgICAgIGNvbnRhaW5lci5ob29rcyA9IHt9O1xuICAgICAgY29udGFpbmVyLnByb3RvQWNjZXNzQ29udHJvbCA9IGNyZWF0ZVByb3RvQWNjZXNzQ29udHJvbChvcHRpb25zKTtcblxuICAgICAgbGV0IGtlZXBIZWxwZXJJbkhlbHBlcnMgPVxuICAgICAgICBvcHRpb25zLmFsbG93Q2FsbHNUb0hlbHBlck1pc3NpbmcgfHxcbiAgICAgICAgdGVtcGxhdGVXYXNQcmVjb21waWxlZFdpdGhDb21waWxlclY3O1xuICAgICAgbW92ZUhlbHBlclRvSG9va3MoY29udGFpbmVyLCAnaGVscGVyTWlzc2luZycsIGtlZXBIZWxwZXJJbkhlbHBlcnMpO1xuICAgICAgbW92ZUhlbHBlclRvSG9va3MoY29udGFpbmVyLCAnYmxvY2tIZWxwZXJNaXNzaW5nJywga2VlcEhlbHBlckluSGVscGVycyk7XG4gICAgfSBlbHNlIHtcbiAgICAgIGNvbnRhaW5lci5wcm90b0FjY2Vzc0NvbnRyb2wgPSBvcHRpb25zLnByb3RvQWNjZXNzQ29udHJvbDsgLy8gaW50ZXJuYWwgb3B0aW9uXG4gICAgICBjb250YWluZXIuaGVscGVycyA9IG9wdGlvbnMuaGVscGVycztcbiAgICAgIGNvbnRhaW5lci5wYXJ0aWFscyA9IG9wdGlvbnMucGFydGlhbHM7XG4gICAgICBjb250YWluZXIuZGVjb3JhdG9ycyA9IG9wdGlvbnMuZGVjb3JhdG9ycztcbiAgICAgIGNvbnRhaW5lci5ob29rcyA9IG9wdGlvbnMuaG9va3M7XG4gICAgfVxuICB9O1xuXG4gIHJldC5fY2hpbGQgPSBmdW5jdGlvbihpLCBkYXRhLCBibG9ja1BhcmFtcywgZGVwdGhzKSB7XG4gICAgaWYgKHRlbXBsYXRlU3BlYy51c2VCbG9ja1BhcmFtcyAmJiAhYmxvY2tQYXJhbXMpIHtcbiAgICAgIHRocm93IG5ldyBFeGNlcHRpb24oJ211c3QgcGFzcyBibG9jayBwYXJhbXMnKTtcbiAgICB9XG4gICAgaWYgKHRlbXBsYXRlU3BlYy51c2VEZXB0aHMgJiYgIWRlcHRocykge1xuICAgICAgdGhyb3cgbmV3IEV4Y2VwdGlvbignbXVzdCBwYXNzIHBhcmVudCBkZXB0aHMnKTtcbiAgICB9XG5cbiAgICByZXR1cm4gd3JhcFByb2dyYW0oXG4gICAgICBjb250YWluZXIsXG4gICAgICBpLFxuICAgICAgdGVtcGxhdGVTcGVjW2ldLFxuICAgICAgZGF0YSxcbiAgICAgIDAsXG4gICAgICBibG9ja1BhcmFtcyxcbiAgICAgIGRlcHRoc1xuICAgICk7XG4gIH07XG4gIHJldHVybiByZXQ7XG59XG5cbmV4cG9ydCBmdW5jdGlvbiB3cmFwUHJvZ3JhbShcbiAgY29udGFpbmVyLFxuICBpLFxuICBmbixcbiAgZGF0YSxcbiAgZGVjbGFyZWRCbG9ja1BhcmFtcyxcbiAgYmxvY2tQYXJhbXMsXG4gIGRlcHRoc1xuKSB7XG4gIGZ1bmN0aW9uIHByb2coY29udGV4dCwgb3B0aW9ucyA9IHt9KSB7XG4gICAgbGV0IGN1cnJlbnREZXB0aHMgPSBkZXB0aHM7XG4gICAgaWYgKFxuICAgICAgZGVwdGhzICYmXG4gICAgICBjb250ZXh0ICE9IGRlcHRoc1swXSAmJlxuICAgICAgIShjb250ZXh0ID09PSBjb250YWluZXIubnVsbENvbnRleHQgJiYgZGVwdGhzWzBdID09PSBudWxsKVxuICAgICkge1xuICAgICAgY3VycmVudERlcHRocyA9IFtjb250ZXh0XS5jb25jYXQoZGVwdGhzKTtcbiAgICB9XG5cbiAgICByZXR1cm4gZm4oXG4gICAgICBjb250YWluZXIsXG4gICAgICBjb250ZXh0LFxuICAgICAgY29udGFpbmVyLmhlbHBlcnMsXG4gICAgICBjb250YWluZXIucGFydGlhbHMsXG4gICAgICBvcHRpb25zLmRhdGEgfHwgZGF0YSxcbiAgICAgIGJsb2NrUGFyYW1zICYmIFtvcHRpb25zLmJsb2NrUGFyYW1zXS5jb25jYXQoYmxvY2tQYXJhbXMpLFxuICAgICAgY3VycmVudERlcHRoc1xuICAgICk7XG4gIH1cblxuICBwcm9nID0gZXhlY3V0ZURlY29yYXRvcnMoZm4sIHByb2csIGNvbnRhaW5lciwgZGVwdGhzLCBkYXRhLCBibG9ja1BhcmFtcyk7XG5cbiAgcHJvZy5wcm9ncmFtID0gaTtcbiAgcHJvZy5kZXB0aCA9IGRlcHRocyA/IGRlcHRocy5sZW5ndGggOiAwO1xuICBwcm9nLmJsb2NrUGFyYW1zID0gZGVjbGFyZWRCbG9ja1BhcmFtcyB8fCAwO1xuICByZXR1cm4gcHJvZztcbn1cblxuLyoqXG4gKiBUaGlzIGlzIGN1cnJlbnRseSBwYXJ0IG9mIHRoZSBvZmZpY2lhbCBBUEksIHRoZXJlZm9yZSBpbXBsZW1lbnRhdGlvbiBkZXRhaWxzIHNob3VsZCBub3QgYmUgY2hhbmdlZC5cbiAqL1xuZXhwb3J0IGZ1bmN0aW9uIHJlc29sdmVQYXJ0aWFsKHBhcnRpYWwsIGNvbnRleHQsIG9wdGlvbnMpIHtcbiAgaWYgKCFwYXJ0aWFsKSB7XG4gICAgaWYgKG9wdGlvbnMubmFtZSA9PT0gJ0BwYXJ0aWFsLWJsb2NrJykge1xuICAgICAgcGFydGlhbCA9IG9wdGlvbnMuZGF0YVsncGFydGlhbC1ibG9jayddO1xuICAgIH0gZWxzZSB7XG4gICAgICBwYXJ0aWFsID0gb3B0aW9ucy5wYXJ0aWFsc1tvcHRpb25zLm5hbWVdO1xuICAgIH1cbiAgfSBlbHNlIGlmICghcGFydGlhbC5jYWxsICYmICFvcHRpb25zLm5hbWUpIHtcbiAgICAvLyBUaGlzIGlzIGEgZHluYW1pYyBwYXJ0aWFsIHRoYXQgcmV0dXJuZWQgYSBzdHJpbmdcbiAgICBvcHRpb25zLm5hbWUgPSBwYXJ0aWFsO1xuICAgIHBhcnRpYWwgPSBvcHRpb25zLnBhcnRpYWxzW3BhcnRpYWxdO1xuICB9XG4gIHJldHVybiBwYXJ0aWFsO1xufVxuXG5leHBvcnQgZnVuY3Rpb24gaW52b2tlUGFydGlhbChwYXJ0aWFsLCBjb250ZXh0LCBvcHRpb25zKSB7XG4gIC8vIFVzZSB0aGUgY3VycmVudCBjbG9zdXJlIGNvbnRleHQgdG8gc2F2ZSB0aGUgcGFydGlhbC1ibG9jayBpZiB0aGlzIHBhcnRpYWxcbiAgY29uc3QgY3VycmVudFBhcnRpYWxCbG9jayA9IG9wdGlvbnMuZGF0YSAmJiBvcHRpb25zLmRhdGFbJ3BhcnRpYWwtYmxvY2snXTtcbiAgb3B0aW9ucy5wYXJ0aWFsID0gdHJ1ZTtcbiAgaWYgKG9wdGlvbnMuaWRzKSB7XG4gICAgb3B0aW9ucy5kYXRhLmNvbnRleHRQYXRoID0gb3B0aW9ucy5pZHNbMF0gfHwgb3B0aW9ucy5kYXRhLmNvbnRleHRQYXRoO1xuICB9XG5cbiAgbGV0IHBhcnRpYWxCbG9jaztcbiAgaWYgKG9wdGlvbnMuZm4gJiYgb3B0aW9ucy5mbiAhPT0gbm9vcCkge1xuICAgIG9wdGlvbnMuZGF0YSA9IGNyZWF0ZUZyYW1lKG9wdGlvbnMuZGF0YSk7XG4gICAgLy8gV3JhcHBlciBmdW5jdGlvbiB0byBnZXQgYWNjZXNzIHRvIGN1cnJlbnRQYXJ0aWFsQmxvY2sgZnJvbSB0aGUgY2xvc3VyZVxuICAgIGxldCBmbiA9IG9wdGlvbnMuZm47XG4gICAgcGFydGlhbEJsb2NrID0gb3B0aW9ucy5kYXRhWydwYXJ0aWFsLWJsb2NrJ10gPSBmdW5jdGlvbiBwYXJ0aWFsQmxvY2tXcmFwcGVyKFxuICAgICAgY29udGV4dCxcbiAgICAgIG9wdGlvbnMgPSB7fVxuICAgICkge1xuICAgICAgLy8gUmVzdG9yZSB0aGUgcGFydGlhbC1ibG9jayBmcm9tIHRoZSBjbG9zdXJlIGZvciB0aGUgZXhlY3V0aW9uIG9mIHRoZSBibG9ja1xuICAgICAgLy8gaS5lLiB0aGUgcGFydCBpbnNpZGUgdGhlIGJsb2NrIG9mIHRoZSBwYXJ0aWFsIGNhbGwuXG4gICAgICBvcHRpb25zLmRhdGEgPSBjcmVhdGVGcmFtZShvcHRpb25zLmRhdGEpO1xuICAgICAgb3B0aW9ucy5kYXRhWydwYXJ0aWFsLWJsb2NrJ10gPSBjdXJyZW50UGFydGlhbEJsb2NrO1xuICAgICAgcmV0dXJuIGZuKGNvbnRleHQsIG9wdGlvbnMpO1xuICAgIH07XG4gICAgaWYgKGZuLnBhcnRpYWxzKSB7XG4gICAgICBvcHRpb25zLnBhcnRpYWxzID0gVXRpbHMuZXh0ZW5kKHt9LCBvcHRpb25zLnBhcnRpYWxzLCBmbi5wYXJ0aWFscyk7XG4gICAgfVxuICB9XG5cbiAgaWYgKHBhcnRpYWwgPT09IHVuZGVmaW5lZCAmJiBwYXJ0aWFsQmxvY2spIHtcbiAgICBwYXJ0aWFsID0gcGFydGlhbEJsb2NrO1xuICB9XG5cbiAgaWYgKHBhcnRpYWwgPT09IHVuZGVmaW5lZCkge1xuICAgIHRocm93IG5ldyBFeGNlcHRpb24oJ1RoZSBwYXJ0aWFsICcgKyBvcHRpb25zLm5hbWUgKyAnIGNvdWxkIG5vdCBiZSBmb3VuZCcpO1xuICB9IGVsc2UgaWYgKHBhcnRpYWwgaW5zdGFuY2VvZiBGdW5jdGlvbikge1xuICAgIHJldHVybiBwYXJ0aWFsKGNvbnRleHQsIG9wdGlvbnMpO1xuICB9XG59XG5cbmV4cG9ydCBmdW5jdGlvbiBub29wKCkge1xuICByZXR1cm4gJyc7XG59XG5cbmZ1bmN0aW9uIGluaXREYXRhKGNvbnRleHQsIGRhdGEpIHtcbiAgaWYgKCFkYXRhIHx8ICEoJ3Jvb3QnIGluIGRhdGEpKSB7XG4gICAgZGF0YSA9IGRhdGEgPyBjcmVhdGVGcmFtZShkYXRhKSA6IHt9O1xuICAgIGRhdGEucm9vdCA9IGNvbnRleHQ7XG4gIH1cbiAgcmV0dXJuIGRhdGE7XG59XG5cbmZ1bmN0aW9uIGV4ZWN1dGVEZWNvcmF0b3JzKGZuLCBwcm9nLCBjb250YWluZXIsIGRlcHRocywgZGF0YSwgYmxvY2tQYXJhbXMpIHtcbiAgaWYgKGZuLmRlY29yYXRvcikge1xuICAgIGxldCBwcm9wcyA9IHt9O1xuICAgIHByb2cgPSBmbi5kZWNvcmF0b3IoXG4gICAgICBwcm9nLFxuICAgICAgcHJvcHMsXG4gICAgICBjb250YWluZXIsXG4gICAgICBkZXB0aHMgJiYgZGVwdGhzWzBdLFxuICAgICAgZGF0YSxcbiAgICAgIGJsb2NrUGFyYW1zLFxuICAgICAgZGVwdGhzXG4gICAgKTtcbiAgICBVdGlscy5leHRlbmQocHJvZywgcHJvcHMpO1xuICB9XG4gIHJldHVybiBwcm9nO1xufVxuXG5mdW5jdGlvbiB3cmFwSGVscGVyc1RvUGFzc0xvb2t1cFByb3BlcnR5KG1lcmdlZEhlbHBlcnMsIGNvbnRhaW5lcikge1xuICBPYmplY3Qua2V5cyhtZXJnZWRIZWxwZXJzKS5mb3JFYWNoKGhlbHBlck5hbWUgPT4ge1xuICAgIGxldCBoZWxwZXIgPSBtZXJnZWRIZWxwZXJzW2hlbHBlck5hbWVdO1xuICAgIG1lcmdlZEhlbHBlcnNbaGVscGVyTmFtZV0gPSBwYXNzTG9va3VwUHJvcGVydHlPcHRpb24oaGVscGVyLCBjb250YWluZXIpO1xuICB9KTtcbn1cblxuZnVuY3Rpb24gcGFzc0xvb2t1cFByb3BlcnR5T3B0aW9uKGhlbHBlciwgY29udGFpbmVyKSB7XG4gIGNvbnN0IGxvb2t1cFByb3BlcnR5ID0gY29udGFpbmVyLmxvb2t1cFByb3BlcnR5O1xuICByZXR1cm4gd3JhcEhlbHBlcihoZWxwZXIsIG9wdGlvbnMgPT4ge1xuICAgIHJldHVybiBVdGlscy5leHRlbmQoeyBsb29rdXBQcm9wZXJ0eSB9LCBvcHRpb25zKTtcbiAgfSk7XG59XG4iXX0=
-
-
-/***/ }),
-/* 41 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.wrapHelper = wrapHelper;
-
-function wrapHelper(helper, transformOptionsFn) {
-  if (typeof helper !== 'function') {
-    // This should not happen, but apparently it does in https://github.com/wycats/handlebars.js/issues/1639
-    // We try to make the wrapper least-invasive by not wrapping it, if the helper is not a function.
-    return helper;
-  }
-  var wrapper = function wrapper() /* dynamic arguments */{
-    var options = arguments[arguments.length - 1];
-    arguments[arguments.length - 1] = transformOptionsFn(options);
-    return helper.apply(this, arguments);
-  };
-  return wrapper;
-}
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL2xpYi9oYW5kbGViYXJzL2ludGVybmFsL3dyYXBIZWxwZXIuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7QUFBTyxTQUFTLFVBQVUsQ0FBQyxNQUFNLEVBQUUsa0JBQWtCLEVBQUU7QUFDckQsTUFBSSxPQUFPLE1BQU0sS0FBSyxVQUFVLEVBQUU7OztBQUdoQyxXQUFPLE1BQU0sQ0FBQztHQUNmO0FBQ0QsTUFBSSxPQUFPLEdBQUcsU0FBVixPQUFPLDBCQUFxQztBQUM5QyxRQUFNLE9BQU8sR0FBRyxTQUFTLENBQUMsU0FBUyxDQUFDLE1BQU0sR0FBRyxDQUFDLENBQUMsQ0FBQztBQUNoRCxhQUFTLENBQUMsU0FBUyxDQUFDLE1BQU0sR0FBRyxDQUFDLENBQUMsR0FBRyxrQkFBa0IsQ0FBQyxPQUFPLENBQUMsQ0FBQztBQUM5RCxXQUFPLE1BQU0sQ0FBQyxLQUFLLENBQUMsSUFBSSxFQUFFLFNBQVMsQ0FBQyxDQUFDO0dBQ3RDLENBQUM7QUFDRixTQUFPLE9BQU8sQ0FBQztDQUNoQiIsImZpbGUiOiJ3cmFwSGVscGVyLmpzIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IGZ1bmN0aW9uIHdyYXBIZWxwZXIoaGVscGVyLCB0cmFuc2Zvcm1PcHRpb25zRm4pIHtcbiAgaWYgKHR5cGVvZiBoZWxwZXIgIT09ICdmdW5jdGlvbicpIHtcbiAgICAvLyBUaGlzIHNob3VsZCBub3QgaGFwcGVuLCBidXQgYXBwYXJlbnRseSBpdCBkb2VzIGluIGh0dHBzOi8vZ2l0aHViLmNvbS93eWNhdHMvaGFuZGxlYmFycy5qcy9pc3N1ZXMvMTYzOVxuICAgIC8vIFdlIHRyeSB0byBtYWtlIHRoZSB3cmFwcGVyIGxlYXN0LWludmFzaXZlIGJ5IG5vdCB3cmFwcGluZyBpdCwgaWYgdGhlIGhlbHBlciBpcyBub3QgYSBmdW5jdGlvbi5cbiAgICByZXR1cm4gaGVscGVyO1xuICB9XG4gIGxldCB3cmFwcGVyID0gZnVuY3Rpb24oLyogZHluYW1pYyBhcmd1bWVudHMgKi8pIHtcbiAgICBjb25zdCBvcHRpb25zID0gYXJndW1lbnRzW2FyZ3VtZW50cy5sZW5ndGggLSAxXTtcbiAgICBhcmd1bWVudHNbYXJndW1lbnRzLmxlbmd0aCAtIDFdID0gdHJhbnNmb3JtT3B0aW9uc0ZuKG9wdGlvbnMpO1xuICAgIHJldHVybiBoZWxwZXIuYXBwbHkodGhpcywgYXJndW1lbnRzKTtcbiAgfTtcbiAgcmV0dXJuIHdyYXBwZXI7XG59XG4iXX0=
-
-
-/***/ }),
-/* 42 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(global) {
-
-exports.__esModule = true;
-
-exports['default'] = function (Handlebars) {
-  /* istanbul ignore next */
-  var root = typeof global !== 'undefined' ? global : window,
-      $Handlebars = root.Handlebars;
-  /* istanbul ignore next */
-  Handlebars.noConflict = function () {
-    if (root.Handlebars === Handlebars) {
-      root.Handlebars = $Handlebars;
-    }
-    return Handlebars;
-  };
-};
-
-module.exports = exports['default'];
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL2xpYi9oYW5kbGViYXJzL25vLWNvbmZsaWN0LmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7cUJBQWUsVUFBUyxVQUFVLEVBQUU7O0FBRWxDLE1BQUksSUFBSSxHQUFHLE9BQU8sTUFBTSxLQUFLLFdBQVcsR0FBRyxNQUFNLEdBQUcsTUFBTTtNQUN4RCxXQUFXLEdBQUcsSUFBSSxDQUFDLFVBQVUsQ0FBQzs7QUFFaEMsWUFBVSxDQUFDLFVBQVUsR0FBRyxZQUFXO0FBQ2pDLFFBQUksSUFBSSxDQUFDLFVBQVUsS0FBSyxVQUFVLEVBQUU7QUFDbEMsVUFBSSxDQUFDLFVBQVUsR0FBRyxXQUFXLENBQUM7S0FDL0I7QUFDRCxXQUFPLFVBQVUsQ0FBQztHQUNuQixDQUFDO0NBQ0giLCJmaWxlIjoibm8tY29uZmxpY3QuanMiLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgZGVmYXVsdCBmdW5jdGlvbihIYW5kbGViYXJzKSB7XG4gIC8qIGlzdGFuYnVsIGlnbm9yZSBuZXh0ICovXG4gIGxldCByb290ID0gdHlwZW9mIGdsb2JhbCAhPT0gJ3VuZGVmaW5lZCcgPyBnbG9iYWwgOiB3aW5kb3csXG4gICAgJEhhbmRsZWJhcnMgPSByb290LkhhbmRsZWJhcnM7XG4gIC8qIGlzdGFuYnVsIGlnbm9yZSBuZXh0ICovXG4gIEhhbmRsZWJhcnMubm9Db25mbGljdCA9IGZ1bmN0aW9uKCkge1xuICAgIGlmIChyb290LkhhbmRsZWJhcnMgPT09IEhhbmRsZWJhcnMpIHtcbiAgICAgIHJvb3QuSGFuZGxlYmFycyA9ICRIYW5kbGViYXJzO1xuICAgIH1cbiAgICByZXR1cm4gSGFuZGxlYmFycztcbiAgfTtcbn1cbiJdfQ==
-
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(18)))
-
-/***/ }),
-/* 43 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ref_6_1_node_modules_postcss_loader_dist_cjs_js_ref_6_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(10);
-
-            
-
-var options = {};
-
-options.insert = "head";
-options.singleton = false;
-
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ref_6_1_node_modules_postcss_loader_dist_cjs_js_ref_6_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"], options);
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = (_node_modules_css_loader_dist_cjs_js_ref_6_1_node_modules_postcss_loader_dist_cjs_js_ref_6_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"].locals || {});
-
-/***/ }),
-/* 44 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Handlebars = __webpack_require__(7);
-function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
-module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
-    var stack1, helper, lookupProperty = container.lookupProperty || function(parent, propertyName) {
-        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
-          return parent[propertyName];
-        }
-        return undefined
-    };
-
-  return "<li class=\"tota11y-info-error\">\n    <a aria-label=\"Przewiń do błędu\" href=\"#\" class=\"tota11y-info-error-scroll\">\n        <div class=\"tota11y-info-error-scroll-glyph tota11y-info-error-scroll-lens\"></div>\n        <div class=\"tota11y-info-error-scroll-glyph tota11y-info-error-scroll-handle\"></div>\n    </a>\n    <a href=\"#\" class=\"tota11y-info-error-trigger tota11y-collapsed\">\n        <div class=\"tota11y-info-error-title\">\n            <span class=\"tota11y-info-error-chevron\">\n                &#8250;\n            </span>\n            "
-    + ((stack1 = ((helper = (helper = lookupProperty(helpers,"title") || (depth0 != null ? lookupProperty(depth0,"title") : depth0)) != null ? helper : container.hooks.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"title","hash":{},"data":data,"loc":{"start":{"line":11,"column":12},"end":{"line":11,"column":23}}}) : helper))) != null ? stack1 : "")
-    + "\n        </div>\n    </a>\n    <div class=\"tota11y-info-error-description tota11y-collapsed\">\n        <div class=\"tota11y-info-error-description-code-container\">\n            <em>Lokalizacja w kodzie:</em>\n            <code></code>\n        </div>\n    </div>\n</li>\n";
-},"useData":true});
-
-/***/ }),
-/* 45 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ref_6_1_node_modules_postcss_loader_dist_cjs_js_ref_6_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(11);
-
-            
-
-var options = {};
-
-options.insert = "head";
-options.singleton = false;
-
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ref_6_1_node_modules_postcss_loader_dist_cjs_js_ref_6_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"], options);
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = (_node_modules_css_loader_dist_cjs_js_ref_6_1_node_modules_postcss_loader_dist_cjs_js_ref_6_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"].locals || {});
-
-/***/ }),
-/* 46 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ref_6_1_node_modules_postcss_loader_dist_cjs_js_ref_6_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(12);
-
-            
-
-var options = {};
-
-options.insert = "head";
-options.singleton = false;
-
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ref_6_1_node_modules_postcss_loader_dist_cjs_js_ref_6_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"], options);
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = (_node_modules_css_loader_dist_cjs_js_ref_6_1_node_modules_postcss_loader_dist_cjs_js_ref_6_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"].locals || {});
-
-/***/ }),
-/* 47 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-/**
- * A plugin to label different levels of contrast on the page, and highlight
- * those with poor contrast while suggesting alternatives.
- */
-
-var $ = __webpack_require__(2);
-var Plugin = __webpack_require__(5);
-var annotate = __webpack_require__(6)("contrast");
-
-var titleTemplate = __webpack_require__(48);
-var descriptionTemplate = __webpack_require__(49);
-
-__webpack_require__(50);
-
-var ContrastPlugin = function (_Plugin) {
-    _inherits(ContrastPlugin, _Plugin);
-
-    function ContrastPlugin() {
-        _classCallCheck(this, ContrastPlugin);
-
-        // List of original colors for elements with insufficient contrast.
-        // Used to restore original colors in cleanup.
-        var _this = _possibleConstructorReturn(this, (ContrastPlugin.__proto__ || Object.getPrototypeOf(ContrastPlugin)).call(this));
-
-        _this.preservedColors = [];
-        return _this;
-    }
-
-    _createClass(ContrastPlugin, [{
-        key: "getTitle",
-        value: function getTitle() {
-            return "Kontrast";
-        }
-    }, {
-        key: "getDescription",
-        value: function getDescription() {
-            return "Etykieta elementów o niewystarczającym kontraście";
-        }
-    }, {
-        key: "addError",
-        value: function addError(_ref, el) {
-            var style = _ref.style,
-                fgColor = _ref.fgColor,
-                bgColor = _ref.bgColor,
-                contrastRatio = _ref.contrastRatio,
-                requiredRatio = _ref.requiredRatio;
-
-            // Suggest colors at an "AA" level
-            var suggestedColors = axs.color.suggestColors(bgColor, fgColor, { AA: requiredRatio }).AA;
-
-            var templateData = {
-                fgColorHex: axs.color.colorToString(fgColor),
-                bgColorHex: axs.color.colorToString(bgColor),
-                contrastRatio: contrastRatio,
-                requiredRatio: requiredRatio,
-                suggestedFgColorHex: suggestedColors.fg,
-                suggestedBgColorHex: suggestedColors.bg,
-                suggestedColorsRatio: suggestedColors.contrast
-            };
-
-            // Add click handler to preview checkbox
-            var $description = $(descriptionTemplate(templateData));
-            var originalFgColor = style.color;
-            var originalBgColor = style.backgroundColor;
-
-            $description.find(".preview-contrast-fix").click(function (e) {
-                if ($(e.target).prop("checked")) {
-                    // Set suggested colors
-                    $(el).css("color", suggestedColors.fg);
-                    $(el).css("background-color", suggestedColors.bg);
-                } else {
-                    // Set original colors
-                    $(el).css("color", originalFgColor);
-                    $(el).css("background-color", originalBgColor);
-                }
-            });
-
-            return this.error(titleTemplate(templateData), $description, $(el));
-        }
-    }, {
-        key: "run",
-        value: function run() {
-            var _this2 = this;
-
-            // A map of fg/bg color pairs that we have already seen to the error
-            // entry currently present in the info panel
-            var combinations = {};
-
-            $("*").each(function (i, el) {
-                // Only check elements with a direct text descendant
-                if (!axs.properties.hasDirectTextDescendant(el)) {
-                    return;
-                }
-
-                // Ignore elements that are part of the tota11y UI
-                if ($(el).parents(".tota11y").length > 0) {
-                    return;
-                }
-
-                // Ignore invisible elements
-                if (axs.utils.elementIsTransparent(el) || axs.utils.elementHasZeroArea(el)) {
-                    return;
-                }
-
-                var style = getComputedStyle(el);
-                var bgColor = axs.utils.getBgColor(style, el);
-                var fgColor = axs.utils.getFgColor(style, el, bgColor);
-                var contrastRatio = axs.color.calculateContrastRatio(fgColor, bgColor).toFixed(2);
-
-                // Calculate required ratio based on size
-                // Using strings to prevent rounding
-                var requiredRatio = axs.utils.isLargeFont(style) ? 3.0 : 4.5;
-
-                // Build a key for our `combinations` map and report the color
-                // if we have not seen it yet
-                var key = axs.color.colorToString(fgColor) + "/" + axs.color.colorToString(bgColor) + "/" + requiredRatio;
-
-                if (!axs.utils.isLowContrast(contrastRatio, style)) {
-                    // For acceptable contrast values, we don't show ratios if
-                    // they have been presented already
-                    if (!combinations[key]) {
-                        annotate.label($(el), contrastRatio).addClass("tota11y-label-success");
-
-                        // Add the key to the combinations map. We don't have an
-                        // error to associate it with, so we'll just give it the
-                        // value of `true`.
-                        combinations[key] = true;
-                    }
-                } else {
-                    if (!combinations[key]) {
-                        // We do not show duplicates in the errors panel, however,
-                        // to keep the output from being overwhelming
-                        var error = _this2.addError({
-                            style: style,
-                            fgColor: fgColor,
-                            bgColor: bgColor,
-                            contrastRatio: contrastRatio,
-                            requiredRatio: requiredRatio
-                        }, el);
-
-                        // Save original color so it can be restored on cleanup.
-                        _this2.preservedColors.push({
-                            $el: $(el),
-                            fg: style.color,
-                            bg: style.backgroundColor
-                        });
-
-                        combinations[key] = error;
-                    }
-
-                    // We display errors multiple times for emphasis. Each error
-                    // will point back to the entry in the info panel for that
-                    // particular color combination.
-                    //
-                    // TODO: The error entry in the info panel will only highlight
-                    // the first element with that color combination
-                    annotate.errorLabel($(el), contrastRatio, "Kontrast jest niewystarczający dla tego rozmiaru tekstu.", combinations[key]);
-                }
-            });
-        }
-    }, {
-        key: "cleanup",
-        value: function cleanup() {
-            // Set all elements to original color
-            this.preservedColors.forEach(function (entry) {
-                entry.$el.css("color", entry.fg);
-                entry.$el.css("background-color", entry.bg);
-            });
-
-            annotate.removeAll();
-        }
-    }]);
-
-    return ContrastPlugin;
-}(Plugin);
-
-module.exports = ContrastPlugin;
-
-/***/ }),
-/* 48 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Handlebars = __webpack_require__(7);
-function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
-module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
-    var helper, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.hooks.helperMissing, alias3="function", alias4=container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
-        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
-          return parent[propertyName];
-        }
-        return undefined
-    };
-
-  return "Niewystarczający kontrast ("
-    + alias4(((helper = (helper = lookupProperty(helpers,"contrastRatio") || (depth0 != null ? lookupProperty(depth0,"contrastRatio") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"contrastRatio","hash":{},"data":data,"loc":{"start":{"line":1,"column":27},"end":{"line":1,"column":44}}}) : helper)))
-    + " &lt; "
-    + alias4(((helper = (helper = lookupProperty(helpers,"requiredRatio") || (depth0 != null ? lookupProperty(depth0,"requiredRatio") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"requiredRatio","hash":{},"data":data,"loc":{"start":{"line":1,"column":50},"end":{"line":1,"column":67}}}) : helper)))
-    + ")\n\n<span class=\"tota11y-swatches\">\n    <span class=\"tota11y-swatch\" style=\"background-color: "
-    + alias4(((helper = (helper = lookupProperty(helpers,"fgColorHex") || (depth0 != null ? lookupProperty(depth0,"fgColorHex") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"fgColorHex","hash":{},"data":data,"loc":{"start":{"line":4,"column":58},"end":{"line":4,"column":72}}}) : helper)))
-    + " !important\"></span>\n    /\n    <span class=\"tota11y-swatch\" style=\"background-color: "
-    + alias4(((helper = (helper = lookupProperty(helpers,"bgColorHex") || (depth0 != null ? lookupProperty(depth0,"bgColorHex") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"bgColorHex","hash":{},"data":data,"loc":{"start":{"line":6,"column":58},"end":{"line":6,"column":72}}}) : helper)))
-    + " !important\"></span>\n</span>\n";
-},"useData":true});
-
-/***/ }),
-/* 49 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Handlebars = __webpack_require__(7);
-function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
-module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
-    var helper, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.hooks.helperMissing, alias3="function", alias4=container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
-        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
-          return parent[propertyName];
-        }
-        return undefined
-    };
-
-  return "<div>\n    <p>\n        Kombinacja kolorów\n        <span class=\"tota11y-color-hexes\">"
-    + alias4(((helper = (helper = lookupProperty(helpers,"fgColorHex") || (depth0 != null ? lookupProperty(depth0,"fgColorHex") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"fgColorHex","hash":{},"data":data,"loc":{"start":{"line":4,"column":42},"end":{"line":4,"column":56}}}) : helper)))
-    + "/"
-    + alias4(((helper = (helper = lookupProperty(helpers,"bgColorHex") || (depth0 != null ? lookupProperty(depth0,"bgColorHex") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"bgColorHex","hash":{},"data":data,"loc":{"start":{"line":4,"column":57},"end":{"line":4,"column":71}}}) : helper)))
-    + "</span>\n        ma współczynnik kontrastu <strong>"
-    + alias4(((helper = (helper = lookupProperty(helpers,"contrastRatio") || (depth0 != null ? lookupProperty(depth0,"contrastRatio") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"contrastRatio","hash":{},"data":data,"loc":{"start":{"line":5,"column":42},"end":{"line":5,"column":59}}}) : helper)))
-    + "</strong>, który nie jest\n        wystarczajacy. Przy tej wielkości tekstu potrzebujesz proporcji co najmniej\n        <strong>"
-    + alias4(((helper = (helper = lookupProperty(helpers,"requiredRatio") || (depth0 != null ? lookupProperty(depth0,"requiredRatio") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"requiredRatio","hash":{},"data":data,"loc":{"start":{"line":7,"column":16},"end":{"line":7,"column":33}}}) : helper)))
-    + "</strong>.\n    </p>\n\n    <p>\n        Rozważ użycie poniższej kombinacji kolorów tekstu/tła:\n    </p>\n\n    <div class=\"tota11y-contrast-suggestion\">\n        <span class=\"tota11y-color-hexes\">\n            "
-    + alias4(((helper = (helper = lookupProperty(helpers,"suggestedFgColorHex") || (depth0 != null ? lookupProperty(depth0,"suggestedFgColorHex") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"suggestedFgColorHex","hash":{},"data":data,"loc":{"start":{"line":16,"column":12},"end":{"line":16,"column":35}}}) : helper)))
-    + "/"
-    + alias4(((helper = (helper = lookupProperty(helpers,"suggestedBgColorHex") || (depth0 != null ? lookupProperty(depth0,"suggestedBgColorHex") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"suggestedBgColorHex","hash":{},"data":data,"loc":{"start":{"line":16,"column":36},"end":{"line":16,"column":59}}}) : helper)))
-    + "\n        </span>\n\n        <span class=\"tota11y-swatches\">\n            <span\n                class=\"tota11y-swatch\"\n                style=\"background-color: "
-    + alias4(((helper = (helper = lookupProperty(helpers,"suggestedFgColorHex") || (depth0 != null ? lookupProperty(depth0,"suggestedFgColorHex") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"suggestedFgColorHex","hash":{},"data":data,"loc":{"start":{"line":22,"column":41},"end":{"line":22,"column":64}}}) : helper)))
-    + " !important\">\n            </span>\n            /\n            <span\n                class=\"tota11y-swatch\"\n                style=\"background-color: "
-    + alias4(((helper = (helper = lookupProperty(helpers,"suggestedBgColorHex") || (depth0 != null ? lookupProperty(depth0,"suggestedBgColorHex") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"suggestedBgColorHex","hash":{},"data":data,"loc":{"start":{"line":27,"column":41},"end":{"line":27,"column":64}}}) : helper)))
-    + " !important\">\n            </span>\n        </span>\n\n        ma kontrast <strong>"
-    + alias4(((helper = (helper = lookupProperty(helpers,"suggestedColorsRatio") || (depth0 != null ? lookupProperty(depth0,"suggestedColorsRatio") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"suggestedColorsRatio","hash":{},"data":data,"loc":{"start":{"line":31,"column":28},"end":{"line":31,"column":52}}}) : helper)))
-    + "</strong>\n        <br />\n\n        <label>\n            Podgląd:\n            <input class=\"preview-contrast-fix\" type=\"checkbox\">\n        </label>\n    </div>\n</div>\n";
-},"useData":true});
-
-/***/ }),
-/* 50 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ref_6_1_node_modules_postcss_loader_dist_cjs_js_ref_6_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(13);
-
-            
-
-var options = {};
-
-options.insert = "head";
-options.singleton = false;
-
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ref_6_1_node_modules_postcss_loader_dist_cjs_js_ref_6_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"], options);
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = (_node_modules_css_loader_dist_cjs_js_ref_6_1_node_modules_postcss_loader_dist_cjs_js_ref_6_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"].locals || {});
-
-/***/ }),
-/* 51 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(buildElement) {
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-/**
- * A plugin to identify and validate heading tags (<h1>, <h2>, etc.)
- */
-
-var $ = __webpack_require__(2);
-var Plugin = __webpack_require__(5);
-var annotate = __webpack_require__(6)("headings");
-
-var outlineItemTemplate = __webpack_require__(52);
-__webpack_require__(53);
-
-var ERRORS = {
-    FIRST_NOT_H1: function FIRST_NOT_H1(level) {
-        return {
-            title: "Pierwszym nagłówkiem nie jest &lt;h1&gt;",
-            description: "\n                <div>\n                    Aby nada\u0107 dokumentowi odpowiedni\u0105 struktur\u0119 dla technologii\n                    wspomagajacych, wa\u017Cne jest, aby uk\u0142ada\u0107 nag\u0142\xF3wki \n                    zaczynaj\u0105c od <code>&lt;h1&gt;</code>. Zamiast <code>&lt;h1&gt;</code>\n                    znaleziono <code>&lt;h" + level + "&gt;</code>.\n                </div>\n            "
-        };
-    },
-
-
-    // This error is currently unused.
-    //
-    // The HTML5 outlining algorithm[1] enables the use of "sectioning roots"
-    // to support multiple <h1> tags when embedded inside of containers like
-    // <section> or <article>. There are currently "no known implementations
-    // of the outline algorithm in graphical browsers or assistive technology
-    // user agents" [2], so we instead simply "use heading rank (h1-h6) to
-    // convey document structure." [2].
-    //
-    // [1]: http://www.w3.org/html/wg/drafts/html/master/semantics.html#outline
-    // [2]: https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Sections_and_Outlines_of_an_HTML5_document#The_HTML5_Outline_Algorithm
-    MULTIPLE_H1: {
-        title: "&lt;h1&gt; used when one is already present"
-    },
-
-    // This error accepts two arguments to display a relevant error message
-    NONCONSECUTIVE_HEADER: function NONCONSECUTIVE_HEADER(prevLevel, currLevel) {
-        var _tag = function _tag(level) {
-            return "<code>&lt;h" + level + "&gt;</code>";
-        };
-        var description = "\n            <div>\n                Dokument zawiera znacznik " + _tag(currLevel) + " bezpo\u015Brednio\n                po znaczniku " + _tag(prevLevel) + ". Aby zapewni\u0107 sp\xF3jny konspekt strony\n                potrzebny technologiom wspomagaj\u0105cym, zmniejsz r\xF3\u017Cnic\u0119 mi\u0119dzy\n                poziomami nag\u0142\xF3wk\xF3w - uaktualnij ten znacznik do \n                " + _tag(prevLevel + 1);
-
-        // Suggest upgrading the tag to the same level as `prevLevel` iff
-        // `prevLevel` is not 1
-        if (prevLevel !== 1) {
-            description += " or " + _tag(prevLevel);
-        }
-
-        description += ".</div>";
-
-        return {
-            title: "\n                Niekonsekwentny poziom nag\u0142\xF3wka (h" + prevLevel + " &rarr;\n                h" + currLevel + ")\n            ",
-            description: description
-        };
-    }
-};
-
-var HeadingsPlugin = function (_Plugin) {
-    _inherits(HeadingsPlugin, _Plugin);
-
-    function HeadingsPlugin() {
-        _classCallCheck(this, HeadingsPlugin);
-
-        return _possibleConstructorReturn(this, (HeadingsPlugin.__proto__ || Object.getPrototypeOf(HeadingsPlugin)).apply(this, arguments));
-    }
-
-    _createClass(HeadingsPlugin, [{
-        key: "getTitle",
-        value: function getTitle() {
-            return "Nagłówki";
-        }
-    }, {
-        key: "getDescription",
-        value: function getDescription() {
-            return "\n            Wyr\xF3\u017Cnia nag\u0142\xF3wki (&lt;h1&gt;, &lt;h2&gt;, itd.) oraz\n            naruszenia porz\u0105dku\n        ";
-        }
-
-        /**
-         * Computes an outline of the page and reports any violations.
-         */
-
-    }, {
-        key: "outline",
-        value: function outline($headings) {
-            var _this2 = this;
-
-            var $items = [];
-
-            var prevLevel = void 0;
-            $headings.each(function (i, el) {
-                var $el = $(el);
-                var level = +$el.prop("tagName").slice(1);
-                var error = void 0;
-
-                // Check for any violations
-                // NOTE: These violations do not overlap, but as we add more, we
-                // may want to separate the conditionals here to report multiple
-                // errors on the same tag.
-                if (i === 0 && level !== 1) {
-                    error = ERRORS.FIRST_NOT_H1(level); // eslint-disable-line new-cap
-                } else if (prevLevel && level - prevLevel > 1) {
-                    error = ERRORS.NONCONSECUTIVE_HEADER(prevLevel, level); // eslint-disable-line new-cap
-                }
-
-                prevLevel = level;
-
-                // Render the entry in the outline for the "Summary" tab
-                var $item = $(outlineItemTemplate({
-                    level: level,
-                    text: $el.text()
-                }));
-
-                $items.push($item);
-
-                // Highlight the heading element on hover
-                annotate.toggleHighlight($el, $item);
-
-                if (error) {
-                    // Register an error to the info panel
-                    var infoPanelError = _this2.error(error.title, $(error.description), $el);
-
-                    // Place an error label on the heading tag
-                    annotate.errorLabel($el, $el.prop("tagName").toLowerCase(), error.title, infoPanelError);
-
-                    // Mark the summary item as red
-                    // Pretty hacky, since we're borrowing label styles for this
-                    // summary tab
-                    $item.find(".tota11y-heading-outline-level").addClass("tota11y-label-error");
-                } else {
-                    // Label the heading tag
-                    annotate.label($el).addClass("tota11y-label-success");
-
-                    // Mark the summary item as green
-                    $item.find(".tota11y-heading-outline-level").addClass("tota11y-label-success");
-                }
-            });
-
-            return $items;
-        }
-    }, {
-        key: "run",
-        value: function run() {
-            var $headings = $("h1, h2, h3, h4, h5, h6");
-            // `this.outline` has the side-effect of also reporting violations
-            var $items = this.outline($headings);
-
-            if ($items.length) {
-                var $outline = buildElement(
-                    "div",
-                    { className: "tota11y-heading-outline" },
-                    $items
-                );
-
-                this.summary($outline);
-            }
-        }
-    }, {
-        key: "cleanup",
-        value: function cleanup() {
-            annotate.removeAll();
-        }
-    }]);
-
-    return HeadingsPlugin;
-}(Plugin);
-
-module.exports = HeadingsPlugin;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(4)))
-
-/***/ }),
-/* 52 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Handlebars = __webpack_require__(7);
-function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
-module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
-    var helper, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.hooks.helperMissing, alias3="function", alias4=container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
-        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
-          return parent[propertyName];
-        }
-        return undefined
-    };
-
-  return "<div class=\"tota11y-heading-outline-entry heading-level-"
-    + alias4(((helper = (helper = lookupProperty(helpers,"level") || (depth0 != null ? lookupProperty(depth0,"level") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"level","hash":{},"data":data,"loc":{"start":{"line":1,"column":56},"end":{"line":1,"column":65}}}) : helper)))
-    + "\">\n    <span class=\"tota11y-heading-outline-level tota11y-label\">"
-    + alias4(((helper = (helper = lookupProperty(helpers,"level") || (depth0 != null ? lookupProperty(depth0,"level") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"level","hash":{},"data":data,"loc":{"start":{"line":2,"column":62},"end":{"line":2,"column":71}}}) : helper)))
-    + "</span>\n    <span class=\"tota11y-heading-outline-heading-text\">"
-    + alias4(((helper = (helper = lookupProperty(helpers,"text") || (depth0 != null ? lookupProperty(depth0,"text") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"text","hash":{},"data":data,"loc":{"start":{"line":3,"column":55},"end":{"line":3,"column":63}}}) : helper)))
-    + "</span>\n</div>\n";
-},"useData":true});
-
-/***/ }),
-/* 53 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ref_6_1_node_modules_postcss_loader_dist_cjs_js_ref_6_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(14);
-
-            
-
-var options = {};
-
-options.insert = "head";
-options.singleton = false;
-
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ref_6_1_node_modules_postcss_loader_dist_cjs_js_ref_6_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"], options);
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = (_node_modules_css_loader_dist_cjs_js_ref_6_1_node_modules_postcss_loader_dist_cjs_js_ref_6_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"].locals || {});
-
-/***/ }),
-/* 54 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-/**
- * A plugin to identify unlabeled inputs
- */
-
-var $ = __webpack_require__(2);
-var Plugin = __webpack_require__(5);
-var annotate = __webpack_require__(6)("labels");
-var audit = __webpack_require__(21);
-
-var errorTemplate = __webpack_require__(55);
-
-var LabelsPlugin = function (_Plugin) {
-    _inherits(LabelsPlugin, _Plugin);
-
-    function LabelsPlugin() {
-        _classCallCheck(this, LabelsPlugin);
-
-        return _possibleConstructorReturn(this, (LabelsPlugin.__proto__ || Object.getPrototypeOf(LabelsPlugin)).apply(this, arguments));
-    }
-
-    _createClass(LabelsPlugin, [{
-        key: "getTitle",
-        value: function getTitle() {
-            return "Etykiety";
-        }
-    }, {
-        key: "getDescription",
-        value: function getDescription() {
-            return "Wykrywa pola formularzy bez etykiet";
-        }
-    }, {
-        key: "errorMessage",
-        value: function errorMessage($el) {
-            return errorTemplate({
-                placeholder: $el.attr("placeholder"),
-                id: $el.attr("id"),
-                tagName: $el.prop("tagName").toLowerCase()
-            });
-        }
-    }, {
-        key: "run",
-        value: function run() {
-            var _this2 = this;
-
-            var _audit = audit("controlsWithoutLabel"),
-                result = _audit.result,
-                elements = _audit.elements;
-
-            if (result === "FAIL") {
-                elements.forEach(function (element) {
-                    var $el = $(element);
-                    var title = "Pole danych nie ma etykiety";
-
-                    // Place an error label on the element and register it as an
-                    // error in the info panel
-                    var entry = _this2.error(title, $(_this2.errorMessage($el)), $el);
-                    annotate.errorLabel($el, "", title, entry);
-                });
-            }
-        }
-    }, {
-        key: "cleanup",
-        value: function cleanup() {
-            annotate.removeAll();
-        }
-    }]);
-
-    return LabelsPlugin;
-}(Plugin);
-
-module.exports = LabelsPlugin;
-
-/***/ }),
-/* 55 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Handlebars = __webpack_require__(7);
-function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
-module.exports = (Handlebars["default"] || Handlebars).template({"1":function(container,depth0,helpers,partials,data) {
-    return "    <p>\n        Atrybut <code>placeholder</code> nie gwarantuje, że zostanie odczytany\n        przez technologie wspomagające. Lepiej dodać odpowiednią etykietę.\n    </p>\n";
-},"3":function(container,depth0,helpers,partials,data) {
-    var helper, lookupProperty = container.lookupProperty || function(parent, propertyName) {
-        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
-          return parent[propertyName];
-        }
-        return undefined
-    };
-
-  return "    <p>\n        Najprostszym sposobem jest dodanie znacznika <code>&lt;label&gt;</code>\n        z atrybutem <code>for</code> jak poniżej:\n    </p>\n\n    <pre><code>&lt;label for=\""
-    + container.escapeExpression(((helper = (helper = lookupProperty(helpers,"id") || (depth0 != null ? lookupProperty(depth0,"id") : depth0)) != null ? helper : container.hooks.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"id","hash":{},"data":data,"loc":{"start":{"line":14,"column":30},"end":{"line":14,"column":36}}}) : helper)))
-    + "\"&gt;\n    Tutaj tekst etykiety...\n&lt;/label&gt;</code></pre>\n";
-},"5":function(container,depth0,helpers,partials,data) {
-    var helper, lookupProperty = container.lookupProperty || function(parent, propertyName) {
-        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
-          return parent[propertyName];
-        }
-        return undefined
-    };
-
-  return "    <p>\n        Możesz nadać tem elementowi atrybut <code>id</code> i utworzyć\n        <code>&lt;label&gt;</code> z odpowiednim atrybutem <code>for</code>\n        jak poniżej:\n\n        <pre><code>&lt;label for=\"my-input\"&gt;\n    Tutaj tekst etykiety...\n&lt;/label&gt;\n&lt;"
-    + container.escapeExpression(((helper = (helper = lookupProperty(helpers,"tagName") || (depth0 != null ? lookupProperty(depth0,"tagName") : depth0)) != null ? helper : container.hooks.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"tagName","hash":{},"data":data,"loc":{"start":{"line":26,"column":4},"end":{"line":26,"column":15}}}) : helper)))
-    + " id=\"my-input\"&gt;</code></pre>\n    </p>\n";
-},"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
-    var stack1, alias1=depth0 != null ? depth0 : (container.nullContext || {}), lookupProperty = container.lookupProperty || function(parent, propertyName) {
-        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
-          return parent[propertyName];
-        }
-        return undefined
-    };
-
-  return ((stack1 = lookupProperty(helpers,"if").call(alias1,(depth0 != null ? lookupProperty(depth0,"placeholder") : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":1,"column":0},"end":{"line":6,"column":7}}})) != null ? stack1 : "")
-    + "\n"
-    + ((stack1 = lookupProperty(helpers,"if").call(alias1,(depth0 != null ? lookupProperty(depth0,"id") : depth0),{"name":"if","hash":{},"fn":container.program(3, data, 0),"inverse":container.program(5, data, 0),"data":data,"loc":{"start":{"line":8,"column":0},"end":{"line":28,"column":7}}})) != null ? stack1 : "");
-},"useData":true});
-
-/***/ }),
-/* 56 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-/**
- * A plugin to label all ARIA landmark roles
- */
-
-var $ = __webpack_require__(2);
-var Plugin = __webpack_require__(5);
-var annotate = __webpack_require__(6)("landmarks");
-
-var LandmarksPlugin = function (_Plugin) {
-    _inherits(LandmarksPlugin, _Plugin);
-
-    function LandmarksPlugin() {
-        _classCallCheck(this, LandmarksPlugin);
-
-        return _possibleConstructorReturn(this, (LandmarksPlugin.__proto__ || Object.getPrototypeOf(LandmarksPlugin)).apply(this, arguments));
-    }
-
-    _createClass(LandmarksPlugin, [{
-        key: "getTitle",
-        value: function getTitle() {
-            return "Punkty orienacyjne";
-        }
-    }, {
-        key: "getDescription",
-        value: function getDescription() {
-            return "Etykietuje wszystkie punkty orientacyjne ARIA";
-        }
-    }, {
-        key: "run",
-        value: function run() {
-            $("[role]:not(.tota11y-toolbar,.tota11y-plugin)").each(function () {
-                annotate.label($(this), $(this).attr("role"));
-            });
-        }
-    }, {
-        key: "cleanup",
-        value: function cleanup() {
-            annotate.removeAll();
-        }
-    }]);
-
-    return LandmarksPlugin;
-}(Plugin);
-
-module.exports = LandmarksPlugin;
-
-/***/ }),
-/* 57 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(buildElement) {
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-/**
- * A plugin to identify unclear link text such as "more" and "click here,"
- * which can make for a bad experience when using a screen reader
- */
-
-var $ = __webpack_require__(2);
-var Plugin = __webpack_require__(5);
-var annotate = __webpack_require__(6)("link-text");
-
-var LinkTextPlugin = function (_Plugin) {
-    _inherits(LinkTextPlugin, _Plugin);
-
-    function LinkTextPlugin() {
-        _classCallCheck(this, LinkTextPlugin);
-
-        return _possibleConstructorReturn(this, (LinkTextPlugin.__proto__ || Object.getPrototypeOf(LinkTextPlugin)).apply(this, arguments));
-    }
-
-    _createClass(LinkTextPlugin, [{
-        key: "getTitle",
-        value: function getTitle() {
-            return "Tekst łączy";
-        }
-    }, {
-        key: "getDescription",
-        value: function getDescription() {
-            return "\n            Identyfikuje \u0142\u0105cza, kt\xF3re mog\u0105 by\u0107 niejednoznaczne,\n            gdy og\u0142asza je czytnik ekranu\n        ";
-        }
-
-        /**
-         * Slightly modified unclear text checking that has been refactored into
-         * a single method to be called with arbitrary strings.
-         *
-         * Original: https://github.com/GoogleChrome/accessibility-developer-tools/blob/9183b21cb0a02f5f04928f5cb7cb339b6bbc9ff8/src/audits/LinkWithUnclearPurpose.js#L55-67
-         */
-
-    }, {
-        key: "isDescriptiveText",
-        value: function isDescriptiveText(textContent) {
-            // Handle when the text is undefined or null
-            if (typeof textContent === "undefined" || textContent === null) {
-                return false;
-            }
-
-            var stopWords = ["kliknij", "stuknij", "idź do", "tutaj", "czytaj", "więcej", "ten link", "strona", "dowiedz się wiecej", "pobierz"];
-            // Generate a regex to match each of the stopWords
-            var stopWordsRE = new RegExp("\\b(" + stopWords.join("|") + ")\\b", "ig");
-
-            textContent = textContent
-            // Strip leading non-alphabetical characters
-            .replace(/[^a-zA-Z ]/g, "")
-            // Remove the stopWords
-            .replace(stopWordsRE, "");
-
-            // Return whether or not there is any text left
-            return textContent.trim() !== "";
-        }
-    }, {
-        key: "reportError",
-        value: function reportError($el, $description, content) {
-            var entry = this.error("Tekst łącza jest niejasny", $description, $el);
-            annotate.errorLabel($el, "", "Tekst \u0142\u0105cza \"" + content + "\" jest niejasny", entry);
-        }
-
-        /**
-         * We can call linkWithUnclearPurpose from ADT directly once the following
-         * issue has been resolved. There is some extra code here until then.
-         * https://github.com/GoogleChrome/accessibility-developer-tools/issues/156
-         */
-
-    }, {
-        key: "run",
-        value: function run() {
-            var _this2 = this;
-
-            $("a").each(function (i, el) {
-                var $el = $(el);
-
-                // Ignore the tota11y UI
-                if ($el.parents(".tota11y").length) {
-                    return;
-                }
-
-                // Ignore hidden links
-                if (axs.utils.isElementOrAncestorHidden(el)) {
-                    return;
-                }
-
-                // Extract the text alternatives for this element: including
-                // its text content, aria-label/labelledby, and alt text for
-                // images.
-                //
-                // TODO: Read from `alts` to determine where the text is coming
-                // from (for tailored error messages)
-                var alts = {};
-                var extractedText = axs.properties.findTextAlternatives(el, alts);
-
-                if (!_this2.isDescriptiveText(extractedText)) {
-                    var $description = buildElement(
-                        "div",
-                        null,
-                        "Ten tekst",
-                        " ",
-                        buildElement(
-                            "i",
-                            null,
-                            "\"",
-                            extractedText,
-                            "\""
-                        ),
-                        " ",
-                        "jest niejasny bez kontekstu i mo\u017Ce by\u0107 myl\u0105cy dla os\xF3b, kt\xF3re u\u017Cywaj\u0105 czytnika ekranu. Rozwa\u017C przeorganizowanie znacznika",
-                        " ",
-                        buildElement(
-                            "code",
-                            null,
-                            "&lt;a&gt;&lt;/a&gt;"
-                        ),
-                        " ",
-                        "i dodanie specjalnego tekstu dla czytnik\xF3w ekranu."
-                    );
-
-                    _this2.reportError($el, $description, extractedText);
-                }
-            });
-        }
-    }, {
-        key: "cleanup",
-        value: function cleanup() {
-            annotate.removeAll();
-        }
-    }]);
-
-    return LinkTextPlugin;
-}(Plugin);
-
-module.exports = LinkTextPlugin;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(4)))
-
-/***/ }),
-/* 58 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(buildElement) {
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-/**
- * Allows users to see what screen readers would see.
- */
-
-var $ = __webpack_require__(2);
-var Plugin = __webpack_require__(5);
-
-__webpack_require__(59);
-
-var A11yTextWand = function (_Plugin) {
-    _inherits(A11yTextWand, _Plugin);
-
-    function A11yTextWand() {
-        _classCallCheck(this, A11yTextWand);
-
-        return _possibleConstructorReturn(this, (A11yTextWand.__proto__ || Object.getPrototypeOf(A11yTextWand)).apply(this, arguments));
-    }
-
-    _createClass(A11yTextWand, [{
-        key: "getTitle",
-        value: function getTitle() {
-            return "Monitor czytnika ekranu";
-        }
-    }, {
-        key: "getDescription",
-        value: function getDescription() {
-            return "Po najechaniu wskaźnikiem na element strony, wyświetla, jak czytnik ekranu ogłosi treść";
-        }
-    }, {
-        key: "run",
-        value: function run() {
-            // HACK(jordan): We provide a fake summary to force the info panel to
-            //     render.
-            this.summary(" ");
-            this.panel.render();
-
-            $(document).on("mousemove.wand", function (e) {
-                var element = document.elementFromPoint(e.clientX, e.clientY);
-
-                var textAlternative = axs.properties.findTextAlternatives(element, {});
-
-                $(".tota11y-outlined").removeClass("tota11y-outlined");
-                $(element).addClass("tota11y-outlined");
-
-                if (!textAlternative) {
-                    $(".tota11y-info-section.active").html(buildElement(
-                        "i",
-                        { className: "tota11y-nothingness" },
-                        "No text visible to a screen reader"
-                    ));
-                } else {
-                    $(".tota11y-info-section.active").text(textAlternative);
-                }
-            });
-        }
-    }, {
-        key: "cleanup",
-        value: function cleanup() {
-            $(".tota11y-outlined").removeClass("tota11y-outlined");
-            $(document).off("mousemove.wand");
-        }
-    }]);
-
-    return A11yTextWand;
-}(Plugin);
-
-module.exports = A11yTextWand;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(4)))
-
-/***/ }),
-/* 59 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ref_6_1_node_modules_postcss_loader_dist_cjs_js_ref_6_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(15);
-
-            
-
-var options = {};
-
-options.insert = "head";
-options.singleton = false;
-
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ref_6_1_node_modules_postcss_loader_dist_cjs_js_ref_6_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"], options);
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = (_node_modules_css_loader_dist_cjs_js_ref_6_1_node_modules_postcss_loader_dist_cjs_js_ref_6_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"].locals || {});
-
-/***/ }),
-/* 60 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Handlebars = __webpack_require__(7);
-function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
-module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<!--\n    \"Glasses\" icon by Kyle Scott\n    https://thenounproject.com/Kyle/\n\n    Licensed under Creative Commons by 3.0 US\n    http://creativecommons.org/licenses/by/3.0/us/legalcode\n-->\n<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"1.1\" id=\"Layer_1\" x=\"0px\" y=\"0px\" viewBox=\"0 0 100 100\" enable-background=\"new 0 0 100 100\" xml:space=\"preserve\">\n    <path\n   fill=\"#ffffff\"\n   d=\"M74.466,35.24c-1.069-0.19-2.208-0.267-3.228-0.562c-0.639-0.184-1.348-0.622-1.965-1.075  c-1.246-0.919-2.479-1.557-3.928-2.152c-0.671-0.276-1.617-0.698-2.432-0.608c-0.582,0.064-1.196,0.664-1.73,1.029  c-1.196,0.818-2.186,1.442-3.32,2.198c-0.524,0.35-1.308,0.798-1.543,1.263c-0.142,0.279-0.13,0.736-0.281,1.029  c-0.35,0.679-1.069,1.434-1.777,1.403c-0.835-0.038-1.773-1.518-1.449-2.619c0.177-0.602,1.126-0.902,1.776-1.262  c2.041-1.134,3.803-2.3,5.52-3.602c1.106-0.841,2.579-1.471,4.536-1.542c1.889-0.071,4.45-0.083,6.22,0  c1.465,0.066,2.698,0.164,3.976,0.42c7.308,1.469,14.698,2.788,21.607,4.77c0.739,0.213,2.896,0.613,3.086,1.311  c0.121,0.439-0.236,1.435-0.375,2.151c-0.165,0.865-0.292,1.626-0.42,2.246c-0.12,0.574-0.65,1.174-0.936,1.776  c-0.842,1.778-1.379,3.821-2.104,5.753c-0.954,2.545-2.02,4.859-3.554,6.968c-1.46,2.005-3.442,3.33-5.987,4.536  c-1.128,0.534-2.43,1.083-3.835,1.403c-1.355,0.311-3.263,0.63-4.817,0.28c-2.233-0.501-3.081-2.543-3.882-4.536  c-0.848-2.115-1.351-4.049-1.636-6.827c-2.692,0.176-3.259,2.014-4.163,3.928c-0.384,0.812-0.792,1.623-1.168,2.385  c-1.542,3.115-3.197,6.47-5.473,8.746c-1.215,1.213-2.581,2.03-4.35,2.758c-3.331,1.373-6.847,2.569-10.757,3.462  c-3.598,0.821-8.923,1.642-12.252-0.093c-2.136-1.113-3.105-3.939-4.023-6.268c-0.458-1.159-0.835-2.459-1.262-3.882  c-0.378-1.259-0.708-2.778-1.543-3.602c-1.053-1.037-2.78-1.414-3.227-2.993c-0.815-0.307-1.563-0.821-2.292-1.308  c-4.349-2.915-8.693-5.774-13.141-8.606c-0.727-0.462-1.667-0.958-2.151-1.497c-0.712-0.792-1.108-2.117-1.684-3.133  c-0.265-0.469-0.588-0.92-0.888-1.357c-0.275-0.4-0.536-0.997-1.076-1.076C2.223,36.823,2.365,37.469,2.349,38  c-0.017,0.549-0.077,1.172-0.047,1.823c0.028,0.606,0.297,1.049,0.28,1.544c-0.018,0.515-0.291,1.036-0.841,1.029  c-0.727-0.009-0.8-0.98-0.983-1.686c-0.209-0.807-0.483-1.551-0.421-2.245c0.049-0.531,0.341-1.223,0.468-2.057  c0.246-1.599,0.126-3.078,1.451-3.415C3.004,32.804,4,33.38,4.781,33.649c0.789,0.272,1.597,0.428,2.339,0.702  c0.854,0.316,1.706,0.875,2.524,1.355c2.526,1.484,4.626,3.112,7.062,4.63c3.273,2.041,6.545,3.955,9.307,6.267  c7.434-2.179,16.722-3.566,25.863-4.302c4.176-0.337,8.326-0.174,12.253,0.374c5.624,0.787,10.073-1.58,13.844-3.18  c2.035-0.864,4.078-1.653,6.173-2.573C80.804,36.331,77.705,35.814,74.466,35.24z M93.968,39.729  c-1.838-0.388-3.732-0.737-5.471-1.075c-0.059-0.012-0.127-0.067-0.188-0.046c-1.143,0.392-2.279,0.613-3.367,1.029  c-2.033,0.773-4.015,1.775-5.752,3.039C78.33,43.3,77.372,44,76.897,44.733c-1.609,2.489-1.206,7.214-0.467,10.149  c0.27,1.071,0.411,1.79,0.889,2.666c3.022,1.287,6.88-0.183,8.885-1.684c1.526-1.142,2.676-2.75,3.602-4.35  C91.815,48.042,93.102,43.946,93.968,39.729z M64.878,46.089c-6.121-1.937-14.865-0.822-21.232,0.467  c-4.477,0.907-9.474,1.92-10.944,5.753c-0.801,2.086-1.009,5.098-0.701,7.903c0.284,2.599,1.076,4.892,2.011,6.594  c2.943,2.698,10.038,1.581,14.124,0.375c2.523-0.745,4.112-1.389,5.845-2.197c1.973-0.921,4.636-1.939,5.285-4.116  c0.179-0.597,0.115-1.244,0.188-1.824c0.492-3.909,1.942-7.447,4.303-9.634c0.477-0.441,1.146-0.679,1.357-1.262  C65.37,47.428,65.13,46.709,64.878,46.089z\"\n   id=\"path2\"\n   style=\"stroke:none;fill:#f9f9f9\" />\n<path\n   id=\"rect15\"\n   style=\"fill:#ff0000;stroke-width:0.57377\"\n   d=\"m 22.765135,44.410541 c 0.686657,2.465018 -0.483526,5.366464 -0.219497,8.663897 0.717574,0.450117 2.800346,1.911315 3.465462,2.065092 -0.318645,-2.902036 0.823534,-6.915992 0.0019,-8.53653 -0.764521,-0.652654 -1.999398,-1.368592 -2.649111,-1.850314 z\"\n   sodipodi:nodetypes=\"cccccc\" /><path\n   id=\"rect13\"\n   style=\"fill:#ffffff;stroke-width:0.57377\"\n   d=\"m 19.893426,51.326689 c -0.324653,-3.303086 0.451758,-1.902389 0.207832,-8.595415 l 2.663877,1.679267 c 0.665079,3.400958 -0.47458,4.799912 -0.219497,8.663897 z\"\n   sodipodi:nodetypes=\"ccccc\" /></svg>\n";
-},"useData":true});
-
-/***/ }),
-/* 61 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(62)(__webpack_require__(63))
-
-/***/ }),
-/* 62 */
-/***/ (function(module, exports) {
-
-/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
-module.exports = function(src) {
-	function log(error) {
-		(typeof console !== "undefined")
-		&& (console.error || console.log)("[Script Loader]", error);
-	}
-
-	// Check for IE =< 8
-	function isIE() {
-		return typeof attachEvent !== "undefined" && typeof addEventListener === "undefined";
-	}
-
-	try {
-		if (typeof execScript !== "undefined" && isIE()) {
-			execScript(src);
-		} else if (typeof eval !== "undefined") {
-			eval.call(null, src);
-		} else {
-			log("EvalError: No eval function available");
-		}
-	} catch (error) {
-		log(error);
-	}
-}
-
-
-/***/ }),
-/* 63 */
-/***/ (function(module, exports) {
-
-module.exports = "/*\n * Copyright 2017 Google Inc.\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n *      http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n *\n * Generated from http://github.com/GoogleChrome/accessibility-developer-tools/tree/9acd1c6e3e72a39a0ec14506d68203a4e8cfafb4\n *\n * See project README for build steps.\n */\n\n// AUTO-GENERATED CONTENT BELOW: DO NOT EDIT! See above for details.\n\nvar fn = (function() {\n  var COMPILED = !0, goog = goog || {};\ngoog.global = this;\ngoog.isDef = function(a) {\n  return void 0 !== a;\n};\ngoog.exportPath_ = function(a, b, c) {\n  a = a.split(\".\");\n  c = c || goog.global;\n  a[0] in c || !c.execScript || c.execScript(\"var \" + a[0]);\n  for (var d;a.length && (d = a.shift());) {\n    !a.length && goog.isDef(b) ? c[d] = b : c = c[d] ? c[d] : c[d] = {};\n  }\n};\ngoog.define = function(a, b) {\n  var c = b;\n  COMPILED || (goog.global.CLOSURE_UNCOMPILED_DEFINES && Object.prototype.hasOwnProperty.call(goog.global.CLOSURE_UNCOMPILED_DEFINES, a) ? c = goog.global.CLOSURE_UNCOMPILED_DEFINES[a] : goog.global.CLOSURE_DEFINES && Object.prototype.hasOwnProperty.call(goog.global.CLOSURE_DEFINES, a) && (c = goog.global.CLOSURE_DEFINES[a]));\n  goog.exportPath_(a, c);\n};\ngoog.DEBUG = !0;\ngoog.LOCALE = \"en\";\ngoog.TRUSTED_SITE = !0;\ngoog.STRICT_MODE_COMPATIBLE = !1;\ngoog.DISALLOW_TEST_ONLY_CODE = COMPILED && !goog.DEBUG;\ngoog.ENABLE_CHROME_APP_SAFE_SCRIPT_LOADING = !1;\ngoog.provide = function(a) {\n  if (goog.isInModuleLoader_()) {\n    throw Error(\"goog.provide can not be used within a goog.module.\");\n  }\n  if (!COMPILED && goog.isProvided_(a)) {\n    throw Error('Namespace \"' + a + '\" already declared.');\n  }\n  goog.constructNamespace_(a);\n};\ngoog.constructNamespace_ = function(a, b) {\n  if (!COMPILED) {\n    delete goog.implicitNamespaces_[a];\n    for (var c = a;(c = c.substring(0, c.lastIndexOf(\".\"))) && !goog.getObjectByName(c);) {\n      goog.implicitNamespaces_[c] = !0;\n    }\n  }\n  goog.exportPath_(a, b);\n};\ngoog.VALID_MODULE_RE_ = /^[a-zA-Z_$][a-zA-Z0-9._$]*$/;\ngoog.module = function(a) {\n  if (!goog.isString(a) || !a || -1 == a.search(goog.VALID_MODULE_RE_)) {\n    throw Error(\"Invalid module identifier\");\n  }\n  if (!goog.isInModuleLoader_()) {\n    throw Error(\"Module \" + a + \" has been loaded incorrectly. Note, modules cannot be loaded as normal scripts. They require some kind of pre-processing step. You're likely trying to load a module via a script tag or as a part of a concatenated bundle without rewriting the module. For more info see: https://github.com/google/closure-library/wiki/goog.module:-an-ES6-module-like-alternative-to-goog.provide.\");\n  }\n  if (goog.moduleLoaderState_.moduleName) {\n    throw Error(\"goog.module may only be called once per module.\");\n  }\n  goog.moduleLoaderState_.moduleName = a;\n  if (!COMPILED) {\n    if (goog.isProvided_(a)) {\n      throw Error('Namespace \"' + a + '\" already declared.');\n    }\n    delete goog.implicitNamespaces_[a];\n  }\n};\ngoog.module.get = function(a) {\n  return goog.module.getInternal_(a);\n};\ngoog.module.getInternal_ = function(a) {\n  if (!COMPILED) {\n    if (a in goog.loadedModules_) {\n      return goog.loadedModules_[a];\n    }\n    if (!goog.implicitNamespaces_[a]) {\n      return a = goog.getObjectByName(a), null != a ? a : null;\n    }\n  }\n  return null;\n};\ngoog.moduleLoaderState_ = null;\ngoog.isInModuleLoader_ = function() {\n  return null != goog.moduleLoaderState_;\n};\ngoog.module.declareLegacyNamespace = function() {\n  if (!COMPILED && !goog.isInModuleLoader_()) {\n    throw Error(\"goog.module.declareLegacyNamespace must be called from within a goog.module\");\n  }\n  if (!COMPILED && !goog.moduleLoaderState_.moduleName) {\n    throw Error(\"goog.module must be called prior to goog.module.declareLegacyNamespace.\");\n  }\n  goog.moduleLoaderState_.declareLegacyNamespace = !0;\n};\ngoog.setTestOnly = function(a) {\n  if (goog.DISALLOW_TEST_ONLY_CODE) {\n    throw a = a || \"\", Error(\"Importing test-only code into non-debug environment\" + (a ? \": \" + a : \".\"));\n  }\n};\ngoog.forwardDeclare = function(a) {\n};\nCOMPILED || (goog.isProvided_ = function(a) {\n  return a in goog.loadedModules_ || !goog.implicitNamespaces_[a] && goog.isDefAndNotNull(goog.getObjectByName(a));\n}, goog.implicitNamespaces_ = {\"goog.module\":!0});\ngoog.getObjectByName = function(a, b) {\n  for (var c = a.split(\".\"), d = b || goog.global, e;e = c.shift();) {\n    if (goog.isDefAndNotNull(d[e])) {\n      d = d[e];\n    } else {\n      return null;\n    }\n  }\n  return d;\n};\ngoog.globalize = function(a, b) {\n  var c = b || goog.global, d;\n  for (d in a) {\n    c[d] = a[d];\n  }\n};\ngoog.addDependency = function(a, b, c, d) {\n  if (goog.DEPENDENCIES_ENABLED) {\n    var e;\n    a = a.replace(/\\\\/g, \"/\");\n    var f = goog.dependencies_;\n    d && \"boolean\" !== typeof d || (d = d ? {module:\"goog\"} : {});\n    for (var g = 0;e = b[g];g++) {\n      f.nameToPath[e] = a, f.loadFlags[a] = d;\n    }\n    for (d = 0;b = c[d];d++) {\n      a in f.requires || (f.requires[a] = {}), f.requires[a][b] = !0;\n    }\n  }\n};\ngoog.ENABLE_DEBUG_LOADER = !0;\ngoog.logToConsole_ = function(a) {\n  goog.global.console && goog.global.console.error(a);\n};\ngoog.require = function(a) {\n  if (!COMPILED) {\n    goog.ENABLE_DEBUG_LOADER && goog.IS_OLD_IE_ && goog.maybeProcessDeferredDep_(a);\n    if (goog.isProvided_(a)) {\n      if (goog.isInModuleLoader_()) {\n        return goog.module.getInternal_(a);\n      }\n    } else {\n      if (goog.ENABLE_DEBUG_LOADER) {\n        var b = goog.getPathFromDeps_(a);\n        if (b) {\n          goog.writeScripts_(b);\n        } else {\n          throw a = \"goog.require could not find: \" + a, goog.logToConsole_(a), Error(a);\n        }\n      }\n    }\n    return null;\n  }\n};\ngoog.basePath = \"\";\ngoog.nullFunction = function() {\n};\ngoog.abstractMethod = function() {\n  throw Error(\"unimplemented abstract method\");\n};\ngoog.addSingletonGetter = function(a) {\n  a.getInstance = function() {\n    if (a.instance_) {\n      return a.instance_;\n    }\n    goog.DEBUG && (goog.instantiatedSingletons_[goog.instantiatedSingletons_.length] = a);\n    return a.instance_ = new a;\n  };\n};\ngoog.instantiatedSingletons_ = [];\ngoog.LOAD_MODULE_USING_EVAL = !0;\ngoog.SEAL_MODULE_EXPORTS = goog.DEBUG;\ngoog.loadedModules_ = {};\ngoog.DEPENDENCIES_ENABLED = !COMPILED && goog.ENABLE_DEBUG_LOADER;\ngoog.TRANSPILE = \"detect\";\ngoog.TRANSPILER = \"transpile.js\";\ngoog.DEPENDENCIES_ENABLED && (goog.dependencies_ = {loadFlags:{}, nameToPath:{}, requires:{}, visited:{}, written:{}, deferred:{}}, goog.inHtmlDocument_ = function() {\n  var a = goog.global.document;\n  return null != a && \"write\" in a;\n}, goog.findBasePath_ = function() {\n  if (goog.isDef(goog.global.CLOSURE_BASE_PATH)) {\n    goog.basePath = goog.global.CLOSURE_BASE_PATH;\n  } else {\n    if (goog.inHtmlDocument_()) {\n      for (var a = goog.global.document.getElementsByTagName(\"SCRIPT\"), b = a.length - 1;0 <= b;--b) {\n        var c = a[b].src, d = c.lastIndexOf(\"?\"), d = -1 == d ? c.length : d;\n        if (\"base.js\" == c.substr(d - 7, 7)) {\n          goog.basePath = c.substr(0, d - 7);\n          break;\n        }\n      }\n    }\n  }\n}, goog.importScript_ = function(a, b) {\n  (goog.global.CLOSURE_IMPORT_SCRIPT || goog.writeScriptTag_)(a, b) && (goog.dependencies_.written[a] = !0);\n}, goog.IS_OLD_IE_ = !(goog.global.atob || !goog.global.document || !goog.global.document.all), goog.importProcessedScript_ = function(a, b, c) {\n  goog.importScript_(\"\", 'goog.retrieveAndExec_(\"' + a + '\", ' + b + \", \" + c + \");\");\n}, goog.queuedModules_ = [], goog.wrapModule_ = function(a, b) {\n  return goog.LOAD_MODULE_USING_EVAL && goog.isDef(goog.global.JSON) ? \"goog.loadModule(\" + goog.global.JSON.stringify(b + \"\\n//# sourceURL=\" + a + \"\\n\") + \");\" : 'goog.loadModule(function(exports) {\"use strict\";' + b + \"\\n;return exports});\\n//# sourceURL=\" + a + \"\\n\";\n}, goog.loadQueuedModules_ = function() {\n  var a = goog.queuedModules_.length;\n  if (0 < a) {\n    var b = goog.queuedModules_;\n    goog.queuedModules_ = [];\n    for (var c = 0;c < a;c++) {\n      goog.maybeProcessDeferredPath_(b[c]);\n    }\n  }\n}, goog.maybeProcessDeferredDep_ = function(a) {\n  goog.isDeferredModule_(a) && goog.allDepsAreAvailable_(a) && (a = goog.getPathFromDeps_(a), goog.maybeProcessDeferredPath_(goog.basePath + a));\n}, goog.isDeferredModule_ = function(a) {\n  var b = (a = goog.getPathFromDeps_(a)) && goog.dependencies_.loadFlags[a] || {}, c = b.lang || \"es3\";\n  return a && (\"goog\" == b.module || goog.needsTranspile_(c)) ? goog.basePath + a in goog.dependencies_.deferred : !1;\n}, goog.allDepsAreAvailable_ = function(a) {\n  if ((a = goog.getPathFromDeps_(a)) && a in goog.dependencies_.requires) {\n    for (var b in goog.dependencies_.requires[a]) {\n      if (!goog.isProvided_(b) && !goog.isDeferredModule_(b)) {\n        return !1;\n      }\n    }\n  }\n  return !0;\n}, goog.maybeProcessDeferredPath_ = function(a) {\n  if (a in goog.dependencies_.deferred) {\n    var b = goog.dependencies_.deferred[a];\n    delete goog.dependencies_.deferred[a];\n    goog.globalEval(b);\n  }\n}, goog.loadModuleFromUrl = function(a) {\n  goog.retrieveAndExec_(a, !0, !1);\n}, goog.writeScriptSrcNode_ = function(a) {\n  goog.global.document.write('<script type=\"text/javascript\" src=\"' + a + '\">\\x3c/script>');\n}, goog.appendScriptSrcNode_ = function(a) {\n  var b = goog.global.document, c = b.createElement(\"script\");\n  c.type = \"text/javascript\";\n  c.src = a;\n  c.defer = !1;\n  c.async = !1;\n  b.head.appendChild(c);\n}, goog.writeScriptTag_ = function(a, b) {\n  if (goog.inHtmlDocument_()) {\n    var c = goog.global.document;\n    if (!goog.ENABLE_CHROME_APP_SAFE_SCRIPT_LOADING && \"complete\" == c.readyState) {\n      if (/\\bdeps.js$/.test(a)) {\n        return !1;\n      }\n      throw Error('Cannot write \"' + a + '\" after document load');\n    }\n    if (void 0 === b) {\n      if (goog.IS_OLD_IE_) {\n        var d = \" onreadystatechange='goog.onScriptLoad_(this, \" + ++goog.lastNonModuleScriptIndex_ + \")' \";\n        c.write('<script type=\"text/javascript\" src=\"' + a + '\"' + d + \">\\x3c/script>\");\n      } else {\n        goog.ENABLE_CHROME_APP_SAFE_SCRIPT_LOADING ? goog.appendScriptSrcNode_(a) : goog.writeScriptSrcNode_(a);\n      }\n    } else {\n      c.write('<script type=\"text/javascript\">' + goog.protectScriptTag_(b) + \"\\x3c/script>\");\n    }\n    return !0;\n  }\n  return !1;\n}, goog.protectScriptTag_ = function(a) {\n  return a.replace(/<\\/(SCRIPT)/ig, \"\\\\x3c\\\\$1\");\n}, goog.needsTranspile_ = function(a) {\n  if (\"always\" == goog.TRANSPILE) {\n    return !0;\n  }\n  if (\"never\" == goog.TRANSPILE) {\n    return !1;\n  }\n  goog.requiresTranspilation_ || (goog.requiresTranspilation_ = goog.createRequiresTranspilation_());\n  if (a in goog.requiresTranspilation_) {\n    return goog.requiresTranspilation_[a];\n  }\n  throw Error(\"Unknown language mode: \" + a);\n}, goog.requiresTranspilation_ = null, goog.lastNonModuleScriptIndex_ = 0, goog.onScriptLoad_ = function(a, b) {\n  \"complete\" == a.readyState && goog.lastNonModuleScriptIndex_ == b && goog.loadQueuedModules_();\n  return !0;\n}, goog.writeScripts_ = function(a) {\n  function b(a) {\n    if (!(a in e.written || a in e.visited)) {\n      e.visited[a] = !0;\n      if (a in e.requires) {\n        for (var f in e.requires[a]) {\n          if (!goog.isProvided_(f)) {\n            if (f in e.nameToPath) {\n              b(e.nameToPath[f]);\n            } else {\n              throw Error(\"Undefined nameToPath for \" + f);\n            }\n          }\n        }\n      }\n      a in d || (d[a] = !0, c.push(a));\n    }\n  }\n  var c = [], d = {}, e = goog.dependencies_;\n  b(a);\n  for (a = 0;a < c.length;a++) {\n    var f = c[a];\n    goog.dependencies_.written[f] = !0;\n  }\n  var g = goog.moduleLoaderState_;\n  goog.moduleLoaderState_ = null;\n  for (a = 0;a < c.length;a++) {\n    if (f = c[a]) {\n      var h = e.loadFlags[f] || {}, k = goog.needsTranspile_(h.lang || \"es3\");\n      \"goog\" == h.module || k ? goog.importProcessedScript_(goog.basePath + f, \"goog\" == h.module, k) : goog.importScript_(goog.basePath + f);\n    } else {\n      throw goog.moduleLoaderState_ = g, Error(\"Undefined script input\");\n    }\n  }\n  goog.moduleLoaderState_ = g;\n}, goog.getPathFromDeps_ = function(a) {\n  return a in goog.dependencies_.nameToPath ? goog.dependencies_.nameToPath[a] : null;\n}, goog.findBasePath_(), goog.global.CLOSURE_NO_DEPS || goog.importScript_(goog.basePath + \"deps.js\"));\ngoog.loadModule = function(a) {\n  var b = goog.moduleLoaderState_;\n  try {\n    goog.moduleLoaderState_ = {moduleName:void 0, declareLegacyNamespace:!1};\n    var c;\n    if (goog.isFunction(a)) {\n      c = a.call(void 0, {});\n    } else {\n      if (goog.isString(a)) {\n        c = goog.loadModuleFromSource_.call(void 0, a);\n      } else {\n        throw Error(\"Invalid module definition\");\n      }\n    }\n    var d = goog.moduleLoaderState_.moduleName;\n    if (!goog.isString(d) || !d) {\n      throw Error('Invalid module name \"' + d + '\"');\n    }\n    goog.moduleLoaderState_.declareLegacyNamespace ? goog.constructNamespace_(d, c) : goog.SEAL_MODULE_EXPORTS && Object.seal && goog.isObject(c) && Object.seal(c);\n    goog.loadedModules_[d] = c;\n  } finally {\n    goog.moduleLoaderState_ = b;\n  }\n};\ngoog.loadModuleFromSource_ = function(a) {\n  eval(a);\n  return {};\n};\ngoog.normalizePath_ = function(a) {\n  a = a.split(\"/\");\n  for (var b = 0;b < a.length;) {\n    \".\" == a[b] ? a.splice(b, 1) : b && \"..\" == a[b] && a[b - 1] && \"..\" != a[b - 1] ? a.splice(--b, 2) : b++;\n  }\n  return a.join(\"/\");\n};\ngoog.loadFileSync_ = function(a) {\n  if (goog.global.CLOSURE_LOAD_FILE_SYNC) {\n    return goog.global.CLOSURE_LOAD_FILE_SYNC(a);\n  }\n  try {\n    var b = new goog.global.XMLHttpRequest;\n    b.open(\"get\", a, !1);\n    b.send();\n    return 0 == b.status || 200 == b.status ? b.responseText : null;\n  } catch (c) {\n    return null;\n  }\n};\ngoog.retrieveAndExec_ = function(a, b, c) {\n  if (!COMPILED) {\n    var d = a;\n    a = goog.normalizePath_(a);\n    var e = goog.global.CLOSURE_IMPORT_SCRIPT || goog.writeScriptTag_, f = goog.loadFileSync_(a);\n    if (null == f) {\n      throw Error('Load of \"' + a + '\" failed');\n    }\n    c && (f = goog.transpile_.call(goog.global, f, a));\n    f = b ? goog.wrapModule_(a, f) : f + (\"\\n//# sourceURL=\" + a);\n    goog.IS_OLD_IE_ ? (goog.dependencies_.deferred[d] = f, goog.queuedModules_.push(d)) : e(a, f);\n  }\n};\ngoog.transpile_ = function(a, b) {\n  var c = goog.global.$jscomp;\n  c || (goog.global.$jscomp = c = {});\n  var d = c.transpile;\n  if (!d) {\n    var e = goog.basePath + goog.TRANSPILER, f = goog.loadFileSync_(e);\n    if (f) {\n      eval(f + \"\\n//# sourceURL=\" + e);\n      if (goog.global.$gwtExport && goog.global.$gwtExport.$jscomp && !goog.global.$gwtExport.$jscomp.transpile) {\n        throw Error('The transpiler did not properly export the \"transpile\" method. $gwtExport: ' + JSON.stringify(goog.global.$gwtExport));\n      }\n      goog.global.$jscomp.transpile = goog.global.$gwtExport.$jscomp.transpile;\n      c = goog.global.$jscomp;\n      d = c.transpile;\n    }\n  }\n  d || (d = c.transpile = function(a, b) {\n    goog.logToConsole_(b + \" requires transpilation but no transpiler was found.\");\n    return a;\n  });\n  return d(a, b);\n};\ngoog.typeOf = function(a) {\n  var b = typeof a;\n  if (\"object\" == b) {\n    if (a) {\n      if (a instanceof Array) {\n        return \"array\";\n      }\n      if (a instanceof Object) {\n        return b;\n      }\n      var c = Object.prototype.toString.call(a);\n      if (\"[object Window]\" == c) {\n        return \"object\";\n      }\n      if (\"[object Array]\" == c || \"number\" == typeof a.length && \"undefined\" != typeof a.splice && \"undefined\" != typeof a.propertyIsEnumerable && !a.propertyIsEnumerable(\"splice\")) {\n        return \"array\";\n      }\n      if (\"[object Function]\" == c || \"undefined\" != typeof a.call && \"undefined\" != typeof a.propertyIsEnumerable && !a.propertyIsEnumerable(\"call\")) {\n        return \"function\";\n      }\n    } else {\n      return \"null\";\n    }\n  } else {\n    if (\"function\" == b && \"undefined\" == typeof a.call) {\n      return \"object\";\n    }\n  }\n  return b;\n};\ngoog.isNull = function(a) {\n  return null === a;\n};\ngoog.isDefAndNotNull = function(a) {\n  return null != a;\n};\ngoog.isArray = function(a) {\n  return \"array\" == goog.typeOf(a);\n};\ngoog.isArrayLike = function(a) {\n  var b = goog.typeOf(a);\n  return \"array\" == b || \"object\" == b && \"number\" == typeof a.length;\n};\ngoog.isDateLike = function(a) {\n  return goog.isObject(a) && \"function\" == typeof a.getFullYear;\n};\ngoog.isString = function(a) {\n  return \"string\" == typeof a;\n};\ngoog.isBoolean = function(a) {\n  return \"boolean\" == typeof a;\n};\ngoog.isNumber = function(a) {\n  return \"number\" == typeof a;\n};\ngoog.isFunction = function(a) {\n  return \"function\" == goog.typeOf(a);\n};\ngoog.isObject = function(a) {\n  var b = typeof a;\n  return \"object\" == b && null != a || \"function\" == b;\n};\ngoog.getUid = function(a) {\n  return a[goog.UID_PROPERTY_] || (a[goog.UID_PROPERTY_] = ++goog.uidCounter_);\n};\ngoog.hasUid = function(a) {\n  return !!a[goog.UID_PROPERTY_];\n};\ngoog.removeUid = function(a) {\n  null !== a && \"removeAttribute\" in a && a.removeAttribute(goog.UID_PROPERTY_);\n  try {\n    delete a[goog.UID_PROPERTY_];\n  } catch (b) {\n  }\n};\ngoog.UID_PROPERTY_ = \"closure_uid_\" + (1E9 * Math.random() >>> 0);\ngoog.uidCounter_ = 0;\ngoog.getHashCode = goog.getUid;\ngoog.removeHashCode = goog.removeUid;\ngoog.cloneObject = function(a) {\n  var b = goog.typeOf(a);\n  if (\"object\" == b || \"array\" == b) {\n    if (a.clone) {\n      return a.clone();\n    }\n    var b = \"array\" == b ? [] : {}, c;\n    for (c in a) {\n      b[c] = goog.cloneObject(a[c]);\n    }\n    return b;\n  }\n  return a;\n};\ngoog.bindNative_ = function(a, b, c) {\n  return a.call.apply(a.bind, arguments);\n};\ngoog.bindJs_ = function(a, b, c) {\n  if (!a) {\n    throw Error();\n  }\n  if (2 < arguments.length) {\n    var d = Array.prototype.slice.call(arguments, 2);\n    return function() {\n      var c = Array.prototype.slice.call(arguments);\n      Array.prototype.unshift.apply(c, d);\n      return a.apply(b, c);\n    };\n  }\n  return function() {\n    return a.apply(b, arguments);\n  };\n};\ngoog.bind = function(a, b, c) {\n  Function.prototype.bind && -1 != Function.prototype.bind.toString().indexOf(\"native code\") ? goog.bind = goog.bindNative_ : goog.bind = goog.bindJs_;\n  return goog.bind.apply(null, arguments);\n};\ngoog.partial = function(a, b) {\n  var c = Array.prototype.slice.call(arguments, 1);\n  return function() {\n    var b = c.slice();\n    b.push.apply(b, arguments);\n    return a.apply(this, b);\n  };\n};\ngoog.mixin = function(a, b) {\n  for (var c in b) {\n    a[c] = b[c];\n  }\n};\ngoog.now = goog.TRUSTED_SITE && Date.now || function() {\n  return +new Date;\n};\ngoog.globalEval = function(a) {\n  if (goog.global.execScript) {\n    goog.global.execScript(a, \"JavaScript\");\n  } else {\n    if (goog.global.eval) {\n      if (null == goog.evalWorksForGlobals_) {\n        if (goog.global.eval(\"var _evalTest_ = 1;\"), \"undefined\" != typeof goog.global._evalTest_) {\n          try {\n            delete goog.global._evalTest_;\n          } catch (d) {\n          }\n          goog.evalWorksForGlobals_ = !0;\n        } else {\n          goog.evalWorksForGlobals_ = !1;\n        }\n      }\n      if (goog.evalWorksForGlobals_) {\n        goog.global.eval(a);\n      } else {\n        var b = goog.global.document, c = b.createElement(\"SCRIPT\");\n        c.type = \"text/javascript\";\n        c.defer = !1;\n        c.appendChild(b.createTextNode(a));\n        b.body.appendChild(c);\n        b.body.removeChild(c);\n      }\n    } else {\n      throw Error(\"goog.globalEval not available\");\n    }\n  }\n};\ngoog.evalWorksForGlobals_ = null;\ngoog.getCssName = function(a, b) {\n  if (\".\" == String(a).charAt(0)) {\n    throw Error('className passed in goog.getCssName must not start with \".\". You passed: ' + a);\n  }\n  var c = function(a) {\n    return goog.cssNameMapping_[a] || a;\n  }, d = function(a) {\n    a = a.split(\"-\");\n    for (var b = [], d = 0;d < a.length;d++) {\n      b.push(c(a[d]));\n    }\n    return b.join(\"-\");\n  }, d = goog.cssNameMapping_ ? \"BY_WHOLE\" == goog.cssNameMappingStyle_ ? c : d : function(a) {\n    return a;\n  }, d = b ? a + \"-\" + d(b) : d(a);\n  return goog.global.CLOSURE_CSS_NAME_MAP_FN ? goog.global.CLOSURE_CSS_NAME_MAP_FN(d) : d;\n};\ngoog.setCssNameMapping = function(a, b) {\n  goog.cssNameMapping_ = a;\n  goog.cssNameMappingStyle_ = b;\n};\n!COMPILED && goog.global.CLOSURE_CSS_NAME_MAPPING && (goog.cssNameMapping_ = goog.global.CLOSURE_CSS_NAME_MAPPING);\ngoog.getMsg = function(a, b) {\n  b && (a = a.replace(/\\{\\$([^}]+)}/g, function(a, d) {\n    return null != b && d in b ? b[d] : a;\n  }));\n  return a;\n};\ngoog.getMsgWithFallback = function(a, b) {\n  return a;\n};\ngoog.exportSymbol = function(a, b, c) {\n  goog.exportPath_(a, b, c);\n};\ngoog.exportProperty = function(a, b, c) {\n  a[b] = c;\n};\ngoog.inherits = function(a, b) {\n  function c() {\n  }\n  c.prototype = b.prototype;\n  a.superClass_ = b.prototype;\n  a.prototype = new c;\n  a.prototype.constructor = a;\n  a.base = function(a, c, f) {\n    for (var d = Array(arguments.length - 2), e = 2;e < arguments.length;e++) {\n      d[e - 2] = arguments[e];\n    }\n    return b.prototype[c].apply(a, d);\n  };\n};\ngoog.base = function(a, b, c) {\n  var d = arguments.callee.caller;\n  if (goog.STRICT_MODE_COMPATIBLE || goog.DEBUG && !d) {\n    throw Error(\"arguments.caller not defined.  goog.base() cannot be used with strict mode code. See http://www.ecma-international.org/ecma-262/5.1/#sec-C\");\n  }\n  if (d.superClass_) {\n    for (var e = Array(arguments.length - 1), f = 1;f < arguments.length;f++) {\n      e[f - 1] = arguments[f];\n    }\n    return d.superClass_.constructor.apply(a, e);\n  }\n  e = Array(arguments.length - 2);\n  for (f = 2;f < arguments.length;f++) {\n    e[f - 2] = arguments[f];\n  }\n  for (var f = !1, g = a.constructor;g;g = g.superClass_ && g.superClass_.constructor) {\n    if (g.prototype[b] === d) {\n      f = !0;\n    } else {\n      if (f) {\n        return g.prototype[b].apply(a, e);\n      }\n    }\n  }\n  if (a[b] === d) {\n    return a.constructor.prototype[b].apply(a, e);\n  }\n  throw Error(\"goog.base called from a method of one name to a method of a different name\");\n};\ngoog.scope = function(a) {\n  if (goog.isInModuleLoader_()) {\n    throw Error(\"goog.scope is not supported within a goog.module.\");\n  }\n  a.call(goog.global);\n};\nCOMPILED || (goog.global.COMPILED = COMPILED);\ngoog.defineClass = function(a, b) {\n  var c = b.constructor, d = b.statics;\n  c && c != Object.prototype.constructor || (c = function() {\n    throw Error(\"cannot instantiate an interface (no constructor defined).\");\n  });\n  c = goog.defineClass.createSealingConstructor_(c, a);\n  a && goog.inherits(c, a);\n  delete b.constructor;\n  delete b.statics;\n  goog.defineClass.applyProperties_(c.prototype, b);\n  null != d && (d instanceof Function ? d(c) : goog.defineClass.applyProperties_(c, d));\n  return c;\n};\ngoog.defineClass.SEAL_CLASS_INSTANCES = goog.DEBUG;\ngoog.defineClass.createSealingConstructor_ = function(a, b) {\n  if (!goog.defineClass.SEAL_CLASS_INSTANCES) {\n    return a;\n  }\n  var c = !goog.defineClass.isUnsealable_(b), d = function() {\n    var b = a.apply(this, arguments) || this;\n    b[goog.UID_PROPERTY_] = b[goog.UID_PROPERTY_];\n    this.constructor === d && c && Object.seal instanceof Function && Object.seal(b);\n    return b;\n  };\n  return d;\n};\ngoog.defineClass.isUnsealable_ = function(a) {\n  return a && a.prototype && a.prototype[goog.UNSEALABLE_CONSTRUCTOR_PROPERTY_];\n};\ngoog.defineClass.OBJECT_PROTOTYPE_FIELDS_ = \"constructor hasOwnProperty isPrototypeOf propertyIsEnumerable toLocaleString toString valueOf\".split(\" \");\ngoog.defineClass.applyProperties_ = function(a, b) {\n  for (var c in b) {\n    Object.prototype.hasOwnProperty.call(b, c) && (a[c] = b[c]);\n  }\n  for (var d = 0;d < goog.defineClass.OBJECT_PROTOTYPE_FIELDS_.length;d++) {\n    c = goog.defineClass.OBJECT_PROTOTYPE_FIELDS_[d], Object.prototype.hasOwnProperty.call(b, c) && (a[c] = b[c]);\n  }\n};\ngoog.tagUnsealableClass = function(a) {\n  !COMPILED && goog.defineClass.SEAL_CLASS_INSTANCES && (a.prototype[goog.UNSEALABLE_CONSTRUCTOR_PROPERTY_] = !0);\n};\ngoog.UNSEALABLE_CONSTRUCTOR_PROPERTY_ = \"goog_defineClass_legacy_unsealable\";\ngoog.createRequiresTranspilation_ = function() {\n  function a(a, b) {\n    d ? c[a] = !0 : b() ? c[a] = !1 : d = c[a] = !0;\n  }\n  function b(a) {\n    try {\n      return !!eval(a);\n    } catch (f) {\n      return !1;\n    }\n  }\n  var c = {es3:!1}, d = !1;\n  a(\"es5\", function() {\n    return b(\"[1,].length==1\");\n  });\n  a(\"es6\", function() {\n    return b('(()=>{\"use strict\";class X{constructor(){if(new.target!=String)throw 1;this.x=42}}let q=Reflect.construct(X,[],String);if(q.x!=42||!(q instanceof String))throw 1;for(const a of[2,3]){if(a==2)continue;function f(z={a}){let a=0;return z.a}{function f(){return 0;}}return f()==3}})()');\n  });\n  a(\"es6-impl\", function() {\n    return !0;\n  });\n  a(\"es7\", function() {\n    return b(\"2 ** 2 == 4\");\n  });\n  a(\"es8\", function() {\n    return b(\"async () => 1, true\");\n  });\n  return c;\n};\nvar axs = {};\naxs.browserUtils = {};\naxs.browserUtils.matchSelector = function(a, b) {\n  return a.matches ? a.matches(b) : a.webkitMatchesSelector ? a.webkitMatchesSelector(b) : a.mozMatchesSelector ? a.mozMatchesSelector(b) : a.msMatchesSelector ? a.msMatchesSelector(b) : !1;\n};\naxs.color = {};\naxs.color.Color = function(a, b, c, d) {\n  this.red = a;\n  this.green = b;\n  this.blue = c;\n  this.alpha = d;\n};\naxs.color.YCbCr = function(a) {\n  this.luma = this.z = a[0];\n  this.Cb = this.x = a[1];\n  this.Cr = this.y = a[2];\n};\naxs.color.YCbCr.prototype = {multiply:function(a) {\n  return new axs.color.YCbCr([this.luma * a, this.Cb * a, this.Cr * a]);\n}, add:function(a) {\n  return new axs.color.YCbCr([this.luma + a.luma, this.Cb + a.Cb, this.Cr + a.Cr]);\n}, subtract:function(a) {\n  return new axs.color.YCbCr([this.luma - a.luma, this.Cb - a.Cb, this.Cr - a.Cr]);\n}};\naxs.color.calculateContrastRatio = function(a, b) {\n  1 > a.alpha && (a = axs.color.flattenColors(a, b));\n  var c = axs.color.calculateLuminance(a), d = axs.color.calculateLuminance(b);\n  return (Math.max(c, d) + .05) / (Math.min(c, d) + .05);\n};\naxs.color.calculateLuminance = function(a) {\n  return axs.color.toYCbCr(a).luma;\n};\naxs.color.luminanceRatio = function(a, b) {\n  return (Math.max(a, b) + .05) / (Math.min(a, b) + .05);\n};\naxs.color.parseColor = function(a) {\n  if (\"transparent\" === a) {\n    return new axs.color.Color(0, 0, 0, 0);\n  }\n  var b = a.match(/^rgb\\((\\d+), (\\d+), (\\d+)\\)$/);\n  if (b) {\n    a = parseInt(b[1], 10);\n    var c = parseInt(b[2], 10), d = parseInt(b[3], 10);\n    return new axs.color.Color(a, c, d, 1);\n  }\n  return (b = a.match(/^rgba\\((\\d+), (\\d+), (\\d+), (\\d*(\\.\\d+)?)\\)/)) ? (a = parseInt(b[1], 10), c = parseInt(b[2], 10), d = parseInt(b[3], 10), b = parseFloat(b[4]), new axs.color.Color(a, c, d, b)) : null;\n};\naxs.color.colorChannelToString = function(a) {\n  a = Math.round(a);\n  return 15 >= a ? \"0\" + a.toString(16) : a.toString(16);\n};\naxs.color.colorToString = function(a) {\n  return 1 == a.alpha ? \"#\" + axs.color.colorChannelToString(a.red) + axs.color.colorChannelToString(a.green) + axs.color.colorChannelToString(a.blue) : \"rgba(\" + [a.red, a.green, a.blue, a.alpha].join() + \")\";\n};\naxs.color.luminanceFromContrastRatio = function(a, b, c) {\n  return c ? (a + .05) * b - .05 : (a + .05) / b - .05;\n};\naxs.color.translateColor = function(a, b) {\n  for (var c = b > a.luma ? axs.color.WHITE_YCC : axs.color.BLACK_YCC, d = c == axs.color.WHITE_YCC ? axs.color.YCC_CUBE_FACES_WHITE : axs.color.YCC_CUBE_FACES_BLACK, e = new axs.color.YCbCr([0, a.Cb, a.Cr]), f = new axs.color.YCbCr([1, a.Cb, a.Cr]), f = {a:e, b:f}, e = null, g = 0;g < d.length && !(e = axs.color.findIntersection(f, d[g]), 0 <= e.z && 1 >= e.z);g++) {\n  }\n  if (!e) {\n    throw \"Couldn't find intersection with YCbCr color cube for Cb=\" + a.Cb + \", Cr=\" + a.Cr + \".\";\n  }\n  if (e.x != a.x || e.y != a.y) {\n    throw \"Intersection has wrong Cb/Cr values.\";\n  }\n  if (Math.abs(c.luma - e.luma) < Math.abs(c.luma - b)) {\n    return c = [b, a.Cb, a.Cr], axs.color.fromYCbCrArray(c);\n  }\n  c = (b - e.luma) / (c.luma - e.luma);\n  c = [b, e.Cb - e.Cb * c, e.Cr - e.Cr * c];\n  return axs.color.fromYCbCrArray(c);\n};\naxs.color.suggestColors = function(a, b, c) {\n  var d = {}, e = axs.color.calculateLuminance(a), f = axs.color.calculateLuminance(b), g = f > e, h = axs.color.toYCbCr(b), k = axs.color.toYCbCr(a), m;\n  for (m in c) {\n    var l = c[m], n = axs.color.luminanceFromContrastRatio(e, l + .02, g);\n    if (1 >= n && 0 <= n) {\n      var p = axs.color.translateColor(h, n), l = axs.color.calculateContrastRatio(p, a), n = {};\n      n.fg = axs.color.colorToString(p);\n      n.bg = axs.color.colorToString(a);\n      n.contrast = l.toFixed(2);\n      d[m] = n;\n    } else {\n      l = axs.color.luminanceFromContrastRatio(f, l + .02, !g), 1 >= l && 0 <= l && (p = axs.color.translateColor(k, l), l = axs.color.calculateContrastRatio(b, p), n = {}, n.bg = axs.color.colorToString(p), n.fg = axs.color.colorToString(b), n.contrast = l.toFixed(2), d[m] = n);\n    }\n  }\n  return d;\n};\naxs.color.flattenColors = function(a, b) {\n  var c = a.alpha;\n  return new axs.color.Color((1 - c) * b.red + c * a.red, (1 - c) * b.green + c * a.green, (1 - c) * b.blue + c * a.blue, a.alpha + b.alpha * (1 - a.alpha));\n};\naxs.color.multiplyMatrixVector = function(a, b) {\n  var c = b[0], d = b[1], e = b[2];\n  return [a[0][0] * c + a[0][1] * d + a[0][2] * e, a[1][0] * c + a[1][1] * d + a[1][2] * e, a[2][0] * c + a[2][1] * d + a[2][2] * e];\n};\naxs.color.toYCbCr = function(a) {\n  var b = a.red / 255, c = a.green / 255;\n  a = a.blue / 255;\n  return new axs.color.YCbCr(axs.color.multiplyMatrixVector(axs.color.YCC_MATRIX, [.03928 >= b ? b / 12.92 : Math.pow((b + .055) / 1.055, 2.4), .03928 >= c ? c / 12.92 : Math.pow((c + .055) / 1.055, 2.4), .03928 >= a ? a / 12.92 : Math.pow((a + .055) / 1.055, 2.4)]));\n};\naxs.color.fromYCbCr = function(a) {\n  return axs.color.fromYCbCrArray([a.luma, a.Cb, a.Cr]);\n};\naxs.color.fromYCbCrArray = function(a) {\n  var b = axs.color.multiplyMatrixVector(axs.color.INVERTED_YCC_MATRIX, a);\n  a = b[0];\n  var c = b[1], b = b[2];\n  return new axs.color.Color(Math.min(Math.max(Math.round(255 * (.00303949 >= a ? 12.92 * a : 1.055 * Math.pow(a, 1 / 2.4) - .055)), 0), 255), Math.min(Math.max(Math.round(255 * (.00303949 >= c ? 12.92 * c : 1.055 * Math.pow(c, 1 / 2.4) - .055)), 0), 255), Math.min(Math.max(Math.round(255 * (.00303949 >= b ? 12.92 * b : 1.055 * Math.pow(b, 1 / 2.4) - .055)), 0), 255), 1);\n};\naxs.color.RGBToYCbCrMatrix = function(a, b) {\n  return [[a, 1 - a - b, b], [-a / (2 - 2 * b), (a + b - 1) / (2 - 2 * b), (1 - b) / (2 - 2 * b)], [(1 - a) / (2 - 2 * a), (a + b - 1) / (2 - 2 * a), -b / (2 - 2 * a)]];\n};\naxs.color.invert3x3Matrix = function(a) {\n  var b = a[0][0], c = a[0][1], d = a[0][2], e = a[1][0], f = a[1][1], g = a[1][2], h = a[2][0], k = a[2][1];\n  a = a[2][2];\n  return axs.color.scalarMultiplyMatrix([[f * a - g * k, d * k - c * a, c * g - d * f], [g * h - e * a, b * a - d * h, d * e - b * g], [e * k - f * h, h * c - b * k, b * f - c * e]], 1 / (b * (f * a - g * k) - c * (a * e - g * h) + d * (e * k - f * h)));\n};\naxs.color.findIntersection = function(a, b) {\n  var c = [a.a.x - b.p0.x, a.a.y - b.p0.y, a.a.z - b.p0.z], d = axs.color.invert3x3Matrix([[a.a.x - a.b.x, b.p1.x - b.p0.x, b.p2.x - b.p0.x], [a.a.y - a.b.y, b.p1.y - b.p0.y, b.p2.y - b.p0.y], [a.a.z - a.b.z, b.p1.z - b.p0.z, b.p2.z - b.p0.z]]), c = axs.color.multiplyMatrixVector(d, c)[0];\n  return a.a.add(a.b.subtract(a.a).multiply(c));\n};\naxs.color.scalarMultiplyMatrix = function(a, b) {\n  for (var c = [], d = 0;3 > d;d++) {\n    c[d] = axs.color.scalarMultiplyVector(a[d], b);\n  }\n  return c;\n};\naxs.color.scalarMultiplyVector = function(a, b) {\n  for (var c = [], d = 0;d < a.length;d++) {\n    c[d] = a[d] * b;\n  }\n  return c;\n};\naxs.color.kR = .2126;\naxs.color.kB = .0722;\naxs.color.YCC_MATRIX = axs.color.RGBToYCbCrMatrix(axs.color.kR, axs.color.kB);\naxs.color.INVERTED_YCC_MATRIX = axs.color.invert3x3Matrix(axs.color.YCC_MATRIX);\naxs.color.BLACK = new axs.color.Color(0, 0, 0, 1);\naxs.color.BLACK_YCC = axs.color.toYCbCr(axs.color.BLACK);\naxs.color.WHITE = new axs.color.Color(255, 255, 255, 1);\naxs.color.WHITE_YCC = axs.color.toYCbCr(axs.color.WHITE);\naxs.color.RED = new axs.color.Color(255, 0, 0, 1);\naxs.color.RED_YCC = axs.color.toYCbCr(axs.color.RED);\naxs.color.GREEN = new axs.color.Color(0, 255, 0, 1);\naxs.color.GREEN_YCC = axs.color.toYCbCr(axs.color.GREEN);\naxs.color.BLUE = new axs.color.Color(0, 0, 255, 1);\naxs.color.BLUE_YCC = axs.color.toYCbCr(axs.color.BLUE);\naxs.color.CYAN = new axs.color.Color(0, 255, 255, 1);\naxs.color.CYAN_YCC = axs.color.toYCbCr(axs.color.CYAN);\naxs.color.MAGENTA = new axs.color.Color(255, 0, 255, 1);\naxs.color.MAGENTA_YCC = axs.color.toYCbCr(axs.color.MAGENTA);\naxs.color.YELLOW = new axs.color.Color(255, 255, 0, 1);\naxs.color.YELLOW_YCC = axs.color.toYCbCr(axs.color.YELLOW);\naxs.color.YCC_CUBE_FACES_BLACK = [{p0:axs.color.BLACK_YCC, p1:axs.color.RED_YCC, p2:axs.color.GREEN_YCC}, {p0:axs.color.BLACK_YCC, p1:axs.color.GREEN_YCC, p2:axs.color.BLUE_YCC}, {p0:axs.color.BLACK_YCC, p1:axs.color.BLUE_YCC, p2:axs.color.RED_YCC}];\naxs.color.YCC_CUBE_FACES_WHITE = [{p0:axs.color.WHITE_YCC, p1:axs.color.CYAN_YCC, p2:axs.color.MAGENTA_YCC}, {p0:axs.color.WHITE_YCC, p1:axs.color.MAGENTA_YCC, p2:axs.color.YELLOW_YCC}, {p0:axs.color.WHITE_YCC, p1:axs.color.YELLOW_YCC, p2:axs.color.CYAN_YCC}];\naxs.constants = {};\naxs.constants.ARIA_ROLES = {alert:{namefrom:[\"author\"], parent:[\"region\"]}, alertdialog:{namefrom:[\"author\"], namerequired:!0, parent:[\"alert\", \"dialog\"]}, application:{namefrom:[\"author\"], namerequired:!0, parent:[\"landmark\"]}, article:{namefrom:[\"author\"], parent:[\"document\", \"region\"]}, banner:{namefrom:[\"author\"], parent:[\"landmark\"]}, button:{childpresentational:!0, namefrom:[\"contents\", \"author\"], namerequired:!0, parent:[\"command\"], properties:[\"aria-expanded\", \"aria-pressed\"]}, checkbox:{namefrom:[\"contents\", \n\"author\"], namerequired:!0, parent:[\"input\"], requiredProperties:[\"aria-checked\"], properties:[\"aria-checked\"]}, columnheader:{namefrom:[\"contents\", \"author\"], namerequired:!0, parent:[\"gridcell\", \"sectionhead\", \"widget\"], properties:[\"aria-sort\"], scope:[\"row\"]}, combobox:{mustcontain:[\"listbox\", \"textbox\"], namefrom:[\"author\"], namerequired:!0, parent:[\"select\"], requiredProperties:[\"aria-expanded\"], properties:[\"aria-expanded\", \"aria-autocomplete\", \"aria-required\"]}, command:{\"abstract\":!0, namefrom:[\"author\"], \nparent:[\"widget\"]}, complementary:{namefrom:[\"author\"], parent:[\"landmark\"]}, composite:{\"abstract\":!0, childpresentational:!1, namefrom:[\"author\"], parent:[\"widget\"], properties:[\"aria-activedescendant\"]}, contentinfo:{namefrom:[\"author\"], parent:[\"landmark\"]}, definition:{namefrom:[\"author\"], parent:[\"section\"]}, dialog:{namefrom:[\"author\"], namerequired:!0, parent:[\"window\"]}, directory:{namefrom:[\"contents\", \"author\"], parent:[\"list\"]}, document:{namefrom:[\" author\"], namerequired:!0, parent:[\"structure\"], \nproperties:[\"aria-expanded\"]}, form:{namefrom:[\"author\"], parent:[\"landmark\"]}, grid:{mustcontain:[\"row\", \"rowgroup\"], namefrom:[\"author\"], namerequired:!0, parent:[\"composite\", \"region\"], properties:[\"aria-level\", \"aria-multiselectable\", \"aria-readonly\"]}, gridcell:{namefrom:[\"contents\", \"author\"], namerequired:!0, parent:[\"section\", \"widget\"], properties:[\"aria-readonly\", \"aria-required\", \"aria-selected\"], scope:[\"row\"]}, group:{namefrom:[\" author\"], parent:[\"section\"], properties:[\"aria-activedescendant\"]}, \nheading:{namerequired:!0, parent:[\"sectionhead\"], properties:[\"aria-level\"]}, img:{childpresentational:!0, namefrom:[\"author\"], namerequired:!0, parent:[\"section\"]}, input:{\"abstract\":!0, namefrom:[\"author\"], parent:[\"widget\"]}, landmark:{\"abstract\":!0, namefrom:[\"contents\", \"author\"], namerequired:!1, parent:[\"region\"]}, link:{namefrom:[\"contents\", \"author\"], namerequired:!0, parent:[\"command\"], properties:[\"aria-expanded\"]}, list:{mustcontain:[\"group\", \"listitem\"], namefrom:[\"author\"], parent:[\"region\"]}, \nlistbox:{mustcontain:[\"option\"], namefrom:[\"author\"], namerequired:!0, parent:[\"list\", \"select\"], properties:[\"aria-multiselectable\", \"aria-required\"]}, listitem:{namefrom:[\"contents\", \"author\"], namerequired:!0, parent:[\"section\"], properties:[\"aria-level\", \"aria-posinset\", \"aria-setsize\"], scope:[\"list\"]}, log:{namefrom:[\" author\"], namerequired:!0, parent:[\"region\"]}, main:{namefrom:[\"author\"], parent:[\"landmark\"]}, marquee:{namerequired:!0, parent:[\"section\"]}, math:{childpresentational:!0, namefrom:[\"author\"], \nparent:[\"section\"]}, menu:{mustcontain:[\"group\", \"menuitemradio\", \"menuitem\", \"menuitemcheckbox\"], namefrom:[\"author\"], namerequired:!0, parent:[\"list\", \"select\"]}, menubar:{namefrom:[\"author\"], parent:[\"menu\"]}, menuitem:{namefrom:[\"contents\", \"author\"], namerequired:!0, parent:[\"command\"], scope:[\"menu\", \"menubar\"]}, menuitemcheckbox:{namefrom:[\"contents\", \"author\"], namerequired:!0, parent:[\"checkbox\", \"menuitem\"], scope:[\"menu\", \"menubar\"]}, menuitemradio:{namefrom:[\"contents\", \"author\"], namerequired:!0, \nparent:[\"menuitemcheckbox\", \"radio\"], scope:[\"menu\", \"menubar\"]}, navigation:{namefrom:[\"author\"], parent:[\"landmark\"]}, note:{namefrom:[\"author\"], parent:[\"section\"]}, option:{namefrom:[\"contents\", \"author\"], namerequired:!0, parent:[\"input\"], properties:[\"aria-checked\", \"aria-posinset\", \"aria-selected\", \"aria-setsize\"]}, presentation:{parent:[\"structure\"]}, progressbar:{childpresentational:!0, namefrom:[\"author\"], namerequired:!0, parent:[\"range\"]}, radio:{namefrom:[\"contents\", \"author\"], namerequired:!0, \nparent:[\"checkbox\", \"option\"]}, radiogroup:{mustcontain:[\"radio\"], namefrom:[\"author\"], namerequired:!0, parent:[\"select\"], properties:[\"aria-required\"]}, range:{\"abstract\":!0, namefrom:[\"author\"], parent:[\"widget\"], properties:[\"aria-valuemax\", \"aria-valuemin\", \"aria-valuenow\", \"aria-valuetext\"]}, region:{namefrom:[\" author\"], parent:[\"section\"]}, roletype:{\"abstract\":!0, properties:\"aria-atomic aria-busy aria-controls aria-describedby aria-disabled aria-dropeffect aria-flowto aria-grabbed aria-haspopup aria-hidden aria-invalid aria-label aria-labelledby aria-live aria-owns aria-relevant\".split(\" \")}, \nrow:{mustcontain:[\"columnheader\", \"gridcell\", \"rowheader\"], namefrom:[\"contents\", \"author\"], parent:[\"group\", \"widget\"], properties:[\"aria-level\", \"aria-selected\"], scope:[\"grid\", \"rowgroup\", \"treegrid\"]}, rowgroup:{mustcontain:[\"row\"], namefrom:[\"contents\", \"author\"], parent:[\"group\"], scope:[\"grid\"]}, rowheader:{namefrom:[\"contents\", \"author\"], namerequired:!0, parent:[\"gridcell\", \"sectionhead\", \"widget\"], properties:[\"aria-sort\"], scope:[\"row\"]}, search:{namefrom:[\"author\"], parent:[\"landmark\"]}, \nsection:{\"abstract\":!0, namefrom:[\"contents\", \"author\"], parent:[\"structure\"], properties:[\"aria-expanded\"]}, sectionhead:{\"abstract\":!0, namefrom:[\"contents\", \"author\"], parent:[\"structure\"], properties:[\"aria-expanded\"]}, select:{\"abstract\":!0, namefrom:[\"author\"], parent:[\"composite\", \"group\", \"input\"]}, separator:{childpresentational:!0, namefrom:[\"author\"], parent:[\"structure\"], properties:[\"aria-expanded\", \"aria-orientation\"]}, scrollbar:{childpresentational:!0, namefrom:[\"author\"], namerequired:!1, \nparent:[\"input\", \"range\"], requiredProperties:[\"aria-controls\", \"aria-orientation\", \"aria-valuemax\", \"aria-valuemin\", \"aria-valuenow\"], properties:[\"aria-controls\", \"aria-orientation\", \"aria-valuemax\", \"aria-valuemin\", \"aria-valuenow\"]}, slider:{childpresentational:!0, namefrom:[\"author\"], namerequired:!0, parent:[\"input\", \"range\"], requiredProperties:[\"aria-valuemax\", \"aria-valuemin\", \"aria-valuenow\"], properties:[\"aria-valuemax\", \"aria-valuemin\", \"aria-valuenow\", \"aria-orientation\"]}, spinbutton:{namefrom:[\"author\"], \nnamerequired:!0, parent:[\"input\", \"range\"], requiredProperties:[\"aria-valuemax\", \"aria-valuemin\", \"aria-valuenow\"], properties:[\"aria-valuemax\", \"aria-valuemin\", \"aria-valuenow\", \"aria-required\"]}, status:{parent:[\"region\"]}, structure:{\"abstract\":!0, parent:[\"roletype\"]}, tab:{namefrom:[\"contents\", \"author\"], parent:[\"sectionhead\", \"widget\"], properties:[\"aria-selected\"], scope:[\"tablist\"]}, tablist:{mustcontain:[\"tab\"], namefrom:[\"author\"], parent:[\"composite\", \"directory\"], properties:[\"aria-level\"]}, \ntabpanel:{namefrom:[\"author\"], namerequired:!0, parent:[\"region\"]}, textbox:{namefrom:[\"author\"], namerequired:!0, parent:[\"input\"], properties:[\"aria-activedescendant\", \"aria-autocomplete\", \"aria-multiline\", \"aria-readonly\", \"aria-required\"]}, timer:{namefrom:[\"author\"], namerequired:!0, parent:[\"status\"]}, toolbar:{namefrom:[\"author\"], parent:[\"group\"]}, tooltip:{namerequired:!0, parent:[\"section\"]}, tree:{mustcontain:[\"group\", \"treeitem\"], namefrom:[\"author\"], namerequired:!0, parent:[\"select\"], \nproperties:[\"aria-multiselectable\", \"aria-required\"]}, treegrid:{mustcontain:[\"row\"], namefrom:[\"author\"], namerequired:!0, parent:[\"grid\", \"tree\"]}, treeitem:{namefrom:[\"contents\", \"author\"], namerequired:!0, parent:[\"listitem\", \"option\"], scope:[\"group\", \"tree\"]}, widget:{\"abstract\":!0, parent:[\"roletype\"]}, window:{\"abstract\":!0, namefrom:[\" author\"], parent:[\"roletype\"], properties:[\"aria-expanded\"]}};\naxs.constants.WIDGET_ROLES = {};\naxs.constants.addAllParentRolesToSet_ = function(a, b) {\n  if (a.parent) {\n    for (var c = a.parent, d = 0;d < c.length;d++) {\n      var e = c[d];\n      b[e] = !0;\n      axs.constants.addAllParentRolesToSet_(axs.constants.ARIA_ROLES[e], b);\n    }\n  }\n};\naxs.constants.addAllPropertiesToSet_ = function(a, b, c) {\n  var d = a[b];\n  if (d) {\n    for (var e = 0;e < d.length;e++) {\n      c[d[e]] = !0;\n    }\n  }\n  if (a.parent) {\n    for (a = a.parent, d = 0;d < a.length;d++) {\n      axs.constants.addAllPropertiesToSet_(axs.constants.ARIA_ROLES[a[d]], b, c);\n    }\n  }\n};\nfor (var roleName in axs.constants.ARIA_ROLES) {\n  var role = axs.constants.ARIA_ROLES[roleName], propertiesSet = {};\n  axs.constants.addAllPropertiesToSet_(role, \"properties\", propertiesSet);\n  role.propertiesSet = propertiesSet;\n  var requiredPropertiesSet = {};\n  axs.constants.addAllPropertiesToSet_(role, \"requiredProperties\", requiredPropertiesSet);\n  role.requiredPropertiesSet = requiredPropertiesSet;\n  var parentRolesSet = {};\n  axs.constants.addAllParentRolesToSet_(role, parentRolesSet);\n  role.allParentRolesSet = parentRolesSet;\n  \"widget\" in parentRolesSet && (axs.constants.WIDGET_ROLES[roleName] = role);\n}\naxs.constants.ARIA_PROPERTIES = {activedescendant:{type:\"property\", valueType:\"idref\"}, atomic:{defaultValue:\"false\", type:\"property\", valueType:\"boolean\"}, autocomplete:{defaultValue:\"none\", type:\"property\", valueType:\"token\", values:[\"inline\", \"list\", \"both\", \"none\"]}, busy:{defaultValue:\"false\", type:\"state\", valueType:\"boolean\"}, checked:{defaultValue:\"undefined\", type:\"state\", valueType:\"token\", values:[\"true\", \"false\", \"mixed\", \"undefined\"]}, controls:{type:\"property\", valueType:\"idref_list\"}, \ndescribedby:{type:\"property\", valueType:\"idref_list\"}, disabled:{defaultValue:\"false\", type:\"state\", valueType:\"boolean\"}, dropeffect:{defaultValue:\"none\", type:\"property\", valueType:\"token_list\", values:\"copy move link execute popup none\".split(\" \")}, expanded:{defaultValue:\"undefined\", type:\"state\", valueType:\"token\", values:[\"true\", \"false\", \"undefined\"]}, flowto:{type:\"property\", valueType:\"idref_list\"}, grabbed:{defaultValue:\"undefined\", type:\"state\", valueType:\"token\", values:[\"true\", \"false\", \n\"undefined\"]}, haspopup:{defaultValue:\"false\", type:\"property\", valueType:\"boolean\"}, hidden:{defaultValue:\"false\", type:\"state\", valueType:\"boolean\"}, invalid:{defaultValue:\"false\", type:\"state\", valueType:\"token\", values:[\"grammar\", \"false\", \"spelling\", \"true\"]}, label:{type:\"property\", valueType:\"string\"}, labelledby:{type:\"property\", valueType:\"idref_list\"}, level:{type:\"property\", valueType:\"integer\"}, live:{defaultValue:\"off\", type:\"property\", valueType:\"token\", values:[\"off\", \"polite\", \"assertive\"]}, \nmultiline:{defaultValue:\"false\", type:\"property\", valueType:\"boolean\"}, multiselectable:{defaultValue:\"false\", type:\"property\", valueType:\"boolean\"}, orientation:{defaultValue:\"vertical\", type:\"property\", valueType:\"token\", values:[\"horizontal\", \"vertical\"]}, owns:{type:\"property\", valueType:\"idref_list\"}, posinset:{type:\"property\", valueType:\"integer\"}, pressed:{defaultValue:\"undefined\", type:\"state\", valueType:\"token\", values:[\"true\", \"false\", \"mixed\", \"undefined\"]}, readonly:{defaultValue:\"false\", \ntype:\"property\", valueType:\"boolean\"}, relevant:{defaultValue:\"additions text\", type:\"property\", valueType:\"token_list\", values:[\"additions\", \"removals\", \"text\", \"all\"]}, required:{defaultValue:\"false\", type:\"property\", valueType:\"boolean\"}, selected:{defaultValue:\"undefined\", type:\"state\", valueType:\"token\", values:[\"true\", \"false\", \"undefined\"]}, setsize:{type:\"property\", valueType:\"integer\"}, sort:{defaultValue:\"none\", type:\"property\", valueType:\"token\", values:[\"ascending\", \"descending\", \"none\", \n\"other\"]}, valuemax:{type:\"property\", valueType:\"decimal\"}, valuemin:{type:\"property\", valueType:\"decimal\"}, valuenow:{type:\"property\", valueType:\"decimal\"}, valuetext:{type:\"property\", valueType:\"string\"}};\n(function() {\n  for (var a in axs.constants.ARIA_PROPERTIES) {\n    var b = axs.constants.ARIA_PROPERTIES[a];\n    if (b.values) {\n      for (var c = {}, d = 0;d < b.values.length;d++) {\n        c[b.values[d]] = !0;\n      }\n      b.valuesSet = c;\n    }\n  }\n})();\naxs.constants.GLOBAL_PROPERTIES = axs.constants.ARIA_ROLES.roletype.propertiesSet;\naxs.constants.NO_ROLE_NAME = \" \";\naxs.constants.WIDGET_ROLE_TO_NAME = {alert:\"aria_role_alert\", alertdialog:\"aria_role_alertdialog\", button:\"aria_role_button\", checkbox:\"aria_role_checkbox\", columnheader:\"aria_role_columnheader\", combobox:\"aria_role_combobox\", dialog:\"aria_role_dialog\", grid:\"aria_role_grid\", gridcell:\"aria_role_gridcell\", link:\"aria_role_link\", listbox:\"aria_role_listbox\", log:\"aria_role_log\", marquee:\"aria_role_marquee\", menu:\"aria_role_menu\", menubar:\"aria_role_menubar\", menuitem:\"aria_role_menuitem\", menuitemcheckbox:\"aria_role_menuitemcheckbox\", \nmenuitemradio:\"aria_role_menuitemradio\", option:axs.constants.NO_ROLE_NAME, progressbar:\"aria_role_progressbar\", radio:\"aria_role_radio\", radiogroup:\"aria_role_radiogroup\", rowheader:\"aria_role_rowheader\", scrollbar:\"aria_role_scrollbar\", slider:\"aria_role_slider\", spinbutton:\"aria_role_spinbutton\", status:\"aria_role_status\", tab:\"aria_role_tab\", tabpanel:\"aria_role_tabpanel\", textbox:\"aria_role_textbox\", timer:\"aria_role_timer\", toolbar:\"aria_role_toolbar\", tooltip:\"aria_role_tooltip\", treeitem:\"aria_role_treeitem\"};\naxs.constants.STRUCTURE_ROLE_TO_NAME = {article:\"aria_role_article\", application:\"aria_role_application\", banner:\"aria_role_banner\", columnheader:\"aria_role_columnheader\", complementary:\"aria_role_complementary\", contentinfo:\"aria_role_contentinfo\", definition:\"aria_role_definition\", directory:\"aria_role_directory\", document:\"aria_role_document\", form:\"aria_role_form\", group:\"aria_role_group\", heading:\"aria_role_heading\", img:\"aria_role_img\", list:\"aria_role_list\", listitem:\"aria_role_listitem\", \nmain:\"aria_role_main\", math:\"aria_role_math\", navigation:\"aria_role_navigation\", note:\"aria_role_note\", region:\"aria_role_region\", rowheader:\"aria_role_rowheader\", search:\"aria_role_search\", separator:\"aria_role_separator\"};\naxs.constants.ATTRIBUTE_VALUE_TO_STATUS = [{name:\"aria-autocomplete\", values:{inline:\"aria_autocomplete_inline\", list:\"aria_autocomplete_list\", both:\"aria_autocomplete_both\"}}, {name:\"aria-checked\", values:{\"true\":\"aria_checked_true\", \"false\":\"aria_checked_false\", mixed:\"aria_checked_mixed\"}}, {name:\"aria-disabled\", values:{\"true\":\"aria_disabled_true\"}}, {name:\"aria-expanded\", values:{\"true\":\"aria_expanded_true\", \"false\":\"aria_expanded_false\"}}, {name:\"aria-invalid\", values:{\"true\":\"aria_invalid_true\", \ngrammar:\"aria_invalid_grammar\", spelling:\"aria_invalid_spelling\"}}, {name:\"aria-multiline\", values:{\"true\":\"aria_multiline_true\"}}, {name:\"aria-multiselectable\", values:{\"true\":\"aria_multiselectable_true\"}}, {name:\"aria-pressed\", values:{\"true\":\"aria_pressed_true\", \"false\":\"aria_pressed_false\", mixed:\"aria_pressed_mixed\"}}, {name:\"aria-readonly\", values:{\"true\":\"aria_readonly_true\"}}, {name:\"aria-required\", values:{\"true\":\"aria_required_true\"}}, {name:\"aria-selected\", values:{\"true\":\"aria_selected_true\", \n\"false\":\"aria_selected_false\"}}];\naxs.constants.INPUT_TYPE_TO_INFORMATION_TABLE_MSG = {button:\"input_type_button\", checkbox:\"input_type_checkbox\", color:\"input_type_color\", datetime:\"input_type_datetime\", \"datetime-local\":\"input_type_datetime_local\", date:\"input_type_date\", email:\"input_type_email\", file:\"input_type_file\", image:\"input_type_image\", month:\"input_type_month\", number:\"input_type_number\", password:\"input_type_password\", radio:\"input_type_radio\", range:\"input_type_range\", reset:\"input_type_reset\", search:\"input_type_search\", \nsubmit:\"input_type_submit\", tel:\"input_type_tel\", text:\"input_type_text\", url:\"input_type_url\", week:\"input_type_week\"};\naxs.constants.TAG_TO_INFORMATION_TABLE_VERBOSE_MSG = {A:\"tag_link\", BUTTON:\"tag_button\", H1:\"tag_h1\", H2:\"tag_h2\", H3:\"tag_h3\", H4:\"tag_h4\", H5:\"tag_h5\", H6:\"tag_h6\", LI:\"tag_li\", OL:\"tag_ol\", SELECT:\"tag_select\", TEXTAREA:\"tag_textarea\", UL:\"tag_ul\", SECTION:\"tag_section\", NAV:\"tag_nav\", ARTICLE:\"tag_article\", ASIDE:\"tag_aside\", HGROUP:\"tag_hgroup\", HEADER:\"tag_header\", FOOTER:\"tag_footer\", TIME:\"tag_time\", MARK:\"tag_mark\"};\naxs.constants.TAG_TO_INFORMATION_TABLE_BRIEF_MSG = {BUTTON:\"tag_button\", SELECT:\"tag_select\", TEXTAREA:\"tag_textarea\"};\naxs.constants.MIXED_VALUES = {\"true\":!0, \"false\":!0, mixed:!0};\naxs.constants.Severity = {INFO:\"Info\", WARNING:\"Warning\", SEVERE:\"Severe\"};\naxs.constants.AuditResult = {PASS:\"PASS\", FAIL:\"FAIL\", NA:\"NA\"};\naxs.constants.InlineElements = {TT:!0, I:!0, B:!0, BIG:!0, SMALL:!0, EM:!0, STRONG:!0, DFN:!0, CODE:!0, SAMP:!0, KBD:!0, VAR:!0, CITE:!0, ABBR:!0, ACRONYM:!0, A:!0, IMG:!0, OBJECT:!0, BR:!0, SCRIPT:!0, MAP:!0, Q:!0, SUB:!0, SUP:!0, SPAN:!0, BDO:!0, INPUT:!0, SELECT:!0, TEXTAREA:!0, LABEL:!0, BUTTON:!0};\naxs.constants.NATIVELY_DISABLEABLE = {BUTTON:!0, INPUT:!0, SELECT:!0, TEXTAREA:!0, FIELDSET:!0, OPTGROUP:!0, OPTION:!0};\naxs.constants.ARIA_TO_HTML_ATTRIBUTE = {\"aria-checked\":\"checked\", \"aria-disabled\":\"disabled\", \"aria-hidden\":\"hidden\", \"aria-expanded\":\"open\", \"aria-valuemax\":\"max\", \"aria-valuemin\":\"min\", \"aria-readonly\":\"readonly\", \"aria-required\":\"required\", \"aria-selected\":\"selected\", \"aria-valuenow\":\"value\"};\naxs.constants.TAG_TO_IMPLICIT_SEMANTIC_INFO = {A:[{role:\"link\", allowed:\"button checkbox menuitem menuitemcheckbox menuitemradio tab treeitem\".split(\" \"), selector:\"a[href]\"}], ADDRESS:[{role:\"\", allowed:[\"contentinfo\", \"presentation\"]}], AREA:[{role:\"link\", selector:\"area[href]\"}], ARTICLE:[{role:\"article\", allowed:[\"presentation\", \"article\", \"document\", \"application\", \"main\"]}], ASIDE:[{role:\"complementary\", allowed:[\"note\", \"complementary\", \"search\", \"presentation\"]}], AUDIO:[{role:\"\", allowed:[\"application\", \n\"presentation\"]}], BASE:[{role:\"\", reserved:!0}], BODY:[{role:\"document\", allowed:[\"presentation\"]}], BUTTON:[{role:\"button\", allowed:[\"link\", \"menuitem\", \"menuitemcheckbox\", \"menuitemradio\", \"radio\"], selector:'button:not([aria-pressed]):not([type=\"menu\"])'}, {role:\"button\", allowed:[\"button\"], selector:\"button[aria-pressed]\"}, {role:\"button\", attributes:{\"aria-haspopup\":!0}, allowed:[\"link\", \"menuitem\", \"menuitemcheckbox\", \"menuitemradio\", \"radio\"], selector:'button[type=\"menu\"]'}], CAPTION:[{role:\"\", \nallowed:[\"presentation\"]}], COL:[{role:\"\", reserved:!0}], COLGROUP:[{role:\"\", reserved:!0}], DATALIST:[{role:\"listbox\", attributes:{\"aria-multiselectable\":!1}, allowed:[\"presentation\"]}], DEL:[{role:\"\", allowed:[\"*\"]}], DD:[{role:\"\", allowed:[\"presentation\"]}], DT:[{role:\"\", allowed:[\"presentation\"]}], DETAILS:[{role:\"group\", allowed:[\"group\", \"presentation\"]}], DIALOG:[{role:\"dialog\", allowed:\"dialog alert alertdialog application log marquee status\".split(\" \"), selector:\"dialog[open]\"}, {role:\"dialog\", \nattributes:{\"aria-hidden\":!0}, allowed:\"dialog alert alertdialog application log marquee status\".split(\" \"), selector:\"dialog:not([open])\"}], DIV:[{role:\"\", allowed:[\"*\"]}], DL:[{role:\"list\", allowed:[\"presentation\"]}], EMBED:[{role:\"\", allowed:[\"application\", \"document\", \"img\", \"presentation\"]}], FIGURE:[{role:\"\", allowed:[\"*\"]}], FOOTER:[{role:\"\", allowed:[\"contentinfo\", \"presentation\"]}], FORM:[{role:\"form\", allowed:[\"presentation\"]}], P:[{role:\"\", allowed:[\"*\"]}], PRE:[{role:\"\", allowed:[\"*\"]}], \nBLOCKQUOTE:[{role:\"\", allowed:[\"*\"]}], H1:[{role:\"heading\"}], H2:[{role:\"heading\"}], H3:[{role:\"heading\"}], H4:[{role:\"heading\"}], H5:[{role:\"heading\"}], H6:[{role:\"heading\"}], HEAD:[{role:\"\", reserved:!0}], HEADER:[{role:\"\", allowed:[\"banner\", \"presentation\"]}], HR:[{role:\"separator\", allowed:[\"presentation\"]}], HTML:[{role:\"\", reserved:!0}], IFRAME:[{role:\"\", allowed:[\"application\", \"document\", \"img\", \"presentation\"], selector:\"iframe:not([seamless])\"}, {role:\"\", allowed:[\"application\", \"document\", \n\"img\", \"presentation\", \"group\"], selector:\"iframe[seamless]\"}], IMG:[{role:\"presentation\", reserved:!0, selector:'img[alt=\"\"]'}, {role:\"img\", allowed:[\"*\"], selector:'img[alt]:not([alt=\"\"])'}], INPUT:[{role:\"button\", allowed:[\"link\", \"menuitem\", \"menuitemcheckbox\", \"menuitemradio\", \"radio\"], selector:'input[type=\"button\"]:not([aria-pressed])'}, {role:\"button\", allowed:[\"button\"], selector:'input[type=\"button\"][aria-pressed]'}, {role:\"checkbox\", allowed:[\"checkbox\"], selector:'input[type=\"checkbox\"]'}, \n{role:\"\", selector:'input[type=\"color\"]'}, {role:\"\", selector:'input[type=\"date\"]'}, {role:\"\", selector:'input[type=\"datetime\"]'}, {role:\"textbox\", selector:'input[type=\"email\"]:not([list])'}, {role:\"\", selector:'input[type=\"file\"]'}, {role:\"\", reserved:!0, selector:'input[type=\"hidden\"]'}, {role:\"button\", allowed:[\"button\"], selector:'input[type=\"image\"][aria-pressed]'}, {role:\"button\", allowed:[\"link\", \"menuitem\", \"menuitemcheckbox\", \"menuitemradio\", \"radio\"], selector:'input[type=\"image\"]:not([aria-pressed])'}, \n{role:\"\", selector:'input[type=\"month\"]'}, {role:\"\", selector:'input[type=\"number\"]'}, {role:\"textbox\", selector:'input[type=\"password\"]'}, {role:\"radio\", allowed:[\"menuitemradio\"], selector:'input[type=\"radio\"]'}, {role:\"slider\", selector:'input[type=\"range\"]'}, {role:\"button\", selector:'input[type=\"reset\"]'}, {role:\"combobox\", selector:'input[type=\"search\"][list]'}, {role:\"textbox\", selector:'input[type=\"search\"]:not([list])'}, {role:\"button\", selector:'input[type=\"submit\"]'}, {role:\"combobox\", \nselector:'input[type=\"tel\"][list]'}, {role:\"textbox\", selector:'input[type=\"tel\"]:not([list])'}, {role:\"combobox\", selector:'input[type=\"text\"][list]'}, {role:\"textbox\", selector:'input[type=\"text\"]:not([list])'}, {role:\"textbox\", selector:\"input:not([type])\"}, {role:\"\", selector:'input[type=\"time\"]'}, {role:\"combobox\", selector:'input[type=\"url\"][list]'}, {role:\"textbox\", selector:'input[type=\"url\"]:not([list])'}, {role:\"\", selector:'input[type=\"week\"]'}], INS:[{role:\"\", allowed:[\"*\"]}], KEYGEN:[{role:\"\"}], \nLABEL:[{role:\"\", allowed:[\"presentation\"]}], LI:[{role:\"listitem\", allowed:\"menuitem menuitemcheckbox menuitemradio option tab treeitem presentation\".split(\" \"), selector:'ol:not([role=\"presentation\"])>li, ul:not([role=\"presentation\"])>li'}, {role:\"listitem\", allowed:\"listitem menuitem menuitemcheckbox menuitemradio option tab treeitem presentation\".split(\" \"), selector:'ol[role=\"presentation\"]>li, ul[role=\"presentation\"]>li'}], LINK:[{role:\"link\", reserved:!0, selector:\"link[href]\"}], MAIN:[{role:\"\", \nallowed:[\"main\", \"presentation\"]}], MAP:[{role:\"\", reserved:!0}], MATH:[{role:\"\", allowed:[\"presentation\"]}], MENU:[{role:\"toolbar\", selector:'menu[type=\"toolbar\"]'}], MENUITEM:[{role:\"menuitem\", selector:'menuitem[type=\"command\"]'}, {role:\"menuitemcheckbox\", selector:'menuitem[type=\"checkbox\"]'}, {role:\"menuitemradio\", selector:'menuitem[type=\"radio\"]'}], META:[{role:\"\", reserved:!0}], METER:[{role:\"progressbar\", allowed:[\"presentation\"]}], NAV:[{role:\"navigation\", allowed:[\"navigation\", \"presentation\"]}], \nNOSCRIPT:[{role:\"\", reserved:!0}], OBJECT:[{role:\"\", allowed:[\"application\", \"document\", \"img\", \"presentation\"]}], OL:[{role:\"list\", allowed:\"directory group listbox menu menubar tablist toolbar tree presentation\".split(\" \")}], OPTGROUP:[{role:\"\", allowed:[\"presentation\"]}], OPTION:[{role:\"option\"}], OUTPUT:[{role:\"status\", allowed:[\"*\"]}], PARAM:[{role:\"\", reserved:!0}], PICTURE:[{role:\"\", reserved:!0}], PROGRESS:[{role:\"progressbar\", allowed:[\"presentation\"]}], SCRIPT:[{role:\"\", reserved:!0}], \nSECTION:[{role:\"region\", allowed:\"alert alertdialog application contentinfo dialog document log marquee search status presentation\".split(\" \")}], SELECT:[{role:\"listbox\"}], SOURCE:[{role:\"\", reserved:!0}], SPAN:[{role:\"\", allowed:[\"*\"]}], STYLE:[{role:\"\", reserved:!0}], SVG:[{role:\"\", allowed:[\"application\", \"document\", \"img\", \"presentation\"]}], SUMMARY:[{role:\"\", allowed:[\"presentation\"]}], TABLE:[{role:\"\", allowed:[\"*\"]}], TEMPLATE:[{role:\"\", reserved:!0}], TEXTAREA:[{role:\"textbox\"}], TBODY:[{role:\"rowgroup\", \nallowed:[\"*\"]}], THEAD:[{role:\"rowgroup\", allowed:[\"*\"]}], TFOOT:[{role:\"rowgroup\", allowed:[\"*\"]}], TITLE:[{role:\"\", reserved:!0}], TD:[{role:\"\", allowed:[\"*\"]}], TH:[{role:\"\", allowed:[\"*\"]}], TR:[{role:\"\", allowed:[\"*\"]}], TRACK:[{role:\"\", reserved:!0}], UL:[{role:\"list\", allowed:\"directory group listbox menu menubar tablist toolbar tree presentation\".split(\" \")}], VIDEO:[{role:\"\", allowed:[\"application\", \"presentation\"]}]};\naxs.dom = {};\naxs.dom.parentElement = function(a) {\n  if (!a) {\n    return null;\n  }\n  a = axs.dom.composedParentNode(a);\n  if (!a) {\n    return null;\n  }\n  switch(a.nodeType) {\n    case Node.ELEMENT_NODE:\n      return a;\n    default:\n      return axs.dom.parentElement(a);\n  }\n};\naxs.dom.shadowHost = function(a) {\n  return \"host\" in a ? a.host : null;\n};\naxs.dom.composedParentNode = function(a) {\n  if (!a) {\n    return null;\n  }\n  if (a.nodeType === Node.DOCUMENT_FRAGMENT_NODE) {\n    return axs.dom.shadowHost(a);\n  }\n  var b = a.parentNode;\n  if (!b) {\n    return null;\n  }\n  if (b.nodeType === Node.DOCUMENT_FRAGMENT_NODE) {\n    return axs.dom.shadowHost(b);\n  }\n  if (!b.shadowRoot) {\n    return b;\n  }\n  if (a.nodeType === Node.ELEMENT_NODE || a.nodeType === Node.TEXT_NODE) {\n    if (b = a.assignedSlot, HTMLSlotElement && b instanceof HTMLSlotElement) {\n      return axs.dom.composedParentNode(b);\n    }\n  }\n  return \"function\" === typeof a.getDestinationInsertionPoints && (a = a.getDestinationInsertionPoints(), 0 < a.length) ? axs.dom.composedParentNode(a[a.length - 1]) : null;\n};\naxs.dom.asElement = function(a) {\n  switch(a.nodeType) {\n    case Node.COMMENT_NODE:\n      break;\n    case Node.ELEMENT_NODE:\n      if (\"script\" == a.localName || \"template\" == a.localName) {\n        break;\n      }\n      return a;\n    case Node.DOCUMENT_FRAGMENT_NODE:\n      return a.host;\n    case Node.TEXT_NODE:\n      return axs.dom.parentElement(a);\n    default:\n      console.warn(\"Unhandled node type: \", a.nodeType);\n  }\n  return null;\n};\naxs.dom.composedTreeSearch = function(a, b, c, d, e) {\n  if (a === b) {\n    return !0;\n  }\n  if (a.nodeType == Node.ELEMENT_NODE) {\n    var f = a;\n  }\n  var g = !1;\n  d = Object.create(d);\n  if (f) {\n    var h = f.localName;\n    d.collectIdRefs && (d.idrefs = axs.utils.getReferencedIds(f));\n    if (!d.disabled || \"legend\" === h && axs.browserUtils.matchSelector(f, \"fieldset>legend:first-of-type\")) {\n      d.disabled = axs.utils.isElementDisabled(f, !0);\n    }\n    d.hidden || (d.hidden = axs.utils.isElementHidden(f));\n    if (c.preorder && !c.preorder(f, d)) {\n      return g;\n    }\n    var k = f.shadowRoot || f.webkitShadowRoot;\n    if (k) {\n      return d.level++, g = axs.dom.composedTreeSearch(k, b, c, d, k), f && c.postorder && !g && c.postorder(f, d), g;\n    }\n    if (\"content\" == h && \"function\" === typeof f.getDistributedNodes) {\n      a = f.getDistributedNodes();\n      for (h = 0;h < a.length && !g;h++) {\n        g = axs.dom.composedTreeSearch(a[h], b, c, d, e);\n      }\n      c.postorder && !g && c.postorder.call(null, f, d);\n      return g;\n    }\n  }\n  for (a = a.firstChild;null != a && !g;) {\n    g = axs.dom.composedTreeSearch(a, b, c, d, e), a = a.nextSibling;\n  }\n  f && c.postorder && !g && c.postorder.call(null, f, d);\n  return g;\n};\naxs.utils = {};\naxs.utils.FOCUSABLE_ELEMENTS_SELECTOR = \"input:not([type=hidden]):not([disabled]),select:not([disabled]),textarea:not([disabled]),button:not([disabled]),a[href],iframe,[tabindex]\";\naxs.utils.LABELABLE_ELEMENTS_SELECTOR = \"button,input:not([type=hidden]),keygen,meter,output,progress,select,textarea\";\naxs.utils.elementIsTransparent = function(a) {\n  return \"0\" == a.style.opacity;\n};\naxs.utils.elementHasZeroArea = function(a) {\n  a = a.getBoundingClientRect();\n  var b = a.top - a.bottom;\n  return a.right - a.left && b ? !1 : !0;\n};\naxs.utils.elementIsOutsideScrollArea = function(a) {\n  for (var b = axs.dom.parentElement(a), c = a.ownerDocument.defaultView;b != c.document.body;) {\n    if (axs.utils.isClippedBy(a, b)) {\n      return !0;\n    }\n    if (axs.utils.canScrollTo(a, b) && !axs.utils.elementIsOutsideScrollArea(b)) {\n      return !1;\n    }\n    b = axs.dom.parentElement(b);\n  }\n  return !axs.utils.canScrollTo(a, c.document.body);\n};\naxs.utils.canScrollTo = function(a, b) {\n  var c = a.getBoundingClientRect(), d = b.getBoundingClientRect();\n  if (b == b.ownerDocument.body) {\n    var e = d.top, f = d.left;\n  } else {\n    e = d.top - b.scrollTop, f = d.left - b.scrollLeft;\n  }\n  var g = e + b.scrollHeight, h = f + b.scrollWidth;\n  if (c.right < f || c.bottom < e || c.left > h || c.top > g) {\n    return !1;\n  }\n  e = a.ownerDocument.defaultView;\n  f = e.getComputedStyle(b);\n  return c.left > d.right || c.top > d.bottom ? \"scroll\" == f.overflow || \"auto\" == f.overflow || b instanceof e.HTMLBodyElement : !0;\n};\naxs.utils.isClippedBy = function(a, b) {\n  var c = a.getBoundingClientRect(), d = b.getBoundingClientRect(), e = d.top - b.scrollTop, f = d.left - b.scrollLeft, g = a.ownerDocument.defaultView.getComputedStyle(b);\n  return (c.right < d.left || c.bottom < d.top || c.left > d.right || c.top > d.bottom) && \"hidden\" == g.overflow ? !0 : c.right < f || c.bottom < e ? \"visible\" != g.overflow : !1;\n};\naxs.utils.isAncestor = function(a, b) {\n  if (null == b) {\n    return !1;\n  }\n  if (b === a) {\n    return !0;\n  }\n  var c = axs.dom.composedParentNode(b);\n  return axs.utils.isAncestor(a, c);\n};\naxs.utils.overlappingElements = function(a) {\n  if (axs.utils.elementHasZeroArea(a)) {\n    return null;\n  }\n  for (var b = [], c = a.getClientRects(), d = 0;d < c.length;d++) {\n    var e = c[d], e = document.elementFromPoint((e.left + e.right) / 2, (e.top + e.bottom) / 2);\n    if (null != e && e != a && !axs.utils.isAncestor(e, a) && !axs.utils.isAncestor(a, e)) {\n      var f = window.getComputedStyle(e, null);\n      f && (f = axs.utils.getBgColor(f, e)) && 0 < f.alpha && 0 > b.indexOf(e) && b.push(e);\n    }\n  }\n  return b;\n};\naxs.utils.elementIsHtmlControl = function(a) {\n  var b = a.ownerDocument.defaultView;\n  return a instanceof b.HTMLButtonElement || a instanceof b.HTMLInputElement || a instanceof b.HTMLSelectElement || a instanceof b.HTMLTextAreaElement ? !0 : !1;\n};\naxs.utils.elementIsAriaWidget = function(a) {\n  return a.hasAttribute(\"role\") && (a = a.getAttribute(\"role\")) && (a = axs.constants.ARIA_ROLES[a]) && \"widget\" in a.allParentRolesSet ? !0 : !1;\n};\naxs.utils.elementIsVisible = function(a) {\n  return axs.utils.elementIsTransparent(a) || axs.utils.elementHasZeroArea(a) || axs.utils.elementIsOutsideScrollArea(a) || axs.utils.overlappingElements(a).length ? !1 : !0;\n};\naxs.utils.isLargeFont = function(a) {\n  var b = a.fontSize;\n  a = \"bold\" == a.fontWeight;\n  var c = b.match(/(\\d+)px/);\n  if (c) {\n    b = parseInt(c[1], 10);\n    if (c = window.getComputedStyle(document.body, null).fontSize.match(/(\\d+)px/)) {\n      var d = parseInt(c[1], 10), c = 1.2 * d, d = 1.5 * d;\n    } else {\n      c = 19.2, d = 24;\n    }\n    return a && b >= c || b >= d;\n  }\n  if (c = b.match(/(\\d+)em/)) {\n    return b = parseInt(c[1], 10), a && 1.2 <= b || 1.5 <= b ? !0 : !1;\n  }\n  if (c = b.match(/(\\d+)%/)) {\n    return b = parseInt(c[1], 10), a && 120 <= b || 150 <= b ? !0 : !1;\n  }\n  if (c = b.match(/(\\d+)pt/)) {\n    if (b = parseInt(c[1], 10), a && 14 <= b || 18 <= b) {\n      return !0;\n    }\n  }\n  return !1;\n};\naxs.utils.getBgColor = function(a, b) {\n  var c = axs.color.parseColor(a.backgroundColor);\n  if (!c) {\n    return null;\n  }\n  1 > a.opacity && (c.alpha *= a.opacity);\n  if (1 > c.alpha) {\n    var d = axs.utils.getParentBgColor(b);\n    if (null == d) {\n      return null;\n    }\n    c = axs.color.flattenColors(c, d);\n  }\n  return c;\n};\naxs.utils.getParentBgColor = function(a) {\n  var b = a;\n  a = [];\n  for (var c = null;b = axs.dom.parentElement(b);) {\n    var d = window.getComputedStyle(b, null);\n    if (d) {\n      var e = axs.color.parseColor(d.backgroundColor);\n      if (e && (1 > d.opacity && (e.alpha *= d.opacity), 0 != e.alpha && (a.push(e), 1 == e.alpha))) {\n        c = !0;\n        break;\n      }\n    }\n  }\n  c || a.push(new axs.color.Color(255, 255, 255, 1));\n  for (b = a.pop();a.length;) {\n    c = a.pop(), b = axs.color.flattenColors(c, b);\n  }\n  return b;\n};\naxs.utils.getFgColor = function(a, b, c) {\n  var d = axs.color.parseColor(a.color);\n  if (!d) {\n    return null;\n  }\n  1 > d.alpha && (d = axs.color.flattenColors(d, c));\n  1 > a.opacity && (b = axs.utils.getParentBgColor(b), d.alpha *= a.opacity, d = axs.color.flattenColors(d, b));\n  return d;\n};\naxs.utils.getContrastRatioForElement = function(a) {\n  var b = window.getComputedStyle(a, null);\n  return axs.utils.getContrastRatioForElementWithComputedStyle(b, a);\n};\naxs.utils.getContrastRatioForElementWithComputedStyle = function(a, b) {\n  if (axs.utils.isElementHidden(b)) {\n    return null;\n  }\n  var c = axs.utils.getBgColor(a, b);\n  if (!c) {\n    return null;\n  }\n  var d = axs.utils.getFgColor(a, b, c);\n  return d ? axs.color.calculateContrastRatio(d, c) : null;\n};\naxs.utils.isNativeTextElement = function(a) {\n  var b = a.tagName.toLowerCase();\n  a = a.type ? a.type.toLowerCase() : \"\";\n  if (\"textarea\" == b) {\n    return !0;\n  }\n  if (\"input\" != b) {\n    return !1;\n  }\n  switch(a) {\n    case \"email\":\n    case \"number\":\n    case \"password\":\n    case \"search\":\n    case \"text\":\n    case \"tel\":\n    case \"url\":\n    case \"\":\n      return !0;\n    default:\n      return !1;\n  }\n};\naxs.utils.isLowContrast = function(a, b, c) {\n  a = Math.round(10 * a) / 10;\n  return c ? 4.5 > a || !axs.utils.isLargeFont(b) && 7 > a : 3 > a || !axs.utils.isLargeFont(b) && 4.5 > a;\n};\naxs.utils.hasLabel = function(a) {\n  var b = a.tagName.toLowerCase(), c = a.type ? a.type.toLowerCase() : \"\";\n  if (a.hasAttribute(\"aria-label\") || a.hasAttribute(\"title\") || \"img\" == b && a.hasAttribute(\"alt\") || \"input\" == b && \"image\" == c && a.hasAttribute(\"alt\") || \"input\" == b && (\"submit\" == c || \"reset\" == c) || a.hasAttribute(\"aria-labelledby\") || a.hasAttribute(\"id\") && 0 < document.querySelectorAll('label[for=\"' + a.id + '\"]').length) {\n    return !0;\n  }\n  for (b = axs.dom.parentElement(a);b;) {\n    if (\"label\" == b.tagName.toLowerCase() && b.control == a) {\n      return !0;\n    }\n    b = axs.dom.parentElement(b);\n  }\n  return !1;\n};\naxs.utils.isNativelyDisableable = function(a) {\n  return a.tagName.toUpperCase() in axs.constants.NATIVELY_DISABLEABLE;\n};\naxs.utils.isElementDisabled = function(a, b) {\n  if (axs.browserUtils.matchSelector(a, b ? \"[aria-disabled=true]\" : \"[aria-disabled=true], [aria-disabled=true] *\")) {\n    return !0;\n  }\n  if (!axs.utils.isNativelyDisableable(a) || axs.browserUtils.matchSelector(a, \"fieldset>legend:first-of-type *\")) {\n    return !1;\n  }\n  for (var c = a;null !== c;c = axs.dom.parentElement(c)) {\n    if (c.hasAttribute(\"disabled\")) {\n      return !0;\n    }\n    if (b) {\n      break;\n    }\n  }\n  return !1;\n};\naxs.utils.isElementHidden = function(a) {\n  if (!(a instanceof a.ownerDocument.defaultView.HTMLElement)) {\n    return !1;\n  }\n  if (a.hasAttribute(\"chromevoxignoreariahidden\")) {\n    var b = !0;\n  }\n  var c = window.getComputedStyle(a, null);\n  return \"none\" == c.display || \"hidden\" == c.visibility ? !0 : a.hasAttribute(\"aria-hidden\") && \"true\" == a.getAttribute(\"aria-hidden\").toLowerCase() ? !b : !1;\n};\naxs.utils.isElementOrAncestorHidden = function(a) {\n  return axs.utils.isElementHidden(a) ? !0 : axs.dom.parentElement(a) ? axs.utils.isElementOrAncestorHidden(axs.dom.parentElement(a)) : !1;\n};\naxs.utils.isInlineElement = function(a) {\n  a = a.tagName.toUpperCase();\n  return axs.constants.InlineElements[a];\n};\naxs.utils.getRoles = function(a, b) {\n  if (!a || a.nodeType !== Node.ELEMENT_NODE || !a.hasAttribute(\"role\") && !b) {\n    return null;\n  }\n  var c = a.getAttribute(\"role\");\n  !c && b && (c = axs.properties.getImplicitRole(a));\n  if (!c) {\n    return null;\n  }\n  for (var c = c.split(\" \"), d = {roles:[], valid:!1}, e = 0;e < c.length;e++) {\n    var f = c[e], g = axs.constants.ARIA_ROLES[f], f = {name:f};\n    g && !g[\"abstract\"] ? (f.details = g, d.applied || (d.applied = f), f.valid = d.valid = !0) : f.valid = !1;\n    d.roles.push(f);\n  }\n  return d;\n};\naxs.utils.getAriaPropertyValue = function(a, b, c) {\n  var d = a.replace(/^aria-/, \"\"), e = axs.constants.ARIA_PROPERTIES[d], d = {name:a, rawValue:b};\n  if (!e) {\n    return d.valid = !1, d.reason = '\"' + a + '\" is not a valid ARIA property', d;\n  }\n  e = e.valueType;\n  if (!e) {\n    return d.valid = !1, d.reason = '\"' + a + '\" is not a valid ARIA property', d;\n  }\n  switch(e) {\n    case \"idref\":\n      a = axs.utils.isValidIDRefValue(b, c), d.valid = a.valid, d.reason = a.reason, d.idref = a.idref;\n    case \"idref_list\":\n      a = b.split(/\\s+/);\n      d.valid = !0;\n      for (b = 0;b < a.length;b++) {\n        e = axs.utils.isValidIDRefValue(a[b], c), e.valid || (d.valid = !1), d.values ? d.values.push(e) : d.values = [e];\n      }\n      return d;\n    case \"integer\":\n      c = axs.utils.isValidNumber(b);\n      if (!c.valid) {\n        return d.valid = !1, d.reason = c.reason, d;\n      }\n      Math.floor(c.value) !== c.value ? (d.valid = !1, d.reason = \"\" + b + \" is not a whole integer\") : (d.valid = !0, d.value = c.value);\n      return d;\n    case \"decimal\":\n    case \"number\":\n      c = axs.utils.isValidNumber(b);\n      d.valid = c.valid;\n      if (!c.valid) {\n        return d.reason = c.reason, d;\n      }\n      d.value = c.value;\n      return d;\n    case \"string\":\n      return d.valid = !0, d.value = b, d;\n    case \"token\":\n      return c = axs.utils.isValidTokenValue(a, b.toLowerCase()), c.valid ? (d.valid = !0, d.value = c.value) : (d.valid = !1, d.value = b, d.reason = c.reason), d;\n    case \"token_list\":\n      e = b.split(/\\s+/);\n      d.valid = !0;\n      for (b = 0;b < e.length;b++) {\n        c = axs.utils.isValidTokenValue(a, e[b].toLowerCase()), c.valid || (d.valid = !1, d.reason ? (d.reason = [d.reason], d.reason.push(c.reason)) : (d.reason = c.reason, d.possibleValues = c.possibleValues)), d.values ? d.values.push(c.value) : d.values = [c.value];\n      }\n      return d;\n    case \"tristate\":\n      return c = axs.utils.isPossibleValue(b.toLowerCase(), axs.constants.MIXED_VALUES, a), c.valid ? (d.valid = !0, d.value = c.value) : (d.valid = !1, d.value = b, d.reason = c.reason), d;\n    case \"boolean\":\n      return c = axs.utils.isValidBoolean(b), c.valid ? (d.valid = !0, d.value = c.value) : (d.valid = !1, d.value = b, d.reason = c.reason), d;\n  }\n  d.valid = !1;\n  d.reason = \"Not a valid ARIA property\";\n  return d;\n};\naxs.utils.isValidTokenValue = function(a, b) {\n  var c = a.replace(/^aria-/, \"\");\n  return axs.utils.isPossibleValue(b, axs.constants.ARIA_PROPERTIES[c].valuesSet, a);\n};\naxs.utils.isPossibleValue = function(a, b, c) {\n  return b[a] ? {valid:!0, value:a} : {valid:!1, value:a, reason:'\"' + a + '\" is not a valid value for ' + c, possibleValues:Object.keys(b)};\n};\naxs.utils.isValidBoolean = function(a) {\n  try {\n    var b = JSON.parse(a);\n  } catch (c) {\n    b = \"\";\n  }\n  return \"boolean\" != typeof b ? {valid:!1, value:a, reason:'\"' + a + '\" is not a true/false value'} : {valid:!0, value:b};\n};\naxs.utils.isValidIDRefValue = function(a, b) {\n  return 0 == a.length ? {valid:!0, idref:a} : b.ownerDocument.getElementById(a) ? {valid:!0, idref:a} : {valid:!1, idref:a, reason:'No element with ID \"' + a + '\"'};\n};\naxs.utils.isValidNumber = function(a) {\n  var b = {valid:!1, value:a, reason:'\"' + a + '\" is not a number'};\n  if (!a) {\n    return b;\n  }\n  if (/^0x/i.test(a)) {\n    return b.reason = '\"' + a + '\" is not a decimal number', b;\n  }\n  a *= 1;\n  return isFinite(a) ? {valid:!0, value:a} : b;\n};\naxs.utils.isElementImplicitlyFocusable = function(a) {\n  var b = a.ownerDocument.defaultView;\n  return a instanceof b.HTMLAnchorElement || a instanceof b.HTMLAreaElement ? a.hasAttribute(\"href\") : a instanceof b.HTMLInputElement || a instanceof b.HTMLSelectElement || a instanceof b.HTMLTextAreaElement || a instanceof b.HTMLButtonElement || a instanceof b.HTMLIFrameElement ? !a.disabled : !1;\n};\naxs.utils.values = function(a) {\n  var b = [], c;\n  for (c in a) {\n    a.hasOwnProperty(c) && \"function\" != typeof a[c] && b.push(a[c]);\n  }\n  return b;\n};\naxs.utils.namedValues = function(a) {\n  var b = {}, c;\n  for (c in a) {\n    a.hasOwnProperty(c) && \"function\" != typeof a[c] && (b[c] = a[c]);\n  }\n  return b;\n};\nfunction escapeId(a) {\n  return a.replace(/[^a-zA-Z0-9_-]/g, function(a) {\n    return \"\\\\\" + a;\n  });\n}\naxs.utils.getQuerySelectorText = function(a) {\n  if (null == a || \"HTML\" == a.tagName) {\n    return \"html\";\n  }\n  if (\"BODY\" == a.tagName) {\n    return \"body\";\n  }\n  if (a.hasAttribute) {\n    if (a.id) {\n      return \"#\" + escapeId(a.id);\n    }\n    if (a.className) {\n      for (var b = \"\", c = 0;c < a.classList.length;c++) {\n        b += \".\" + a.classList[c];\n      }\n      var d = 0;\n      if (a.parentNode) {\n        for (c = 0;c < a.parentNode.children.length;c++) {\n          var e = a.parentNode.children[c];\n          axs.browserUtils.matchSelector(e, b) && d++;\n          if (e === a) {\n            break;\n          }\n        }\n      } else {\n        d = 1;\n      }\n      if (1 == d) {\n        return axs.utils.getQuerySelectorText(a.parentNode) + \" > \" + b;\n      }\n    }\n    if (a.parentNode) {\n      b = a.parentNode.children;\n      d = 1;\n      for (c = 0;b[c] !== a;) {\n        b[c].tagName == a.tagName && d++, c++;\n      }\n      c = \"\";\n      \"BODY\" != a.parentNode.tagName && (c = axs.utils.getQuerySelectorText(a.parentNode) + \" > \");\n      return 1 == d ? c + a.tagName : c + a.tagName + \":nth-of-type(\" + d + \")\";\n    }\n  } else {\n    if (a.selectorText) {\n      return a.selectorText;\n    }\n  }\n  return \"\";\n};\naxs.utils.getAriaIdReferrers = function(a, b) {\n  var c = function(a) {\n    var b = axs.constants.ARIA_PROPERTIES[a];\n    if (b) {\n      if (\"idref\" === b.valueType) {\n        return \"[aria-\" + a + \"='\" + d + \"']\";\n      }\n      if (\"idref_list\" === b.valueType) {\n        return \"[aria-\" + a + \"~='\" + d + \"']\";\n      }\n    }\n    return \"\";\n  };\n  if (!a) {\n    return null;\n  }\n  var d = a.id;\n  if (!d) {\n    return null;\n  }\n  d = d.replace(/'/g, \"\\\\'\");\n  if (b) {\n    var e = b.replace(/^aria-/, \"\"), f = c(e);\n    if (f) {\n      return a.ownerDocument.querySelectorAll(f);\n    }\n  } else {\n    var g = [];\n    for (e in axs.constants.ARIA_PROPERTIES) {\n      (f = c(e)) && g.push(f);\n    }\n    return a.ownerDocument.querySelectorAll(g.join(\",\"));\n  }\n  return null;\n};\naxs.utils.getHtmlIdReferrers = function(a) {\n  if (!a) {\n    return null;\n  }\n  var b = a.id;\n  if (!b) {\n    return null;\n  }\n  var b = b.replace(/'/g, \"\\\\'\"), c = \"[contextmenu='{id}'] [itemref~='{id}'] button[form='{id}'] button[menu='{id}'] fieldset[form='{id}'] input[form='{id}'] input[list='{id}'] keygen[form='{id}'] label[for='{id}'] label[form='{id}'] menuitem[command='{id}'] object[form='{id}'] output[for~='{id}'] output[form='{id}'] select[form='{id}'] td[headers~='{id}'] textarea[form='{id}'] tr[headers~='{id}']\".split(\" \").map(function(a) {\n    return a.replace(\"{id}\", b);\n  });\n  return a.ownerDocument.querySelectorAll(c.join(\",\"));\n};\naxs.utils.getReferencedIds = function(a) {\n  for (var b = [], c = function(a) {\n    a && (0 < a.indexOf(\" \") ? b = b.concat(f.value.split(\" \")) : b.push(a));\n  }, d = 0;d < a.attributes.length;d++) {\n    var e = a.tagName.toLowerCase(), f = a.attributes[d];\n    if (f.specified) {\n      var g = f.name, h = g.match(/aria-(.+)/);\n      if (h) {\n        e = axs.constants.ARIA_PROPERTIES[h[1]], !e || \"idref\" !== e.valueType && \"idref_list\" !== e.valueType || c(f.value);\n      } else {\n        switch(g) {\n          case \"contextmenu\":\n          case \"itemref\":\n            c(f.value);\n            break;\n          case \"form\":\n            \"button\" != e && \"fieldset\" != e && \"input\" != e && \"keygen\" != e && \"label\" != e && \"object\" != e && \"output\" != e && \"select\" != e && \"textarea\" != e || c(f.value);\n            break;\n          case \"for\":\n            \"label\" != e && \"output\" != e || c(f.value);\n            break;\n          case \"menu\":\n            \"button\" == e && c(f.value);\n            break;\n          case \"list\":\n            \"input\" == e && c(f.value);\n            break;\n          case \"command\":\n            \"menuitem\" == e && c(f.value);\n            break;\n          case \"headers\":\n            \"td\" != e && \"tr\" != e || c(f.value);\n        }\n      }\n    }\n  }\n  return b;\n};\naxs.utils.getIdReferrers = function(a) {\n  var b = [], c = axs.utils.getHtmlIdReferrers(a);\n  c && (b = b.concat(Array.prototype.slice.call(c)));\n  (c = axs.utils.getAriaIdReferrers(a)) && (b = b.concat(Array.prototype.slice.call(c)));\n  return b;\n};\naxs.utils.getIdReferents = function(a, b) {\n  var c = [], d = a.replace(/^aria-/, \"\"), d = axs.constants.ARIA_PROPERTIES[d];\n  if (!d || !b.hasAttribute(a)) {\n    return c;\n  }\n  d = d.valueType;\n  if (\"idref_list\" === d || \"idref\" === d) {\n    for (var d = b.ownerDocument, e = b.getAttribute(a), e = e.split(/\\s+/), f = 0, g = e.length;f < g;f++) {\n      var h = d.getElementById(e[f]);\n      h && (c[c.length] = h);\n    }\n  }\n  return c;\n};\naxs.utils.getAriaPropertiesByValueType = function(a) {\n  var b = {}, c;\n  for (c in axs.constants.ARIA_PROPERTIES) {\n    var d = axs.constants.ARIA_PROPERTIES[c];\n    d && 0 <= a.indexOf(d.valueType) && (b[c] = d);\n  }\n  return b;\n};\naxs.utils.getSelectorForAriaProperties = function(a) {\n  a = Object.keys(a).map(function(a) {\n    return \"[aria-\" + a + \"]\";\n  });\n  a.sort();\n  return a.join(\",\");\n};\naxs.utils.findDescendantsWithRole = function(a, b) {\n  if (!a || !b) {\n    return [];\n  }\n  var c = axs.properties.getSelectorForRole(b);\n  if (c && (c = a.querySelectorAll(c))) {\n    c = Array.prototype.map.call(c, function(a) {\n      return a;\n    });\n  } else {\n    return [];\n  }\n  return c;\n};\naxs.properties = {};\naxs.properties.TEXT_CONTENT_XPATH = './/text()[normalize-space(.)!=\"\"]/parent::*[name()!=\"script\"]';\naxs.properties.getFocusProperties = function(a) {\n  var b = {}, c = a.getAttribute(\"tabindex\");\n  void 0 != c ? b.tabindex = {value:c, valid:!0} : axs.utils.isElementImplicitlyFocusable(a) && (b.implicitlyFocusable = {value:!0, valid:!0});\n  if (0 == Object.keys(b).length) {\n    return null;\n  }\n  var d = axs.utils.elementIsTransparent(a), e = axs.utils.elementHasZeroArea(a), f = axs.utils.elementIsOutsideScrollArea(a), g = axs.utils.overlappingElements(a);\n  if (d || e || f || 0 < g.length) {\n    var c = axs.utils.isElementOrAncestorHidden(a), h = {value:!1, valid:c};\n    d && (h.transparent = !0);\n    e && (h.zeroArea = !0);\n    f && (h.outsideScrollArea = !0);\n    g && 0 < g.length && (h.overlappingElements = g);\n    d = {value:c, valid:c};\n    c && (d.reason = axs.properties.getHiddenReason(a));\n    h.hidden = d;\n    b.visible = h;\n  } else {\n    b.visible = {value:!0, valid:!0};\n  }\n  return b;\n};\naxs.properties.getHiddenReason = function(a) {\n  if (!(a && a instanceof a.ownerDocument.defaultView.HTMLElement)) {\n    return null;\n  }\n  if (a.hasAttribute(\"chromevoxignoreariahidden\")) {\n    var b = !0;\n  }\n  var c = window.getComputedStyle(a, null);\n  return \"none\" == c.display ? {property:\"display: none\", on:a} : \"hidden\" == c.visibility ? {property:\"visibility: hidden\", on:a} : a.hasAttribute(\"aria-hidden\") && \"true\" == a.getAttribute(\"aria-hidden\").toLowerCase() && !b ? {property:\"aria-hidden\", on:a} : axs.properties.getHiddenReason(axs.dom.parentElement(a));\n};\naxs.properties.getColorProperties = function(a) {\n  var b = {};\n  (a = axs.properties.getContrastRatioProperties(a)) && (b.contrastRatio = a);\n  return 0 == Object.keys(b).length ? null : b;\n};\naxs.properties.hasDirectTextDescendant = function(a) {\n  function b() {\n    for (var b = c.evaluate(axs.properties.TEXT_CONTENT_XPATH, a, null, XPathResult.ANY_TYPE, null), e = b.iterateNext();null != e;e = b.iterateNext()) {\n      if (e === a) {\n        return !0;\n      }\n    }\n    return !1;\n  }\n  var c;\n  c = a.nodeType == Node.DOCUMENT_NODE ? a : a.ownerDocument;\n  return c.evaluate ? b() : function() {\n    for (var b = c.createTreeWalker(a, NodeFilter.SHOW_TEXT, null, !1);b.nextNode();) {\n      var e = b.currentNode, f = e.parentNode, f = f.host || f, f = f.tagName.toLowerCase();\n      if (e.nodeValue.trim() && \"script\" !== f && a !== e) {\n        return !0;\n      }\n    }\n    return !1;\n  }();\n};\naxs.properties.getContrastRatioProperties = function(a) {\n  if (!axs.properties.hasDirectTextDescendant(a)) {\n    return null;\n  }\n  var b = {}, c = window.getComputedStyle(a, null), d = axs.utils.getBgColor(c, a);\n  if (!d) {\n    return null;\n  }\n  b.backgroundColor = axs.color.colorToString(d);\n  var e = axs.utils.getFgColor(c, a, d);\n  b.foregroundColor = axs.color.colorToString(e);\n  a = axs.utils.getContrastRatioForElementWithComputedStyle(c, a);\n  if (!a) {\n    return null;\n  }\n  b.value = a.toFixed(2);\n  axs.utils.isLowContrast(a, c) && (b.alert = !0);\n  var f = axs.utils.isLargeFont(c) ? 3 : 4.5, c = axs.utils.isLargeFont(c) ? 4.5 : 7, g = {};\n  f > a && (g.AA = f);\n  c > a && (g.AAA = c);\n  if (!Object.keys(g).length) {\n    return b;\n  }\n  (d = axs.color.suggestColors(d, e, g)) && Object.keys(d).length && (b.suggestedColors = d);\n  return b;\n};\naxs.properties.findTextAlternatives = function(a, b, c, d) {\n  var e = c || !1;\n  c = axs.dom.asElement(a);\n  if (!c || !d && axs.utils.isElementOrAncestorHidden(c)) {\n    return null;\n  }\n  if (a.nodeType == Node.TEXT_NODE) {\n    return c = {type:\"text\"}, c.text = a.textContent, c.lastWord = axs.properties.getLastWord(c.text), b.content = c, a.textContent;\n  }\n  a = null;\n  e || (a = axs.properties.getTextFromAriaLabelledby(c, b));\n  if (c.hasAttribute(\"aria-label\")) {\n    var f = {type:\"text\"};\n    f.text = c.getAttribute(\"aria-label\");\n    f.lastWord = axs.properties.getLastWord(f.text);\n    a ? f.unused = !0 : e && axs.utils.elementIsHtmlControl(c) || (a = f.text);\n    b.ariaLabel = f;\n  }\n  c.hasAttribute(\"role\") && \"presentation\" == c.getAttribute(\"role\") || (a = axs.properties.getTextFromHostLanguageAttributes(c, b, a, e));\n  e && axs.utils.elementIsHtmlControl(c) && (f = c.ownerDocument.defaultView, c instanceof f.HTMLInputElement && (\"text\" == c.type && c.value && 0 < c.value.length && (b.controlValue = {text:c.value}), \"range\" == c.type && (b.controlValue = {text:c.value})), c instanceof f.HTMLSelectElement && (b.controlValue = {text:c.value}), b.controlValue && (f = b.controlValue, a ? f.unused = !0 : a = f.text));\n  if (e && axs.utils.elementIsAriaWidget(c)) {\n    e = c.getAttribute(\"role\");\n    \"textbox\" == e && c.textContent && 0 < c.textContent.length && (b.controlValue = {text:c.textContent});\n    if (\"slider\" == e || \"spinbutton\" == e) {\n      c.hasAttribute(\"aria-valuetext\") ? b.controlValue = {text:c.getAttribute(\"aria-valuetext\")} : c.hasAttribute(\"aria-valuenow\") && (b.controlValue = {value:c.getAttribute(\"aria-valuenow\"), text:\"\" + c.getAttribute(\"aria-valuenow\")});\n    }\n    if (\"menu\" == e) {\n      for (var g = c.querySelectorAll(\"[role=menuitemcheckbox], [role=menuitemradio]\"), f = [], h = 0;h < g.length;h++) {\n        \"true\" == g[h].getAttribute(\"aria-checked\") && f.push(g[h]);\n      }\n      if (0 < f.length) {\n        g = \"\";\n        for (h = 0;h < f.length;h++) {\n          g += axs.properties.findTextAlternatives(f[h], {}, !0), h < f.length - 1 && (g += \", \");\n        }\n        b.controlValue = {text:g};\n      }\n    }\n    if (\"combobox\" == e || \"select\" == e) {\n      b.controlValue = {text:\"TODO\"};\n    }\n    b.controlValue && (f = b.controlValue, a ? f.unused = !0 : a = f.text);\n  }\n  f = !0;\n  c.hasAttribute(\"role\") && (e = c.getAttribute(\"role\"), (e = axs.constants.ARIA_ROLES[e]) && (!e.namefrom || 0 > e.namefrom.indexOf(\"contents\")) && (f = !1));\n  (d = axs.properties.getTextFromDescendantContent(c, d)) && f && (e = {type:\"text\"}, e.text = d, e.lastWord = axs.properties.getLastWord(e.text), a ? e.unused = !0 : a = d, b.content = e);\n  c.hasAttribute(\"title\") && (d = {type:\"string\", valid:!0}, d.text = c.getAttribute(\"title\"), d.lastWord = axs.properties.getLastWord(d.lastWord), a ? d.unused = !0 : a = d.text, b.title = d);\n  return 0 == Object.keys(b).length && null == a ? null : a;\n};\naxs.properties.getTextFromDescendantContent = function(a, b) {\n  for (var c = a.childNodes, d = [], e = 0;e < c.length;e++) {\n    var f = axs.properties.findTextAlternatives(c[e], {}, !0, b);\n    f && d.push(f.trim());\n  }\n  if (d.length) {\n    c = \"\";\n    for (e = 0;e < d.length;e++) {\n      c = [c, d[e]].join(\" \").trim();\n    }\n    return c;\n  }\n  return null;\n};\naxs.properties.getTextFromAriaLabelledby = function(a, b) {\n  var c = null;\n  if (!a.hasAttribute(\"aria-labelledby\")) {\n    return c;\n  }\n  for (var d = a.getAttribute(\"aria-labelledby\").split(/\\s+/), e = {valid:!0}, f = [], g = [], h = 0;h < d.length;h++) {\n    var k = {type:\"element\"}, m = d[h];\n    k.value = m;\n    var l = document.getElementById(m);\n    l ? (k.valid = !0, k.text = axs.properties.findTextAlternatives(l, {}, !0, !0), k.lastWord = axs.properties.getLastWord(k.text), f.push(k.text), k.element = l) : (k.valid = !1, e.valid = !1, k.errorMessage = {messageKey:\"noElementWithId\", args:[m]});\n    g.push(k);\n  }\n  0 < g.length && (g[g.length - 1].last = !0, e.values = g, e.text = f.join(\" \"), e.lastWord = axs.properties.getLastWord(e.text), c = e.text, b.ariaLabelledby = e);\n  return c;\n};\naxs.properties.getTextFromHostLanguageAttributes = function(a, b, c, d) {\n  if (axs.browserUtils.matchSelector(a, \"img\") && a.hasAttribute(\"alt\")) {\n    var e = {type:\"string\", valid:!0};\n    e.text = a.getAttribute(\"alt\");\n    c ? e.unused = !0 : c = e.text;\n    b.alt = e;\n  }\n  if (axs.browserUtils.matchSelector(a, 'input:not([type=\"hidden\"]):not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), video:not([disabled])') && !d) {\n    if (a.hasAttribute(\"id\")) {\n      d = document.querySelectorAll('label[for=\"' + a.id + '\"]');\n      for (var e = {}, f = [], g = [], h = 0;h < d.length;h++) {\n        var k = {type:\"element\"}, m = d[h], l = axs.properties.findTextAlternatives(m, {}, !0);\n        l && 0 < l.trim().length && (k.text = l.trim(), g.push(l.trim()));\n        k.element = m;\n        f.push(k);\n      }\n      0 < f.length && (f[f.length - 1].last = !0, e.values = f, e.text = g.join(\" \"), e.lastWord = axs.properties.getLastWord(e.text), c ? e.unused = !0 : c = e.text, b.labelFor = e);\n    }\n    d = axs.dom.parentElement(a);\n    for (e = {};d;) {\n      if (\"label\" == d.tagName.toLowerCase() && (f = d, f.control == a)) {\n        e.type = \"element\";\n        e.text = axs.properties.findTextAlternatives(f, {}, !0);\n        e.lastWord = axs.properties.getLastWord(e.text);\n        e.element = f;\n        break;\n      }\n      d = axs.dom.parentElement(d);\n    }\n    e.text && (c ? e.unused = !0 : c = e.text, b.labelWrapped = e);\n    axs.browserUtils.matchSelector(a, 'input[type=\"image\"]') && a.hasAttribute(\"alt\") && (e = {type:\"string\", valid:!0}, e.text = a.getAttribute(\"alt\"), c ? e.unused = !0 : c = e.text, b.alt = e);\n    Object.keys(b).length || (b.noLabel = !0);\n  }\n  return c;\n};\naxs.properties.getLastWord = function(a) {\n  if (!a) {\n    return null;\n  }\n  var b = a.lastIndexOf(\" \") + 1, c = a.length - 10;\n  return a.substring(b > c ? b : c);\n};\naxs.properties.getTextProperties = function(a) {\n  var b = {}, c = axs.properties.findTextAlternatives(a, b, !1, !0);\n  if (0 == Object.keys(b).length && ((a = axs.dom.asElement(a)) && axs.browserUtils.matchSelector(a, \"img\") && (b.alt = {valid:!1, errorMessage:\"No alt value provided\"}, a = a.src, \"string\" == typeof a && (c = a.split(\"/\").pop(), b.filename = {text:c})), !c)) {\n    return null;\n  }\n  b.hasProperties = !!Object.keys(b).length;\n  b.computedText = c;\n  b.lastWord = axs.properties.getLastWord(c);\n  return b;\n};\naxs.properties.getAriaProperties = function(a) {\n  var b = {}, c = axs.properties.getGlobalAriaProperties(a), d;\n  for (d in axs.constants.ARIA_PROPERTIES) {\n    var e = \"aria-\" + d;\n    if (a.hasAttribute(e)) {\n      var f = a.getAttribute(e);\n      c[e] = axs.utils.getAriaPropertyValue(e, f, a);\n    }\n  }\n  0 < Object.keys(c).length && (b.properties = axs.utils.values(c));\n  f = axs.utils.getRoles(a);\n  if (!f) {\n    return Object.keys(b).length ? b : null;\n  }\n  b.roles = f;\n  if (!f.valid || !f.roles) {\n    return b;\n  }\n  for (var e = f.roles, g = 0;g < e.length;g++) {\n    var h = e[g];\n    if (h.details && h.details.propertiesSet) {\n      for (d in h.details.propertiesSet) {\n        d in c || (a.hasAttribute(d) ? (f = a.getAttribute(d), c[d] = axs.utils.getAriaPropertyValue(d, f, a), \"values\" in c[d] && (f = c[d].values, f[f.length - 1].isLast = !0)) : h.details.requiredPropertiesSet[d] && (c[d] = {name:d, valid:!1, reason:\"Required property not set\"}));\n      }\n    }\n  }\n  0 < Object.keys(c).length && (b.properties = axs.utils.values(c));\n  return 0 < Object.keys(b).length ? b : null;\n};\naxs.properties.getGlobalAriaProperties = function(a) {\n  var b = {}, c;\n  for (c in axs.constants.GLOBAL_PROPERTIES) {\n    if (a.hasAttribute(c)) {\n      var d = a.getAttribute(c);\n      b[c] = axs.utils.getAriaPropertyValue(c, d, a);\n    }\n  }\n  return b;\n};\naxs.properties.getVideoProperties = function(a) {\n  if (!axs.browserUtils.matchSelector(a, \"video\")) {\n    return null;\n  }\n  var b = {};\n  b.captionTracks = axs.properties.getTrackElements(a, \"captions\");\n  b.descriptionTracks = axs.properties.getTrackElements(a, \"descriptions\");\n  b.chapterTracks = axs.properties.getTrackElements(a, \"chapters\");\n  return b;\n};\naxs.properties.getTrackElements = function(a, b) {\n  var c = a.querySelectorAll(\"track[kind=\" + b + \"]\"), d = {};\n  if (!c.length) {\n    return d.valid = !1, d.reason = {messageKey:\"noTracksProvided\", args:[[b]]}, d;\n  }\n  d.valid = !0;\n  for (var e = [], f = 0;f < c.length;f++) {\n    var g = {}, h = c[f].getAttribute(\"src\"), k = c[f].getAttribute(\"srcLang\"), m = c[f].getAttribute(\"label\");\n    h ? (g.valid = !0, g.src = h) : (g.valid = !1, g.reason = {messageKey:\"noSrcProvided\"});\n    h = \"\";\n    m && (h += m, k && (h += \" \"));\n    k && (h += \"(\" + k + \")\");\n    \"\" == h && (h = \"[[object Object]]\");\n    g.name = h;\n    e.push(g);\n  }\n  d.values = e;\n  return d;\n};\naxs.properties.getAllProperties = function(a) {\n  var b = axs.dom.asElement(a);\n  if (!b) {\n    return {};\n  }\n  var c = {};\n  c.ariaProperties = axs.properties.getAriaProperties(b);\n  c.colorProperties = axs.properties.getColorProperties(b);\n  c.focusProperties = axs.properties.getFocusProperties(b);\n  c.textProperties = axs.properties.getTextProperties(a);\n  c.videoProperties = axs.properties.getVideoProperties(b);\n  return c;\n};\n(function() {\n  function a(a) {\n    if (!a) {\n      return null;\n    }\n    var b = a.tagName;\n    if (!b) {\n      return null;\n    }\n    b = b.toUpperCase();\n    b = axs.constants.TAG_TO_IMPLICIT_SEMANTIC_INFO[b];\n    if (!b || !b.length) {\n      return null;\n    }\n    for (var d = null, e = 0, f = b.length;e < f;e++) {\n      var g = b[e];\n      if (g.selector) {\n        if (axs.browserUtils.matchSelector(a, g.selector)) {\n          return g;\n        }\n      } else {\n        d = g;\n      }\n    }\n    return d;\n  }\n  axs.properties.getImplicitRole = function(b) {\n    return (b = a(b)) ? b.role : \"\";\n  };\n  axs.properties.canTakeAriaAttributes = function(b) {\n    return (b = a(b)) ? !b.reserved : !0;\n  };\n})();\naxs.properties.getNativelySupportedAttributes = function(a) {\n  var b = [];\n  if (!a) {\n    return b;\n  }\n  a = a.cloneNode(!1);\n  for (var c = Object.keys(axs.constants.ARIA_TO_HTML_ATTRIBUTE), d = 0;d < c.length;d++) {\n    var e = c[d];\n    axs.constants.ARIA_TO_HTML_ATTRIBUTE[e] in a && (b[b.length] = e);\n  }\n  return b;\n};\n(function() {\n  var a = {};\n  axs.properties.getSelectorForRole = function(b) {\n    if (!b) {\n      return \"\";\n    }\n    if (a[b] && a.hasOwnProperty(b)) {\n      return a[b];\n    }\n    var c = ['[role=\"' + b + '\"]'];\n    Object.keys(axs.constants.TAG_TO_IMPLICIT_SEMANTIC_INFO).forEach(function(a) {\n      var d = axs.constants.TAG_TO_IMPLICIT_SEMANTIC_INFO[a];\n      if (d && d.length) {\n        for (var f = 0;f < d.length;f++) {\n          var g = d[f];\n          if (g.role === b) {\n            if (g.selector) {\n              c[c.length] = g.selector;\n            } else {\n              c[c.length] = a;\n              break;\n            }\n          }\n        }\n      }\n    });\n    return a[b] = c.join(\",\");\n  };\n})();\naxs.AuditRule = function(a) {\n  for (var b = a.opt_requires || {}, c = !0, d = [], e = 0;e < axs.AuditRule.requiredFields.length;e++) {\n    var f = axs.AuditRule.requiredFields[e];\n    f in a || (c = !1, d.push(f));\n  }\n  if (!c) {\n    throw \"Invalid spec; the following fields were not specified: \" + d.join(\", \") + \"\\n\" + JSON.stringify(a);\n  }\n  this.name = a.name;\n  this.severity = a.severity;\n  this.relevantElementMatcher_ = a.relevantElementMatcher;\n  this.isRelevant_ = a.isRelevant || function(a, b) {\n    return !0;\n  };\n  this.test_ = a.test;\n  this.code = a.code;\n  this.heading = a.heading || \"\";\n  this.url = a.url || \"\";\n  this.requiresConsoleAPI = !!b.consoleAPI;\n  this.relevantElements = [];\n  this.relatedElements = [];\n  this.collectIdRefs = b.idRefs || !1;\n};\naxs.AuditRule.requiredFields = \"name severity relevantElementMatcher test code heading\".split(\" \");\naxs.AuditRule.NOT_APPLICABLE = {result:axs.constants.AuditResult.NA};\naxs.AuditRule.prototype.addElement = function(a, b) {\n  a.push(b);\n};\naxs.AuditRule.prototype.collectMatchingElement = function(a, b) {\n  return this.relevantElementMatcher_(a, b) && b.inScope ? (this.relevantElements.push({element:a, flags:b}), !0) : !1;\n};\naxs.AuditRule.prototype.canRun = function(a) {\n  return this.disabled || !a.withConsoleApi && this.requiresConsoleAPI ? !1 : !0;\n};\naxs.AuditRule.Result = function(a, b) {\n  var c = axs.utils.namedValues(b);\n  c.severity = a.getSeverity(b.name) || c.severity;\n  this.rule = c;\n  this.maxResults = a.maxResults;\n  this.update(axs.constants.AuditResult.NA);\n};\naxs.AuditRule.Result.prototype.update = function(a, b) {\n  if (a === axs.constants.AuditResult.FAIL) {\n    var c = this.elements || (this.elements = []);\n    this.result = a;\n    this.maxResults && this.elements.length >= this.maxResults ? this.resultsTruncated = !0 : b && c.push(b);\n  } else {\n    a === axs.constants.AuditResult.PASS ? (this.elements || (this.elements = []), this.result !== axs.constants.AuditResult.FAIL && (this.result = a)) : this.result || (this.result = a);\n  }\n};\naxs.AuditRule.prototype.run = function(a) {\n  try {\n    for (var b = this._options || {}, c = new axs.AuditRule.Result(a, this), d;d = this.relevantElements.shift();) {\n      var e = d.element, f = d.flags;\n      this.isRelevant_(e, f) && (this.test_(e, f, b.config) ? c.update(axs.constants.AuditResult.FAIL, e) : c.update(axs.constants.AuditResult.PASS, e));\n    }\n    return c;\n  } finally {\n    this.relatedElements.length = 0;\n  }\n};\naxs.AuditRules = {};\n(function() {\n  var a = {}, b = {};\n  axs.AuditRules.specs = {};\n  axs.AuditRules.addRule = function(c) {\n    var d = new axs.AuditRule(c);\n    if (d.code in b) {\n      throw Error('Can not add audit rule with same code: \"' + d.code + '\"');\n    }\n    if (d.name in a) {\n      throw Error('Can not add audit rule with same name: \"' + d.name + '\"');\n    }\n    a[d.name] = b[d.code] = d;\n    axs.AuditRules.specs[c.name] = c;\n  };\n  axs.AuditRules.getRule = function(c) {\n    return a[c] || b[c] || null;\n  };\n  axs.AuditRules.getRules = function(b) {\n    var c = Object.keys(a);\n    return b ? c : c.map(function(a) {\n      return this.getRule(a);\n    }, axs.AuditRules);\n  };\n  axs.AuditRules.getActiveRules = function(a) {\n    var b;\n    b = a.auditRulesToRun && 0 < a.auditRulesToRun.length ? a.auditRulesToRun : axs.AuditRules.getRules(!0);\n    if (a.auditRulesToIgnore) {\n      for (var c = 0;c < a.auditRulesToIgnore.length;c++) {\n        var f = a.auditRulesToIgnore[c];\n        0 > b.indexOf(f) || b.splice(b.indexOf(f), 1);\n      }\n    }\n    return b.map(axs.AuditRules.getRule);\n  };\n})();\naxs.AuditResults = function() {\n  this.errors_ = [];\n  this.warnings_ = [];\n};\ngoog.exportSymbol(\"axs.AuditResults\", axs.AuditResults);\naxs.AuditResults.prototype.addError = function(a) {\n  \"\" != a && this.errors_.push(a);\n};\ngoog.exportProperty(axs.AuditResults.prototype, \"addError\", axs.AuditResults.prototype.addError);\naxs.AuditResults.prototype.addWarning = function(a) {\n  \"\" != a && this.warnings_.push(a);\n};\ngoog.exportProperty(axs.AuditResults.prototype, \"addWarning\", axs.AuditResults.prototype.addWarning);\naxs.AuditResults.prototype.numErrors = function() {\n  return this.errors_.length;\n};\ngoog.exportProperty(axs.AuditResults.prototype, \"numErrors\", axs.AuditResults.prototype.numErrors);\naxs.AuditResults.prototype.numWarnings = function() {\n  return this.warnings_.length;\n};\ngoog.exportProperty(axs.AuditResults.prototype, \"numWarnings\", axs.AuditResults.prototype.numWarnings);\naxs.AuditResults.prototype.getErrors = function() {\n  return this.errors_;\n};\ngoog.exportProperty(axs.AuditResults.prototype, \"getErrors\", axs.AuditResults.prototype.getErrors);\naxs.AuditResults.prototype.getWarnings = function() {\n  return this.warnings_;\n};\ngoog.exportProperty(axs.AuditResults.prototype, \"getWarnings\", axs.AuditResults.prototype.getWarnings);\naxs.AuditResults.prototype.toString = function() {\n  for (var a = \"\", b = 0;b < this.errors_.length;b++) {\n    0 == b && (a += \"\\nErrors:\\n\");\n    var c = this.errors_[b], a = a + (c + \"\\n\\n\");\n  }\n  for (b = 0;b < this.warnings_.length;b++) {\n    0 == b && (a += \"\\nWarnings:\\n\"), c = this.warnings_[b], a += c + \"\\n\\n\";\n  }\n  return a;\n};\ngoog.exportProperty(axs.AuditResults.prototype, \"toString\", axs.AuditResults.prototype.toString);\naxs.Audit = {};\naxs.AuditConfiguration = function(a) {\n  null == a && (a = {});\n  this.rules_ = {};\n  this.maxResults = this.auditRulesToIgnore = this.auditRulesToRun = this.scope = null;\n  this.withConsoleApi = !1;\n  this.showUnsupportedRulesWarning = this.walkDom = !0;\n  for (var b in this) {\n    this.hasOwnProperty(b) && b in a && (this[b] = a[b]);\n  }\n  goog.exportProperty(this, \"scope\", this.scope);\n  goog.exportProperty(this, \"auditRulesToRun\", this.auditRulesToRun);\n  goog.exportProperty(this, \"auditRulesToIgnore\", this.auditRulesToIgnore);\n  goog.exportProperty(this, \"withConsoleApi\", this.withConsoleApi);\n  goog.exportProperty(this, \"walkDom\", this.walkDom);\n  goog.exportProperty(this, \"showUnsupportedRulesWarning\", this.showUnsupportedRulesWarning);\n};\ngoog.exportSymbol(\"axs.AuditConfiguration\", axs.AuditConfiguration);\naxs.AuditConfiguration.prototype = {ignoreSelectors:function(a, b) {\n  a in this.rules_ || (this.rules_[a] = {});\n  \"ignore\" in this.rules_[a] || (this.rules_[a].ignore = []);\n  Array.prototype.push.call(this.rules_[a].ignore, b);\n}, getIgnoreSelectors:function(a) {\n  return a in this.rules_ && \"ignore\" in this.rules_[a] ? this.rules_[a].ignore : [];\n}, setSeverity:function(a, b) {\n  a in this.rules_ || (this.rules_[a] = {});\n  this.rules_[a].severity = b;\n}, getSeverity:function(a) {\n  return a in this.rules_ && \"severity\" in this.rules_[a] ? this.rules_[a].severity : null;\n}, setRuleConfig:function(a, b) {\n  a in this.rules_ || (this.rules_[a] = {});\n  this.rules_[a].config = b;\n}, getRuleConfig:function(a) {\n  return a in this.rules_ && \"config\" in this.rules_[a] ? this.rules_[a].config : null;\n}};\ngoog.exportProperty(axs.AuditConfiguration.prototype, \"ignoreSelectors\", axs.AuditConfiguration.prototype.ignoreSelectors);\ngoog.exportProperty(axs.AuditConfiguration.prototype, \"getIgnoreSelectors\", axs.AuditConfiguration.prototype.getIgnoreSelectors);\naxs.Audit.unsupportedRulesWarningShown = !1;\naxs.Audit.getRulesCannotRun = function(a) {\n  return a.withConsoleApi ? [] : axs.AuditRules.getRules().filter(function(a) {\n    return a.requiresConsoleAPI;\n  }).map(function(a) {\n    return a.code;\n  });\n};\naxs.Audit.run = function(a) {\n  a = a || new axs.AuditConfiguration;\n  if (!axs.Audit.unsupportedRulesWarningShown && a.showUnsupportedRulesWarning) {\n    var b = axs.Audit.getRulesCannotRun(a);\n    0 < b.length && (console.warn(\"Some rules cannot be checked using the axs.Audit.run() method call. Use the Chrome plugin to check these rules: \" + b.join(\", \")), console.warn(\"To remove this message, pass an AuditConfiguration object to axs.Audit.run() and set configuration.showUnsupportedRulesWarning = false.\"));\n    axs.Audit.unsupportedRulesWarningShown = !0;\n  }\n  b = axs.AuditRules.getActiveRules(a);\n  a.collectIdRefs = b.some(function(a) {\n    return a.collectIdRefs;\n  });\n  a.scope || (a.scope = document.documentElement);\n  axs.Audit.collectMatchingElements(a, b);\n  for (var c = [], d = 0;d < b.length;d++) {\n    var e = b[d];\n    e.canRun(a) && c.push(e.run(a));\n  }\n  return c;\n};\ngoog.exportSymbol(\"axs.Audit.run\", axs.Audit.run);\n(function() {\n  function a(a, c) {\n    var b = a.getIgnoreSelectors(c.name);\n    if (0 < b.length || a.scope) {\n      this.ignoreSelectors = b;\n    }\n    if (b = a.getRuleConfig(c.name)) {\n      this.config = b;\n    }\n  }\n  axs.Audit.collectMatchingElements = function(b, c) {\n    axs.dom.composedTreeSearch(b.walkDom ? document.documentElement : b.scope, null, {preorder:function(d, e) {\n      e.inScope || (e.inScope = d === b.scope);\n      for (var f = 0;f < c.length;f++) {\n        var g = c[f];\n        g.canRun(b) && (g._options = new a(b, g), e.ignoring[g.name] || (e.ignoring[g.name] = g._options.shouldIgnore(d)) || g.collectMatchingElement(d, e));\n      }\n      return !0;\n    }}, {walkDom:b.walkDom, collectIdRefs:b.collectIdRefs, level:0, ignoring:{}, disabled:!1, hidden:!1});\n  };\n  a.prototype.shouldIgnore = function(a) {\n    var b = this.ignoreSelectors;\n    if (b) {\n      for (var d = 0;d < b.length;d++) {\n        if (axs.browserUtils.matchSelector(a, b[d])) {\n          return !0;\n        }\n      }\n    }\n    return !1;\n  };\n})();\naxs.Audit.auditResults = function(a) {\n  for (var b = new axs.AuditResults, c = 0;c < a.length;c++) {\n    var d = a[c];\n    d.result == axs.constants.AuditResult.FAIL && (d.rule.severity == axs.constants.Severity.SEVERE ? b.addError(axs.Audit.accessibilityErrorMessage(d)) : b.addWarning(axs.Audit.accessibilityErrorMessage(d)));\n  }\n  return b;\n};\ngoog.exportSymbol(\"axs.Audit.auditResults\", axs.Audit.auditResults);\naxs.Audit.createReport = function(a, b) {\n  var c;\n  c = \"*** Begin accessibility audit results ***\\nAn accessibility audit found \" + axs.Audit.auditResults(a).toString();\n  b && (c = c + \"\\nFor more information, please see \" + b);\n  return c + \"\\n*** End accessibility audit results ***\";\n};\ngoog.exportSymbol(\"axs.Audit.createReport\", axs.Audit.createReport);\naxs.Audit.accessibilityErrorMessage = function(a) {\n  for (var b = a.rule.severity == axs.constants.Severity.SEVERE ? \"Error: \" : \"Warning: \", b = b + (a.rule.code + \" (\" + a.rule.heading + \") failed on the following \" + (1 == a.elements.length ? \"element\" : \"elements\")), b = 1 == a.elements.length ? b + \":\" : b + (\" (1 - \" + Math.min(5, a.elements.length) + \" of \" + a.elements.length + \"):\"), c = Math.min(a.elements.length, 5), d = 0;d < c;d++) {\n    var e = a.elements[d], b = b + \"\\n\";\n    try {\n      b += axs.utils.getQuerySelectorText(e);\n    } catch (f) {\n      b += \" tagName:\" + e.tagName, b += \" id:\" + e.id;\n    }\n  }\n  \"\" != a.rule.url && (b += \"\\nSee \" + a.rule.url + \" for more information.\");\n  return b;\n};\ngoog.exportSymbol(\"axs.Audit.accessibilityErrorMessage\", axs.Audit.accessibilityErrorMessage);\naxs.AuditRules.addRule({name:\"ariaOnReservedElement\", heading:\"This element does not support ARIA roles, states and properties\", url:\"https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#ax_aria_12\", severity:axs.constants.Severity.WARNING, relevantElementMatcher:function(a) {\n  return !axs.properties.canTakeAriaAttributes(a);\n}, test:function(a) {\n  return null !== axs.properties.getAriaProperties(a);\n}, code:\"AX_ARIA_12\"});\naxs.AuditRules.addRule({name:\"ariaOwnsDescendant\", heading:\"aria-owns should not be used if ownership is implicit in the DOM\", url:\"https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#ax_aria_06\", severity:axs.constants.Severity.WARNING, relevantElementMatcher:function(a) {\n  return axs.browserUtils.matchSelector(a, \"[aria-owns]\");\n}, test:function(a) {\n  return axs.utils.getIdReferents(\"aria-owns\", a).some(function(b) {\n    return a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_CONTAINED_BY;\n  });\n}, code:\"AX_ARIA_06\"});\naxs.AuditRules.addRule({name:\"ariaRoleNotScoped\", heading:\"Elements with ARIA roles must be in the correct scope\", url:\"https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#ax_aria_09\", severity:axs.constants.Severity.SEVERE, relevantElementMatcher:function(a) {\n  return axs.browserUtils.matchSelector(a, \"[role]\");\n}, test:function(a) {\n  var b = axs.utils.getRoles(a);\n  if (!b || !b.applied) {\n    return !1;\n  }\n  b = b.applied.details.scope;\n  if (!b || 0 === b.length) {\n    return !1;\n  }\n  for (var c = a;c = axs.dom.parentElement(c);) {\n    var d = axs.utils.getRoles(c, !0);\n    if (d && d.applied && 0 <= b.indexOf(d.applied.name)) {\n      return !1;\n    }\n  }\n  if (a = axs.utils.getAriaIdReferrers(a, \"aria-owns\")) {\n    for (c = 0;c < a.length;c++) {\n      if ((d = axs.utils.getRoles(a[c], !0)) && d.applied && 0 <= b.indexOf(d.applied.name)) {\n        return !1;\n      }\n    }\n  }\n  return !0;\n}, code:\"AX_ARIA_09\"});\naxs.AuditRules.addRule({name:\"audioWithoutControls\", heading:\"Audio elements should have controls\", url:\"https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#ax_audio_01\", severity:axs.constants.Severity.WARNING, relevantElementMatcher:function(a) {\n  return axs.browserUtils.matchSelector(a, \"audio[autoplay]\");\n}, test:function(a) {\n  return !a.querySelectorAll(\"[controls]\").length && 3 < a.duration;\n}, code:\"AX_AUDIO_01\"});\n(function() {\n  var a = /^aria\\-/;\n  axs.AuditRules.addRule({name:\"badAriaAttribute\", heading:\"This element has an invalid ARIA attribute\", url:\"https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#ax_aria_11\", severity:axs.constants.Severity.WARNING, relevantElementMatcher:function(b) {\n    b = b.attributes;\n    for (var c = 0, d = b.length;c < d;c++) {\n      if (a.test(b[c].name)) {\n        return !0;\n      }\n    }\n    return !1;\n  }, test:function(b) {\n    b = b.attributes;\n    for (var c = 0, d = b.length;c < d;c++) {\n      var e = b[c].name;\n      if (a.test(e) && (e = e.replace(a, \"\"), !axs.constants.ARIA_PROPERTIES.hasOwnProperty(e))) {\n        return !0;\n      }\n    }\n    return !1;\n  }, code:\"AX_ARIA_11\"});\n})();\naxs.AuditRules.addRule({name:\"badAriaAttributeValue\", heading:\"ARIA state and property values must be valid\", url:\"https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#ax_aria_04\", severity:axs.constants.Severity.SEVERE, relevantElementMatcher:function(a) {\n  var b = axs.utils.getSelectorForAriaProperties(axs.constants.ARIA_PROPERTIES);\n  return axs.browserUtils.matchSelector(a, b);\n}, test:function(a) {\n  for (var b in axs.constants.ARIA_PROPERTIES) {\n    var c = \"aria-\" + b;\n    if (a.hasAttribute(c)) {\n      var d = a.getAttribute(c);\n      if (!axs.utils.getAriaPropertyValue(c, d, a).valid) {\n        return !0;\n      }\n    }\n  }\n  return !1;\n}, code:\"AX_ARIA_04\"});\naxs.AuditRules.addRule({name:\"badAriaRole\", heading:\"Elements with ARIA roles must use a valid, non-abstract ARIA role\", url:\"https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#ax_aria_01\", severity:axs.constants.Severity.SEVERE, relevantElementMatcher:function(a) {\n  return axs.browserUtils.matchSelector(a, \"[role]\");\n}, test:function(a) {\n  return !axs.utils.getRoles(a).valid;\n}, code:\"AX_ARIA_01\"});\naxs.AuditRules.addRule({name:\"controlsWithoutLabel\", heading:\"Controls and media elements should have labels\", url:\"https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#ax_text_01\", severity:axs.constants.Severity.SEVERE, relevantElementMatcher:function(a) {\n  if (!axs.browserUtils.matchSelector(a, 'input:not([type=\"hidden\"]):not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), video:not([disabled])') || \"presentation\" == a.getAttribute(\"role\")) {\n    return !1;\n  }\n  if (0 <= a.tabIndex) {\n    return !0;\n  }\n  for (a = axs.dom.parentElement(a);null != a;a = axs.dom.parentElement(a)) {\n    if (axs.utils.elementIsAriaWidget(a)) {\n      return !1;\n    }\n  }\n  return !0;\n}, test:function(a, b) {\n  if (b.hidden || \"input\" == a.tagName.toLowerCase() && \"button\" == a.type && a.value.length || \"button\" == a.tagName.toLowerCase() && a.textContent.replace(/^\\s+|\\s+$/g, \"\").length || axs.utils.hasLabel(a)) {\n    return !1;\n  }\n  var c = axs.properties.findTextAlternatives(a, {});\n  return null === c || \"\" === c.trim() ? !0 : !1;\n}, code:\"AX_TEXT_01\", ruleName:\"Controls and media elements should have labels\"});\naxs.AuditRules.addRule({name:\"duplicateId\", heading:\"Any ID referred to via an IDREF must be unique in the DOM\", url:\"https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#ax_html_02\", severity:axs.constants.Severity.SEVERE, opt_requires:{idRefs:!0}, relevantElementMatcher:function(a, b) {\n  b.idrefs.length && !b.hidden && this.relatedElements.push({element:a, flags:b});\n  return a.hasAttribute(\"id\") ? !0 : !1;\n}, isRelevant:function(a, b) {\n  var c = a.id, d = b.level;\n  return this.relatedElements.some(function(a) {\n    var b = a.flags.idrefs;\n    return a.flags.level === d && 0 <= b.indexOf(c);\n  });\n}, test:function(a) {\n  var b = \"[id='\" + a.id.replace(/'/g, \"\\\\'\") + \"']\";\n  return 1 < a.ownerDocument.querySelectorAll(b).length;\n}, code:\"AX_HTML_02\"});\n\n  return axs;\n});\n\n// Define AMD module if possible, export globals otherwise.\nif (typeof define !== 'undefined' && define.amd) {\n  define([], fn);\n} else {\n  var axs = fn.call(this);\n}\n\n"
-
-/***/ })
-/******/ ]);
+/******/ })()
+;
