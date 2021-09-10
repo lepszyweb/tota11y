@@ -27,12 +27,12 @@ jobs:
             
       - name: Prepare files
         run: |
-              mkdir ${{ github.workspace }}/dist
+              mkdir ./dist
               npm ci
               npm run build:prod
-              mkdir ${{ github.workspace }}/page
-              mv ${{ github.workspace }}/dist ${{ github.workspace }}/page/dist
-              cp -r ${{ github.workspace }}/docs/* ${{ github.workspace }}/page
+              mkdir ./page
+              mv ./dist ./page/dist
+              cp -r ./docs/* ./page
       
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3.8.0
