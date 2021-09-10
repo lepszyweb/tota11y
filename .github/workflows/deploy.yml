@@ -32,7 +32,7 @@ jobs:
               npm run build:prod
               mkdir ${{ github.workspace }}/page
               mv ${{ github.workspace }}/dist ${{ github.workspace }}/page/dist
-              cp -r ${{ github.workspace }}/docs/* ${{ github.workspace }}/page/
+              cp -r ${{ github.workspace }}/docs/* ${{ github.workspace }}/page
       
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3.8.0
