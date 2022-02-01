@@ -640,7 +640,7 @@ var ERRORS = {
         description += ".</div>";
 
         return {
-            title: "\n                Niekonsekwentny poziom nag\u0142\xF3wka (h" + prevLevel + " &rarr;\n                h" + currLevel + ")\n            ",
+            title: "\n                Niesp\xF3jny poziom nag\u0142\xF3wka (h" + prevLevel + " &rarr;\n                h" + currLevel + ")\n            ",
             description: description
         };
     }
