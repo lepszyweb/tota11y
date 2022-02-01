@@ -60,7 +60,7 @@ const ERRORS = {
 
         return {
             title: `
-                Niekonsekwentny poziom nagłówka (h${prevLevel} &rarr;
+                Niespójny poziom nagłówka (h${prevLevel} &rarr;
                 h${currLevel})
             `,
             description: description
