@@ -1914,7 +1914,120 @@ module.exports = buildElement;
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".tota11y-dark-color-scheme {\n  background-color: #333 !important;\n  color: #f2f2f2 !important;\n}\n.tota11y-no-select {\n  -webkit-user-select: none !important;\n          user-select: none !important;\n}\n/**\n * Base styles for tota11y to make sure things look consistent under\n * reasonable circumstances.\n */\n.tota11y,\n.tota11y * {\n  border: none !important;\n  background-color: inherit !important;\n  box-sizing: border-box !important;\n  color: #f2f2f2 !important;\n  font-family: Arial !important;\n  font-size: 14px !important;\n  font-style: normal !important;\n  font-weight: 400 !important;\n  line-height: 1.35 !important;\n  margin: 0 !important;\n  padding: 0 !important;\n  text-align: left !important;\n  text-shadow: none !important;\n}\n.tota11y * {\n  height: auto !important;\n  width: auto !important;\n}\n.tota11y strong {\n  font-weight: bold !important;\n}\n.tota11y pre,\n.tota11y code {\n  background-color: #ddd !important;\n  border: none !important;\n  border-radius: 0 !important;\n  color: inherit !important;\n  font-family: monospace !important;\n  font-size: inherit !important;\n  line-height: inherit !important;\n}\n.tota11y pre {\n  padding: 5px 10px !important;\n  margin: 0 0 10px !important;\n  overflow-x: scroll !important;\n}\n.tota11y code {\n  border-radius: 2px !important;\n  display: inline !important;\n  padding: 1px !important;\n}\n.tota11y i,\n.tota11y em {\n  font-style: italic !important;\n}\n.tota11y p {\n  margin: 0 0 10px !important;\n}\n.tota11y a,\n.tota11y a:hover,\n.tota11y a:focus {\n  background-color: inherit !important;\n  color: inherit !important;\n  text-decoration: none !important;\n}\n.tota11y-toolbar {\n  background-color: #333 !important;\n  color: #f2f2f2 !important;\n  position: fixed !important;\n  top: auto !important;\n  right: auto !important;\n  bottom: 0 !important;\n  left: 10px !important;\n  border-top-left-radius: 5px !important;\n  border-top-right-radius: 5px !important;\n  overflow: hidden !important;\n  z-index: 9998 !important;\n}\n.tota11y-toolbar-toggle {\n  background-color: #333 !important;\n  display: block !important;\n  padding: 7px !important;\n  width: 100% !important;\n}\n.tota11y-toolbar-logo {\n  height: 25px !important;\n  margin: 0 auto !important;\n  text-align: center !important;\n  width: 35px !important;\n}\n.tota11y-toolbar-logo svg {\n  height: 25px !important;\n}\n.tota11y-toolbar-body {\n  display: none !important;\n}\n.tota11y-toolbar.tota11y-expanded .tota11y-toolbar-body {\n  display: block !important;\n}\n.tota11y-sr-only {\n  border: 0 !important;\n  clip: rect(0, 0, 0, 0) !important;\n  height: 1px !important;\n  margin: -1px !important;\n  overflow: hidden !important;\n  padding: 0 !important;\n  position: absolute !important;\n  width: 1px !important;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, `.tota11y-dark-color-scheme {
+  background-color: #333 !important;
+  color: #f2f2f2 !important;
+}
+.tota11y-no-select {
+  -webkit-user-select: none !important;
+          user-select: none !important;
+}
+/**
+ * Base styles for tota11y to make sure things look consistent under
+ * reasonable circumstances.
+ */
+.tota11y,
+.tota11y * {
+  border: none !important;
+  background-color: inherit !important;
+  box-sizing: border-box !important;
+  color: #f2f2f2 !important;
+  font-family: Arial !important;
+  font-size: 14px !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  line-height: 1.35 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: left !important;
+  text-shadow: none !important;
+}
+.tota11y * {
+  height: auto !important;
+  width: auto !important;
+}
+.tota11y strong {
+  font-weight: bold !important;
+}
+.tota11y pre,
+.tota11y code {
+  background-color: #ddd !important;
+  border: none !important;
+  border-radius: 0 !important;
+  color: inherit !important;
+  font-family: monospace !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+}
+.tota11y pre {
+  padding: 5px 10px !important;
+  margin: 0 0 10px !important;
+  overflow-x: scroll !important;
+}
+.tota11y code {
+  border-radius: 2px !important;
+  display: inline !important;
+  padding: 1px !important;
+}
+.tota11y i,
+.tota11y em {
+  font-style: italic !important;
+}
+.tota11y p {
+  margin: 0 0 10px !important;
+}
+.tota11y a,
+.tota11y a:hover,
+.tota11y a:focus {
+  background-color: inherit !important;
+  color: inherit !important;
+  text-decoration: none !important;
+}
+.tota11y-toolbar {
+  background-color: #333 !important;
+  color: #f2f2f2 !important;
+  position: fixed !important;
+  top: auto !important;
+  right: auto !important;
+  bottom: 0 !important;
+  left: 10px !important;
+  border-top-left-radius: 5px !important;
+  border-top-right-radius: 5px !important;
+  overflow: hidden !important;
+  z-index: 9998 !important;
+}
+.tota11y-toolbar-toggle {
+  background-color: #333 !important;
+  display: block !important;
+  padding: 7px !important;
+  width: 100% !important;
+}
+.tota11y-toolbar-logo {
+  height: 25px !important;
+  margin: 0 auto !important;
+  text-align: center !important;
+  width: 35px !important;
+}
+.tota11y-toolbar-logo svg {
+  height: 25px !important;
+}
+.tota11y-toolbar-body {
+  display: none !important;
+}
+.tota11y-toolbar.tota11y-expanded .tota11y-toolbar-body {
+  display: block !important;
+}
+.tota11y-sr-only {
+  border: 0 !important;
+  clip: rect(0, 0, 0, 0) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+}
+`, ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1937,7 +2050,21 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".tota11y-dark-color-scheme {\n  backgr
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".tota11y-dark-color-scheme {\n  background-color: #333 !important;\n  color: #f2f2f2 !important;\n}\n.tota11y-no-select {\n  -webkit-user-select: none !important;\n          user-select: none !important;\n}\n.tota11y-outlined {\n  outline: 2px solid #7882c8 !important;\n}\n.tota11y-nothingness {\n  color: #888 !important;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, `.tota11y-dark-color-scheme {
+  background-color: #333 !important;
+  color: #f2f2f2 !important;
+}
+.tota11y-no-select {
+  -webkit-user-select: none !important;
+          user-select: none !important;
+}
+.tota11y-outlined {
+  outline: 2px solid #7882c8 !important;
+}
+.tota11y-nothingness {
+  color: #888 !important;
+}
+`, ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1960,7 +2087,25 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".tota11y-dark-color-scheme {\n  backgr
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".tota11y-swatches {\n  margin-left: 5px !important;\n  margin-right: 5px !important;\n  position: relative !important;\n  top: 1px !important;\n}\n.tota11y-swatch {\n  border: 1px solid #000 !important;\n  display: inline-block !important;\n  height: 12px !important;\n  width: 12px !important;\n}\n.tota11y-contrast-suggestion {\n  margin: 0 0 15px 15px !important;\n}\n.tota11y-color-hexes {\n  font-family: monospace !important;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, `.tota11y-swatches {
+  margin-left: 5px !important;
+  margin-right: 5px !important;
+  position: relative !important;
+  top: 1px !important;
+}
+.tota11y-swatch {
+  border: 1px solid #000 !important;
+  display: inline-block !important;
+  height: 12px !important;
+  width: 12px !important;
+}
+.tota11y-contrast-suggestion {
+  margin: 0 0 15px 15px !important;
+}
+.tota11y-color-hexes {
+  font-family: monospace !important;
+}
+`, ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1983,7 +2128,49 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".tota11y-swatches {\n  margin-left: 5p
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".tota11y-dark-color-scheme {\n  background-color: #333 !important;\n  color: #f2f2f2 !important;\n}\n.tota11y-no-select {\n  -webkit-user-select: none !important;\n          user-select: none !important;\n}\n.tota11y-heading-outline {\n  color: #333 !important;\n}\n.tota11y-heading-outline-entry {\n  margin-bottom: 8px !important;\n}\n.tota11y-heading-outline-entry.heading-level-1 {\n  margin-left: 0 !important;\n}\n.tota11y-heading-outline-entry.heading-level-2 {\n  margin-left: 20px !important;\n}\n.tota11y-heading-outline-entry.heading-level-3 {\n  margin-left: 40px !important;\n}\n.tota11y-heading-outline-entry.heading-level-4 {\n  margin-left: 60px !important;\n}\n.tota11y-heading-outline-entry.heading-level-5 {\n  margin-left: 80px !important;\n}\n.tota11y-heading-outline-entry.heading-level-6 {\n  margin-left: 100px !important;\n}\n.tota11y-heading-outline-level {\n  position: relative !important;\n  top: -2px !important;\n  right: auto !important;\n  bottom: auto !important;\n  left: auto !important;\n  margin-right: 5px !important;\n  padding: 2px 3px !important;\n  pointer-events: none !important;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, `.tota11y-dark-color-scheme {
+  background-color: #333 !important;
+  color: #f2f2f2 !important;
+}
+.tota11y-no-select {
+  -webkit-user-select: none !important;
+          user-select: none !important;
+}
+.tota11y-heading-outline {
+  color: #333 !important;
+}
+.tota11y-heading-outline-entry {
+  margin-bottom: 8px !important;
+}
+.tota11y-heading-outline-entry.heading-level-1 {
+  margin-left: 0 !important;
+}
+.tota11y-heading-outline-entry.heading-level-2 {
+  margin-left: 20px !important;
+}
+.tota11y-heading-outline-entry.heading-level-3 {
+  margin-left: 40px !important;
+}
+.tota11y-heading-outline-entry.heading-level-4 {
+  margin-left: 60px !important;
+}
+.tota11y-heading-outline-entry.heading-level-5 {
+  margin-left: 80px !important;
+}
+.tota11y-heading-outline-entry.heading-level-6 {
+  margin-left: 100px !important;
+}
+.tota11y-heading-outline-level {
+  position: relative !important;
+  top: -2px !important;
+  right: auto !important;
+  bottom: auto !important;
+  left: auto !important;
+  margin-right: 5px !important;
+  padding: 2px 3px !important;
+  pointer-events: none !important;
+}
+`, ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2006,7 +2193,72 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".tota11y-dark-color-scheme {\n  backgr
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".tota11y-dark-color-scheme {\n  background-color: #333 !important;\n  color: #f2f2f2 !important;\n}\n.tota11y-no-select {\n  -webkit-user-select: none !important;\n          user-select: none !important;\n}\n.tota11y-label {\n  background-color: #ffe800 !important;\n  border: 1px solid rgba(0, 0, 0, 0.1) !important;\n  cursor: default !important;\n  padding: 3px !important;\n  position: absolute !important;\n  z-index: 9997 !important;\n}\n.tota11y-label-error {\n  background-color: #ffaeae !important;\n}\n.tota11y-label-error-icon {\n  display: block !important;\n  float: left !important;\n  margin-right: 3px !important;\n  width: 12px !important;\n}\n.tota11y-label-success {\n  background-color: #b9eda9 !important;\n}\n.tota11y-label-warning {\n  background-color: #ffe800 !important;\n}\n.tota11y-label,\n.tota11y-label-text,\n.tota11y-label-detail,\n.tota11y-label-link,\n.tota11y-label-help {\n  color: #333 !important;\n  font-size: 12px !important;\n}\n.tota11y-label-text {\n  float: left !important;\n}\n.tota11y-label-detail {\n  clear: both !important;\n  display: none !important;\n  max-width: 300px !important;\n}\n.tota11y-label:hover .tota11y-label-detail {\n  display: block !important;\n}\n.tota11y-label-help {\n  float: left !important;\n  margin-left: 5px !important;\n}\n.tota11y-label-link:hover,\n.tota11y-label-link:focus {\n  opacity: 0.6 !important;\n  text-decoration: underline !important;\n}\n.tota11y-highlight {\n  background-color: rgba(120, 130, 200, 0.4) !important;\n  pointer-events: none !important;\n  position: absolute !important;\n  z-index: 9999 !important;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, `.tota11y-dark-color-scheme {
+  background-color: #333 !important;
+  color: #f2f2f2 !important;
+}
+.tota11y-no-select {
+  -webkit-user-select: none !important;
+          user-select: none !important;
+}
+.tota11y-label {
+  background-color: #ffe800 !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  cursor: default !important;
+  padding: 3px !important;
+  position: absolute !important;
+  z-index: 9997 !important;
+}
+.tota11y-label-error {
+  background-color: #ffaeae !important;
+}
+.tota11y-label-error-icon {
+  display: block !important;
+  float: left !important;
+  margin-right: 3px !important;
+  width: 12px !important;
+}
+.tota11y-label-success {
+  background-color: #b9eda9 !important;
+}
+.tota11y-label-warning {
+  background-color: #ffe800 !important;
+}
+.tota11y-label,
+.tota11y-label-text,
+.tota11y-label-detail,
+.tota11y-label-link,
+.tota11y-label-help {
+  color: #333 !important;
+  font-size: 12px !important;
+}
+.tota11y-label-text {
+  float: left !important;
+}
+.tota11y-label-detail {
+  clear: both !important;
+  display: none !important;
+  max-width: 300px !important;
+}
+.tota11y-label:hover .tota11y-label-detail {
+  display: block !important;
+}
+.tota11y-label-help {
+  float: left !important;
+  margin-left: 5px !important;
+}
+.tota11y-label-link:hover,
+.tota11y-label-link:focus {
+  opacity: 0.6 !important;
+  text-decoration: underline !important;
+}
+.tota11y-highlight {
+  background-color: rgba(120, 130, 200, 0.4) !important;
+  pointer-events: none !important;
+  position: absolute !important;
+  z-index: 9999 !important;
+}
+`, ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2029,7 +2281,183 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".tota11y-dark-color-scheme {\n  backgr
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".tota11y-dark-color-scheme {\n  background-color: #333 !important;\n  color: #f2f2f2 !important;\n}\n.tota11y-no-select {\n  -webkit-user-select: none !important;\n          user-select: none !important;\n}\n.tota11y-info {\n  background-color: #333 !important;\n  color: #f2f2f2 !important;\n  -webkit-user-select: none !important;\n          user-select: none !important;\n  border-radius: 5px !important;\n  position: fixed !important;\n  z-index: 9998 !important;\n}\n.tota11y-info-controls {\n  float: right !important;\n}\n.tota11y-info-annotation-toggle {\n  float: left !important;\n  margin-right: 10px !important;\n}\n.tota11y-info-hidden {\n  display: none !important;\n}\n.tota11y-info-dismiss-trigger {\n  font-size: 25px !important;\n  line-height: 25px !important;\n  position: relative !important;\n  top: -2px !important;\n}\n.tota11y-info-title,\n.tota11y-info-body {\n  padding: 10px 10px 0 !important;\n}\n.tota11y-info-title:hover {\n  cursor: move !important;\n}\n.tota11y-info-tabs {\n  display: flex !important;\n  margin: 0 !important;\n  padding: 0 0 10px !important;\n}\n.tota11y-info-tab {\n  height: 30px !important;\n  list-style: none !important;\n  position: relative !important;\n  text-align: center !important;\n  width: 100% !important;\n  flex-grow: 1 !important;\n}\n.tota11y-info-tab-anchor {\n  position: absolute !important;\n  top: 0 !important;\n  right: 0 !important;\n  bottom: 0 !important;\n  left: 0 !important;\n  text-align: center !important;\n}\n.tota11y-info-tab-anchor-text {\n  line-height: 30px !important;\n}\n.tota11y-info-tab:hover {\n  background-color: #555 !important;\n}\n.tota11y-info-tab.active,\n.tota11y-info-tab.active:hover {\n  background-color: #f2f2f2 !important;\n}\n.tota11y-info-tab.active .tota11y-info-tab-anchor-text {\n  color: #333 !important;\n}\n.tota11y-info-sections {\n  position: relative !important;\n  height: 270px !important;\n  width: 400px !important;\n}\n.tota11y-info-section {\n  position: absolute !important;\n  top: 0 !important;\n  right: 0 !important;\n  bottom: 0 !important;\n  left: 0 !important;\n  background-color: #f2f2f2 !important;\n  display: none !important;\n  overflow-y: scroll !important;\n  padding: 10px !important;\n}\n.tota11y-info-section,\n.tota11y-info-section * {\n  color: #333 !important;\n}\n.tota11y-info-section.active {\n  display: block !important;\n}\n.tota11y-info-errors {\n  margin: 0 !important;\n  padding: 0 !important;\n}\n.tota11y-info-error {\n  list-style: none !important;\n  margin-bottom: 10px !important;\n}\n.tota11y-info-error-trigger {\n  display: block !important;\n}\n.tota11y-info-error-trigger.trigger-highlight {\n  background-color: rgba(120, 130, 200, 0.4) !important;\n}\n.tota11y-info-error-chevron {\n  display: inline-block !important;\n  font-size: 20px !important;\n  height: 14px !important;\n  line-height: 14px !important;\n  margin-right: 3px !important;\n  transform: rotateZ(90deg) !important;\n  transform-origin: 3px 8px !important;\n  transition: transform ease-in-out 50ms !important;\n}\n.tota11y-info-error-trigger.tota11y-collapsed .tota11y-info-error-chevron {\n  transform: rotateZ(0deg) !important;\n}\n.tota11y-info-error-title {\n  font-weight: bold !important;\n}\n.tota11y-info-error-scroll {\n  float: right !important;\n  margin-top: 3px !important;\n  padding-left: 5px !important;\n}\n.tota11y-info-error-scroll-glyph {\n  border-color: #333 !important;\n}\n.tota11y-info-error-scroll:hover .tota11y-info-error-scroll-glyph {\n  border-color: #999 !important;\n}\n.tota11y-info-error-scroll-lens {\n  border: 1px solid !important;\n  border-radius: 50% !important;\n  height: 8px !important;\n  width: 8px !important;\n}\n.tota11y-info-error-scroll-handle {\n  border-left: 1px solid !important;\n  height: 7px !important;\n  transform: translateX(-2px) translateY(-2px) rotate(45deg) !important;\n  width: 1px !important;\n}\n.tota11y-info-error-description {\n  font-size: 13px !important;\n  padding: 10px 0 0 !important;\n  -webkit-user-select: text !important;\n          user-select: text !important;\n}\n.tota11y-info-error-description-code-container {\n  margin-top: 10px !important;\n}\n.tota11y-info-error-description-code-container code {\n  display: block !important;\n  margin-top: 10px !important;\n  padding: 5px 10px !important;\n  word-wrap: break-word !important;\n}\n.tota11y-info-error-description.tota11y-collapsed {\n  display: none !important;\n}\n.tota11y-info-error-count {\n  background-color: red !important;\n  border-radius: 20px !important;\n  color: white !important;\n  display: inline !important;\n  margin-left: 5px !important;\n  padding: 1px 8px !important;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, `.tota11y-dark-color-scheme {
+  background-color: #333 !important;
+  color: #f2f2f2 !important;
+}
+.tota11y-no-select {
+  -webkit-user-select: none !important;
+          user-select: none !important;
+}
+.tota11y-info {
+  background-color: #333 !important;
+  color: #f2f2f2 !important;
+  -webkit-user-select: none !important;
+          user-select: none !important;
+  border-radius: 5px !important;
+  position: fixed !important;
+  z-index: 9998 !important;
+}
+.tota11y-info-controls {
+  float: right !important;
+}
+.tota11y-info-annotation-toggle {
+  float: left !important;
+  margin-right: 10px !important;
+}
+.tota11y-info-hidden {
+  display: none !important;
+}
+.tota11y-info-dismiss-trigger {
+  font-size: 25px !important;
+  line-height: 25px !important;
+  position: relative !important;
+  top: -2px !important;
+}
+.tota11y-info-title,
+.tota11y-info-body {
+  padding: 10px 10px 0 !important;
+}
+.tota11y-info-title:hover {
+  cursor: move !important;
+}
+.tota11y-info-tabs {
+  display: flex !important;
+  margin: 0 !important;
+  padding: 0 0 10px !important;
+}
+.tota11y-info-tab {
+  height: 30px !important;
+  list-style: none !important;
+  position: relative !important;
+  text-align: center !important;
+  width: 100% !important;
+  flex-grow: 1 !important;
+}
+.tota11y-info-tab-anchor {
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  text-align: center !important;
+}
+.tota11y-info-tab-anchor-text {
+  line-height: 30px !important;
+}
+.tota11y-info-tab:hover {
+  background-color: #555 !important;
+}
+.tota11y-info-tab.active,
+.tota11y-info-tab.active:hover {
+  background-color: #f2f2f2 !important;
+}
+.tota11y-info-tab.active .tota11y-info-tab-anchor-text {
+  color: #333 !important;
+}
+.tota11y-info-sections {
+  position: relative !important;
+  height: 270px !important;
+  width: 400px !important;
+}
+.tota11y-info-section {
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  background-color: #f2f2f2 !important;
+  display: none !important;
+  overflow-y: scroll !important;
+  padding: 10px !important;
+}
+.tota11y-info-section,
+.tota11y-info-section * {
+  color: #333 !important;
+}
+.tota11y-info-section.active {
+  display: block !important;
+}
+.tota11y-info-errors {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.tota11y-info-error {
+  list-style: none !important;
+  margin-bottom: 10px !important;
+}
+.tota11y-info-error-trigger {
+  display: block !important;
+}
+.tota11y-info-error-trigger.trigger-highlight {
+  background-color: rgba(120, 130, 200, 0.4) !important;
+}
+.tota11y-info-error-chevron {
+  display: inline-block !important;
+  font-size: 20px !important;
+  height: 14px !important;
+  line-height: 14px !important;
+  margin-right: 3px !important;
+  transform: rotateZ(90deg) !important;
+  transform-origin: 3px 8px !important;
+  transition: transform ease-in-out 50ms !important;
+}
+.tota11y-info-error-trigger.tota11y-collapsed .tota11y-info-error-chevron {
+  transform: rotateZ(0deg) !important;
+}
+.tota11y-info-error-title {
+  font-weight: bold !important;
+}
+.tota11y-info-error-scroll {
+  float: right !important;
+  margin-top: 3px !important;
+  padding-left: 5px !important;
+}
+.tota11y-info-error-scroll-glyph {
+  border-color: #333 !important;
+}
+.tota11y-info-error-scroll:hover .tota11y-info-error-scroll-glyph {
+  border-color: #999 !important;
+}
+.tota11y-info-error-scroll-lens {
+  border: 1px solid !important;
+  border-radius: 50% !important;
+  height: 8px !important;
+  width: 8px !important;
+}
+.tota11y-info-error-scroll-handle {
+  border-left: 1px solid !important;
+  height: 7px !important;
+  transform: translateX(-2px) translateY(-2px) rotate(45deg) !important;
+  width: 1px !important;
+}
+.tota11y-info-error-description {
+  font-size: 13px !important;
+  padding: 10px 0 0 !important;
+  -webkit-user-select: text !important;
+          user-select: text !important;
+}
+.tota11y-info-error-description-code-container {
+  margin-top: 10px !important;
+}
+.tota11y-info-error-description-code-container code {
+  display: block !important;
+  margin-top: 10px !important;
+  padding: 5px 10px !important;
+  word-wrap: break-word !important;
+}
+.tota11y-info-error-description.tota11y-collapsed {
+  display: none !important;
+}
+.tota11y-info-error-count {
+  background-color: red !important;
+  border-radius: 20px !important;
+  color: white !important;
+  display: inline !important;
+  margin-left: 5px !important;
+  padding: 1px 8px !important;
+}
+`, ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2052,7 +2480,65 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".tota11y-dark-color-scheme {\n  backgr
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".tota11y-dark-color-scheme {\n  background-color: #333 !important;\n  color: #f2f2f2 !important;\n}\n.tota11y-no-select {\n  -webkit-user-select: none !important;\n          user-select: none !important;\n}\n.tota11y-plugin {\n  -webkit-user-select: none !important;\n          user-select: none !important;\n  border-bottom: 1px solid #555 !important;\n  list-style: none !important;\n}\n.tota11y-plugin-switch {\n  align-items: center !important;\n  cursor: pointer !important;\n  display: flex !important;\n  padding: 12px 12px 12px 0 !important;\n  margin: 0 !important;\n}\n.tota11y-plugin-indicator {\n  margin: 0 15px !important;\n}\n.tota11y-plugin-indicator {\n  border-radius: 16px !important;\n  border: 1px solid #999 !important;\n  color: transparent !important;\n  font-size: 13px !important;\n  height: 16px !important;\n  line-height: 16px !important;\n  padding: 0 0 0 1px !important;\n  width: 16px !important;\n}\n.tota11y-plugin-checkbox:focus + .tota11y-plugin-indicator {\n  border-color: #639b24 !important;\n  background-color: #49721a !important;\n  color: #49721a !important;\n}\n.tota11y-plugin-checkbox:checked + .tota11y-plugin-indicator {\n  background-color: #639b24 !important;\n  border-color: #639b24 !important;\n  color: white !important;\n}\n.tota11y-plugin-title {\n  font-weight: bold !important;\n}\n.tota11y-plugin-description {\n  font-size: 11px !important;\n  font-style: italic !important;\n  width: 200px !important;\n  margin-right: 3px !important;\n}\n.tota11y-plugins-separator {\n  font-size: 12px !important;\n  margin: 7px 15px 0 !important;\n  text-transform: uppercase !important;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, `.tota11y-dark-color-scheme {
+  background-color: #333 !important;
+  color: #f2f2f2 !important;
+}
+.tota11y-no-select {
+  -webkit-user-select: none !important;
+          user-select: none !important;
+}
+.tota11y-plugin {
+  -webkit-user-select: none !important;
+          user-select: none !important;
+  border-bottom: 1px solid #555 !important;
+  list-style: none !important;
+}
+.tota11y-plugin-switch {
+  align-items: center !important;
+  cursor: pointer !important;
+  display: flex !important;
+  padding: 12px 12px 12px 0 !important;
+  margin: 0 !important;
+}
+.tota11y-plugin-indicator {
+  margin: 0 15px !important;
+}
+.tota11y-plugin-indicator {
+  border-radius: 16px !important;
+  border: 1px solid #999 !important;
+  color: transparent !important;
+  font-size: 13px !important;
+  height: 16px !important;
+  line-height: 16px !important;
+  padding: 0 0 0 1px !important;
+  width: 16px !important;
+}
+.tota11y-plugin-checkbox:focus + .tota11y-plugin-indicator {
+  border-color: #639b24 !important;
+  background-color: #49721a !important;
+  color: #49721a !important;
+}
+.tota11y-plugin-checkbox:checked + .tota11y-plugin-indicator {
+  background-color: #639b24 !important;
+  border-color: #639b24 !important;
+  color: white !important;
+}
+.tota11y-plugin-title {
+  font-weight: bold !important;
+}
+.tota11y-plugin-description {
+  font-size: 11px !important;
+  font-style: italic !important;
+  width: 200px !important;
+  margin-right: 3px !important;
+}
+.tota11y-plugins-separator {
+  font-size: 12px !important;
+  margin: 7px 15px 0 !important;
+  text-transform: uppercase !important;
+}
+`, ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -14672,7 +15158,7 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 
-       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_tota11y_less__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z && _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_tota11y_less__WEBPACK_IMPORTED_MODULE_6__/* ["default"].locals */ .Z.locals ? _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_tota11y_less__WEBPACK_IMPORTED_MODULE_6__/* ["default"].locals */ .Z.locals : undefined);
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_tota11y_less__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z && _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_tota11y_less__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z.locals ? _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_tota11y_less__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z.locals : undefined);
 
 
 /***/ }),
@@ -14724,7 +15210,7 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 
-       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z && _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_6__/* ["default"].locals */ .Z.locals ? _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_6__/* ["default"].locals */ .Z.locals : undefined);
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z && _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z.locals ? _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z.locals : undefined);
 
 
 /***/ }),
@@ -14776,7 +15262,7 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 
-       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z && _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_6__/* ["default"].locals */ .Z.locals ? _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_6__/* ["default"].locals */ .Z.locals : undefined);
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z && _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z.locals ? _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z.locals : undefined);
 
 
 /***/ }),
@@ -14828,7 +15314,7 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 
-       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z && _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_6__/* ["default"].locals */ .Z.locals ? _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_6__/* ["default"].locals */ .Z.locals : undefined);
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z && _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z.locals ? _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z.locals : undefined);
 
 
 /***/ }),
@@ -14880,7 +15366,7 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 
-       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z && _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_6__/* ["default"].locals */ .Z.locals ? _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_6__/* ["default"].locals */ .Z.locals : undefined);
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z && _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z.locals ? _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z.locals : undefined);
 
 
 /***/ }),
@@ -14932,7 +15418,7 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 
-       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z && _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_6__/* ["default"].locals */ .Z.locals ? _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_6__/* ["default"].locals */ .Z.locals : undefined);
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z && _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z.locals ? _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z.locals : undefined);
 
 
 /***/ }),
@@ -14984,7 +15470,7 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 
-       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z && _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_6__/* ["default"].locals */ .Z.locals ? _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_6__/* ["default"].locals */ .Z.locals : undefined);
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z && _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z.locals ? _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_2_use_2_node_modules_less_loader_dist_cjs_js_style_less__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z.locals : undefined);
 
 
 /***/ }),
