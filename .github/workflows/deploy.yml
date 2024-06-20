@@ -1,4 +1,4 @@
-name: github pages
+name: GitHub Pages
 
 on:
   push:
@@ -6,36 +6,60 @@ on:
       - master
 
 jobs:
-  deploy:
-    runs-on: ubuntu-20.04
-    steps:
-      - uses: actions/checkout@v4
+  build:
+    runs-on: ubuntu-latest
 
-      - name: Setup Node
-        uses: actions/setup-node@v4.0.2
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set Up Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: '18'
           check-latest: true
 
-      - name: Cache dependencies
+      - name: Cache Node.js Modules
         uses: actions/cache@v4
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-            
-      - name: Prepare files
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build Project
         run: |
-              mkdir ./dist
-              npm ci
-              npm run build:prod
-              mkdir ./page
-              mv ./dist ./page/dist
-              cp -r ./docs/* ./page
-      
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v4.0.0
+          mkdir -p ./dist
+          npm run build:prod
+          mkdir -p ./page
+          mv ./dist ./page/dist
+          cp -r ./docs/* ./page
+
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: page
+          path: ./page
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Download Build Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: page
+          path: ./page
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./page
