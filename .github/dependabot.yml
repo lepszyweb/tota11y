@@ -14,11 +14,3 @@ updates:
     reviewers:
       - "wojsmol"
       - "zwiastunsw"
-  - package-ecosystem: npm
-    directory: "/"
-    schedule:
-      interval: daily
-    open-pull-requests-limit: 99
-    reviewers:
-      - "wojsmol"
-      - "zwiastunsw"
