@@ -17,7 +17,7 @@
     "autoprefixer": "^10.2.4",
     "babel": "^6.23.0",
     "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.5",
+    "babel-loader": "^8.4.1",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "clean-webpack-plugin": "^4.0.0",
@@ -50,6 +50,5 @@
     "start": "webpack-dev-server --config webpack.config.babel.js --hot --inline",
     "prepublishOnly": "node ./utils/pre-publish-checks.js && git diff --stat --exit-code HEAD && npm test && npm run build:prod"
   },
-  "license": "MIT",
-  "dependencies": {}
+  "license": "MIT"
 }
