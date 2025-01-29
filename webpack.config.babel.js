@@ -38,8 +38,8 @@ module.exports = {
                         loader: "babel-loader",
                         options: {
                             presets: [
-                                "env",
-                                "react",
+                                "@babel/preset-env",
+                                "@babel/preset-react",
                             ],
                             plugins: [
                                 ["transform-react-jsx", { pragma: options.jsxPragma }]
