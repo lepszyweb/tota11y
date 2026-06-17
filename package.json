@@ -14,7 +14,7 @@
   "homepage": "https://khan.github.io/tota11y/",
   "devDependencies": {
     "@babel/core": "^7.26.7",
-    "@babel/preset-env": "^7.26.7",
+    "@babel/preset-env": "^8.0.0",
     "@babel/preset-react": "^7.26.3",
     "@babel/register": "^7.25.9",
     "accessibility-developer-tools": "2.12.0",
